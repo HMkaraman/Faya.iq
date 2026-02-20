@@ -332,13 +332,7 @@ body {
   box-shadow: 0 0 8px rgba(200, 86, 126, 0.5);
 }
 
-/* ===== Before / After Slider ===== */
-
-/* Hide hint after first interaction */
-.before-after-container:active .before-after-hint,
-.before-after-container.touched .before-after-hint {
-  opacity: 0 !important;
-}
+/* ===== Before / After Carousel ===== */
 
 /* Hide default Swiper nav inside ba-swiper */
 .ba-swiper .swiper-button-next,
@@ -346,7 +340,7 @@ body {
   display: none;
 }
 
-/* Custom pagination dots for before/after carousel */
+/* Custom pagination dots */
 .ba-pagination .swiper-pagination-bullet {
   width: 10px;
   height: 10px;
