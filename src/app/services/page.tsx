@@ -6,15 +6,14 @@ import { useSearchParams } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 import ScrollReveal from "@/components/ScrollReveal";
 
-const ALL_TAGS = ["Popular", "Non-Invasive", "No Downtime", "New", "Premium", "Surgical"];
+const ALL_TAGS = ["Filler", "Botox", "Skin Boosters", "Dermatology", "Chemical Peel"];
 
 const tagLabels: Record<string, { en: string; ar: string }> = {
-  Popular: { en: "Popular", ar: "رائج" },
-  "Non-Invasive": { en: "Non-Invasive", ar: "غير جراحي" },
-  "No Downtime": { en: "No Downtime", ar: "بدون تعطّل" },
-  New: { en: "New", ar: "جديد" },
-  Premium: { en: "Premium", ar: "مميز" },
-  Surgical: { en: "Surgical", ar: "جراحي" },
+  Filler: { en: "Filler", ar: "فلر" },
+  Botox: { en: "Botox", ar: "بوتوكس" },
+  "Skin Boosters": { en: "Skin Boosters", ar: "ابر النضارة" },
+  Dermatology: { en: "Dermatology", ar: "جلدية" },
+  "Chemical Peel": { en: "Chemical Peel", ar: "تقشير" },
 };
 
 export default function ServicesPage() {

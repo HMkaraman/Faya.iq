@@ -1,616 +1,9 @@
 [
   {
     "id": "1",
-    "slug": "hydrafacial",
-    "category": "Skin Care & Treatments",
-    "categorySlug": "skin-care",
-    "name": {
-      "en": "HydraFacial",
-      "ar": "هيدرافيشل"
-    },
-    "shortDescription": {
-      "en": "Deep cleansing and hydration for an instant glow.",
-      "ar": "تنظيف عميق وترطيب لإشراقة فورية."
-    },
-    "description": {
-      "en": "The HydraFacial is a multi-step treatment that cleanses, exfoliates, extracts, and hydrates the skin. Using patented Vortex technology, it delivers nourishing serums deep into the skin for a radiant, dewy complexion. Suitable for all skin types.",
-      "ar": "الهيدرافيشل هو علاج متعدد الخطوات ينظف ويقشر ويستخرج الشوائب ويرطب البشرة. باستخدام تقنية فورتكس المسجلة، يوصل الأمصال المغذية عميقاً في البشرة لبشرة مشرقة وندية. مناسب لجميع أنواع البشرة."
-    },
-    "icon": "face",
-    "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
-    "tags": [
-      "Popular",
-      "No Downtime",
-      "Non-Invasive"
-    ],
-    "branches": [
-      "baghdad-mansour",
-      "erbil",
-      "basra"
-    ],
-    "duration": "45 min",
-    "priceRange": {
-      "en": "75,000 - 120,000 IQD",
-      "ar": "٧٥,٠٠٠ - ١٢٠,٠٠٠ د.ع"
-    },
-    "benefits": {
-      "en": [
-        "Instant radiance and glow",
-        "Deep pore cleansing",
-        "Improved skin texture",
-        "Hydration boost",
-        "Suitable for all skin types"
-      ],
-      "ar": [
-        "إشراقة فورية",
-        "تنظيف عميق للمسام",
-        "تحسين ملمس البشرة",
-        "تعزيز الترطيب",
-        "مناسب لجميع أنواع البشرة"
-      ]
-    },
-    "steps": {
-      "en": [
-        "Cleansing & gentle exfoliation",
-        "Acid peel for skin renewal",
-        "Painless extraction of impurities",
-        "Hydration with antioxidant serums",
-        "LED light therapy (optional)"
-      ],
-      "ar": [
-        "تنظيف وتقشير لطيف",
-        "تقشير حمضي لتجديد البشرة",
-        "استخراج الشوائب بدون ألم",
-        "ترطيب بأمصال مضادة للأكسدة",
-        "علاج بالضوء LED (اختياري)"
-      ]
-    },
-    "downtime": {
-      "en": "No downtime. Resume normal activities immediately.",
-      "ar": "لا فترة تعافي. يمكنك استئناف أنشطتك فوراً."
-    },
-    "faq": [
-      {
-        "question": {
-          "en": "How often should I get a HydraFacial?",
-          "ar": "كم مرة يجب أن أحصل على هيدرافيشل؟"
-        },
-        "answer": {
-          "en": "We recommend monthly treatments for optimal results.",
-          "ar": "نوصي بعلاجات شهرية للحصول على أفضل النتائج."
-        }
-      },
-      {
-        "question": {
-          "en": "Is it suitable for sensitive skin?",
-          "ar": "هل هو مناسب للبشرة الحساسة؟"
-        },
-        "answer": {
-          "en": "Yes, HydraFacial is gentle enough for all skin types including sensitive skin.",
-          "ar": "نعم، الهيدرافيشل لطيف بما يكفي لجميع أنواع البشرة بما في ذلك البشرة الحساسة."
-        }
-      }
-    ],
-    "beforeAfterPairs": [
-      {
-        "id": "pair-1771588788297-mtki4q2",
-        "beforeImage": "/uploads/mluu86yt95tw2tm.jpg",
-        "afterImage": "/uploads/mluu89y2s5kn34p.jpg",
-        "caption": {
-          "en": "",
-          "ar": ""
-        }
-      },
-      {
-        "id": "pair-1771588809180-pza8f89",
-        "beforeImage": "/uploads/mluu8mpky7rt7na.jpg",
-        "afterImage": "/uploads/mluu8pdtknv0nmb.jpg",
-        "caption": {
-          "en": "",
-          "ar": ""
-        }
-      }
-    ]
-  },
-  {
-    "id": "2",
-    "slug": "chemical-peel",
-    "category": "Skin Care & Treatments",
-    "categorySlug": "skin-care",
-    "name": {
-      "en": "Chemical Peel",
-      "ar": "التقشير الكيميائي"
-    },
-    "shortDescription": {
-      "en": "Renew and resurface your skin for a youthful appearance.",
-      "ar": "جددي بشرتك للحصول على مظهر شبابي."
-    },
-    "description": {
-      "en": "Our chemical peels use medical-grade acids to remove dead skin cells and stimulate new cell growth, reducing fine lines, acne scars, and hyperpigmentation.",
-      "ar": "تستخدم تقشيراتنا الكيميائية أحماض طبية لإزالة خلايا الجلد الميتة وتحفيز نمو خلايا جديدة."
-    },
-    "icon": "science",
-    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
-    "tags": [
-      "Non-Invasive"
-    ],
-    "branches": [
-      "baghdad-mansour",
-      "erbil",
-      "basra"
-    ],
-    "duration": "30 min",
-    "priceRange": {
-      "en": "50,000 - 100,000 IQD",
-      "ar": "٥٠,٠٠٠ - ١٠٠,٠٠٠ د.ع"
-    },
-    "benefits": {
-      "en": [
-        "Reduces fine lines",
-        "Improves skin texture",
-        "Fades dark spots",
-        "Stimulates collagen"
-      ],
-      "ar": [
-        "يقلل التجاعيد الدقيقة",
-        "يحسن ملمس البشرة",
-        "يخفف البقع الداكنة",
-        "يحفز الكولاجين"
-      ]
-    },
-    "steps": {
-      "en": [
-        "Skin cleansing",
-        "Peel application",
-        "Neutralization",
-        "Soothing mask"
-      ],
-      "ar": [
-        "تنظيف البشرة",
-        "تطبيق التقشير",
-        "التحييد",
-        "قناع مهدئ"
-      ]
-    },
-    "downtime": {
-      "en": "2-7 days depending on peel depth.",
-      "ar": "٢-٧ أيام حسب عمق التقشير."
-    },
-    "faq": []
-  },
-  {
-    "id": "3",
-    "slug": "acne-treatment",
-    "category": "Skin Care & Treatments",
-    "categorySlug": "skin-care",
-    "name": {
-      "en": "Acne Treatment",
-      "ar": "علاج حب الشباب"
-    },
-    "shortDescription": {
-      "en": "Comprehensive acne treatment for clear, healthy skin.",
-      "ar": "علاج شامل لحب الشباب للحصول على بشرة نقية وصحية."
-    },
-    "description": {
-      "en": "Our acne treatment program combines advanced technologies and medical expertise to target active breakouts and prevent future ones.",
-      "ar": "يجمع برنامج علاج حب الشباب بين التقنيات المتقدمة والخبرة الطبية لاستهداف البثور النشطة ومنع ظهورها مستقبلاً."
-    },
-    "icon": "dermatology",
-    "image": "https://images.unsplash.com/photo-1598524374912-6b0b0bab43a5?w=800&q=80",
-    "tags": [
-      "Popular"
-    ],
-    "branches": [
-      "baghdad-mansour",
-      "erbil",
-      "basra"
-    ],
-    "duration": "45 min",
-    "benefits": {
-      "en": [
-        "Clears active acne",
-        "Reduces scarring",
-        "Prevents future breakouts"
-      ],
-      "ar": [
-        "يزيل حب الشباب النشط",
-        "يقلل الندبات",
-        "يمنع ظهور البثور مستقبلاً"
-      ]
-    },
-    "steps": {
-      "en": [
-        "Consultation",
-        "Deep cleansing",
-        "Treatment application",
-        "LED therapy"
-      ],
-      "ar": [
-        "استشارة",
-        "تنظيف عميق",
-        "تطبيق العلاج",
-        "علاج LED"
-      ]
-    },
-    "downtime": {
-      "en": "Minimal to none.",
-      "ar": "الحد الأدنى أو لا شيء."
-    },
-    "faq": []
-  },
-  {
-    "id": "4",
-    "slug": "prp-hair",
-    "category": "Hair Care & Treatments",
-    "categorySlug": "hair-care",
-    "name": {
-      "en": "PRP Hair Treatment",
-      "ar": "علاج الشعر بالبلازما"
-    },
-    "shortDescription": {
-      "en": "Stimulate natural hair growth with platelet-rich plasma.",
-      "ar": "حفّز نمو الشعر الطبيعي بالبلازما الغنية بالصفائح الدموية."
-    },
-    "description": {
-      "en": "PRP therapy uses your own blood platelets to stimulate hair follicles and promote new hair growth. A safe, natural solution for hair thinning.",
-      "ar": "يستخدم علاج البلازما الصفائح الدموية الخاصة بك لتحفيز بصيلات الشعر وتعزيز نمو شعر جديد."
-    },
-    "icon": "science",
-    "image": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80",
-    "tags": [
-      "Non-Invasive",
-      "Popular"
-    ],
-    "branches": [
-      "baghdad-mansour",
-      "erbil",
-      "basra"
-    ],
-    "duration": "60 min",
-    "priceRange": {
-      "en": "100,000 - 150,000 IQD",
-      "ar": "١٠٠,٠٠٠ - ١٥٠,٠٠٠ د.ع"
-    },
-    "benefits": {
-      "en": [
-        "Stimulates natural growth",
-        "No chemicals",
-        "Minimal discomfort",
-        "Safe & natural"
-      ],
-      "ar": [
-        "يحفز النمو الطبيعي",
-        "بدون مواد كيميائية",
-        "ألم خفيف",
-        "آمن وطبيعي"
-      ]
-    },
-    "steps": {
-      "en": [
-        "Blood draw",
-        "Centrifuge processing",
-        "PRP injection",
-        "Scalp massage"
-      ],
-      "ar": [
-        "سحب الدم",
-        "معالجة بالطرد المركزي",
-        "حقن البلازما",
-        "تدليك فروة الرأس"
-      ]
-    },
-    "downtime": {
-      "en": "None. Mild redness may occur for a few hours.",
-      "ar": "لا يوجد. قد يظهر احمرار خفيف لبضع ساعات."
-    },
-    "faq": []
-  },
-  {
-    "id": "5",
-    "slug": "hair-transplant",
-    "category": "Hair Care & Treatments",
-    "categorySlug": "hair-care",
-    "name": {
-      "en": "Hair Transplant",
-      "ar": "زراعة الشعر"
-    },
-    "shortDescription": {
-      "en": "Advanced FUE hair transplant for natural-looking results.",
-      "ar": "زراعة شعر متقدمة بتقنية FUE لنتائج طبيعية."
-    },
-    "description": {
-      "en": "Our state-of-the-art FUE hair transplant procedure offers permanent, natural-looking results with minimal scarring and fast recovery.",
-      "ar": "يوفر إجراء زراعة الشعر بتقنية FUE المتطورة نتائج دائمة وطبيعية المظهر مع ندبات خفيفة وتعافٍ سريع."
-    },
-    "icon": "healing",
-    "image": "https://images.unsplash.com/photo-1585747860019-8e7e4d6e2a2f?w=800&q=80",
-    "tags": [
-      "Premium",
-      "Surgical"
-    ],
-    "branches": [
-      "baghdad-mansour"
-    ],
-    "duration": "4-8 hours",
-    "priceRange": {
-      "en": "Contact for pricing",
-      "ar": "اتصل للحصول على السعر"
-    },
-    "benefits": {
-      "en": [
-        "Permanent results",
-        "Natural hairline",
-        "Minimal scarring",
-        "Fast recovery"
-      ],
-      "ar": [
-        "نتائج دائمة",
-        "خط شعر طبيعي",
-        "ندبات خفيفة",
-        "تعافٍ سريع"
-      ]
-    },
-    "steps": {
-      "en": [
-        "Consultation & planning",
-        "Local anesthesia",
-        "Follicle extraction",
-        "Implantation",
-        "Post-care instructions"
-      ],
-      "ar": [
-        "استشارة وتخطيط",
-        "تخدير موضعي",
-        "استخراج البصيلات",
-        "الزراعة",
-        "تعليمات ما بعد العناية"
-      ]
-    },
-    "downtime": {
-      "en": "7-10 days for initial recovery.",
-      "ar": "٧-١٠ أيام للتعافي الأولي."
-    },
-    "faq": []
-  },
-  {
-    "id": "6",
-    "slug": "gel-nails",
-    "category": "Nail Services",
-    "categorySlug": "nail-services",
-    "name": {
-      "en": "Gel & Acrylic Nails",
-      "ar": "أظافر جل وأكريليك"
-    },
-    "shortDescription": {
-      "en": "Beautiful, long-lasting nail enhancements.",
-      "ar": "تحسينات أظافر جميلة وطويلة الأمد."
-    },
-    "description": {
-      "en": "Professional gel and acrylic nail services including extensions, overlays, and artistic designs.",
-      "ar": "خدمات أظافر جل وأكريليك احترافية تشمل التطويل والطبقات والتصاميم الفنية."
-    },
-    "icon": "spa",
-    "image": "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80",
-    "tags": [
-      "Popular"
-    ],
-    "branches": [
-      "baghdad-mansour",
-      "erbil"
-    ],
-    "duration": "60-90 min",
-    "priceRange": {
-      "en": "35,000 - 75,000 IQD",
-      "ar": "٣٥,٠٠٠ - ٧٥,٠٠٠ د.ع"
-    },
-    "benefits": {
-      "en": [
-        "Long-lasting finish",
-        "Wide color selection",
-        "Strengthens nails"
-      ],
-      "ar": [
-        "لمسة نهائية طويلة الأمد",
-        "مجموعة واسعة من الألوان",
-        "يقوي الأظافر"
-      ]
-    },
-    "steps": {
-      "en": [
-        "Nail prep",
-        "Shape & file",
-        "Gel/Acrylic application",
-        "Curing",
-        "Top coat & finish"
-      ],
-      "ar": [
-        "تجهيز الأظافر",
-        "تشكيل وبرد",
-        "تطبيق الجل/الأكريليك",
-        "التجفيف",
-        "طبقة علوية ولمسة نهائية"
-      ]
-    },
-    "downtime": {
-      "en": "None.",
-      "ar": "لا يوجد."
-    },
-    "faq": []
-  },
-  {
-    "id": "7",
-    "slug": "botox",
-    "category": "Injectables & Fillers",
-    "categorySlug": "injectables",
-    "name": {
-      "en": "Botox (Anti-Wrinkle)",
-      "ar": "بوتوكس (مضاد للتجاعيد)"
-    },
-    "shortDescription": {
-      "en": "Smooth wrinkles and fine lines for a refreshed look.",
-      "ar": "تنعيم التجاعيد والخطوط الدقيقة لمظهر منتعش."
-    },
-    "description": {
-      "en": "Botox injections relax facial muscles to reduce the appearance of wrinkles and fine lines, giving you a naturally refreshed appearance. Administered by certified dermatologists.",
-      "ar": "تعمل حقن البوتوكس على إرخاء عضلات الوجه لتقليل ظهور التجاعيد والخطوط الدقيقة، مما يمنحك مظهراً منتعشاً بشكل طبيعي."
-    },
-    "icon": "vaccines",
-    "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&q=80",
-    "tags": [
-      "Popular",
-      "Non-Invasive",
-      "No Downtime"
-    ],
-    "branches": [
-      "baghdad-mansour",
-      "erbil",
-      "basra"
-    ],
-    "duration": "15-30 min",
-    "priceRange": {
-      "en": "100,000 - 250,000 IQD",
-      "ar": "١٠٠,٠٠٠ - ٢٥٠,٠٠٠ د.ع"
-    },
-    "benefits": {
-      "en": [
-        "Reduces wrinkles",
-        "Quick procedure",
-        "No downtime",
-        "Natural results"
-      ],
-      "ar": [
-        "يقلل التجاعيد",
-        "إجراء سريع",
-        "بدون فترة تعافي",
-        "نتائج طبيعية"
-      ]
-    },
-    "steps": {
-      "en": [
-        "Consultation",
-        "Area marking",
-        "Precise injection",
-        "Post-care review"
-      ],
-      "ar": [
-        "استشارة",
-        "تحديد المناطق",
-        "حقن دقيق",
-        "مراجعة ما بعد العناية"
-      ]
-    },
-    "downtime": {
-      "en": "None. Minor redness resolves within hours.",
-      "ar": "لا يوجد. يزول الاحمرار الخفيف خلال ساعات."
-    },
-    "faq": [
-      {
-        "question": {
-          "en": "How long do results last?",
-          "ar": "كم تدوم النتائج؟"
-        },
-        "answer": {
-          "en": "Results typically last 3-6 months.",
-          "ar": "تدوم النتائج عادة من ٣ إلى ٦ أشهر."
-        }
-      }
-    ]
-  },
-  {
-    "id": "8",
-    "slug": "dermal-fillers",
-    "category": "Injectables & Fillers",
-    "categorySlug": "injectables",
-    "name": {
-      "en": "Dermal Fillers",
-      "ar": "فيلر الوجه"
-    },
-    "shortDescription": {
-      "en": "Restore volume and enhance facial contours naturally.",
-      "ar": "استعادة الحجم وتحسين ملامح الوجه بشكل طبيعي."
-    },
-    "description": {
-      "en": "Dermal fillers add volume to lips, cheeks, and jawline while smoothing deep lines. Using premium hyaluronic acid fillers for safe, natural-looking results.",
-      "ar": "يضيف الفيلر حجماً للشفاه والخدود وخط الفك مع تنعيم الخطوط العميقة. باستخدام فيلر حمض الهيالورونيك الممتاز لنتائج آمنة وطبيعية."
-    },
-    "icon": "auto_awesome",
-    "image": "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=800&q=80",
-    "tags": [
-      "Popular",
-      "Non-Invasive"
-    ],
-    "branches": [
-      "baghdad-mansour",
-      "erbil",
-      "basra"
-    ],
-    "duration": "30-45 min",
-    "priceRange": {
-      "en": "150,000 - 400,000 IQD",
-      "ar": "١٥٠,٠٠٠ - ٤٠٠,٠٠٠ د.ع"
-    },
-    "benefits": {
-      "en": [
-        "Instant volume",
-        "Natural contours",
-        "Long-lasting (12-18 months)",
-        "Reversible"
-      ],
-      "ar": [
-        "حجم فوري",
-        "ملامح طبيعية",
-        "يدوم طويلاً (١٢-١٨ شهر)",
-        "قابل للعكس"
-      ]
-    },
-    "steps": {
-      "en": [
-        "Consultation & planning",
-        "Numbing cream application",
-        "Precise filler injection",
-        "Sculpting & massage",
-        "Before/after photos"
-      ],
-      "ar": [
-        "استشارة وتخطيط",
-        "تطبيق كريم تخدير",
-        "حقن الفيلر بدقة",
-        "النحت والتدليك",
-        "صور قبل وبعد"
-      ]
-    },
-    "downtime": {
-      "en": "Minimal. Mild swelling for 1-2 days.",
-      "ar": "الحد الأدنى. تورم خفيف لمدة ١-٢ يوم."
-    },
-    "faq": [
-      {
-        "question": {
-          "en": "Is the procedure painful?",
-          "ar": "هل الإجراء مؤلم؟"
-        },
-        "answer": {
-          "en": "A numbing cream is applied before treatment. Most patients report minimal discomfort.",
-          "ar": "يتم تطبيق كريم تخدير قبل العلاج. يشير معظم المرضى إلى ألم خفيف جداً."
-        }
-      },
-      {
-        "question": {
-          "en": "How long do dermal fillers last?",
-          "ar": "كم يدوم الفيلر؟"
-        },
-        "answer": {
-          "en": "Depending on the area and product, results last 6-18 months.",
-          "ar": "حسب المنطقة والمنتج، تدوم النتائج من ٦ إلى ١٨ شهراً."
-        }
-      }
-    ]
-  },
-  {
-    "id": "9",
     "slug": "rhinoplasty",
-    "category": "Surgical Procedures",
-    "categorySlug": "surgical",
+    "category": "Plastic Surgery",
+    "categorySlug": "plastic-surgery",
     "name": {
       "en": "Rhinoplasty",
       "ar": "تجميل الأنف"
@@ -620,270 +13,3177 @@
       "ar": "إعادة تشكيل الأنف لتحسين المظهر والوظيفة."
     },
     "description": {
-      "en": "Our rhinoplasty procedures are performed by board-certified plastic surgeons, combining artistic vision with surgical precision for natural, harmonious results.",
-      "ar": "يتم إجراء عمليات تجميل الأنف من قبل جراحين تجميل معتمدين، يجمعون بين الرؤية الفنية والدقة الجراحية لنتائج طبيعية ومتناسقة."
+      "en": "Comprehensive rhinoplasty including open, closed, and revision techniques performed by board-certified plastic surgeons. Combines artistic vision with surgical precision for natural, harmonious results.",
+      "ar": "عملية تجميل أنف شاملة تشمل التقنيات المفتوحة والمغلقة والمراجعة، يجريها جراحون تجميل معتمدون. تجمع بين الرؤية الفنية والدقة الجراحية لنتائج طبيعية ومتناسقة."
     },
     "icon": "medical_services",
     "image": "https://images.unsplash.com/photo-1551190822-a9ce113ac100?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": true,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 1
+  },
+  {
+    "id": "2",
+    "slug": "upper-blepharoplasty",
+    "category": "Plastic Surgery",
+    "categorySlug": "plastic-surgery",
+    "name": {
+      "en": "Upper Blepharoplasty",
+      "ar": "رفع الجفن العلوي"
+    },
+    "shortDescription": {
+      "en": "Eyelid lift to restore a youthful, refreshed look.",
+      "ar": "رفع الجفن العلوي لاستعادة مظهر شبابي ومنتعش."
+    },
+    "description": {
+      "en": "Upper blepharoplasty removes excess skin and fat from the upper eyelids to eliminate drooping, revealing brighter, more alert eyes with a natural appearance.",
+      "ar": "يزيل رفع الجفن العلوي الجلد الزائد والدهون من الجفون العلوية للتخلص من الترهل، مما يكشف عن عيون أكثر إشراقاً وانتعاشاً بمظهر طبيعي."
+    },
+    "icon": "medical_services",
+    "image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": true,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 2
+  },
+  {
+    "id": "3",
+    "slug": "lower-blepharoplasty",
+    "category": "Plastic Surgery",
+    "categorySlug": "plastic-surgery",
+    "name": {
+      "en": "Lower Blepharoplasty",
+      "ar": "رفع الجفن السفلي"
+    },
+    "shortDescription": {
+      "en": "Remove under-eye bags for a rested, rejuvenated appearance.",
+      "ar": "إزالة الانتفاخات تحت العين لمظهر مرتاح ومتجدد."
+    },
+    "description": {
+      "en": "Lower blepharoplasty targets puffiness and sagging beneath the eyes. The procedure smooths the under-eye area, reducing dark circles and restoring a youthful contour.",
+      "ar": "يستهدف رفع الجفن السفلي الانتفاخ والترهل تحت العينين. يعمل الإجراء على تنعيم منطقة تحت العين وتقليل الهالات السوداء واستعادة محيط شبابي."
+    },
+    "icon": "medical_services",
+    "image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": true,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 3
+  },
+  {
+    "id": "4",
+    "slug": "liposuction-body-contouring",
+    "category": "Plastic Surgery",
+    "categorySlug": "plastic-surgery",
+    "name": {
+      "en": "Liposuction & Body Contouring",
+      "ar": "شفط الدهون ونحت الجسم"
+    },
+    "shortDescription": {
+      "en": "Targeted fat removal and body sculpting for a refined silhouette.",
+      "ar": "إزالة الدهون المستهدفة ونحت الجسم للحصول على قوام متناسق."
+    },
+    "description": {
+      "en": "Advanced liposuction techniques combined with body contouring to remove stubborn fat deposits and sculpt a balanced, proportionate figure with minimal downtime.",
+      "ar": "تقنيات شفط الدهون المتقدمة مع نحت الجسم لإزالة الدهون العنيدة ونحت جسم متوازن ومتناسق مع فترة تعافٍ قصيرة."
+    },
+    "icon": "medical_services",
+    "image": "https://images.unsplash.com/photo-1551190822-a9ce113ac100?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": true,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 4
+  },
+  {
+    "id": "5",
+    "slug": "adsadasd",
+    "category": "Plastic Surgery",
+    "categorySlug": "plastic-surgery",
+    "name": {
+      "en": "Adeline Schaefer",
+      "ar": "علاج التثدي"
+    },
+    "shortDescription": {
+      "en": "Reprehenderit fuga soluta asperiores quibusdam laudantium.",
+      "ar": "Iusto deleniti dolorum."
+    },
+    "description": {
+      "en": "Fuga totam neque enim inventore accusantium ut laborum tempora magni.",
+      "ar": "Neque ducimus rerum consequatur soluta aperiam."
+    },
+    "icon": "At odit incidunt quia optio excepturi error.",
+    "image": "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=800&q=80",
     "tags": [
-      "Premium",
-      "Surgical"
+      "blastik sergery"
     ],
     "branches": [
       "baghdad-mansour"
     ],
-    "duration": "2-3 hours",
-    "priceRange": {
-      "en": "Contact for consultation",
-      "ar": "اتصل للاستشارة"
-    },
+    "duration": "Harum ratione quasi et cumque dolore ipsa sapiente exercitationem tenetur.",
     "benefits": {
       "en": [
-        "Improved facial harmony",
-        "Better breathing",
-        "Permanent results",
-        "Customized approach"
+        "Tempora error tempora reprehenderit recusandae quae ut.",
+        "Harum ratione deleniti ea.",
+        "Iusto quos fuga possimus laudantium dolor."
       ],
       "ar": [
-        "تناسق الوجه",
-        "تحسين التنفس",
-        "نتائج دائمة",
-        "نهج مخصص"
+        "Accusamus architecto cum labore cum ratione aspernatur dolore optio.",
+        "Rem rem fugit suscipit similique tenetur aperiam nesciunt necessitatibus deleniti.",
+        "Quod repudiandae assumenda."
       ]
     },
     "steps": {
       "en": [
-        "Initial consultation",
-        "3D imaging & planning",
-        "Surgery under anesthesia",
-        "Recovery monitoring",
-        "Follow-up visits"
+        "Nesciunt sapiente reiciendis repellat hic.",
+        "Ex doloribus error fugiat soluta blanditiis dicta a doloremque.",
+        "Quod quibusdam cupiditate placeat quis iure sit rem earum aspernatur.",
+        "Repudiandae natus praesentium laborum quidem ratione ut consequatur."
       ],
       "ar": [
-        "استشارة أولية",
-        "تصوير ثلاثي الأبعاد وتخطيط",
-        "الجراحة تحت التخدير",
-        "مراقبة التعافي",
-        "زيارات المتابعة"
+        "Laboriosam perferendis voluptatibus earum architecto.",
+        "Praesentium maxime repellendus asperiores aperiam assumenda.",
+        "Alias officiis omnis ipsam eos totam rem fuga commodi architecto.",
+        "Velit maxime magni quidem suscipit."
       ]
     },
     "downtime": {
-      "en": "1-2 weeks. Final results visible in 6-12 months.",
-      "ar": "١-٢ أسبوع. النتائج النهائية تظهر خلال ٦-١٢ شهر."
-    },
-    "faq": []
-  },
-  {
-    "id": "10",
-    "slug": "full-body-laser",
-    "category": "Laser Hair Removal",
-    "categorySlug": "laser",
-    "name": {
-      "en": "Full Body Laser",
-      "ar": "ليزر الجسم الكامل"
-    },
-    "shortDescription": {
-      "en": "Complete body hair removal with advanced laser technology.",
-      "ar": "إزالة شعر الجسم بالكامل بتقنية الليزر المتقدمة."
-    },
-    "description": {
-      "en": "Our full body laser hair removal uses the latest FDA-approved technology for safe, effective permanent hair reduction on all skin types.",
-      "ar": "يستخدم ليزر إزالة الشعر لدينا أحدث التقنيات المعتمدة من FDA لإزالة الشعر الدائمة والآمنة والفعالة لجميع أنواع البشرة."
-    },
-    "icon": "bolt",
-    "image": "https://images.unsplash.com/photo-1598524374912-6b0b0bab43a5?w=800&q=80",
-    "tags": [
-      "Popular",
-      "Package Deal"
-    ],
-    "branches": [
-      "baghdad-mansour",
-      "erbil",
-      "basra"
-    ],
-    "duration": "90-120 min",
-    "priceRange": {
-      "en": "150,000 - 300,000 IQD per session",
-      "ar": "١٥٠,٠٠٠ - ٣٠٠,٠٠٠ د.ع لكل جلسة"
-    },
-    "benefits": {
-      "en": [
-        "Permanent hair reduction",
-        "Suitable for all skin types",
-        "Quick sessions",
-        "Smooth skin"
-      ],
-      "ar": [
-        "إزالة دائمة للشعر",
-        "مناسب لجميع أنواع البشرة",
-        "جلسات سريعة",
-        "بشرة ناعمة"
-      ]
-    },
-    "steps": {
-      "en": [
-        "Skin assessment",
-        "Area preparation",
-        "Laser application",
-        "Cooling treatment",
-        "Aftercare advice"
-      ],
-      "ar": [
-        "تقييم البشرة",
-        "تحضير المنطقة",
-        "تطبيق الليزر",
-        "علاج تبريد",
-        "نصائح ما بعد العناية"
-      ]
-    },
-    "downtime": {
-      "en": "None. Mild redness for a few hours.",
-      "ar": "لا يوجد. احمرار خفيف لبضع ساعات."
+      "en": "2025-08-10 13:27:57",
+      "ar": "2026-09-28 01:43:05"
     },
     "faq": [
       {
         "question": {
-          "en": "How many sessions do I need?",
-          "ar": "كم جلسة أحتاج؟"
+          "en": "Saepe corporis sunt repellendus dolores ullam.",
+          "ar": "Architecto modi provident."
         },
         "answer": {
-          "en": "Most clients need 6-8 sessions for optimal results.",
-          "ar": "يحتاج معظم العملاء إلى ٦-٨ جلسات للحصول على أفضل النتائج."
+          "en": "Necessitatibus asperiores nihil voluptate molestias distinctio quisquam.",
+          "ar": "Velit rem reiciendis rerum pariatur accusamus deserunt veniam necessitatibus."
+        }
+      },
+      {
+        "question": {
+          "en": "Sunt quas molestiae quo et voluptatibus dolores enim aliquid.",
+          "ar": "Voluptates voluptate iure tempora dignissimos neque similique libero quidem."
+        },
+        "answer": {
+          "en": "Commodi vitae reprehenderit sequi facere ea.",
+          "ar": "Neque praesentium minima non magni."
+        }
+      },
+      {
+        "question": {
+          "en": "Repellat similique voluptate sint corporis quibusdam nisi deserunt id laborum.",
+          "ar": "Deserunt adipisci dignissimos."
+        },
+        "answer": {
+          "en": "Accusamus ratione eos.",
+          "ar": "Quidem eveniet repellendus itaque."
+        }
+      },
+      {
+        "question": {
+          "en": "Qui vel harum.",
+          "ar": "Rem vel quisquam error nesciunt."
+        },
+        "answer": {
+          "en": "Quasi aliquid quaerat est tempora rerum odit odio.",
+          "ar": "Repellat recusandae ab labore maxime sequi."
+        }
+      },
+      {
+        "question": {
+          "en": "Quaerat saepe rerum repellat doloribus.",
+          "ar": "Iusto laudantium a."
+        },
+        "answer": {
+          "en": "Modi ipsa sint doloremque totam occaecati iusto.",
+          "ar": "Magnam architecto pariatur unde inventore aliquid aliquam rerum eveniet."
+        }
+      },
+      {
+        "question": {
+          "en": "Perspiciatis hic adipisci officiis tenetur inventore ab quos.",
+          "ar": "Magnam ratione eos reiciendis."
+        },
+        "answer": {
+          "en": "Modi suscipit at architecto recusandae.",
+          "ar": "Consectetur blanditiis delectus cumque aperiam incidunt in odit amet debitis."
+        }
+      },
+      {
+        "question": {
+          "en": "Laboriosam pariatur eveniet eveniet.",
+          "ar": "Dolore saepe ipsam."
+        },
+        "answer": {
+          "en": "Quidem quod saepe natus incidunt perferendis explicabo libero.",
+          "ar": "Quo excepturi labore nostrum eius at quidem voluptates."
+        }
+      },
+      {
+        "question": {
+          "en": "Temporibus omnis expedita ex.",
+          "ar": "Sequi voluptatibus molestiae illum amet dolorem."
+        },
+        "answer": {
+          "en": "Vitae quo reprehenderit non vero libero.",
+          "ar": "Ratione quaerat itaque rerum non consectetur nostrum."
+        }
+      },
+      {
+        "question": {
+          "en": "Sint blanditiis quod quos doloribus tempora et id.",
+          "ar": "Atque quasi quasi est quisquam minima magnam aperiam rem."
+        },
+        "answer": {
+          "en": "Assumenda nulla sit.",
+          "ar": "Ipsam quisquam exercitationem sunt rerum sapiente."
+        }
+      }
+    ],
+    "requiresConsultation": true,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 5,
+    "priceRange": {
+      "en": "73629 Larissa Key",
+      "ar": "38549 Pamela Points"
+    },
+    "beforeAfterPairs": [
+      {
+        "id": "pair-1771605445081-jhetqy1",
+        "beforeImage": "/uploads/mlv458ezpbliksh.jpg",
+        "afterImage": "/uploads/mlv45blfwdbivu8.jpg",
+        "caption": {
+          "en": "Hic modi laudantium consectetur excepturi ut expedita numquam ratione atque.",
+          "ar": "Provident magnam impedit maiores officia alias dolorum accusamus."
         }
       }
     ]
   },
   {
-    "id": "11",
-    "slug": "skin-boosters",
-    "category": "Injectables & Fillers",
-    "categorySlug": "injectables",
+    "id": "6",
+    "slug": "surgical-facelift",
+    "category": "Plastic Surgery",
+    "categorySlug": "plastic-surgery",
     "name": {
-      "en": "Skin Boosters & Glow Injections",
-      "ar": "حقن تعزيز البشرة والإشراقة"
+      "en": "Surgical Facelift",
+      "ar": "شد الوجه الجراحي"
     },
     "shortDescription": {
-      "en": "Deep hydration injections for a natural, dewy glow.",
-      "ar": "حقن ترطيب عميقة لإشراقة طبيعية وندية."
+      "en": "Comprehensive facial rejuvenation for lasting youthful results.",
+      "ar": "تجديد شامل للوجه لنتائج شبابية دائمة."
     },
     "description": {
-      "en": "Skin boosters deliver hyaluronic acid directly into the skin for deep hydration, improved elasticity, and a natural radiant glow that lasts.",
-      "ar": "حقن تعزيز البشرة توصل حمض الهيالورونيك مباشرة إلى البشرة للترطيب العميق وتحسين المرونة وإشراقة طبيعية تدوم."
+      "en": "A full surgical facelift tightens sagging skin, smooths deep folds, and restores youthful facial contours. Performed by experienced plastic surgeons for natural, long-lasting results.",
+      "ar": "يشد رفع الوجه الجراحي الكامل الجلد المترهل ويُنعّم الطيات العميقة ويستعيد ملامح الوجه الشبابية. يجريه جراحون تجميل ذوو خبرة لنتائج طبيعية ودائمة."
     },
-    "icon": "auto_awesome",
-    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
-    "tags": [
-      "New",
-      "Non-Invasive"
-    ],
-    "branches": [
-      "baghdad-mansour",
-      "erbil"
-    ],
-    "duration": "30 min",
-    "priceRange": {
-      "en": "80,000 - 150,000 IQD",
-      "ar": "٨٠,٠٠٠ - ١٥٠,٠٠٠ د.ع"
-    },
+    "icon": "medical_services",
+    "image": "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
     "benefits": {
-      "en": [
-        "Deep hydration",
-        "Natural glow",
-        "Improved texture",
-        "Long-lasting results"
-      ],
-      "ar": [
-        "ترطيب عميق",
-        "إشراقة طبيعية",
-        "تحسين الملمس",
-        "نتائج طويلة الأمد"
-      ]
+      "en": [],
+      "ar": []
     },
     "steps": {
-      "en": [
-        "Cleansing",
-        "Numbing",
-        "Micro-injections",
-        "Massage"
-      ],
-      "ar": [
-        "تنظيف",
-        "تخدير",
-        "حقن دقيقة",
-        "تدليك"
-      ]
+      "en": [],
+      "ar": []
     },
     "downtime": {
-      "en": "Minimal. Small bumps resolve in 24 hours.",
-      "ar": "الحد الأدنى. تختفي النتوءات الصغيرة خلال ٢٤ ساعة."
+      "en": "",
+      "ar": ""
     },
-    "faq": []
+    "faq": [],
+    "requiresConsultation": true,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 6
   },
   {
-    "id": "12",
-    "slug": "liposuction",
-    "category": "Surgical Procedures",
-    "categorySlug": "surgical",
+    "id": "7",
+    "slug": "temporal-lift-eye-angle",
+    "category": "Plastic Surgery",
+    "categorySlug": "plastic-surgery",
     "name": {
-      "en": "Liposuction",
-      "ar": "شفط الدهون"
+      "en": "Temporal Lift & Eye Angle",
+      "ar": "الشد الصدغي وزاوية العين"
     },
     "shortDescription": {
-      "en": "Body contouring through precise fat removal.",
-      "ar": "نحت الجسم من خلال إزالة الدهون بدقة."
+      "en": "Lift the outer eye area for a refreshed, almond-shaped look.",
+      "ar": "رفع منطقة العين الخارجية لمظهر منتعش ولوزي الشكل."
     },
     "description": {
-      "en": "Advanced liposuction techniques for targeted fat removal and body contouring, performed by our experienced surgical team.",
-      "ar": "تقنيات شفط الدهون المتقدمة لإزالة الدهون المستهدفة ونحت الجسم."
+      "en": "Temporal lift surgery elevates the outer brow and eye corner, creating an elegant almond-shaped eye appearance while reducing crow's feet and lateral sagging.",
+      "ar": "يرفع الشد الصدغي الحاجب الخارجي وزاوية العين، مما يخلق مظهراً أنيقاً للعين بشكل لوزي مع تقليل تجاعيد العين والترهل الجانبي."
+    },
+    "icon": "medical_services",
+    "image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": true,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 7
+  },
+  {
+    "id": "8",
+    "slug": "surgical-brow-lift",
+    "category": "Plastic Surgery",
+    "categorySlug": "plastic-surgery",
+    "name": {
+      "en": "Surgical Brow Lift",
+      "ar": "رفع الحاجب الجراحي"
+    },
+    "shortDescription": {
+      "en": "Elevate the brow line for a more alert, youthful forehead.",
+      "ar": "رفع خط الحاجب لجبهة أكثر انتعاشاً وشباباً."
+    },
+    "description": {
+      "en": "A surgical brow lift raises drooping eyebrows and smooths forehead wrinkles, opening up the eye area for a naturally refreshed expression.",
+      "ar": "يرفع رفع الحاجب الجراحي الحواجب المتدلية ويُنعّم تجاعيد الجبهة، مما يفتح منطقة العين لتعبير منتعش بشكل طبيعي."
+    },
+    "icon": "medical_services",
+    "image": "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": true,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 8
+  },
+  {
+    "id": "9",
+    "slug": "alar-base-reduction",
+    "category": "Plastic Surgery",
+    "categorySlug": "plastic-surgery",
+    "name": {
+      "en": "Alar Base Reduction",
+      "ar": "تصغير قاعدة الأنف"
+    },
+    "shortDescription": {
+      "en": "Narrow the nostrils for a more refined nose shape.",
+      "ar": "تضييق فتحات الأنف لشكل أنف أكثر تناسقاً."
+    },
+    "description": {
+      "en": "Alar base reduction narrows wide nostrils by precisely removing a small wedge of tissue at the nostril base, creating a more balanced and refined nasal appearance.",
+      "ar": "يعمل تصغير قاعدة الأنف على تضييق فتحات الأنف الواسعة عن طريق إزالة دقيقة لجزء صغير من الأنسجة عند قاعدة الأنف، مما يخلق مظهراً أنفياً أكثر توازناً وتناسقاً."
     },
     "icon": "medical_services",
     "image": "https://images.unsplash.com/photo-1551190822-a9ce113ac100?w=800&q=80",
-    "tags": [
-      "Premium",
-      "Surgical"
-    ],
-    "branches": [
-      "baghdad-mansour"
-    ],
-    "duration": "2-4 hours",
-    "priceRange": {
-      "en": "Contact for consultation",
-      "ar": "اتصل للاستشارة"
-    },
+    "tags": [],
+    "branches": [],
+    "duration": "",
     "benefits": {
-      "en": [
-        "Targeted fat removal",
-        "Improved body contour",
-        "Permanent results",
-        "Boosted confidence"
-      ],
-      "ar": [
-        "إزالة الدهون المستهدفة",
-        "تحسين محيط الجسم",
-        "نتائج دائمة",
-        "تعزيز الثقة"
-      ]
+      "en": [],
+      "ar": []
     },
     "steps": {
-      "en": [
-        "Consultation",
-        "Pre-op preparation",
-        "Surgery",
-        "Recovery",
-        "Follow-up"
-      ],
-      "ar": [
-        "استشارة",
-        "تحضير قبل العملية",
-        "الجراحة",
-        "التعافي",
-        "المتابعة"
-      ]
+      "en": [],
+      "ar": []
     },
     "downtime": {
-      "en": "1-2 weeks recovery.",
-      "ar": "١-٢ أسبوع للتعافي."
+      "en": "",
+      "ar": ""
     },
-    "faq": []
+    "faq": [],
+    "requiresConsultation": true,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 9
+  },
+  {
+    "id": "10",
+    "slug": "lip-lift-surgery",
+    "category": "Plastic Surgery",
+    "categorySlug": "plastic-surgery",
+    "name": {
+      "en": "Lip Lift Surgery",
+      "ar": "رفع الشفة جراحياً"
+    },
+    "shortDescription": {
+      "en": "Shorten the upper lip for a fuller, more defined smile.",
+      "ar": "تقصير الشفة العليا لابتسامة أكمل وأوضح."
+    },
+    "description": {
+      "en": "Lip lift surgery shortens the distance between the nose and upper lip, revealing more of the upper teeth and creating a naturally fuller, youthful lip appearance.",
+      "ar": "تقصر عملية رفع الشفة المسافة بين الأنف والشفة العليا، مما يكشف المزيد من الأسنان العلوية ويخلق مظهراً طبيعياً أكثر امتلاءً وشباباً للشفة."
+    },
+    "icon": "medical_services",
+    "image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": true,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 10
+  },
+  {
+    "id": "11",
+    "slug": "breast-implants",
+    "category": "Plastic Surgery",
+    "categorySlug": "plastic-surgery",
+    "name": {
+      "en": "Breast Implants",
+      "ar": "زراعة الثدي"
+    },
+    "shortDescription": {
+      "en": "Enhance breast size and shape with premium implants.",
+      "ar": "تكبير وتحسين شكل الثدي بزراعات عالية الجودة."
+    },
+    "description": {
+      "en": "Breast augmentation using premium silicone or saline implants to enhance size, shape, and symmetry. Our surgeons customize the procedure to achieve your desired outcome.",
+      "ar": "تكبير الثدي باستخدام زراعات سيليكون أو محلول ملحي عالية الجودة لتحسين الحجم والشكل والتناسق. يخصص جراحونا الإجراء لتحقيق النتيجة المرجوة."
+    },
+    "icon": "medical_services",
+    "image": "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": true,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 11
+  },
+  {
+    "id": "12",
+    "slug": "otoplasty",
+    "category": "Plastic Surgery",
+    "categorySlug": "plastic-surgery",
+    "name": {
+      "en": "Otoplasty",
+      "ar": "تجميل الأذن"
+    },
+    "shortDescription": {
+      "en": "Ear reshaping for improved symmetry and proportion.",
+      "ar": "إعادة تشكيل الأذن لتحسين التناسق والتناسب."
+    },
+    "description": {
+      "en": "Otoplasty corrects protruding or asymmetrical ears by reshaping the cartilage, bringing the ears closer to the head for a natural, balanced appearance.",
+      "ar": "يصحح تجميل الأذن الأذنين البارزتين أو غير المتماثلتين عن طريق إعادة تشكيل الغضروف، مما يقرب الأذنين من الرأس لمظهر طبيعي ومتوازن."
+    },
+    "icon": "medical_services",
+    "image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": true,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 12
+  },
+  {
+    "id": "13",
+    "slug": "laser-skin-tag-removal",
+    "category": "Plastic Surgery",
+    "categorySlug": "plastic-surgery",
+    "name": {
+      "en": "Laser Skin Tag Removal",
+      "ar": "إزالة الزوائد الجلدية بالليزر"
+    },
+    "shortDescription": {
+      "en": "Quick, precise removal of skin tags using laser technology.",
+      "ar": "إزالة سريعة ودقيقة للزوائد الجلدية باستخدام تقنية الليزر."
+    },
+    "description": {
+      "en": "Non-invasive laser treatment to remove skin tags safely and effectively with minimal scarring. A quick in-clinic procedure with fast healing.",
+      "ar": "علاج ليزر غير جراحي لإزالة الزوائد الجلدية بأمان وفعالية مع ندبات خفيفة. إجراء سريع في العيادة مع شفاء سريع."
+    },
+    "icon": "medical_services",
+    "image": "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": true,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 13
+  },
+  {
+    "id": "14",
+    "slug": "lip-filler",
+    "category": "Aesthetic Injections",
+    "categorySlug": "aesthetic-injections",
+    "name": {
+      "en": "Lip Filler",
+      "ar": "فيلر الشفاه"
+    },
+    "shortDescription": {
+      "en": "Enhance lip volume and shape with hyaluronic acid filler.",
+      "ar": "تكبير وتحسين شكل الشفاه بفيلر حمض الهيالورونيك."
+    },
+    "description": {
+      "en": "Premium hyaluronic acid lip filler to add volume, define the lip border, and create a natural, plump appearance. Administered by experienced aesthetic physicians.",
+      "ar": "فيلر شفاه بحمض الهيالورونيك الممتاز لإضافة الحجم وتحديد حدود الشفة وإنشاء مظهر طبيعي وممتلئ. يتم إجراؤه من قبل أطباء تجميل ذوي خبرة."
+    },
+    "icon": "vaccines",
+    "image": "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=800&q=80",
+    "tags": [
+      "Filler"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 1
+  },
+  {
+    "id": "15",
+    "slug": "cheek-filler",
+    "category": "Aesthetic Injections",
+    "categorySlug": "aesthetic-injections",
+    "name": {
+      "en": "Cheek Filler",
+      "ar": "فيلر الخدود"
+    },
+    "shortDescription": {
+      "en": "Restore cheek volume for a lifted, youthful facial contour.",
+      "ar": "استعادة حجم الخدود لملامح وجه مرفوعة وشبابية."
+    },
+    "description": {
+      "en": "Cheek filler injections restore lost volume and define cheekbones, creating a lifted, sculpted look that enhances overall facial harmony.",
+      "ar": "تستعيد حقن فيلر الخدود الحجم المفقود وتحدد عظام الخد، مما يخلق مظهراً مرفوعاً ومنحوتاً يعزز تناسق الوجه."
+    },
+    "icon": "vaccines",
+    "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&q=80",
+    "tags": [
+      "Filler"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 2
+  },
+  {
+    "id": "16",
+    "slug": "non-surgical-nose-filler",
+    "category": "Aesthetic Injections",
+    "categorySlug": "aesthetic-injections",
+    "name": {
+      "en": "Non-Surgical Nose Filler",
+      "ar": "فيلر الأنف بدون جراحة"
+    },
+    "shortDescription": {
+      "en": "Reshape your nose without surgery using dermal filler.",
+      "ar": "إعادة تشكيل الأنف بدون جراحة باستخدام الفيلر."
+    },
+    "description": {
+      "en": "Non-surgical rhinoplasty using hyaluronic acid filler to smooth bumps, lift the tip, and improve nasal symmetry — all without incisions or downtime.",
+      "ar": "تجميل الأنف غير الجراحي باستخدام فيلر حمض الهيالورونيك لتنعيم النتوءات ورفع طرف الأنف وتحسين تناسق الأنف — بدون شقوق أو فترة تعافٍ."
+    },
+    "icon": "vaccines",
+    "image": "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=800&q=80",
+    "tags": [
+      "Filler"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 3
+  },
+  {
+    "id": "17",
+    "slug": "chin-filler",
+    "category": "Aesthetic Injections",
+    "categorySlug": "aesthetic-injections",
+    "name": {
+      "en": "Chin Filler",
+      "ar": "فيلر الذقن"
+    },
+    "shortDescription": {
+      "en": "Define and project the chin for improved facial balance.",
+      "ar": "تحديد وإبراز الذقن لتحسين توازن الوجه."
+    },
+    "description": {
+      "en": "Chin filler adds projection and definition to a weak or receding chin, improving side profile and overall facial proportions without surgery.",
+      "ar": "يضيف فيلر الذقن بروزاً وتحديداً للذقن الضعيف أو المتراجع، مما يحسن الملف الجانبي ونسب الوجه العامة بدون جراحة."
+    },
+    "icon": "vaccines",
+    "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&q=80",
+    "tags": [
+      "Filler"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 4
+  },
+  {
+    "id": "18",
+    "slug": "jawline-filler",
+    "category": "Aesthetic Injections",
+    "categorySlug": "aesthetic-injections",
+    "name": {
+      "en": "Jawline Filler",
+      "ar": "فيلر خط الفك"
+    },
+    "shortDescription": {
+      "en": "Sculpt a sharp, defined jawline with dermal filler.",
+      "ar": "نحت خط فك حاد ومحدد بالفيلر."
+    },
+    "description": {
+      "en": "Jawline contouring with dermal filler creates a sharper, more defined jaw that frames the face beautifully. Ideal for both men and women seeking stronger facial structure.",
+      "ar": "نحت خط الفك بالفيلر يخلق فكاً أكثر حدة وتحديداً يؤطر الوجه بشكل جميل. مثالي للرجال والنساء الباحثين عن بنية وجه أقوى."
+    },
+    "icon": "vaccines",
+    "image": "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=800&q=80",
+    "tags": [
+      "Filler"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 5
+  },
+  {
+    "id": "19",
+    "slug": "tear-trough-filler",
+    "category": "Aesthetic Injections",
+    "categorySlug": "aesthetic-injections",
+    "name": {
+      "en": "Tear Trough Filler",
+      "ar": "فيلر تحت العين"
+    },
+    "shortDescription": {
+      "en": "Reduce dark circles and hollows under the eyes.",
+      "ar": "تقليل الهالات السوداء والتجاويف تحت العينين."
+    },
+    "description": {
+      "en": "Tear trough filler carefully placed under the eyes to fill hollows, reduce dark circles, and create a refreshed, well-rested appearance.",
+      "ar": "فيلر تحت العين يوضع بعناية لملء التجاويف وتقليل الهالات السوداء وإنشاء مظهر منتعش ومرتاح."
+    },
+    "icon": "vaccines",
+    "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&q=80",
+    "tags": [
+      "Filler"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 6
+  },
+  {
+    "id": "20",
+    "slug": "filler-dissolving-injection",
+    "category": "Aesthetic Injections",
+    "categorySlug": "aesthetic-injections",
+    "name": {
+      "en": "Filler Dissolving Injection",
+      "ar": "حقن إذابة الفيلر"
+    },
+    "shortDescription": {
+      "en": "Safely dissolve unwanted or migrated filler.",
+      "ar": "إذابة آمنة للفيلر غير المرغوب أو المتحرك."
+    },
+    "description": {
+      "en": "Hyaluronidase injections safely and effectively dissolve hyaluronic acid filler that has migrated, lumped, or is no longer desired, restoring your natural appearance.",
+      "ar": "حقن الهيالورونيداز تذيب بأمان وفعالية فيلر حمض الهيالورونيك الذي تحرك أو تكتل أو لم يعد مرغوباً فيه، مما يستعيد مظهرك الطبيعي."
+    },
+    "icon": "vaccines",
+    "image": "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=800&q=80",
+    "tags": [
+      "Filler"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 7
+  },
+  {
+    "id": "21",
+    "slug": "forehead-brow-botox",
+    "category": "Aesthetic Injections",
+    "categorySlug": "aesthetic-injections",
+    "name": {
+      "en": "Forehead & Brow Botox",
+      "ar": "بوتوكس الجبهة والحاجب"
+    },
+    "shortDescription": {
+      "en": "Smooth forehead lines and lift the brow with Botox.",
+      "ar": "تنعيم خطوط الجبهة ورفع الحاجب بالبوتوكس."
+    },
+    "description": {
+      "en": "Botox injections relax the muscles responsible for horizontal forehead lines and frown lines, creating a smoother forehead and a subtle brow lift.",
+      "ar": "حقن البوتوكس ترخي العضلات المسؤولة عن خطوط الجبهة الأفقية وخطوط العبوس، مما يخلق جبهة أكثر نعومة ورفعاً خفيفاً للحاجب."
+    },
+    "icon": "vaccines",
+    "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&q=80",
+    "tags": [
+      "Botox"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 8
+  },
+  {
+    "id": "22",
+    "slug": "expression-lines-botox",
+    "category": "Aesthetic Injections",
+    "categorySlug": "aesthetic-injections",
+    "name": {
+      "en": "Expression Lines Botox",
+      "ar": "بوتوكس خطوط التعبير"
+    },
+    "shortDescription": {
+      "en": "Soften crow's feet and expression lines around the eyes.",
+      "ar": "تنعيم تجاعيد العين وخطوط التعبير حول العينين."
+    },
+    "description": {
+      "en": "Targeted Botox injections to soften crow's feet, bunny lines, and other dynamic expression lines while maintaining natural facial movement.",
+      "ar": "حقن بوتوكس مستهدفة لتنعيم خطوط الضحك وتجاعيد الأنف وخطوط التعبير الديناميكية الأخرى مع الحفاظ على حركة الوجه الطبيعية."
+    },
+    "icon": "vaccines",
+    "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&q=80",
+    "tags": [
+      "Botox"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 9
+  },
+  {
+    "id": "23",
+    "slug": "migraine-botox",
+    "category": "Aesthetic Injections",
+    "categorySlug": "aesthetic-injections",
+    "name": {
+      "en": "Migraine Botox",
+      "ar": "بوتوكس الشقيقة"
+    },
+    "shortDescription": {
+      "en": "Therapeutic Botox injections to prevent chronic migraines.",
+      "ar": "حقن بوتوكس علاجية للوقاية من الشقيقة المزمنة."
+    },
+    "description": {
+      "en": "FDA-approved Botox treatment for chronic migraine prevention. Multiple injection points around the head and neck help reduce the frequency and severity of migraine episodes.",
+      "ar": "علاج بوتوكس معتمد من FDA للوقاية من الشقيقة المزمنة. نقاط حقن متعددة حول الرأس والرقبة تساعد في تقليل تكرار وشدة نوبات الشقيقة."
+    },
+    "icon": "vaccines",
+    "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&q=80",
+    "tags": [
+      "Botox"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 10
+  },
+  {
+    "id": "24",
+    "slug": "underarm-hyperhidrosis-botox",
+    "category": "Aesthetic Injections",
+    "categorySlug": "aesthetic-injections",
+    "name": {
+      "en": "Underarm Hyperhidrosis Botox",
+      "ar": "بوتوكس فرط التعرق"
+    },
+    "shortDescription": {
+      "en": "Stop excessive underarm sweating with Botox.",
+      "ar": "إيقاف التعرق المفرط تحت الإبط بالبوتوكس."
+    },
+    "description": {
+      "en": "Botox injections into the underarm area block the nerve signals that trigger sweat glands, providing months of relief from excessive sweating.",
+      "ar": "حقن البوتوكس في منطقة تحت الإبط تمنع الإشارات العصبية التي تحفز الغدد العرقية، مما يوفر أشهراً من الراحة من التعرق المفرط."
+    },
+    "icon": "vaccines",
+    "image": "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=800&q=80",
+    "tags": [
+      "Botox"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 11
+  },
+  {
+    "id": "25",
+    "slug": "full-face-laser",
+    "category": "Laser Hair Removal",
+    "categorySlug": "laser-hair-removal",
+    "name": {
+      "en": "Full Face Laser",
+      "ar": "ليزر الوجه الكامل"
+    },
+    "shortDescription": {
+      "en": "Complete facial hair removal with advanced laser.",
+      "ar": "إزالة شعر الوجه بالكامل بالليزر المتقدم."
+    },
+    "description": {
+      "en": "Full face laser hair removal targeting all facial areas for smooth, hair-free skin using FDA-approved technology suitable for all skin types.",
+      "ar": "إزالة شعر الوجه بالكامل بالليزر لجميع مناطق الوجه لبشرة ناعمة وخالية من الشعر باستخدام تقنية معتمدة من FDA مناسبة لجميع أنواع البشرة."
+    },
+    "icon": "bolt",
+    "image": "https://images.unsplash.com/photo-1598524374912-6b0b0bab43a5?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 1
+  },
+  {
+    "id": "26",
+    "slug": "upper-lip-laser",
+    "category": "Laser Hair Removal",
+    "categorySlug": "laser-hair-removal",
+    "name": {
+      "en": "Upper Lip Laser",
+      "ar": "ليزر الشفة العليا"
+    },
+    "shortDescription": {
+      "en": "Quick laser treatment for upper lip hair removal.",
+      "ar": "علاج ليزر سريع لإزالة شعر الشفة العليا."
+    },
+    "description": {
+      "en": "Precise laser targeting of upper lip hair for a clean, smooth finish. One of the quickest laser sessions with lasting results.",
+      "ar": "استهداف ليزر دقيق لشعر الشفة العليا لمظهر نظيف وناعم. من أسرع جلسات الليزر مع نتائج دائمة."
+    },
+    "icon": "bolt",
+    "image": "https://images.unsplash.com/photo-1598524374912-6b0b0bab43a5?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 2
+  },
+  {
+    "id": "27",
+    "slug": "face-neck-laser",
+    "category": "Laser Hair Removal",
+    "categorySlug": "laser-hair-removal",
+    "name": {
+      "en": "Face & Neck Laser",
+      "ar": "ليزر الوجه والرقبة"
+    },
+    "shortDescription": {
+      "en": "Comprehensive laser hair removal for face and neck areas.",
+      "ar": "إزالة شاملة لشعر الوجه والرقبة بالليزر."
+    },
+    "description": {
+      "en": "Combined face and neck laser treatment for complete upper body hair removal, providing a smooth and even appearance from face to neckline.",
+      "ar": "علاج ليزر مشترك للوجه والرقبة لإزالة شاملة لشعر الجزء العلوي من الجسم، مما يوفر مظهراً ناعماً ومتساوياً من الوجه إلى خط العنق."
+    },
+    "icon": "bolt",
+    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 3
+  },
+  {
+    "id": "28",
+    "slug": "beard-shaping-laser",
+    "category": "Laser Hair Removal",
+    "categorySlug": "laser-hair-removal",
+    "name": {
+      "en": "Beard Shaping Laser",
+      "ar": "ليزر تحديد اللحية"
+    },
+    "shortDescription": {
+      "en": "Precision laser for a clean, defined beard line.",
+      "ar": "ليزر دقيق لخط لحية نظيف ومحدد."
+    },
+    "description": {
+      "en": "Laser beard shaping defines the neck and cheek lines for a clean, maintained beard contour. Ideal for men who want a groomed appearance without daily shaving.",
+      "ar": "تحديد اللحية بالليزر يحدد خطوط الرقبة والخد لمحيط لحية نظيف ومرتب. مثالي للرجال الذين يريدون مظهراً أنيقاً بدون حلاقة يومية."
+    },
+    "icon": "bolt",
+    "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 4
+  },
+  {
+    "id": "29",
+    "slug": "neck-chin-laser",
+    "category": "Laser Hair Removal",
+    "categorySlug": "laser-hair-removal",
+    "name": {
+      "en": "Neck & Chin Laser",
+      "ar": "ليزر الرقبة والذقن"
+    },
+    "shortDescription": {
+      "en": "Targeted laser for neck and chin hair removal.",
+      "ar": "ليزر مستهدف لإزالة شعر الرقبة والذقن."
+    },
+    "description": {
+      "en": "Focused laser treatment for the neck and chin area, eliminating unwanted hair growth for a smooth, refined jawline and neckline.",
+      "ar": "علاج ليزر مركز لمنطقة الرقبة والذقن، يزيل نمو الشعر غير المرغوب فيه لخط فك ورقبة ناعمة ومتناسقة."
+    },
+    "icon": "bolt",
+    "image": "https://images.unsplash.com/photo-1598524374912-6b0b0bab43a5?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 5
+  },
+  {
+    "id": "30",
+    "slug": "half-arms-laser",
+    "category": "Laser Hair Removal",
+    "categorySlug": "laser-hair-removal",
+    "name": {
+      "en": "Half Arms Laser",
+      "ar": "ليزر نصف الذراعين"
+    },
+    "shortDescription": {
+      "en": "Laser hair removal for upper or lower arms.",
+      "ar": "إزالة الشعر بالليزر للذراعين العلوية أو السفلية."
+    },
+    "description": {
+      "en": "Half arms laser treatment covers either the upper or lower arm area, providing smooth, hair-free skin with long-lasting results.",
+      "ar": "علاج ليزر نصف الذراعين يغطي منطقة الذراع العلوية أو السفلية، مما يوفر بشرة ناعمة وخالية من الشعر مع نتائج طويلة الأمد."
+    },
+    "icon": "bolt",
+    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 6
+  },
+  {
+    "id": "31",
+    "slug": "half-legs-laser",
+    "category": "Laser Hair Removal",
+    "categorySlug": "laser-hair-removal",
+    "name": {
+      "en": "Half Legs Laser",
+      "ar": "ليزر نصف الساقين"
+    },
+    "shortDescription": {
+      "en": "Laser hair removal for upper or lower legs.",
+      "ar": "إزالة الشعر بالليزر للساقين العلوية أو السفلية."
+    },
+    "description": {
+      "en": "Half legs laser targets either the thigh or lower leg area for effective permanent hair reduction.",
+      "ar": "ليزر نصف الساقين يستهدف منطقة الفخذ أو أسفل الساق لإزالة فعالة ودائمة للشعر."
+    },
+    "icon": "bolt",
+    "image": "https://images.unsplash.com/photo-1598524374912-6b0b0bab43a5?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 7
+  },
+  {
+    "id": "32",
+    "slug": "full-arms-laser",
+    "category": "Laser Hair Removal",
+    "categorySlug": "laser-hair-removal",
+    "name": {
+      "en": "Full Arms Laser",
+      "ar": "ليزر الذراعين الكامل"
+    },
+    "shortDescription": {
+      "en": "Complete arm hair removal from shoulder to wrist.",
+      "ar": "إزالة كاملة لشعر الذراعين من الكتف إلى الرسغ."
+    },
+    "description": {
+      "en": "Full arms laser covers the entire arm from shoulder to wrist for completely smooth, hair-free arms.",
+      "ar": "ليزر الذراعين الكامل يغطي الذراع بالكامل من الكتف إلى الرسغ لذراعين ناعمتين وخاليتين من الشعر."
+    },
+    "icon": "bolt",
+    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 8
+  },
+  {
+    "id": "33",
+    "slug": "full-legs-laser",
+    "category": "Laser Hair Removal",
+    "categorySlug": "laser-hair-removal",
+    "name": {
+      "en": "Full Legs Laser",
+      "ar": "ليزر الساقين الكامل"
+    },
+    "shortDescription": {
+      "en": "Complete leg hair removal from thigh to ankle.",
+      "ar": "إزالة كاملة لشعر الساقين من الفخذ إلى الكاحل."
+    },
+    "description": {
+      "en": "Full legs laser treatment provides permanent hair reduction from the upper thigh down to the ankle.",
+      "ar": "علاج ليزر الساقين الكامل يوفر إزالة دائمة للشعر من الفخذ العلوي إلى الكاحل."
+    },
+    "icon": "bolt",
+    "image": "https://images.unsplash.com/photo-1598524374912-6b0b0bab43a5?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 9
+  },
+  {
+    "id": "34",
+    "slug": "underarms-laser",
+    "category": "Laser Hair Removal",
+    "categorySlug": "laser-hair-removal",
+    "name": {
+      "en": "Underarms Laser",
+      "ar": "ليزر تحت الإبط"
+    },
+    "shortDescription": {
+      "en": "Quick laser session for smooth, hair-free underarms.",
+      "ar": "جلسة ليزر سريعة لإبط ناعم وخالي من الشعر."
+    },
+    "description": {
+      "en": "Fast and effective underarm laser hair removal. One of the most popular areas for laser treatment with excellent long-term results.",
+      "ar": "إزالة سريعة وفعالة لشعر تحت الإبط بالليزر. من أكثر المناطق شيوعاً لعلاج الليزر مع نتائج ممتازة على المدى الطويل."
+    },
+    "icon": "bolt",
+    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 10
+  },
+  {
+    "id": "35",
+    "slug": "bikini-laser",
+    "category": "Laser Hair Removal",
+    "categorySlug": "laser-hair-removal",
+    "name": {
+      "en": "Bikini Laser",
+      "ar": "ليزر البكيني"
+    },
+    "shortDescription": {
+      "en": "Gentle laser hair removal for the bikini area.",
+      "ar": "إزالة لطيفة لشعر منطقة البكيني بالليزر."
+    },
+    "description": {
+      "en": "Comfortable bikini area laser treatment using advanced cooling technology for effective hair removal with minimal discomfort.",
+      "ar": "علاج ليزر مريح لمنطقة البكيني باستخدام تقنية التبريد المتقدمة لإزالة فعالة للشعر مع أقل قدر من الألم."
+    },
+    "icon": "bolt",
+    "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 11
+  },
+  {
+    "id": "36",
+    "slug": "mini-body-laser",
+    "category": "Laser Hair Removal",
+    "categorySlug": "laser-hair-removal",
+    "name": {
+      "en": "Mini Body Laser",
+      "ar": "ليزر الجسم المصغر"
+    },
+    "shortDescription": {
+      "en": "Laser package covering key body areas at a great value.",
+      "ar": "باقة ليزر تغطي المناطق الرئيسية للجسم بقيمة مميزة."
+    },
+    "description": {
+      "en": "Mini body laser package covers essential areas including underarms, bikini, and lower legs — a perfect introduction to laser hair removal.",
+      "ar": "باقة ليزر الجسم المصغر تغطي المناطق الأساسية بما في ذلك تحت الإبط والبكيني وأسفل الساقين — مقدمة مثالية لإزالة الشعر بالليزر."
+    },
+    "icon": "bolt",
+    "image": "https://images.unsplash.com/photo-1598524374912-6b0b0bab43a5?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 12
+  },
+  {
+    "id": "37",
+    "slug": "full-body-laser-women",
+    "category": "Laser Hair Removal",
+    "categorySlug": "laser-hair-removal",
+    "name": {
+      "en": "Full Body Laser (Women)",
+      "ar": "ليزر الجسم الكامل للنساء"
+    },
+    "shortDescription": {
+      "en": "Complete body laser hair removal package for women.",
+      "ar": "باقة إزالة شعر الجسم بالكامل بالليزر للنساء."
+    },
+    "description": {
+      "en": "Comprehensive full body laser package for women covering all areas from face to toes. Our most popular package for complete, lasting smoothness.",
+      "ar": "باقة ليزر شاملة للجسم بالكامل للنساء تغطي جميع المناطق من الوجه إلى أصابع القدمين. باقتنا الأكثر شعبية للنعومة الكاملة والدائمة."
+    },
+    "icon": "bolt",
+    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 13
+  },
+  {
+    "id": "38",
+    "slug": "men-full-body-laser",
+    "category": "Laser Hair Removal",
+    "categorySlug": "laser-hair-removal",
+    "name": {
+      "en": "Men Full Body Laser",
+      "ar": "ليزر الجسم الكامل للرجال"
+    },
+    "shortDescription": {
+      "en": "Complete body laser hair removal designed for men.",
+      "ar": "إزالة شعر الجسم بالكامل بالليزر مصمم للرجال."
+    },
+    "description": {
+      "en": "Full body laser package designed specifically for men, addressing thicker hair growth patterns with higher power settings for effective results.",
+      "ar": "باقة ليزر الجسم الكامل مصممة خصيصاً للرجال، تعالج أنماط نمو الشعر الأكثر كثافة بإعدادات طاقة أعلى لنتائج فعالة."
+    },
+    "icon": "bolt",
+    "image": "https://images.unsplash.com/photo-1598524374912-6b0b0bab43a5?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 14
+  },
+  {
+    "id": "39",
+    "slug": "abdomen-chest-laser",
+    "category": "Laser Hair Removal",
+    "categorySlug": "laser-hair-removal",
+    "name": {
+      "en": "Abdomen & Chest Laser",
+      "ar": "ليزر البطن والصدر"
+    },
+    "shortDescription": {
+      "en": "Laser hair removal for the abdomen and chest area.",
+      "ar": "إزالة الشعر بالليزر لمنطقة البطن والصدر."
+    },
+    "description": {
+      "en": "Effective laser treatment for abdomen and chest hair, popular among men seeking a clean, groomed torso appearance.",
+      "ar": "علاج ليزر فعال لشعر البطن والصدر، شائع بين الرجال الباحثين عن مظهر جذع نظيف ومهذب."
+    },
+    "icon": "bolt",
+    "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 15
+  },
+  {
+    "id": "40",
+    "slug": "back-laser",
+    "category": "Laser Hair Removal",
+    "categorySlug": "laser-hair-removal",
+    "name": {
+      "en": "Back Laser",
+      "ar": "ليزر الظهر"
+    },
+    "shortDescription": {
+      "en": "Laser hair removal for the entire back area.",
+      "ar": "إزالة الشعر بالليزر لمنطقة الظهر بالكامل."
+    },
+    "description": {
+      "en": "Full back laser treatment for permanent reduction of back hair. Commonly requested by men for a smoother, cleaner appearance.",
+      "ar": "علاج ليزر كامل للظهر لإزالة دائمة لشعر الظهر. يطلبه الرجال عادة لمظهر أكثر نعومة ونظافة."
+    },
+    "icon": "bolt",
+    "image": "https://images.unsplash.com/photo-1598524374912-6b0b0bab43a5?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 16
+  },
+  {
+    "id": "41",
+    "slug": "women-buttocks-laser",
+    "category": "Laser Hair Removal",
+    "categorySlug": "laser-hair-removal",
+    "name": {
+      "en": "Women Buttocks Laser",
+      "ar": "ليزر الأرداف للنساء"
+    },
+    "shortDescription": {
+      "en": "Gentle laser hair removal for the buttocks area.",
+      "ar": "إزالة لطيفة لشعر منطقة الأرداف بالليزر."
+    },
+    "description": {
+      "en": "Comfortable and effective laser treatment for the buttocks area, performed with the highest standards of privacy and professionalism.",
+      "ar": "علاج ليزر مريح وفعال لمنطقة الأرداف، يتم إجراؤه بأعلى معايير الخصوصية والمهنية."
+    },
+    "icon": "bolt",
+    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 17
+  },
+  {
+    "id": "42",
+    "slug": "men-buttocks-laser",
+    "category": "Laser Hair Removal",
+    "categorySlug": "laser-hair-removal",
+    "name": {
+      "en": "Men Buttocks Laser",
+      "ar": "ليزر الأرداف للرجال"
+    },
+    "shortDescription": {
+      "en": "Effective laser hair removal for men's buttocks area.",
+      "ar": "إزالة فعالة لشعر منطقة الأرداف للرجال بالليزر."
+    },
+    "description": {
+      "en": "Professional laser treatment for the male buttocks area with powerful settings designed for thicker hair growth patterns.",
+      "ar": "علاج ليزر احترافي لمنطقة الأرداف للرجال بإعدادات قوية مصممة لأنماط نمو الشعر الأكثر كثافة."
+    },
+    "icon": "bolt",
+    "image": "https://images.unsplash.com/photo-1598524374912-6b0b0bab43a5?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 18
+  },
+  {
+    "id": "43",
+    "slug": "men-bikini-laser",
+    "category": "Laser Hair Removal",
+    "categorySlug": "laser-hair-removal",
+    "name": {
+      "en": "Men Bikini Laser",
+      "ar": "ليزر البكيني للرجال"
+    },
+    "shortDescription": {
+      "en": "Laser hair removal for men's intimate area.",
+      "ar": "إزالة الشعر بالليزر للمنطقة الحساسة للرجال."
+    },
+    "description": {
+      "en": "Discreet and professional laser treatment for the male bikini area using advanced cooling technology for comfort.",
+      "ar": "علاج ليزر احترافي وخاص لمنطقة البكيني للرجال باستخدام تقنية التبريد المتقدمة للراحة."
+    },
+    "icon": "bolt",
+    "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 19
+  },
+  {
+    "id": "44",
+    "slug": "full-body-excl-abdomen-back",
+    "category": "Laser Hair Removal",
+    "categorySlug": "laser-hair-removal",
+    "name": {
+      "en": "Full Body Excl. Abdomen & Back",
+      "ar": "ليزر الجسم الكامل عدا البطن والظهر"
+    },
+    "shortDescription": {
+      "en": "Full body laser excluding abdomen and back areas.",
+      "ar": "ليزر الجسم الكامل باستثناء منطقة البطن والظهر."
+    },
+    "description": {
+      "en": "Comprehensive body laser package covering all areas except the abdomen and back — a popular option for women who only need peripheral areas treated.",
+      "ar": "باقة ليزر شاملة للجسم تغطي جميع المناطق باستثناء البطن والظهر — خيار شائع للنساء اللواتي يحتجن علاج المناطق الطرفية فقط."
+    },
+    "icon": "bolt",
+    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 20
+  },
+  {
+    "id": "45",
+    "slug": "men-full-body-excl-abdomen-back",
+    "category": "Laser Hair Removal",
+    "categorySlug": "laser-hair-removal",
+    "name": {
+      "en": "Men Full Body Excl. Abdomen & Back",
+      "ar": "ليزر الجسم الكامل للرجال عدا البطن والظهر"
+    },
+    "shortDescription": {
+      "en": "Men's full body laser excluding abdomen and back.",
+      "ar": "ليزر الجسم الكامل للرجال باستثناء البطن والظهر."
+    },
+    "description": {
+      "en": "Full body laser package for men covering all areas except abdomen and back, with settings optimized for male hair types.",
+      "ar": "باقة ليزر الجسم الكامل للرجال تغطي جميع المناطق باستثناء البطن والظهر، بإعدادات محسنة لأنواع الشعر الذكوري."
+    },
+    "icon": "bolt",
+    "image": "https://images.unsplash.com/photo-1598524374912-6b0b0bab43a5?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 21
+  },
+  {
+    "id": "46",
+    "slug": "laser-beard-removal",
+    "category": "Laser Hair Removal",
+    "categorySlug": "laser-hair-removal",
+    "name": {
+      "en": "Laser Beard Removal",
+      "ar": "ليزر إزالة اللحية بالكامل"
+    },
+    "shortDescription": {
+      "en": "Complete beard removal for a permanently smooth face.",
+      "ar": "إزالة اللحية بالكامل لوجه ناعم بشكل دائم."
+    },
+    "description": {
+      "en": "Full beard laser removal for those seeking a permanently clean-shaven look without daily shaving. Multiple sessions achieve lasting smoothness.",
+      "ar": "إزالة كاملة للحية بالليزر للباحثين عن مظهر حليق بشكل دائم بدون حلاقة يومية. جلسات متعددة تحقق نعومة دائمة."
+    },
+    "icon": "bolt",
+    "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 22
+  },
+  {
+    "id": "47",
+    "slug": "prp-face",
+    "category": "Skin & Hair Sessions",
+    "categorySlug": "skin-and-hair-sessions",
+    "name": {
+      "en": "PRP Face",
+      "ar": "بلازما الوجه"
+    },
+    "shortDescription": {
+      "en": "Platelet-rich plasma therapy for facial skin rejuvenation.",
+      "ar": "علاج البلازما الغنية بالصفائح لتجديد بشرة الوجه."
+    },
+    "description": {
+      "en": "PRP facial therapy uses your own concentrated platelets to stimulate collagen production, improve skin texture, and restore a youthful glow.",
+      "ar": "يستخدم علاج البلازما للوجه صفائحك الدموية المركزة لتحفيز إنتاج الكولاجين وتحسين ملمس البشرة واستعادة الإشراقة الشبابية."
+    },
+    "icon": "face",
+    "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+    "tags": [
+      "Skin Boosters"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "department",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 1
+  },
+  {
+    "id": "48",
+    "slug": "prp-hair",
+    "category": "Skin & Hair Sessions",
+    "categorySlug": "skin-and-hair-sessions",
+    "name": {
+      "en": "PRP Hair",
+      "ar": "بلازما الشعر"
+    },
+    "shortDescription": {
+      "en": "PRP therapy to stimulate hair growth and reduce thinning.",
+      "ar": "علاج البلازما لتحفيز نمو الشعر وتقليل التساقط."
+    },
+    "description": {
+      "en": "PRP hair therapy injects concentrated platelets into the scalp to stimulate dormant hair follicles, promote new growth, and strengthen existing hair.",
+      "ar": "يحقن علاج بلازما الشعر الصفائح المركزة في فروة الرأس لتحفيز بصيلات الشعر الخاملة وتعزيز النمو الجديد وتقوية الشعر الموجود."
+    },
+    "icon": "face",
+    "image": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "department",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 2
+  },
+  {
+    "id": "49",
+    "slug": "derma-pen",
+    "category": "Skin & Hair Sessions",
+    "categorySlug": "skin-and-hair-sessions",
+    "name": {
+      "en": "Derma Pen",
+      "ar": "ديرما بن"
+    },
+    "shortDescription": {
+      "en": "Microneedling to boost collagen and improve skin texture.",
+      "ar": "إبر دقيقة لتعزيز الكولاجين وتحسين ملمس البشرة."
+    },
+    "description": {
+      "en": "Derma Pen microneedling creates controlled micro-injuries that trigger the skin's natural healing response, boosting collagen and elastin for smoother, firmer skin.",
+      "ar": "تخلق إبر ديرما بن الدقيقة إصابات مجهرية محكومة تحفز استجابة الشفاء الطبيعية للبشرة، مما يعزز الكولاجين والإيلاستين لبشرة أكثر نعومة وصلابة."
+    },
+    "icon": "face",
+    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
+    "tags": [
+      "Dermatology"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "department",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 3
+  },
+  {
+    "id": "50",
+    "slug": "skin-booster-injections",
+    "category": "Skin & Hair Sessions",
+    "categorySlug": "skin-and-hair-sessions",
+    "name": {
+      "en": "Skin Booster Injections",
+      "ar": "حقن نضارة البشرة"
+    },
+    "shortDescription": {
+      "en": "Deep hydration injections for a radiant, dewy glow.",
+      "ar": "حقن ترطيب عميقة لإشراقة مشعة وندية."
+    },
+    "description": {
+      "en": "Skin booster injections deliver hyaluronic acid directly into the skin for deep hydration, improved elasticity, and a lasting natural radiance.",
+      "ar": "حقن نضارة البشرة توصل حمض الهيالورونيك مباشرة إلى البشرة للترطيب العميق وتحسين المرونة وإشراقة طبيعية دائمة."
+    },
+    "icon": "face",
+    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
+    "tags": [
+      "Skin Boosters"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "department",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 4
+  },
+  {
+    "id": "51",
+    "slug": "mesotherapy-skin",
+    "category": "Skin & Hair Sessions",
+    "categorySlug": "skin-and-hair-sessions",
+    "name": {
+      "en": "Mesotherapy Skin",
+      "ar": "ميزوثيرابي البشرة"
+    },
+    "shortDescription": {
+      "en": "Vitamin cocktail micro-injections for glowing skin.",
+      "ar": "حقن دقيقة بكوكتيل الفيتامينات لبشرة متوهجة."
+    },
+    "description": {
+      "en": "Mesotherapy delivers a customized cocktail of vitamins, minerals, and amino acids via micro-injections to nourish and revitalize the skin from within.",
+      "ar": "الميزوثيرابي يوصل كوكتيلاً مخصصاً من الفيتامينات والمعادن والأحماض الأمينية عبر الحقن الدقيقة لتغذية وتجديد البشرة من الداخل."
+    },
+    "icon": "face",
+    "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+    "tags": [
+      "Dermatology"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "department",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 5
+  },
+  {
+    "id": "52",
+    "slug": "mesotherapy-hair",
+    "category": "Skin & Hair Sessions",
+    "categorySlug": "skin-and-hair-sessions",
+    "name": {
+      "en": "Mesotherapy Hair",
+      "ar": "ميزوثيرابي الشعر"
+    },
+    "shortDescription": {
+      "en": "Nutrient injections to strengthen hair and reduce fallout.",
+      "ar": "حقن مغذية لتقوية الشعر وتقليل التساقط."
+    },
+    "description": {
+      "en": "Hair mesotherapy delivers vitamins and growth factors directly to the scalp, nourishing hair follicles and reducing hair loss for thicker, healthier hair.",
+      "ar": "ميزوثيرابي الشعر يوصل الفيتامينات وعوامل النمو مباشرة إلى فروة الرأس، مما يغذي بصيلات الشعر ويقلل تساقط الشعر لشعر أكثر كثافة وصحة."
+    },
+    "icon": "face",
+    "image": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "department",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 6
+  },
+  {
+    "id": "53",
+    "slug": "baby-face-facial",
+    "category": "Skin & Hair Sessions",
+    "categorySlug": "skin-and-hair-sessions",
+    "name": {
+      "en": "Baby Face Facial",
+      "ar": "جلسة بيبي فيس"
+    },
+    "shortDescription": {
+      "en": "Multi-step facial for a soft, baby-smooth complexion.",
+      "ar": "جلسة وجه متعددة الخطوات لبشرة ناعمة كبشرة الأطفال."
+    },
+    "description": {
+      "en": "The Baby Face facial combines gentle exfoliation, deep cleansing, and nourishing serums to give your skin a soft, luminous, baby-smooth texture.",
+      "ar": "جلسة بيبي فيس تجمع بين التقشير اللطيف والتنظيف العميق والأمصال المغذية لمنح بشرتك ملمساً ناعماً ومضيئاً كبشرة الأطفال."
+    },
+    "icon": "face",
+    "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+    "tags": [
+      "Dermatology"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "department",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 7
+  },
+  {
+    "id": "54",
+    "slug": "chemical-peel",
+    "category": "Skin & Hair Sessions",
+    "categorySlug": "skin-and-hair-sessions",
+    "name": {
+      "en": "Chemical Peel",
+      "ar": "التقشير الكيميائي"
+    },
+    "shortDescription": {
+      "en": "Medical-grade peel to renew and resurface the skin.",
+      "ar": "تقشير طبي لتجديد وتنعيم سطح البشرة."
+    },
+    "description": {
+      "en": "Professional chemical peels using medical-grade acids to remove dead skin cells, reduce fine lines, fade dark spots, and stimulate new cell growth for a brighter complexion.",
+      "ar": "تقشير كيميائي احترافي باستخدام أحماض طبية لإزالة خلايا الجلد الميتة وتقليل الخطوط الدقيقة وتفتيح البقع الداكنة وتحفيز نمو خلايا جديدة لبشرة أكثر إشراقاً."
+    },
+    "icon": "face",
+    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
+    "tags": [
+      "Chemical Peel"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "department",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 8
+  },
+  {
+    "id": "55",
+    "slug": "secret-rf-session",
+    "category": "Skin & Hair Sessions",
+    "categorySlug": "skin-and-hair-sessions",
+    "name": {
+      "en": "Secret RF Session",
+      "ar": "جلسة سيكرت آر إف"
+    },
+    "shortDescription": {
+      "en": "Radiofrequency microneedling for skin tightening and renewal.",
+      "ar": "إبر دقيقة بالترددات الراديوية لشد وتجديد البشرة."
+    },
+    "description": {
+      "en": "Secret RF combines microneedling with radiofrequency energy to deliver heat deep into the skin, stimulating collagen remodeling for tighter, smoother, more youthful skin.",
+      "ar": "سيكرت آر إف يجمع بين الإبر الدقيقة وطاقة الترددات الراديوية لتوصيل الحرارة عميقاً في البشرة، مما يحفز إعادة تشكيل الكولاجين لبشرة أكثر شداً ونعومة وشباباً."
+    },
+    "icon": "face",
+    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
+    "tags": [
+      "Dermatology"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "department",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 9
+  },
+  {
+    "id": "56",
+    "slug": "nano-fat-injection",
+    "category": "Skin & Hair Sessions",
+    "categorySlug": "skin-and-hair-sessions",
+    "name": {
+      "en": "Nano Fat Injection",
+      "ar": "حقن النانو فات"
+    },
+    "shortDescription": {
+      "en": "Purified micro-fat injections for natural skin rejuvenation.",
+      "ar": "حقن دهون مكررة لتجديد البشرة بشكل طبيعي."
+    },
+    "description": {
+      "en": "Nano fat injections use your own purified micro-fat to rejuvenate skin, improve texture, and fill fine lines with completely natural, biocompatible material.",
+      "ar": "حقن النانو فات تستخدم دهونك المكررة لتجديد البشرة وتحسين الملمس وملء الخطوط الدقيقة بمادة طبيعية ومتوافقة حيوياً بالكامل."
+    },
+    "icon": "face",
+    "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+    "tags": [
+      "Skin Boosters"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "department",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 10
+  },
+  {
+    "id": "57",
+    "slug": "fat-dissolving-prp",
+    "category": "Skin & Hair Sessions",
+    "categorySlug": "skin-and-hair-sessions",
+    "name": {
+      "en": "Fat Dissolving + PRP",
+      "ar": "إذابة الدهون + بلازما"
+    },
+    "shortDescription": {
+      "en": "Combined fat dissolving and PRP for targeted contouring.",
+      "ar": "إذابة الدهون مع البلازما للنحت المستهدف."
+    },
+    "description": {
+      "en": "A dual treatment combining injectable fat dissolving agents with PRP therapy for targeted facial or body contouring with enhanced skin quality.",
+      "ar": "علاج مزدوج يجمع بين حقن إذابة الدهون وعلاج البلازما للنحت المستهدف للوجه أو الجسم مع تحسين جودة البشرة."
+    },
+    "icon": "face",
+    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
+    "tags": [
+      "Skin Boosters"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "department",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 11
+  },
+  {
+    "id": "58",
+    "slug": "laser-mole-lesion-removal",
+    "category": "Other Local Procedures",
+    "categorySlug": "other-local-procedures",
+    "name": {
+      "en": "Laser Mole/Lesion Removal",
+      "ar": "إزالة الشامات بالليزر"
+    },
+    "shortDescription": {
+      "en": "Safe laser removal of moles, warts, and skin lesions.",
+      "ar": "إزالة آمنة للشامات والثآليل والآفات الجلدية بالليزر."
+    },
+    "description": {
+      "en": "Precise laser technology to safely remove moles, warts, and benign skin lesions with minimal scarring. Includes dermatological assessment before treatment.",
+      "ar": "تقنية ليزر دقيقة لإزالة الشامات والثآليل والآفات الجلدية الحميدة بأمان مع ندبات خفيفة. يشمل تقييم جلدي قبل العلاج."
+    },
+    "icon": "healing",
+    "image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": true,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 1
+  },
+  {
+    "id": "59",
+    "slug": "autologous-fat-transfer",
+    "category": "Other Local Procedures",
+    "categorySlug": "other-local-procedures",
+    "name": {
+      "en": "Autologous Fat Transfer",
+      "ar": "نقل الدهون الذاتية"
+    },
+    "shortDescription": {
+      "en": "Use your own fat to add volume and rejuvenate areas naturally.",
+      "ar": "استخدام دهونك لإضافة الحجم وتجديد المناطق بشكل طبيعي."
+    },
+    "description": {
+      "en": "Autologous fat transfer harvests fat from one area of your body and re-injects it to add volume to the face, hands, or other areas for natural, long-lasting results.",
+      "ar": "نقل الدهون الذاتية يستخرج الدهون من منطقة في جسمك ويعيد حقنها لإضافة الحجم للوجه أو اليدين أو مناطق أخرى لنتائج طبيعية ودائمة."
+    },
+    "icon": "healing",
+    "image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": true,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 2
+  },
+  {
+    "id": "60",
+    "slug": "complementary-procedures",
+    "category": "Other Local Procedures",
+    "categorySlug": "other-local-procedures",
+    "name": {
+      "en": "Complementary Procedures",
+      "ar": "إجراءات تكميلية"
+    },
+    "shortDescription": {
+      "en": "Additional minor procedures to complement primary treatments.",
+      "ar": "إجراءات بسيطة إضافية لتكملة العلاجات الرئيسية."
+    },
+    "description": {
+      "en": "A range of complementary local procedures that can be combined with other treatments to achieve optimal results. Consult with our team for personalized recommendations.",
+      "ar": "مجموعة من الإجراءات الموضعية التكميلية التي يمكن دمجها مع علاجات أخرى لتحقيق نتائج مثلى. استشر فريقنا للحصول على توصيات مخصصة."
+    },
+    "icon": "healing",
+    "image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80",
+    "tags": [],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": true,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 3
+  },
+  {
+    "id": "61",
+    "slug": "deep-skin-cleansing-facial",
+    "category": "Skin & Hair Sessions",
+    "categorySlug": "skin-and-hair-sessions",
+    "name": {
+      "en": "Deep Skin Cleansing Facial",
+      "ar": "تنظيف البشرة العميق"
+    },
+    "shortDescription": {
+      "en": "Professional deep cleansing for clear, refreshed skin.",
+      "ar": "تنظيف عميق احترافي لبشرة نقية ومنتعشة."
+    },
+    "description": {
+      "en": "A thorough deep cleansing facial that extracts impurities, unclogs pores, and leaves your skin deeply purified, smooth, and refreshed.",
+      "ar": "جلسة تنظيف عميق شاملة تستخرج الشوائب وتفتح المسام وتترك بشرتك نقية بعمق وناعمة ومنتعشة."
+    },
+    "icon": "face",
+    "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+    "tags": [
+      "Dermatology"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "department",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 12
+  },
+  {
+    "id": "62",
+    "slug": "skin-tone-boosting-injection",
+    "category": "Skin & Hair Sessions",
+    "categorySlug": "skin-and-hair-sessions",
+    "name": {
+      "en": "Skin Tone Boosting Injection",
+      "ar": "حقنة تفتيح البشرة"
+    },
+    "shortDescription": {
+      "en": "Brightening injection to even out skin tone.",
+      "ar": "حقنة تفتيح لتوحيد لون البشرة."
+    },
+    "description": {
+      "en": "A specialized injection formula that targets uneven skin tone, dark spots, and dullness, promoting a brighter, more uniform complexion.",
+      "ar": "تركيبة حقن متخصصة تستهدف لون البشرة غير المتساوي والبقع الداكنة والبهتان، مما يعزز بشرة أكثر إشراقاً وتوحيداً."
+    },
+    "icon": "face",
+    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
+    "tags": [
+      "Skin Boosters"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 13
+  },
+  {
+    "id": "63",
+    "slug": "revital-skin-booster",
+    "category": "Skin & Hair Sessions",
+    "categorySlug": "skin-and-hair-sessions",
+    "name": {
+      "en": "Revital Skin Booster",
+      "ar": "حقنة ريفيتال للنضارة"
+    },
+    "shortDescription": {
+      "en": "Premium skin booster for intense hydration and glow.",
+      "ar": "حقنة نضارة فاخرة للترطيب المكثف والإشراقة."
+    },
+    "description": {
+      "en": "Revital skin booster delivers a concentrated blend of hyaluronic acid and revitalizing nutrients for intense hydration, improved elasticity, and a radiant glow.",
+      "ar": "حقنة ريفيتال للنضارة توصل مزيجاً مركزاً من حمض الهيالورونيك والمغذيات المجددة للترطيب المكثف وتحسين المرونة وإشراقة مشعة."
+    },
+    "icon": "face",
+    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
+    "tags": [
+      "Skin Boosters"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 14
+  },
+  {
+    "id": "64",
+    "slug": "instant-glow-injection",
+    "category": "Skin & Hair Sessions",
+    "categorySlug": "skin-and-hair-sessions",
+    "name": {
+      "en": "Instant Glow Injection",
+      "ar": "حقنة الإشراقة الفورية"
+    },
+    "shortDescription": {
+      "en": "Quick injection for an immediate radiant glow.",
+      "ar": "حقنة سريعة لإشراقة فورية ومشعة."
+    },
+    "description": {
+      "en": "A fast-acting glow injection that delivers an immediate luminous complexion, perfect before special events or as a regular skin brightening treatment.",
+      "ar": "حقنة إشراقة سريعة المفعول توفر بشرة مضيئة فوراً، مثالية قبل المناسبات الخاصة أو كعلاج منتظم لتفتيح البشرة."
+    },
+    "icon": "face",
+    "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+    "tags": [
+      "Skin Boosters"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 15
+  },
+  {
+    "id": "65",
+    "slug": "exosome-injection",
+    "category": "Skin & Hair Sessions",
+    "categorySlug": "skin-and-hair-sessions",
+    "name": {
+      "en": "Exosome Injection",
+      "ar": "حقنة الإكسوسوم"
+    },
+    "shortDescription": {
+      "en": "Next-generation regenerative therapy for skin renewal.",
+      "ar": "علاج تجديدي من الجيل القادم لتجديد البشرة."
+    },
+    "description": {
+      "en": "Exosome therapy uses cell-derived nanoparticles to stimulate deep tissue regeneration, accelerate healing, and dramatically improve skin quality and texture.",
+      "ar": "علاج الإكسوسوم يستخدم جسيمات نانوية مشتقة من الخلايا لتحفيز التجدد العميق للأنسجة وتسريع الشفاء وتحسين جودة وملمس البشرة بشكل كبير."
+    },
+    "icon": "face",
+    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
+    "tags": [
+      "Skin Boosters"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 16
+  },
+  {
+    "id": "66",
+    "slug": "enjoy-booster",
+    "category": "Skin & Hair Sessions",
+    "categorySlug": "skin-and-hair-sessions",
+    "name": {
+      "en": "Enjoy Booster",
+      "ar": "حقنة إنجوي بوستر"
+    },
+    "shortDescription": {
+      "en": "Rejuvenating booster injection for lasting skin vitality.",
+      "ar": "حقنة بوستر مجددة لحيوية بشرة دائمة."
+    },
+    "description": {
+      "en": "Enjoy Booster is a premium skin revitalization treatment that deeply hydrates, plumps, and restores skin vitality for a naturally youthful appearance.",
+      "ar": "إنجوي بوستر هو علاج فاخر لتجديد حيوية البشرة يرطب بعمق ويملأ ويستعيد حيوية البشرة لمظهر شبابي طبيعي."
+    },
+    "icon": "face",
+    "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+    "tags": [
+      "Skin Boosters"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 17
+  },
+  {
+    "id": "67",
+    "slug": "calcium-collagen-stimulator",
+    "category": "Skin & Hair Sessions",
+    "categorySlug": "skin-and-hair-sessions",
+    "name": {
+      "en": "Calcium Collagen Stimulator",
+      "ar": "محفز كولاجين الكالسيوم"
+    },
+    "shortDescription": {
+      "en": "Bio-stimulator to rebuild collagen for firmer skin.",
+      "ar": "محفز حيوي لإعادة بناء الكولاجين لبشرة أكثر صلابة."
+    },
+    "description": {
+      "en": "Calcium-based collagen bio-stimulator triggers your body's natural collagen production over time, gradually restoring skin firmness, volume, and elasticity.",
+      "ar": "محفز كولاجين حيوي قائم على الكالسيوم يحفز إنتاج الكولاجين الطبيعي في جسمك بمرور الوقت، مما يستعيد تدريجياً صلابة البشرة وحجمها ومرونتها."
+    },
+    "icon": "face",
+    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
+    "tags": [
+      "Skin Boosters"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 18
+  },
+  {
+    "id": "68",
+    "slug": "charisma-booster",
+    "category": "Skin & Hair Sessions",
+    "categorySlug": "skin-and-hair-sessions",
+    "name": {
+      "en": "Charisma Booster",
+      "ar": "حقنة كاريزما بوستر"
+    },
+    "shortDescription": {
+      "en": "Signature booster for radiant, camera-ready skin.",
+      "ar": "بوستر مميز لبشرة مشعة وجاهزة للكاميرا."
+    },
+    "description": {
+      "en": "The Charisma Booster is our signature skin glow treatment combining hyaluronic acid with a proprietary vitamin blend for an unmistakable, lit-from-within radiance.",
+      "ar": "كاريزما بوستر هو علاج الإشراقة المميز لدينا يجمع بين حمض الهيالورونيك ومزيج فيتامينات خاص لإشراقة لا تُضاهى من الداخل."
+    },
+    "icon": "face",
+    "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+    "tags": [
+      "Skin Boosters"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 19
+  },
+  {
+    "id": "69",
+    "slug": "mini-full-face-filler",
+    "category": "Aesthetic Injections",
+    "categorySlug": "aesthetic-injections",
+    "name": {
+      "en": "Mini Full Face Filler",
+      "ar": "فيلر الوجه المصغر الشامل"
+    },
+    "shortDescription": {
+      "en": "Subtle multi-area filler for balanced facial enhancement.",
+      "ar": "فيلر متعدد المناطق لتحسين متوازن للوجه."
+    },
+    "description": {
+      "en": "Mini full face filler uses smaller amounts of dermal filler across multiple facial areas — cheeks, lips, chin, and jawline — for a subtle, harmonious overall enhancement.",
+      "ar": "فيلر الوجه المصغر الشامل يستخدم كميات أصغر من الفيلر عبر مناطق متعددة من الوجه — الخدود والشفاه والذقن وخط الفك — لتحسين شامل متوازن وطبيعي."
+    },
+    "icon": "vaccines",
+    "image": "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=800&q=80",
+    "tags": [
+      "Filler"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "doctor",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 12
+  },
+  {
+    "id": "70",
+    "slug": "vivace-session",
+    "category": "Skin & Hair Sessions",
+    "categorySlug": "skin-and-hair-sessions",
+    "name": {
+      "en": "Vivace Session",
+      "ar": "جلسة فيفاتشي"
+    },
+    "shortDescription": {
+      "en": "Advanced RF microneedling for skin tightening and rejuvenation.",
+      "ar": "إبر دقيقة بالترددات الراديوية المتقدمة لشد وتجديد البشرة."
+    },
+    "description": {
+      "en": "Vivace RF microneedling combines gold-tipped microneedles with radiofrequency energy and LED light therapy for superior skin tightening, texture improvement, and collagen stimulation.",
+      "ar": "فيفاتشي يجمع بين الإبر الدقيقة المطلية بالذهب وطاقة الترددات الراديوية والعلاج بالضوء LED لشد البشرة المتفوق وتحسين الملمس وتحفيز الكولاجين."
+    },
+    "icon": "face",
+    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
+    "tags": [
+      "Dermatology"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 20
+  },
+  {
+    "id": "71",
+    "slug": "fractional-laser-session",
+    "category": "Skin & Hair Sessions",
+    "categorySlug": "skin-and-hair-sessions",
+    "name": {
+      "en": "Fractional Laser Session",
+      "ar": "جلسة الفراكشنال ليزر"
+    },
+    "shortDescription": {
+      "en": "Fractional laser for scar reduction and skin resurfacing.",
+      "ar": "فراكشنال ليزر لتقليل الندبات وتجديد سطح البشرة."
+    },
+    "description": {
+      "en": "Fractional laser creates microscopic treatment zones in the skin, triggering intensive collagen remodeling to improve scars, wrinkles, pores, and overall skin texture.",
+      "ar": "الفراكشنال ليزر ينشئ مناطق علاج مجهرية في البشرة، مما يحفز إعادة تشكيل كولاجين مكثفة لتحسين الندبات والتجاعيد والمسام وملمس البشرة العام."
+    },
+    "icon": "face",
+    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
+    "tags": [
+      "Dermatology"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "device",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 21
+  },
+  {
+    "id": "72",
+    "slug": "forit-mix-sensitive-peel",
+    "category": "Skin & Hair Sessions",
+    "categorySlug": "skin-and-hair-sessions",
+    "name": {
+      "en": "Forit Mix Sensitive Peel",
+      "ar": "تقشير فوريت مكس للبشرة الحساسة"
+    },
+    "shortDescription": {
+      "en": "Gentle chemical peel formulated for sensitive skin types.",
+      "ar": "تقشير كيميائي لطيف مصمم لأنواع البشرة الحساسة."
+    },
+    "description": {
+      "en": "Forit Mix is a specially formulated gentle peel for sensitive and reactive skin types, providing controlled exfoliation with minimal irritation for a brighter, smoother complexion.",
+      "ar": "فوريت مكس هو تقشير لطيف مصمم خصيصاً لأنواع البشرة الحساسة والمتفاعلة، يوفر تقشيراً محكوماً مع أقل قدر من التهيج لبشرة أكثر إشراقاً ونعومة."
+    },
+    "icon": "face",
+    "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+    "tags": [
+      "Chemical Peel"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "department",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 22
+  },
+  {
+    "id": "73",
+    "slug": "acne-treatment-session",
+    "category": "Skin & Hair Sessions",
+    "categorySlug": "skin-and-hair-sessions",
+    "name": {
+      "en": "Acne Treatment Session",
+      "ar": "جلسة علاج حب الشباب"
+    },
+    "shortDescription": {
+      "en": "Targeted session to treat active acne and prevent breakouts.",
+      "ar": "جلسة مستهدفة لعلاج حب الشباب النشط ومنع ظهوره."
+    },
+    "description": {
+      "en": "A comprehensive acne treatment session combining deep cleansing, extraction, and specialized topical treatments to clear active breakouts and prevent recurrence.",
+      "ar": "جلسة شاملة لعلاج حب الشباب تجمع بين التنظيف العميق والاستخراج والعلاجات الموضعية المتخصصة لتنظيف البثور النشطة ومنع تكرارها."
+    },
+    "icon": "face",
+    "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+    "tags": [
+      "Dermatology"
+    ],
+    "branches": [],
+    "duration": "",
+    "benefits": {
+      "en": [],
+      "ar": []
+    },
+    "steps": {
+      "en": [],
+      "ar": []
+    },
+    "downtime": {
+      "en": "",
+      "ar": ""
+    },
+    "faq": [],
+    "requiresConsultation": false,
+    "assignedTo": "department",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 23
   }
 ]

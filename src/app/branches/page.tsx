@@ -1,19 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import ScrollReveal from "@/components/ScrollReveal";
 import { branches } from "@/data/branches";
-import { serviceCategories } from "@/data/services";
+import type { ServiceCategory } from "@/types";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
 
 /** Map a service category slug to its readable bilingual name */
-function serviceName(slug: string): { en: string; ar: string } {
-  const found = serviceCategories.find((c) => c.slug === slug);
+function serviceName(slug: string, cats: ServiceCategory[]): { en: string; ar: string } {
+  const found = cats.find((c) => c.slug === slug);
   return found ? found.name : { en: slug, ar: slug };
 }
 
@@ -199,10 +199,12 @@ function BranchCard({
   branch,
   isSelected,
   onSelect,
+  categories,
 }: {
   branch: (typeof branches)[number];
   isSelected: boolean;
   onSelect: () => void;
+  categories: ServiceCategory[];
 }) {
   const { t, dir } = useLanguage();
 
@@ -275,7 +277,7 @@ function BranchCard({
                 key={slug}
                 className={`text-[11px] font-medium px-2.5 py-1 rounded-full ${tagColors[i % tagColors.length]}`}
               >
-                {t(serviceName(slug))}
+                {t(serviceName(slug, categories))}
               </span>
             ))}
           </div>
@@ -330,6 +332,14 @@ function BranchCard({
 export default function BranchesPage() {
   const { t, dir } = useLanguage();
   const [selectedBranch, setSelectedBranch] = useState<string>(branches[0]?.id ?? "");
+  const [serviceCategories, setServiceCategories] = useState<ServiceCategory[]>([]);
+
+  useEffect(() => {
+    fetch("/api/service-categories")
+      .then((res) => res.json())
+      .then((data) => setServiceCategories(data))
+      .catch((err) => console.error("Failed to fetch service categories:", err));
+  }, []);
 
   return (
     <main dir={dir} className="min-h-screen bg-bg-light">
@@ -398,6 +408,7 @@ export default function BranchesPage() {
                   branch={branch}
                   isSelected={selectedBranch === branch.id}
                   onSelect={() => setSelectedBranch(branch.id)}
+                  categories={serviceCategories}
                 />
               </ScrollReveal>
             ))}

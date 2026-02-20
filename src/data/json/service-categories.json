@@ -1,8 +1,67 @@
 [
-  { "slug": "skin-care", "name": { "en": "Skin Care & Treatments", "ar": "العناية بالبشرة والعلاجات" }, "icon": "face", "description": { "en": "Rejuvenating facials, chemical peels, and advanced laser treatments for radiant skin.", "ar": "علاجات الوجه المجددة والتقشير الكيميائي وعلاجات الليزر المتقدمة للبشرة المشرقة." }, "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80" },
-  { "slug": "hair-care", "name": { "en": "Hair Care & Treatments", "ar": "العناية بالشعر والعلاجات" }, "icon": "content_cut", "description": { "en": "From PRP therapy to styling, comprehensive hair solutions for every need.", "ar": "من علاج البلازما إلى التصفيف، حلول شاملة للشعر لكل حاجة." }, "image": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" },
-  { "slug": "nail-services", "name": { "en": "Nail Services", "ar": "خدمات الأظافر" }, "icon": "spa", "description": { "en": "Professional manicure, pedicure, gel nails, and artistic nail designs.", "ar": "مانيكير وباديكير احترافي وأظافر جل وتصاميم فنية." }, "image": "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80" },
-  { "slug": "injectables", "name": { "en": "Injectables & Fillers", "ar": "الحقن والفيلر" }, "icon": "vaccines", "description": { "en": "Expert Botox, dermal fillers, and skin boosters for natural enhancement.", "ar": "بوتوكس متخصص وفيلر وحقن تعزيز البشرة للتحسين الطبيعي." }, "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80" },
-  { "slug": "surgical", "name": { "en": "Surgical Procedures", "ar": "العمليات الجراحية" }, "icon": "medical_services", "description": { "en": "Advanced cosmetic surgeries performed by board-certified surgeons.", "ar": "عمليات تجميل متقدمة يجريها جراحون معتمدون." }, "image": "https://images.unsplash.com/photo-1551190822-a9ce113ac100?w=600&q=80" },
-  { "slug": "laser", "name": { "en": "Laser Hair Removal", "ar": "إزالة الشعر بالليزر" }, "icon": "bolt", "description": { "en": "FDA-approved laser technology for permanent hair reduction.", "ar": "تقنية ليزر معتمدة من FDA لإزالة الشعر الدائمة." }, "image": "https://images.unsplash.com/photo-1598524374912-6b0b0bab43a5?w=600&q=80" }
+  {
+    "slug": "plastic-surgery",
+    "name": { "en": "Plastic Surgery", "ar": "عمليات تجميل جراحية" },
+    "icon": "medical_services",
+    "description": {
+      "en": "Board-certified plastic surgeons performing rhinoplasty, blepharoplasty, liposuction, facelifts, and more using the latest techniques for natural, lasting results.",
+      "ar": "جراحون تجميل معتمدون يجرون عمليات تجميل الأنف وشد الجفون وشفط الدهون وشد الوجه والمزيد باستخدام أحدث التقنيات لنتائج طبيعية ودائمة."
+    },
+    "image": "https://images.unsplash.com/photo-1551190822-a9ce113ac100?w=800&q=80",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 1
+  },
+  {
+    "slug": "aesthetic-injections",
+    "name": { "en": "Aesthetic Injections", "ar": "حقن تجميلية" },
+    "icon": "vaccines",
+    "description": {
+      "en": "Expert filler and Botox treatments for lips, cheeks, jawline, and expression lines — administered by qualified dermatologists for safe, natural-looking enhancement.",
+      "ar": "علاجات فيلر وبوتوكس متخصصة للشفاه والخدود وخط الفك وخطوط التعبير — يتم إجراؤها من قبل أطباء جلدية مؤهلين لتحسين آمن وطبيعي المظهر."
+    },
+    "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&q=80",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 2
+  },
+  {
+    "slug": "laser-hair-removal",
+    "name": { "en": "Laser Hair Removal", "ar": "ليزر إزالة الشعر" },
+    "icon": "bolt",
+    "description": {
+      "en": "FDA-approved laser technology for permanent hair reduction on face, body, and sensitive areas — suitable for all skin types with minimal discomfort.",
+      "ar": "تقنية ليزر معتمدة من FDA لإزالة الشعر الدائمة للوجه والجسم والمناطق الحساسة — مناسبة لجميع أنواع البشرة مع أقل قدر من الألم."
+    },
+    "image": "https://images.unsplash.com/photo-1598524374912-6b0b0bab43a5?w=800&q=80",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 3
+  },
+  {
+    "slug": "skin-and-hair-sessions",
+    "name": { "en": "Skin & Hair Sessions", "ar": "جلسات البشرة والشعر" },
+    "icon": "face",
+    "description": {
+      "en": "Advanced skin rejuvenation and hair restoration sessions including PRP, mesotherapy, skin boosters, chemical peels, and RF microneedling.",
+      "ar": "جلسات متقدمة لتجديد البشرة واستعادة الشعر تشمل البلازما والميزوثيرابي وحقن النضارة والتقشير الكيميائي والإبر الدقيقة بالترددات الراديوية."
+    },
+    "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 4
+  },
+  {
+    "slug": "other-local-procedures",
+    "name": { "en": "Other Local Procedures", "ar": "إجراءات موضعية أخرى" },
+    "icon": "healing",
+    "description": {
+      "en": "Minimally invasive local procedures including laser mole removal, autologous fat transfer, and other complementary aesthetic treatments.",
+      "ar": "إجراءات موضعية طفيفة التوغل تشمل إزالة الشامات بالليزر ونقل الدهون الذاتية وعلاجات تجميلية تكميلية أخرى."
+    },
+    "image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "sortOrder": 5
+  }
 ]

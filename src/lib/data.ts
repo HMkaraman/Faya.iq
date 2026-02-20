@@ -3,6 +3,7 @@ import path from "path";
 import type {
   Service,
   ServiceCategory,
+  Bundle,
   Branch,
   TeamMember,
   BlogPost,
@@ -34,6 +35,10 @@ export function getServices(): Service[] {
 
 export function getServiceCategories(): ServiceCategory[] {
   return readData<ServiceCategory[]>("service-categories.json");
+}
+
+export function getBundles(): Bundle[] {
+  return readData<Bundle[]>("bundles.json");
 }
 
 export function getBranches(): Branch[] {

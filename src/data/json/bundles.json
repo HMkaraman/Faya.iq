@@ -1,0 +1,90 @@
+[
+  {
+    "id": "bundle-1",
+    "slug": "botox-revital-booster",
+    "name": { "en": "Botox + Revital Booster", "ar": "بوتوكس + ريفيتال بوستر" },
+    "description": { "en": "Combine forehead Botox with a Revital skin booster injection for a smooth, radiant result.", "ar": "اجمع بين بوتوكس الجبهة وحقنة ريفيتال للنضارة لنتيجة ناعمة ومشعة." },
+    "includedServiceIds": ["21", "63"],
+    "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&q=80",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "tags": ["Botox", "Skin Boosters"]
+  },
+  {
+    "id": "bundle-2",
+    "slug": "vivace-exosome",
+    "name": { "en": "Vivace + Exosome", "ar": "فيفاتشي + إكسوسوم" },
+    "description": { "en": "Pair Vivace RF microneedling with exosome therapy for deep skin renewal and accelerated healing.", "ar": "اجمع بين فيفاتشي والإكسوسوم لتجديد عميق للبشرة وشفاء متسارع." },
+    "includedServiceIds": ["70", "65"],
+    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "tags": ["Dermatology", "Skin Boosters"]
+  },
+  {
+    "id": "bundle-3",
+    "slug": "fractional-laser-exosome",
+    "name": { "en": "Fractional Laser + Exosome", "ar": "فراكشنال ليزر + إكسوسوم" },
+    "description": { "en": "Combine fractional laser resurfacing with exosome therapy for maximum collagen stimulation and skin repair.", "ar": "اجمع بين الفراكشنال ليزر والإكسوسوم لأقصى تحفيز للكولاجين وإصلاح البشرة." },
+    "includedServiceIds": ["71", "65"],
+    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "tags": ["Dermatology", "Skin Boosters"]
+  },
+  {
+    "id": "bundle-4",
+    "slug": "acne-treatment-exosome",
+    "name": { "en": "Acne Treatment + Exosome", "ar": "علاج حب الشباب + إكسوسوم" },
+    "description": { "en": "Treat active acne and accelerate skin healing with an exosome boost for clearer, healthier skin.", "ar": "عالج حب الشباب النشط وسرّع شفاء البشرة مع حقنة إكسوسوم لبشرة أنقى وأكثر صحة." },
+    "includedServiceIds": ["73", "65"],
+    "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "tags": ["Dermatology", "Skin Boosters"]
+  },
+  {
+    "id": "bundle-5",
+    "slug": "korean-lip-filler-revital",
+    "name": { "en": "Korean Lip Filler + Revital", "ar": "فيلر الشفاه الكوري + ريفيتال" },
+    "description": { "en": "Get beautifully plump lips combined with a Revital booster for overall facial glow.", "ar": "احصل على شفاه ممتلئة بشكل جميل مع حقنة ريفيتال لإشراقة وجه شاملة." },
+    "includedServiceIds": ["14", "63"],
+    "image": "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=800&q=80",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "tags": ["Filler", "Skin Boosters"]
+  },
+  {
+    "id": "bundle-6",
+    "slug": "korean-lip-filler-chin-filler",
+    "name": { "en": "Korean Lip Filler + Chin Filler", "ar": "فيلر الشفاه الكوري + فيلر الذقن" },
+    "description": { "en": "Enhance both lips and chin for a harmonious lower face profile.", "ar": "حسّن الشفاه والذقن معاً لملف جانبي سفلي متناسق." },
+    "includedServiceIds": ["14", "17"],
+    "image": "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=800&q=80",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "tags": ["Filler"]
+  },
+  {
+    "id": "bundle-7",
+    "slug": "mini-full-face-lip-filler",
+    "name": { "en": "Mini Full Face + Lip Filler", "ar": "فيلر الوجه المصغر + فيلر الشفاه" },
+    "description": { "en": "Combine mini full face enhancement with focused lip filler for a complete, natural-looking result.", "ar": "اجمع بين تحسين الوجه المصغر وفيلر الشفاه المركز لنتيجة كاملة وطبيعية المظهر." },
+    "includedServiceIds": ["69", "14"],
+    "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&q=80",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "tags": ["Filler"]
+  },
+  {
+    "id": "bundle-8",
+    "slug": "prp-mesotherapy",
+    "name": { "en": "PRP + Mesotherapy", "ar": "بلازما + ميزوثيرابي" },
+    "description": { "en": "Double the skin nourishment with PRP and mesotherapy for intense rejuvenation.", "ar": "ضاعف تغذية البشرة بالبلازما والميزوثيرابي لتجديد مكثف." },
+    "includedServiceIds": ["47", "51"],
+    "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+    "imageSource": "Unsplash",
+    "imageLicense": "Unsplash License",
+    "tags": ["Skin Boosters", "Dermatology"]
+  }
+]

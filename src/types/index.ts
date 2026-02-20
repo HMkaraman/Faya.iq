@@ -44,6 +44,24 @@ export interface Service {
   downtime: Bilingual;
   faq: { question: Bilingual; answer: Bilingual }[];
   beforeAfterPairs?: BeforeAfterPair[];
+  requiresConsultation?: boolean;
+  assignedTo?: string;
+  imageSource?: string;
+  imageLicense?: string;
+  sortOrder?: number;
+}
+
+// Bundle
+export interface Bundle {
+  id: string;
+  slug: string;
+  name: Bilingual;
+  description: Bilingual;
+  includedServiceIds: string[];
+  image: string;
+  imageSource?: string;
+  imageLicense?: string;
+  tags?: string[];
 }
 
 // Service Category
@@ -53,6 +71,9 @@ export interface ServiceCategory {
   icon: string;
   description: Bilingual;
   image: string;
+  imageSource?: string;
+  imageLicense?: string;
+  sortOrder?: number;
 }
 
 // Branch

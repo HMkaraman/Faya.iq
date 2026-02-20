@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { branches, type Branch } from "@/data/branches";
-import { services, type Service } from "@/data/services";
+import type { Service } from "@/types";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -86,9 +86,17 @@ export default function BookingPage() {
   const isRTL = dir === "rtl";
 
   /* ---- state ---- */
+  const [allServices, setAllServices] = useState<Service[]>([]);
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedBranch, setSelectedBranch] = useState<Branch>(branches[0]);
   const [selectedService, setSelectedService] = useState<Service | null>(null);
+
+  useEffect(() => {
+    fetch("/api/services")
+      .then((res) => res.json())
+      .then((data) => setAllServices(data))
+      .catch((err) => console.error("Failed to fetch services:", err));
+  }, []);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [timeFilter, setTimeFilter] = useState<"morning" | "afternoon" | "evening">("morning");
@@ -110,8 +118,8 @@ export default function BookingPage() {
 
   const filteredServices = useMemo(() => {
     if (!selectedBranch) return [];
-    return services.filter((s: Service) => s.branches.includes(selectedBranch.id));
-  }, [selectedBranch]);
+    return allServices.filter((s: Service) => s.branches.includes(selectedBranch.id));
+  }, [selectedBranch, allServices]);
 
   const activeSlots = useMemo(() => {
     if (timeFilter === "morning") return MORNING_SLOTS;
