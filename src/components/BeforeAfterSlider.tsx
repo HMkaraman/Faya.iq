@@ -17,7 +17,7 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, caption }: 
       <div className="grid grid-cols-2 gap-3 sm:gap-4">
         {/* Before Frame */}
         <div className="relative overflow-hidden rounded-xl shadow-md">
-          <div className="aspect-[3/4] sm:aspect-[4/3]">
+          <div className="aspect-[4/5]">
             <img
               src={beforeImage}
               alt="Before"
@@ -34,7 +34,7 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, caption }: 
 
         {/* After Frame */}
         <div className="relative overflow-hidden rounded-xl shadow-md">
-          <div className="aspect-[3/4] sm:aspect-[4/3]">
+          <div className="aspect-[4/5]">
             <img
               src={afterImage}
               alt="After"
