@@ -314,31 +314,31 @@ export default function HeroSlidesPage() {
                         rows={2}
                       />
 
-                      {/* CTA */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <BilingualInput
-                          label={t(adminI18n.heroSlides.ctaText)}
-                          nameEn={`hero_cta_en_${index}`}
-                          nameAr={`hero_cta_ar_${index}`}
-                          valueEn={slide.ctaText?.en || ""}
-                          valueAr={slide.ctaText?.ar || ""}
-                          onChangeEn={(v) => updateSlide(index, { ctaText: { en: v, ar: slide.ctaText?.ar || "" } })}
-                          onChangeAr={(v) => updateSlide(index, { ctaText: { en: slide.ctaText?.en || "", ar: v } })}
+                      {/* CTA Button Text — full width so EN/AR columns have room */}
+                      <BilingualInput
+                        label={t(adminI18n.heroSlides.ctaText)}
+                        nameEn={`hero_cta_en_${index}`}
+                        nameAr={`hero_cta_ar_${index}`}
+                        valueEn={slide.ctaText?.en || ""}
+                        valueAr={slide.ctaText?.ar || ""}
+                        onChangeEn={(v) => updateSlide(index, { ctaText: { en: v, ar: slide.ctaText?.ar || "" } })}
+                        onChangeAr={(v) => updateSlide(index, { ctaText: { en: slide.ctaText?.en || "", ar: v } })}
+                      />
+
+                      {/* CTA Link */}
+                      <FormField label={t(adminI18n.heroSlides.ctaLink)}>
+                        <input
+                          type="text"
+                          value={slide.ctaHref || ""}
+                          onChange={(e) => updateSlide(index, { ctaHref: e.target.value })}
+                          placeholder={t(adminI18n.heroSlides.ctaLinkPlaceholder)}
+                          className={INPUT_CLASS}
                         />
-                        <FormField label={t(adminI18n.heroSlides.ctaLink)}>
-                          <input
-                            type="text"
-                            value={slide.ctaHref || ""}
-                            onChange={(e) => updateSlide(index, { ctaHref: e.target.value })}
-                            placeholder={t(adminI18n.heroSlides.ctaLinkPlaceholder)}
-                            className={INPUT_CLASS}
-                          />
-                        </FormField>
-                      </div>
+                      </FormField>
 
                       {/* Active toggle */}
                       <div className="flex items-center gap-3 pt-1">
-                        <label className="relative inline-flex items-center cursor-pointer">
+                        <label className="relative inline-flex items-center cursor-pointer" dir="ltr">
                           <input
                             type="checkbox"
                             checked={slide.active}
@@ -346,10 +346,10 @@ export default function HeroSlidesPage() {
                             className="sr-only peer"
                           />
                           <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary/30 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary" />
-                          <span className="ml-3 text-sm text-gray-600">
-                            {slide.active ? t(adminI18n.heroSlides.activeSlide) : t(adminI18n.heroSlides.inactiveSlide)}
-                          </span>
                         </label>
+                        <span className="text-sm text-gray-600">
+                          {slide.active ? t(adminI18n.heroSlides.activeSlide) : t(adminI18n.heroSlides.inactiveSlide)}
+                        </span>
                       </div>
 
                       {/* Live Preview */}
