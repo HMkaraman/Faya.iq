@@ -2,6 +2,9 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 import { useLanguage } from "@/context/LanguageContext";
 import ScrollReveal from "@/components/ScrollReveal";
 import AnimatedCounter from "@/components/AnimatedCounter";
@@ -90,16 +93,8 @@ export default function HomePage() {
     fetchData();
   }, []);
 
-  /* Featured categories for the grid (pick 3) */
-  const featuredCategories = serviceCategories.filter((c) =>
-    ["skin-care", "hair-care", "injectables"].includes(c.slug)
-  );
-
-  const featuredCategoryMeta: Record<string, { icon: string; label: { en: string; ar: string } }> = {
-    "skin-care": { icon: "face_retouching_natural", label: { en: "Skin Care", ar: "العناية بالبشرة" } },
-    "hair-care": { icon: "content_cut", label: { en: "Hair Solutions", ar: "حلول الشعر" } },
-    injectables: { icon: "vaccines", label: { en: "Injectables", ar: "الحقن التجميلية" } },
-  };
+  /* All service categories for the carousel */
+  const allCategories = serviceCategories;
 
   /* Helpers --------------------------------------------------------- */
   const isOpenNow = () => true; // simplified for display
@@ -324,12 +319,22 @@ export default function HomePage() {
             </div>
           </ScrollReveal>
 
-          {/* Service cards */}
-          <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
-            {featuredCategories.map((cat, idx) => {
-              const meta = featuredCategoryMeta[cat.slug];
-              return (
-                <ScrollReveal key={cat.slug} delay={idx * 150}>
+          {/* Service cards — auto-sliding carousel */}
+          <div className="mt-16">
+            <Swiper
+              modules={[Autoplay]}
+              autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+              spaceBetween={24}
+              slidesPerView={1}
+              breakpoints={{
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+              }}
+              loop={allCategories.length > 3}
+              className="!overflow-visible"
+            >
+              {allCategories.map((cat) => (
+                <SwiperSlide key={cat.slug}>
                   <Link
                     href={`/services?category=${cat.slug}`}
                     className="group block overflow-hidden rounded-xl bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
@@ -347,11 +352,11 @@ export default function HomePage() {
                     <div className="relative px-6 pb-6 pt-0">
                       {/* Floating icon */}
                       <div className="-mt-7 mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/30">
-                        <MIcon name={meta?.icon || cat.icon} className="text-2xl" />
+                        <MIcon name={cat.icon} className="text-2xl" />
                       </div>
 
                       <h3 className="text-lg font-bold text-[#333333] group-hover:text-primary transition-colors duration-300">
-                        {meta ? t(meta.label) : t(cat.name)}
+                        {t(cat.name)}
                       </h3>
                       <p className="mt-2 text-sm leading-relaxed text-[#8c7284] line-clamp-2">
                         {t(cat.description)}
@@ -372,9 +377,9 @@ export default function HomePage() {
                       </div>
                     </div>
                   </Link>
-                </ScrollReveal>
-              );
-            })}
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
 
           {/* View all link */}

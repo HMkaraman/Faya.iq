@@ -332,6 +332,36 @@ body {
   box-shadow: 0 0 8px rgba(200, 86, 126, 0.5);
 }
 
+/* ===== Before / After Slider ===== */
+
+/* Hide hint after first interaction */
+.before-after-container:active .before-after-hint,
+.before-after-container.touched .before-after-hint {
+  opacity: 0 !important;
+}
+
+/* Hide default Swiper nav inside ba-swiper */
+.ba-swiper .swiper-button-next,
+.ba-swiper .swiper-button-prev {
+  display: none;
+}
+
+/* Custom pagination dots for before/after carousel */
+.ba-pagination .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: var(--color-primary-light);
+  opacity: 1;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.ba-pagination .swiper-pagination-bullet-active {
+  background: var(--color-primary);
+  transform: scale(1.2);
+}
+
 /* Focus styles for accessibility */
 :focus-visible {
   outline: 2px solid var(--color-primary);

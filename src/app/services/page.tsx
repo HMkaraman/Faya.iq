@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { Suspense, useState, useMemo, useEffect } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -17,7 +18,17 @@ const tagLabels: Record<string, { en: string; ar: string }> = {
 };
 
 export default function ServicesPage() {
+  return (
+    <Suspense>
+      <ServicesContent />
+    </Suspense>
+  );
+}
+
+function ServicesContent() {
   const { lang, dir, t } = useLanguage();
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams.get("category");
 
   /* ── API data state ── */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -54,7 +65,7 @@ export default function ServicesPage() {
   }, []);
 
   const [search, setSearch] = useState("");
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [activeCategory, setActiveCategory] = useState(categoryParam || "all");
   const [activeTags, setActiveTags] = useState<string[]>([]);
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
@@ -91,7 +102,7 @@ export default function ServicesPage() {
 
       return true;
     });
-  }, [search, activeCategory, activeTags]);
+  }, [services, search, activeCategory, activeTags]);
 
   const getBranch = (branchId: string) =>
     branches.find((b: any) => b.id === branchId);

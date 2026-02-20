@@ -323,56 +323,36 @@ export default function ServiceDetailPage() {
         </section>
       )}
 
-      {/* ───────────── EXPECTED RESULTS ───────────── */}
-      <section className="bg-white py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <div className="text-center">
-              <span className="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
-                {t({ en: "What to Expect", ar: "ماذا تتوقع" })}
-              </span>
-              <h2 className="font-[Playfair_Display] text-3xl font-bold text-[#333333] sm:text-4xl">
-                {t({ en: "Expected Results", ar: "النتائج المتوقعة" })}
-              </h2>
-            </div>
-          </ScrollReveal>
+      {/* ───────────── EXPECTED RESULTS (Before/After) ───────────── */}
+      {service.beforeAfterPairs && service.beforeAfterPairs.length > 0 && (
+        <section className="bg-white py-16 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <ScrollReveal>
+              <div className="text-center">
+                <span className="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
+                  {t({ en: "What to Expect", ar: "ماذا تتوقع" })}
+                </span>
+                <h2 className="font-[Playfair_Display] text-3xl font-bold text-[#333333] sm:text-4xl">
+                  {t({ en: "Expected Results", ar: "النتائج المتوقعة" })}
+                </h2>
+              </div>
+            </ScrollReveal>
 
-          <div className="mx-auto mt-10 max-w-4xl">
-            {/* Before / After Gallery */}
-            {service.beforeAfterPairs && service.beforeAfterPairs.length > 0 ? (
+            <div className="mx-auto mt-10 max-w-4xl">
               <ScrollReveal>
                 <BeforeAfterCarousel pairs={service.beforeAfterPairs} />
               </ScrollReveal>
-            ) : (
-              <ScrollReveal>
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                  <div className="flex aspect-[4/3] items-center justify-center rounded-xl border-2 border-dashed border-primary/20 bg-[#fbf9fa]">
-                    <div className="text-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto h-12 w-12 text-primary/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
-                      </svg>
-                      <p className="mt-3 text-sm font-semibold text-primary/50">
-                        {t({ en: "Before", ar: "قبل" })}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex aspect-[4/3] items-center justify-center rounded-xl border-2 border-dashed border-primary/20 bg-[#fbf9fa]">
-                    <div className="text-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto h-12 w-12 text-primary/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
-                      </svg>
-                      <p className="mt-3 text-sm font-semibold text-primary/50">
-                        {t({ en: "After", ar: "بعد" })}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </ScrollReveal>
-            )}
+            </div>
+          </div>
+        </section>
+      )}
 
-            {/* Downtime Info Card */}
-            <ScrollReveal delay={150}>
-              <div className="mt-8 flex items-start gap-4 rounded-xl border border-primary/10 bg-gradient-to-r from-primary/5 to-transparent p-6">
+      {/* ───────────── RECOVERY & DOWNTIME ───────────── */}
+      <section className={`${service.beforeAfterPairs && service.beforeAfterPairs.length > 0 ? "bg-[#fbf9fa]" : "bg-white"} py-16 sm:py-20`}>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl">
+            <ScrollReveal>
+              <div className="flex items-start gap-4 rounded-xl border border-primary/10 bg-gradient-to-r from-primary/5 to-transparent p-6">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2m6-2a10 10 0 11-20 0 10 10 0 0120 0z" />
