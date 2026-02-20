@@ -1,0 +1,122 @@
+[
+  {
+    "id": "g1",
+    "title": { "en": "HydraFacial Transformation", "ar": "تحول الهيدرافيشل" },
+    "category": "skin-care",
+    "type": "before-after",
+    "beforeImage": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80",
+    "afterImage": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80",
+    "doctor": { "en": "Dr. Sarah Ahmed", "ar": "د. سارة أحمد" },
+    "sessions": 4,
+    "tags": [
+      { "en": "Skin Rejuvenation", "ar": "تجديد البشرة" },
+      { "en": "No Downtime", "ar": "بدون فترة تعافي" }
+    ],
+    "active": true
+  },
+  {
+    "id": "g2",
+    "title": { "en": "FUE Hair Transplant - 3000 Grafts", "ar": "زراعة الشعر FUE - ٣٠٠٠ بصيلة" },
+    "category": "hair-transplant",
+    "type": "before-after",
+    "beforeImage": "https://images.unsplash.com/photo-1585747860019-8e7e4d6e2a2f?w=600&q=80",
+    "afterImage": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80",
+    "doctor": { "en": "Dr. Youssef Ali", "ar": "د. يوسف علي" },
+    "sessions": 1,
+    "tags": [
+      { "en": "Hair Restoration", "ar": "استعادة الشعر" },
+      { "en": "Permanent", "ar": "دائم" }
+    ],
+    "active": true
+  },
+  {
+    "id": "g3",
+    "title": { "en": "Lip Filler Enhancement", "ar": "تعزيز فيلر الشفاه" },
+    "category": "injectables",
+    "type": "before-after",
+    "beforeImage": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80",
+    "afterImage": "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&q=80",
+    "doctor": { "en": "Dr. Layla Hassan", "ar": "د. ليلى حسن" },
+    "sessions": 2,
+    "tags": [
+      { "en": "Fillers", "ar": "فيلر" },
+      { "en": "Natural Look", "ar": "مظهر طبيعي" }
+    ],
+    "active": true
+  },
+  {
+    "id": "g4",
+    "title": { "en": "Full Body Laser Results", "ar": "نتائج ليزر الجسم الكامل" },
+    "category": "laser",
+    "type": "before-after",
+    "beforeImage": "https://images.unsplash.com/photo-1598524374912-6b0b0bab43a5?w=600&q=80",
+    "afterImage": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80",
+    "doctor": { "en": "Dr. Sarah Ahmed", "ar": "د. سارة أحمد" },
+    "sessions": 6,
+    "tags": [
+      { "en": "Hair Removal", "ar": "إزالة الشعر" },
+      { "en": "FDA Approved", "ar": "معتمد FDA" }
+    ],
+    "active": true
+  },
+  {
+    "id": "g5",
+    "title": { "en": "Luxury Gel Nail Art", "ar": "فن أظافر الجل الفاخر" },
+    "category": "skin-care",
+    "type": "showcase",
+    "beforeImage": "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80",
+    "afterImage": "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80",
+    "doctor": { "en": "Faya Nail Studio", "ar": "استوديو أظافر فايا" },
+    "sessions": 1,
+    "tags": [
+      { "en": "Nail Art", "ar": "فن الأظافر" },
+      { "en": "Trending", "ar": "رائج" }
+    ],
+    "active": true
+  },
+  {
+    "id": "g6",
+    "title": { "en": "Jawline Contouring", "ar": "نحت خط الفك" },
+    "category": "body-contouring",
+    "type": "before-after",
+    "beforeImage": "https://images.unsplash.com/photo-1551190822-a9ce113ac100?w=600&q=80",
+    "afterImage": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80",
+    "doctor": { "en": "Dr. Youssef Ali", "ar": "د. يوسف علي" },
+    "sessions": 3,
+    "tags": [
+      { "en": "Body Contouring", "ar": "نحت الجسم" },
+      { "en": "Non-Surgical", "ar": "بدون جراحة" }
+    ],
+    "active": true
+  },
+  {
+    "id": "g7",
+    "title": { "en": "Chemical Peel Glow-Up", "ar": "توهج التقشير الكيميائي" },
+    "category": "skin-care",
+    "type": "before-after",
+    "beforeImage": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80",
+    "afterImage": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80",
+    "doctor": { "en": "Dr. Layla Hassan", "ar": "د. ليلى حسن" },
+    "sessions": 3,
+    "tags": [
+      { "en": "Peel", "ar": "تقشير" },
+      { "en": "Anti-Aging", "ar": "مكافحة الشيخوخة" }
+    ],
+    "active": true
+  },
+  {
+    "id": "g8",
+    "title": { "en": "Bridal Hair Styling", "ar": "تصفيف شعر العروس" },
+    "category": "hair-transplant",
+    "type": "showcase",
+    "beforeImage": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80",
+    "afterImage": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80",
+    "doctor": { "en": "Faya Hair Studio", "ar": "استوديو شعر فايا" },
+    "sessions": 1,
+    "tags": [
+      { "en": "Bridal", "ar": "عرائس" },
+      { "en": "Styling", "ar": "تصفيف" }
+    ],
+    "active": true
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "id": "1",
+    "title": { "en": "Summer Glow Package", "ar": "باقة إشراقة الصيف" },
+    "description": {
+      "en": "Get the ultimate summer glow with our HydraFacial + Chemical Peel combo. Save 30% when you book both treatments together.",
+      "ar": "احصلي على إشراقة الصيف المطلقة مع باقة الهيدرافيشل + التقشير الكيميائي. وفري ٣٠٪ عند حجز العلاجين معاً."
+    },
+    "discount": "30%",
+    "originalPrice": { "en": "175,000 IQD", "ar": "١٧٥,٠٠٠ د.ع" },
+    "salePrice": { "en": "122,500 IQD", "ar": "١٢٢,٥٠٠ د.ع" },
+    "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80",
+    "validUntil": "2025-03-31",
+    "branches": { "en": "All Branches", "ar": "جميع الفروع" },
+    "tag": { "en": "Best Seller", "ar": "الأكثر مبيعاً" },
+    "active": true
+  },
+  {
+    "id": "2",
+    "title": { "en": "Laser Hair Removal - 6 Session Package", "ar": "إزالة الشعر بالليزر - باقة ٦ جلسات" },
+    "description": {
+      "en": "Complete your laser journey with our 6-session full body package. Pay for 5, get 1 free!",
+      "ar": "أكملي رحلة الليزر مع باقة الجسم الكامل لـ ٦ جلسات. ادفعي لـ ٥ واحصلي على واحدة مجاناً!"
+    },
+    "discount": "1 FREE",
+    "originalPrice": { "en": "900,000 IQD", "ar": "٩٠٠,٠٠٠ د.ع" },
+    "salePrice": { "en": "750,000 IQD", "ar": "٧٥٠,٠٠٠ د.ع" },
+    "image": "https://images.unsplash.com/photo-1598524374912-6b0b0bab43a5?w=600&q=80",
+    "validUntil": "2025-04-15",
+    "branches": { "en": "All Branches", "ar": "جميع الفروع" },
+    "tag": { "en": "Limited Time", "ar": "وقت محدود" },
+    "active": true
+  },
+  {
+    "id": "3",
+    "title": { "en": "Bridal Beauty Package", "ar": "باقة جمال العروس" },
+    "description": {
+      "en": "Look your absolute best on your special day. Includes facial, hair styling, nail art, and a pre-wedding skin prep session.",
+      "ar": "اظهري بأجمل إطلالة في يومك المميز. تشمل العناية بالوجه وتصفيف الشعر وفن الأظافر وجلسة تحضير البشرة قبل الزفاف."
+    },
+    "discount": "25%",
+    "originalPrice": { "en": "350,000 IQD", "ar": "٣٥٠,٠٠٠ د.ع" },
+    "salePrice": { "en": "262,500 IQD", "ar": "٢٦٢,٥٠٠ د.ع" },
+    "image": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80",
+    "validUntil": "2025-06-30",
+    "branches": { "en": "Baghdad & Erbil", "ar": "بغداد وأربيل" },
+    "tag": { "en": "Popular", "ar": "شائع" },
+    "active": true
+  },
+  {
+    "id": "4",
+    "title": { "en": "Refer a Friend - Both Get 15% Off", "ar": "أحيلي صديقة - كلاكما تحصلان على ١٥٪ خصم" },
+    "description": {
+      "en": "Share the beauty! When you refer a friend to Faya.iq, both of you receive 15% off your next treatment.",
+      "ar": "شاركي الجمال! عندما تحيلين صديقة إلى فايا، كلاكما تحصلان على ١٥٪ خصم على العلاج التالي."
+    },
+    "discount": "15%",
+    "originalPrice": { "en": "", "ar": "" },
+    "salePrice": { "en": "15% off for both", "ar": "١٥٪ خصم للاثنتين" },
+    "image": "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=600&q=80",
+    "validUntil": "2025-12-31",
+    "branches": { "en": "All Branches", "ar": "جميع الفروع" },
+    "tag": { "en": "Referral", "ar": "إحالة" },
+    "active": true
+  }
+]

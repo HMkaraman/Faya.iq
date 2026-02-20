@@ -1,0 +1,92 @@
+export interface Branch {
+  id: string;
+  slug: string;
+  name: { en: string; ar: string };
+  city: { en: string; ar: string };
+  address: { en: string; ar: string };
+  phone: string;
+  whatsapp: string;
+  email: string;
+  hours: { en: string; ar: string };
+  rating: number;
+  reviewCount: number;
+  image: string;
+  mapUrl: string;
+  coordinates: { lat: number; lng: number };
+  availableServices: string[]; // category slugs
+  hasGallery: boolean;
+  teamMembers: string[]; // team member IDs
+  features: { en: string[]; ar: string[] };
+}
+
+export const branches: Branch[] = [
+  {
+    id: "baghdad-mansour",
+    slug: "baghdad-mansour",
+    name: { en: "Baghdad - Al Mansour", ar: "بغداد - المنصور" },
+    city: { en: "Baghdad", ar: "بغداد" },
+    address: { en: "14th Ramadan St, Near Babylon Mall, Al Mansour", ar: "شارع ١٤ رمضان، بالقرب من بابل مول، المنصور" },
+    phone: "+964 770 000 0001",
+    whatsapp: "964770000001",
+    email: "mansour@faya.iq",
+    hours: { en: "Sat-Thu: 10:00 AM - 9:00 PM | Friday: 2:00 PM - 8:00 PM", ar: "السبت-الخميس: ١٠:٠٠ ص - ٩:٠٠ م | الجمعة: ٢:٠٠ م - ٨:٠٠ م" },
+    rating: 4.9,
+    reviewCount: 1200,
+    image: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=800&q=80",
+    mapUrl: "https://maps.google.com/?q=33.3152,44.3661",
+    coordinates: { lat: 33.3152, lng: 44.3661 },
+    availableServices: ["skin-care", "hair-care", "nail-services", "injectables", "surgical", "laser"],
+    hasGallery: true,
+    teamMembers: ["dr-sarah", "dr-youssef", "dr-layla"],
+    features: {
+      en: ["Full Service Clinic", "Surgical Theater", "VIP Rooms", "Parking Available"],
+      ar: ["عيادة متكاملة الخدمات", "غرفة عمليات", "غرف VIP", "مواقف سيارات"]
+    }
+  },
+  {
+    id: "erbil",
+    slug: "erbil",
+    name: { en: "Erbil - Dream City", ar: "أربيل - دريم سيتي" },
+    city: { en: "Erbil", ar: "أربيل" },
+    address: { en: "Luxury Center, Villa 45, Dream City", ar: "مركز الفخامة، فيلا ٤٥، دريم سيتي" },
+    phone: "+964 750 000 0002",
+    whatsapp: "964750000002",
+    email: "erbil@faya.iq",
+    hours: { en: "Sat-Thu: 10:00 AM - 8:00 PM | Friday: 2:00 PM - 8:00 PM", ar: "السبت-الخميس: ١٠:٠٠ ص - ٨:٠٠ م | الجمعة: ٢:٠٠ م - ٨:٠٠ م" },
+    rating: 4.8,
+    reviewCount: 850,
+    image: "https://images.unsplash.com/photo-1540555700478-4be289fbec6e?w=800&q=80",
+    mapUrl: "https://maps.google.com/?q=36.1901,44.0019",
+    coordinates: { lat: 36.1901, lng: 44.0019 },
+    availableServices: ["skin-care", "hair-care", "nail-services", "injectables", "laser"],
+    hasGallery: true,
+    teamMembers: ["dr-youssef"],
+    features: {
+      en: ["Aesthetic Clinic", "VIP Rooms", "Free Parking"],
+      ar: ["عيادة تجميلية", "غرف VIP", "مواقف مجانية"]
+    }
+  },
+  {
+    id: "basra",
+    slug: "basra",
+    name: { en: "Basra - Al Abbasiya", ar: "البصرة - العباسية" },
+    city: { en: "Basra", ar: "البصرة" },
+    address: { en: "Medical Complex, 2nd Floor, Al Abbasiya", ar: "المجمع الطبي، الطابق الثاني، العباسية" },
+    phone: "+964 780 000 0003",
+    whatsapp: "964780000003",
+    email: "basra@faya.iq",
+    hours: { en: "Sat-Thu: 10:00 AM - 10:00 PM | Friday: 2:00 PM - 8:00 PM", ar: "السبت-الخميس: ١٠:٠٠ ص - ١٠:٠٠ م | الجمعة: ٢:٠٠ م - ٨:٠٠ م" },
+    rating: 4.7,
+    reviewCount: 620,
+    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80",
+    mapUrl: "https://maps.google.com/?q=30.5085,47.7804",
+    coordinates: { lat: 30.5085, lng: 47.7804 },
+    availableServices: ["skin-care", "hair-care", "injectables", "laser"],
+    hasGallery: true,
+    teamMembers: ["dr-layla"],
+    features: {
+      en: ["Dermatology Center", "Laser Suite", "Easy Access"],
+      ar: ["مركز أمراض جلدية", "جناح ليزر", "وصول سهل"]
+    }
+  }
+];

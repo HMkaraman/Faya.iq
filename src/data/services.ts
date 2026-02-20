@@ -1,0 +1,366 @@
+export interface Service {
+  id: string;
+  slug: string;
+  category: string;
+  categorySlug: string;
+  name: { en: string; ar: string };
+  shortDescription: { en: string; ar: string };
+  description: { en: string; ar: string };
+  icon: string;
+  image: string;
+  tags: string[];
+  branches: string[];
+  duration?: string;
+  priceRange?: { en: string; ar: string };
+  benefits: { en: string[]; ar: string[] };
+  steps: { en: string[]; ar: string[] };
+  downtime: { en: string; ar: string };
+  faq: { question: { en: string; ar: string }; answer: { en: string; ar: string } }[];
+}
+
+export interface ServiceCategory {
+  slug: string;
+  name: { en: string; ar: string };
+  icon: string;
+  description: { en: string; ar: string };
+  image: string;
+}
+
+export const serviceCategories: ServiceCategory[] = [
+  {
+    slug: "skin-care",
+    name: { en: "Skin Care & Treatments", ar: "العناية بالبشرة والعلاجات" },
+    icon: "face",
+    description: {
+      en: "Rejuvenating facials, chemical peels, and advanced laser treatments for radiant skin.",
+      ar: "علاجات الوجه المجددة والتقشير الكيميائي وعلاجات الليزر المتقدمة للبشرة المشرقة."
+    },
+    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80"
+  },
+  {
+    slug: "hair-care",
+    name: { en: "Hair Care & Treatments", ar: "العناية بالشعر والعلاجات" },
+    icon: "content_cut",
+    description: {
+      en: "From PRP therapy to styling, comprehensive hair solutions for every need.",
+      ar: "من علاج البلازما إلى التصفيف، حلول شاملة للشعر لكل حاجة."
+    },
+    image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80"
+  },
+  {
+    slug: "nail-services",
+    name: { en: "Nail Services", ar: "خدمات الأظافر" },
+    icon: "spa",
+    description: {
+      en: "Professional manicure, pedicure, gel nails, and artistic nail designs.",
+      ar: "مانيكير وباديكير احترافي وأظافر جل وتصاميم فنية."
+    },
+    image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80"
+  },
+  {
+    slug: "injectables",
+    name: { en: "Injectables & Fillers", ar: "الحقن والفيلر" },
+    icon: "vaccines",
+    description: {
+      en: "Expert Botox, dermal fillers, and skin boosters for natural enhancement.",
+      ar: "بوتوكس متخصص وفيلر وحقن تعزيز البشرة للتحسين الطبيعي."
+    },
+    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80"
+  },
+  {
+    slug: "surgical",
+    name: { en: "Surgical Procedures", ar: "العمليات الجراحية" },
+    icon: "medical_services",
+    description: {
+      en: "Advanced cosmetic surgeries performed by board-certified surgeons.",
+      ar: "عمليات تجميل متقدمة يجريها جراحون معتمدون."
+    },
+    image: "https://images.unsplash.com/photo-1551190822-a9ce113ac100?w=600&q=80"
+  },
+  {
+    slug: "laser",
+    name: { en: "Laser Hair Removal", ar: "إزالة الشعر بالليزر" },
+    icon: "bolt",
+    description: {
+      en: "FDA-approved laser technology for permanent hair reduction.",
+      ar: "تقنية ليزر معتمدة من FDA لإزالة الشعر الدائمة."
+    },
+    image: "https://images.unsplash.com/photo-1598524374912-6b0b0bab43a5?w=600&q=80"
+  }
+];
+
+export const services: Service[] = [
+  // Skin Care
+  {
+    id: "1",
+    slug: "hydrafacial",
+    category: "Skin Care & Treatments",
+    categorySlug: "skin-care",
+    name: { en: "HydraFacial", ar: "هيدرافيشل" },
+    shortDescription: {
+      en: "Deep cleansing and hydration for an instant glow.",
+      ar: "تنظيف عميق وترطيب لإشراقة فورية."
+    },
+    description: {
+      en: "The HydraFacial is a multi-step treatment that cleanses, exfoliates, extracts, and hydrates the skin. Using patented Vortex technology, it delivers nourishing serums deep into the skin for a radiant, dewy complexion. Suitable for all skin types.",
+      ar: "الهيدرافيشل هو علاج متعدد الخطوات ينظف ويقشر ويستخرج الشوائب ويرطب البشرة. باستخدام تقنية فورتكس المسجلة، يوصل الأمصال المغذية عميقاً في البشرة لبشرة مشرقة وندية. مناسب لجميع أنواع البشرة."
+    },
+    icon: "face",
+    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+    tags: ["Popular", "No Downtime", "Non-Invasive"],
+    branches: ["baghdad-mansour", "erbil", "basra"],
+    duration: "45 min",
+    priceRange: { en: "75,000 - 120,000 IQD", ar: "٧٥,٠٠٠ - ١٢٠,٠٠٠ د.ع" },
+    benefits: {
+      en: ["Instant radiance and glow", "Deep pore cleansing", "Improved skin texture", "Hydration boost", "Suitable for all skin types"],
+      ar: ["إشراقة فورية", "تنظيف عميق للمسام", "تحسين ملمس البشرة", "تعزيز الترطيب", "مناسب لجميع أنواع البشرة"]
+    },
+    steps: {
+      en: ["Cleansing & gentle exfoliation", "Acid peel for skin renewal", "Painless extraction of impurities", "Hydration with antioxidant serums", "LED light therapy (optional)"],
+      ar: ["تنظيف وتقشير لطيف", "تقشير حمضي لتجديد البشرة", "استخراج الشوائب بدون ألم", "ترطيب بأمصال مضادة للأكسدة", "علاج بالضوء LED (اختياري)"]
+    },
+    downtime: { en: "No downtime. Resume normal activities immediately.", ar: "لا فترة تعافي. يمكنك استئناف أنشطتك فوراً." },
+    faq: [
+      {
+        question: { en: "How often should I get a HydraFacial?", ar: "كم مرة يجب أن أحصل على هيدرافيشل؟" },
+        answer: { en: "We recommend monthly treatments for optimal results.", ar: "نوصي بعلاجات شهرية للحصول على أفضل النتائج." }
+      },
+      {
+        question: { en: "Is it suitable for sensitive skin?", ar: "هل هو مناسب للبشرة الحساسة؟" },
+        answer: { en: "Yes, HydraFacial is gentle enough for all skin types including sensitive skin.", ar: "نعم، الهيدرافيشل لطيف بما يكفي لجميع أنواع البشرة بما في ذلك البشرة الحساسة." }
+      }
+    ]
+  },
+  {
+    id: "2",
+    slug: "chemical-peel",
+    category: "Skin Care & Treatments",
+    categorySlug: "skin-care",
+    name: { en: "Chemical Peel", ar: "التقشير الكيميائي" },
+    shortDescription: { en: "Renew and resurface your skin for a youthful appearance.", ar: "جددي بشرتك للحصول على مظهر شبابي." },
+    description: { en: "Our chemical peels use medical-grade acids to remove dead skin cells and stimulate new cell growth, reducing fine lines, acne scars, and hyperpigmentation.", ar: "تستخدم تقشيراتنا الكيميائية أحماض طبية لإزالة خلايا الجلد الميتة وتحفيز نمو خلايا جديدة." },
+    icon: "science",
+    image: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
+    tags: ["Non-Invasive"],
+    branches: ["baghdad-mansour", "erbil", "basra"],
+    duration: "30 min",
+    priceRange: { en: "50,000 - 100,000 IQD", ar: "٥٠,٠٠٠ - ١٠٠,٠٠٠ د.ع" },
+    benefits: { en: ["Reduces fine lines", "Improves skin texture", "Fades dark spots", "Stimulates collagen"], ar: ["يقلل التجاعيد الدقيقة", "يحسن ملمس البشرة", "يخفف البقع الداكنة", "يحفز الكولاجين"] },
+    steps: { en: ["Skin cleansing", "Peel application", "Neutralization", "Soothing mask"], ar: ["تنظيف البشرة", "تطبيق التقشير", "التحييد", "قناع مهدئ"] },
+    downtime: { en: "2-7 days depending on peel depth.", ar: "٢-٧ أيام حسب عمق التقشير." },
+    faq: []
+  },
+  {
+    id: "3",
+    slug: "acne-treatment",
+    category: "Skin Care & Treatments",
+    categorySlug: "skin-care",
+    name: { en: "Acne Treatment", ar: "علاج حب الشباب" },
+    shortDescription: { en: "Comprehensive acne treatment for clear, healthy skin.", ar: "علاج شامل لحب الشباب للحصول على بشرة نقية وصحية." },
+    description: { en: "Our acne treatment program combines advanced technologies and medical expertise to target active breakouts and prevent future ones.", ar: "يجمع برنامج علاج حب الشباب بين التقنيات المتقدمة والخبرة الطبية لاستهداف البثور النشطة ومنع ظهورها مستقبلاً." },
+    icon: "dermatology",
+    image: "https://images.unsplash.com/photo-1598524374912-6b0b0bab43a5?w=800&q=80",
+    tags: ["Popular"],
+    branches: ["baghdad-mansour", "erbil", "basra"],
+    duration: "45 min",
+    benefits: { en: ["Clears active acne", "Reduces scarring", "Prevents future breakouts"], ar: ["يزيل حب الشباب النشط", "يقلل الندبات", "يمنع ظهور البثور مستقبلاً"] },
+    steps: { en: ["Consultation", "Deep cleansing", "Treatment application", "LED therapy"], ar: ["استشارة", "تنظيف عميق", "تطبيق العلاج", "علاج LED"] },
+    downtime: { en: "Minimal to none.", ar: "الحد الأدنى أو لا شيء." },
+    faq: []
+  },
+  // Hair Care
+  {
+    id: "4",
+    slug: "prp-hair",
+    category: "Hair Care & Treatments",
+    categorySlug: "hair-care",
+    name: { en: "PRP Hair Treatment", ar: "علاج الشعر بالبلازما" },
+    shortDescription: { en: "Stimulate natural hair growth with platelet-rich plasma.", ar: "حفّز نمو الشعر الطبيعي بالبلازما الغنية بالصفائح الدموية." },
+    description: { en: "PRP therapy uses your own blood platelets to stimulate hair follicles and promote new hair growth. A safe, natural solution for hair thinning.", ar: "يستخدم علاج البلازما الصفائح الدموية الخاصة بك لتحفيز بصيلات الشعر وتعزيز نمو شعر جديد." },
+    icon: "science",
+    image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80",
+    tags: ["Non-Invasive", "Popular"],
+    branches: ["baghdad-mansour", "erbil", "basra"],
+    duration: "60 min",
+    priceRange: { en: "100,000 - 150,000 IQD", ar: "١٠٠,٠٠٠ - ١٥٠,٠٠٠ د.ع" },
+    benefits: { en: ["Stimulates natural growth", "No chemicals", "Minimal discomfort", "Safe & natural"], ar: ["يحفز النمو الطبيعي", "بدون مواد كيميائية", "ألم خفيف", "آمن وطبيعي"] },
+    steps: { en: ["Blood draw", "Centrifuge processing", "PRP injection", "Scalp massage"], ar: ["سحب الدم", "معالجة بالطرد المركزي", "حقن البلازما", "تدليك فروة الرأس"] },
+    downtime: { en: "None. Mild redness may occur for a few hours.", ar: "لا يوجد. قد يظهر احمرار خفيف لبضع ساعات." },
+    faq: []
+  },
+  {
+    id: "5",
+    slug: "hair-transplant",
+    category: "Hair Care & Treatments",
+    categorySlug: "hair-care",
+    name: { en: "Hair Transplant", ar: "زراعة الشعر" },
+    shortDescription: { en: "Advanced FUE hair transplant for natural-looking results.", ar: "زراعة شعر متقدمة بتقنية FUE لنتائج طبيعية." },
+    description: { en: "Our state-of-the-art FUE hair transplant procedure offers permanent, natural-looking results with minimal scarring and fast recovery.", ar: "يوفر إجراء زراعة الشعر بتقنية FUE المتطورة نتائج دائمة وطبيعية المظهر مع ندبات خفيفة وتعافٍ سريع." },
+    icon: "healing",
+    image: "https://images.unsplash.com/photo-1585747860019-8e7e4d6e2a2f?w=800&q=80",
+    tags: ["Premium", "Surgical"],
+    branches: ["baghdad-mansour"],
+    duration: "4-8 hours",
+    priceRange: { en: "Contact for pricing", ar: "اتصل للحصول على السعر" },
+    benefits: { en: ["Permanent results", "Natural hairline", "Minimal scarring", "Fast recovery"], ar: ["نتائج دائمة", "خط شعر طبيعي", "ندبات خفيفة", "تعافٍ سريع"] },
+    steps: { en: ["Consultation & planning", "Local anesthesia", "Follicle extraction", "Implantation", "Post-care instructions"], ar: ["استشارة وتخطيط", "تخدير موضعي", "استخراج البصيلات", "الزراعة", "تعليمات ما بعد العناية"] },
+    downtime: { en: "7-10 days for initial recovery.", ar: "٧-١٠ أيام للتعافي الأولي." },
+    faq: []
+  },
+  // Nail Services
+  {
+    id: "6",
+    slug: "gel-nails",
+    category: "Nail Services",
+    categorySlug: "nail-services",
+    name: { en: "Gel & Acrylic Nails", ar: "أظافر جل وأكريليك" },
+    shortDescription: { en: "Beautiful, long-lasting nail enhancements.", ar: "تحسينات أظافر جميلة وطويلة الأمد." },
+    description: { en: "Professional gel and acrylic nail services including extensions, overlays, and artistic designs.", ar: "خدمات أظافر جل وأكريليك احترافية تشمل التطويل والطبقات والتصاميم الفنية." },
+    icon: "spa",
+    image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80",
+    tags: ["Popular"],
+    branches: ["baghdad-mansour", "erbil"],
+    duration: "60-90 min",
+    priceRange: { en: "35,000 - 75,000 IQD", ar: "٣٥,٠٠٠ - ٧٥,٠٠٠ د.ع" },
+    benefits: { en: ["Long-lasting finish", "Wide color selection", "Strengthens nails"], ar: ["لمسة نهائية طويلة الأمد", "مجموعة واسعة من الألوان", "يقوي الأظافر"] },
+    steps: { en: ["Nail prep", "Shape & file", "Gel/Acrylic application", "Curing", "Top coat & finish"], ar: ["تجهيز الأظافر", "تشكيل وبرد", "تطبيق الجل/الأكريليك", "التجفيف", "طبقة علوية ولمسة نهائية"] },
+    downtime: { en: "None.", ar: "لا يوجد." },
+    faq: []
+  },
+  // Injectables
+  {
+    id: "7",
+    slug: "botox",
+    category: "Injectables & Fillers",
+    categorySlug: "injectables",
+    name: { en: "Botox (Anti-Wrinkle)", ar: "بوتوكس (مضاد للتجاعيد)" },
+    shortDescription: { en: "Smooth wrinkles and fine lines for a refreshed look.", ar: "تنعيم التجاعيد والخطوط الدقيقة لمظهر منتعش." },
+    description: { en: "Botox injections relax facial muscles to reduce the appearance of wrinkles and fine lines, giving you a naturally refreshed appearance. Administered by certified dermatologists.", ar: "تعمل حقن البوتوكس على إرخاء عضلات الوجه لتقليل ظهور التجاعيد والخطوط الدقيقة، مما يمنحك مظهراً منتعشاً بشكل طبيعي." },
+    icon: "vaccines",
+    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&q=80",
+    tags: ["Popular", "Non-Invasive", "No Downtime"],
+    branches: ["baghdad-mansour", "erbil", "basra"],
+    duration: "15-30 min",
+    priceRange: { en: "100,000 - 250,000 IQD", ar: "١٠٠,٠٠٠ - ٢٥٠,٠٠٠ د.ع" },
+    benefits: { en: ["Reduces wrinkles", "Quick procedure", "No downtime", "Natural results"], ar: ["يقلل التجاعيد", "إجراء سريع", "بدون فترة تعافي", "نتائج طبيعية"] },
+    steps: { en: ["Consultation", "Area marking", "Precise injection", "Post-care review"], ar: ["استشارة", "تحديد المناطق", "حقن دقيق", "مراجعة ما بعد العناية"] },
+    downtime: { en: "None. Minor redness resolves within hours.", ar: "لا يوجد. يزول الاحمرار الخفيف خلال ساعات." },
+    faq: [
+      {
+        question: { en: "How long do results last?", ar: "كم تدوم النتائج؟" },
+        answer: { en: "Results typically last 3-6 months.", ar: "تدوم النتائج عادة من ٣ إلى ٦ أشهر." }
+      }
+    ]
+  },
+  {
+    id: "8",
+    slug: "dermal-fillers",
+    category: "Injectables & Fillers",
+    categorySlug: "injectables",
+    name: { en: "Dermal Fillers", ar: "فيلر الوجه" },
+    shortDescription: { en: "Restore volume and enhance facial contours naturally.", ar: "استعادة الحجم وتحسين ملامح الوجه بشكل طبيعي." },
+    description: { en: "Dermal fillers add volume to lips, cheeks, and jawline while smoothing deep lines. Using premium hyaluronic acid fillers for safe, natural-looking results.", ar: "يضيف الفيلر حجماً للشفاه والخدود وخط الفك مع تنعيم الخطوط العميقة. باستخدام فيلر حمض الهيالورونيك الممتاز لنتائج آمنة وطبيعية." },
+    icon: "auto_awesome",
+    image: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=800&q=80",
+    tags: ["Popular", "Non-Invasive"],
+    branches: ["baghdad-mansour", "erbil", "basra"],
+    duration: "30-45 min",
+    priceRange: { en: "150,000 - 400,000 IQD", ar: "١٥٠,٠٠٠ - ٤٠٠,٠٠٠ د.ع" },
+    benefits: { en: ["Instant volume", "Natural contours", "Long-lasting (12-18 months)", "Reversible"], ar: ["حجم فوري", "ملامح طبيعية", "يدوم طويلاً (١٢-١٨ شهر)", "قابل للعكس"] },
+    steps: { en: ["Consultation & planning", "Numbing cream application", "Precise filler injection", "Sculpting & massage", "Before/after photos"], ar: ["استشارة وتخطيط", "تطبيق كريم تخدير", "حقن الفيلر بدقة", "النحت والتدليك", "صور قبل وبعد"] },
+    downtime: { en: "Minimal. Mild swelling for 1-2 days.", ar: "الحد الأدنى. تورم خفيف لمدة ١-٢ يوم." },
+    faq: [
+      {
+        question: { en: "Is the procedure painful?", ar: "هل الإجراء مؤلم؟" },
+        answer: { en: "A numbing cream is applied before treatment. Most patients report minimal discomfort.", ar: "يتم تطبيق كريم تخدير قبل العلاج. يشير معظم المرضى إلى ألم خفيف جداً." }
+      },
+      {
+        question: { en: "How long do dermal fillers last?", ar: "كم يدوم الفيلر؟" },
+        answer: { en: "Depending on the area and product, results last 6-18 months.", ar: "حسب المنطقة والمنتج، تدوم النتائج من ٦ إلى ١٨ شهراً." }
+      }
+    ]
+  },
+  // Surgical
+  {
+    id: "9",
+    slug: "rhinoplasty",
+    category: "Surgical Procedures",
+    categorySlug: "surgical",
+    name: { en: "Rhinoplasty", ar: "تجميل الأنف" },
+    shortDescription: { en: "Nose reshaping for improved appearance and function.", ar: "إعادة تشكيل الأنف لتحسين المظهر والوظيفة." },
+    description: { en: "Our rhinoplasty procedures are performed by board-certified plastic surgeons, combining artistic vision with surgical precision for natural, harmonious results.", ar: "يتم إجراء عمليات تجميل الأنف من قبل جراحين تجميل معتمدين، يجمعون بين الرؤية الفنية والدقة الجراحية لنتائج طبيعية ومتناسقة." },
+    icon: "medical_services",
+    image: "https://images.unsplash.com/photo-1551190822-a9ce113ac100?w=800&q=80",
+    tags: ["Premium", "Surgical"],
+    branches: ["baghdad-mansour"],
+    duration: "2-3 hours",
+    priceRange: { en: "Contact for consultation", ar: "اتصل للاستشارة" },
+    benefits: { en: ["Improved facial harmony", "Better breathing", "Permanent results", "Customized approach"], ar: ["تناسق الوجه", "تحسين التنفس", "نتائج دائمة", "نهج مخصص"] },
+    steps: { en: ["Initial consultation", "3D imaging & planning", "Surgery under anesthesia", "Recovery monitoring", "Follow-up visits"], ar: ["استشارة أولية", "تصوير ثلاثي الأبعاد وتخطيط", "الجراحة تحت التخدير", "مراقبة التعافي", "زيارات المتابعة"] },
+    downtime: { en: "1-2 weeks. Final results visible in 6-12 months.", ar: "١-٢ أسبوع. النتائج النهائية تظهر خلال ٦-١٢ شهر." },
+    faq: []
+  },
+  // Laser
+  {
+    id: "10",
+    slug: "full-body-laser",
+    category: "Laser Hair Removal",
+    categorySlug: "laser",
+    name: { en: "Full Body Laser", ar: "ليزر الجسم الكامل" },
+    shortDescription: { en: "Complete body hair removal with advanced laser technology.", ar: "إزالة شعر الجسم بالكامل بتقنية الليزر المتقدمة." },
+    description: { en: "Our full body laser hair removal uses the latest FDA-approved technology for safe, effective permanent hair reduction on all skin types.", ar: "يستخدم ليزر إزالة الشعر لدينا أحدث التقنيات المعتمدة من FDA لإزالة الشعر الدائمة والآمنة والفعالة لجميع أنواع البشرة." },
+    icon: "bolt",
+    image: "https://images.unsplash.com/photo-1598524374912-6b0b0bab43a5?w=800&q=80",
+    tags: ["Popular", "Package Deal"],
+    branches: ["baghdad-mansour", "erbil", "basra"],
+    duration: "90-120 min",
+    priceRange: { en: "150,000 - 300,000 IQD per session", ar: "١٥٠,٠٠٠ - ٣٠٠,٠٠٠ د.ع لكل جلسة" },
+    benefits: { en: ["Permanent hair reduction", "Suitable for all skin types", "Quick sessions", "Smooth skin"], ar: ["إزالة دائمة للشعر", "مناسب لجميع أنواع البشرة", "جلسات سريعة", "بشرة ناعمة"] },
+    steps: { en: ["Skin assessment", "Area preparation", "Laser application", "Cooling treatment", "Aftercare advice"], ar: ["تقييم البشرة", "تحضير المنطقة", "تطبيق الليزر", "علاج تبريد", "نصائح ما بعد العناية"] },
+    downtime: { en: "None. Mild redness for a few hours.", ar: "لا يوجد. احمرار خفيف لبضع ساعات." },
+    faq: [
+      {
+        question: { en: "How many sessions do I need?", ar: "كم جلسة أحتاج؟" },
+        answer: { en: "Most clients need 6-8 sessions for optimal results.", ar: "يحتاج معظم العملاء إلى ٦-٨ جلسات للحصول على أفضل النتائج." }
+      }
+    ]
+  },
+  {
+    id: "11",
+    slug: "skin-boosters",
+    category: "Injectables & Fillers",
+    categorySlug: "injectables",
+    name: { en: "Skin Boosters & Glow Injections", ar: "حقن تعزيز البشرة والإشراقة" },
+    shortDescription: { en: "Deep hydration injections for a natural, dewy glow.", ar: "حقن ترطيب عميقة لإشراقة طبيعية وندية." },
+    description: { en: "Skin boosters deliver hyaluronic acid directly into the skin for deep hydration, improved elasticity, and a natural radiant glow that lasts.", ar: "حقن تعزيز البشرة توصل حمض الهيالورونيك مباشرة إلى البشرة للترطيب العميق وتحسين المرونة وإشراقة طبيعية تدوم." },
+    icon: "auto_awesome",
+    image: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80",
+    tags: ["New", "Non-Invasive"],
+    branches: ["baghdad-mansour", "erbil"],
+    duration: "30 min",
+    priceRange: { en: "80,000 - 150,000 IQD", ar: "٨٠,٠٠٠ - ١٥٠,٠٠٠ د.ع" },
+    benefits: { en: ["Deep hydration", "Natural glow", "Improved texture", "Long-lasting results"], ar: ["ترطيب عميق", "إشراقة طبيعية", "تحسين الملمس", "نتائج طويلة الأمد"] },
+    steps: { en: ["Cleansing", "Numbing", "Micro-injections", "Massage"], ar: ["تنظيف", "تخدير", "حقن دقيقة", "تدليك"] },
+    downtime: { en: "Minimal. Small bumps resolve in 24 hours.", ar: "الحد الأدنى. تختفي النتوءات الصغيرة خلال ٢٤ ساعة." },
+    faq: []
+  },
+  {
+    id: "12",
+    slug: "liposuction",
+    category: "Surgical Procedures",
+    categorySlug: "surgical",
+    name: { en: "Liposuction", ar: "شفط الدهون" },
+    shortDescription: { en: "Body contouring through precise fat removal.", ar: "نحت الجسم من خلال إزالة الدهون بدقة." },
+    description: { en: "Advanced liposuction techniques for targeted fat removal and body contouring, performed by our experienced surgical team.", ar: "تقنيات شفط الدهون المتقدمة لإزالة الدهون المستهدفة ونحت الجسم." },
+    icon: "medical_services",
+    image: "https://images.unsplash.com/photo-1551190822-a9ce113ac100?w=800&q=80",
+    tags: ["Premium", "Surgical"],
+    branches: ["baghdad-mansour"],
+    duration: "2-4 hours",
+    priceRange: { en: "Contact for consultation", ar: "اتصل للاستشارة" },
+    benefits: { en: ["Targeted fat removal", "Improved body contour", "Permanent results", "Boosted confidence"], ar: ["إزالة الدهون المستهدفة", "تحسين محيط الجسم", "نتائج دائمة", "تعزيز الثقة"] },
+    steps: { en: ["Consultation", "Pre-op preparation", "Surgery", "Recovery", "Follow-up"], ar: ["استشارة", "تحضير قبل العملية", "الجراحة", "التعافي", "المتابعة"] },
+    downtime: { en: "1-2 weeks recovery.", ar: "١-٢ أسبوع للتعافي." },
+    faq: []
+  }
+];

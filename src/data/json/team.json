@@ -1,0 +1,35 @@
+[
+  {
+    "id": "dr-sarah",
+    "name": { "en": "Dr. Sarah Ahmed", "ar": "د. سارة أحمد" },
+    "title": { "en": "Medical Director & Dermatologist", "ar": "المديرة الطبية وأخصائية الجلدية" },
+    "specialization": { "en": "Dermatology & Aesthetic Medicine", "ar": "الأمراض الجلدية والطب التجميلي" },
+    "bio": { "en": "With over 15 years of experience in dermatology and aesthetic medicine, Dr. Sarah leads our team with a commitment to delivering natural, beautiful results. Board-certified and internationally trained.", "ar": "مع أكثر من ١٥ عاماً من الخبرة في الأمراض الجلدية والطب التجميلي، تقود الدكتورة سارة فريقنا بالتزام بتقديم نتائج طبيعية وجميلة." },
+    "image": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80",
+    "branches": ["baghdad-mansour"],
+    "credentials": ["MD Dermatology", "Fellowship in Aesthetic Medicine", "Board Certified"],
+    "yearsExperience": 15
+  },
+  {
+    "id": "dr-youssef",
+    "name": { "en": "Dr. Youssef Kareem", "ar": "د. يوسف كريم" },
+    "title": { "en": "Plastic & Reconstructive Surgeon", "ar": "جراح تجميل وترميم" },
+    "specialization": { "en": "Plastic Surgery & Body Contouring", "ar": "جراحة التجميل ونحت الجسم" },
+    "bio": { "en": "Dr. Youssef brings precision and artistry to every procedure. Trained in Europe and the Middle East, he specializes in rhinoplasty, body contouring, and facial rejuvenation.", "ar": "يقدم الدكتور يوسف الدقة والفن في كل إجراء. تدرب في أوروبا والشرق الأوسط ومتخصص في تجميل الأنف ونحت الجسم وتجديد الوجه." },
+    "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80",
+    "branches": ["baghdad-mansour", "erbil"],
+    "credentials": ["MD Plastic Surgery", "European Board Certified", "Member ISAPS"],
+    "yearsExperience": 12
+  },
+  {
+    "id": "dr-layla",
+    "name": { "en": "Dr. Layla Mahmoud", "ar": "د. ليلى محمود" },
+    "title": { "en": "Aesthetic Medicine Specialist", "ar": "أخصائية الطب التجميلي" },
+    "specialization": { "en": "Injectables & Laser Treatments", "ar": "الحقن وعلاجات الليزر" },
+    "bio": { "en": "Dr. Layla is our injectables expert, known for her subtle, natural approach to facial enhancement. She combines medical precision with an artistic eye for beauty.", "ar": "الدكتورة ليلى خبيرة الحقن لدينا، معروفة بنهجها الدقيق والطبيعي في تحسين ملامح الوجه." },
+    "image": "https://images.unsplash.com/photo-1594824476967-48c8b964e6c9?w=400&q=80",
+    "branches": ["baghdad-mansour", "basra"],
+    "credentials": ["MD Aesthetic Medicine", "Certified Injector (Allergan)", "Laser Safety Certified"],
+    "yearsExperience": 8
+  }
+]

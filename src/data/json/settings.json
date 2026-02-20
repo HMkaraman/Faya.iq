@@ -1,0 +1,42 @@
+{
+  "siteName": "Faya.iq",
+  "logoText": "Faya.iq",
+  "colors": {
+    "primary": "#c8567e",
+    "primaryDark": "#a03d5e",
+    "primaryLight": "#f4c2c2"
+  },
+  "contact": {
+    "phone": "+964 770 000 0000",
+    "email": "info@faya.iq",
+    "whatsapp": "9647700000000",
+    "hours": { "en": "Sat-Thu: 10:00 AM - 9:00 PM", "ar": "السبت-الخميس: ١٠:٠٠ ص - ٩:٠٠ م" }
+  },
+  "social": {
+    "facebook": "https://facebook.com",
+    "instagram": "https://instagram.com",
+    "tiktok": "https://tiktok.com",
+    "whatsapp": "https://wa.me/9647700000000"
+  },
+  "seo": {
+    "title": { "en": "Faya.iq | Premium Beauty & Aesthetic Clinic in Iraq", "ar": "فايا | عيادة التجميل والجمال الفاخرة في العراق" },
+    "description": { "en": "Iraq's premier destination for luxury aesthetics. World-class skincare, hair treatments, injectables, laser services, and cosmetic surgery across multiple branches.", "ar": "الوجهة الأولى في العراق للتجميل الفاخر. العناية بالبشرة والشعر والحقن والليزر والجراحة التجميلية." },
+    "keywords": ["beauty clinic Iraq", "aesthetic clinic Baghdad", "dermal fillers Iraq", "laser hair removal Baghdad", "botox Iraq", "HydraFacial Iraq", "عيادة تجميل العراق", "فايا", "عيادة جلدية بغداد"]
+  },
+  "header": {
+    "navItems": [
+      { "href": "/", "label": { "en": "Home", "ar": "الرئيسية" } },
+      { "href": "/services", "label": { "en": "Services", "ar": "الخدمات" } },
+      { "href": "/gallery", "label": { "en": "Gallery", "ar": "المعرض" } },
+      { "href": "/branches", "label": { "en": "Branches", "ar": "الفروع" } },
+      { "href": "/blog", "label": { "en": "Blog", "ar": "المدوّنة" } },
+      { "href": "/contact", "label": { "en": "Contact", "ar": "تواصل" } }
+    ],
+    "ctaText": { "en": "Book Now", "ar": "احجز الآن" },
+    "ctaHref": "/contact"
+  },
+  "footer": {
+    "description": { "en": "Your premier destination for advanced beauty treatments and skincare in Iraq. We combine cutting-edge technology with personalized care.", "ar": "وجهتك المثالية لعلاجات التجميل المتقدمة والعناية بالبشرة في العراق. نجمع بين أحدث التقنيات والرعاية الشخصية." },
+    "copyrightYear": 2024
+  }
+}
