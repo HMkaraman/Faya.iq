@@ -2,8 +2,7 @@
 
 import React, { useEffect, useState, use } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
-import TopBar from "@/components/admin/TopBar";
+import FormPageLayout from "@/components/admin/FormPageLayout";
 import OfferForm, { type OfferFormData } from "@/components/admin/forms/OfferForm";
 import PageSkeleton from "@/components/admin/PageSkeleton";
 import { useToast } from "@/components/admin/ToastProvider";
@@ -52,16 +51,30 @@ export default function EditOfferPage({ params }: { params: Promise<{ id: string
     } finally { setSubmitting(false); }
   }
 
+  async function handleDelete() {
+    try {
+      const res = await fetch(`/api/offers/${id}`, { method: "DELETE" });
+      if (!res.ok) throw new Error();
+      toast(t(adminI18n.offers.deleteSuccess), "success");
+      router.push("/admin/offers");
+    } catch {
+      toast(t(adminI18n.offers.deleteFailed), "error");
+    }
+  }
+
   return (
-    <>
-      <TopBar title={t(adminI18n.offers.editOffer)} breadcrumbs={[{ label: t(adminI18n.offers.title), href: "/admin/offers" }, { label: t(adminI18n.common.edit) }]}>
-        <Link href="/admin/offers" className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
-          <span className="material-symbols-outlined text-[18px]">arrow_back</span> {t(adminI18n.common.back)}
-        </Link>
-      </TopBar>
-      <div className="p-6 max-w-4xl">
-        {loading ? <PageSkeleton variant="form" /> : initialData && <OfferForm initialData={initialData} onSubmit={handleSubmit} isSubmitting={submitting} />}
-      </div>
-    </>
+    <FormPageLayout
+      formId="offer-form"
+      backHref="/admin/offers"
+      title={t(adminI18n.offers.editOffer)}
+      breadcrumbs={[{ label: t(adminI18n.offers.title), href: "/admin/offers" }, { label: t(adminI18n.common.edit) }]}
+      isSubmitting={submitting}
+      submitLabel={t(adminI18n.common.saveChanges)}
+      submittingLabel={t(adminI18n.common.saving)}
+      isEditing={true}
+      onDelete={handleDelete}
+    >
+      {loading ? <PageSkeleton variant="form" /> : initialData && <OfferForm formId="offer-form" initialData={initialData} onSubmit={handleSubmit} isSubmitting={submitting} />}
+    </FormPageLayout>
   );
 }

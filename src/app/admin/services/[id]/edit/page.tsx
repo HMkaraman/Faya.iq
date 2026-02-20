@@ -2,8 +2,7 @@
 
 import React, { useEffect, useState, use } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
-import TopBar from "@/components/admin/TopBar";
+import FormPageLayout from "@/components/admin/FormPageLayout";
 import ServiceForm, { type ServiceFormData } from "@/components/admin/forms/ServiceForm";
 import PageSkeleton from "@/components/admin/PageSkeleton";
 import { useToast } from "@/components/admin/ToastProvider";
@@ -68,23 +67,33 @@ export default function EditServicePage({ params }: { params: Promise<{ id: stri
     }
   }
 
+  async function handleDelete() {
+    try {
+      const res = await fetch(`/api/services/${id}`, { method: "DELETE" });
+      if (!res.ok) throw new Error();
+      toast(t(adminI18n.services.deleteSuccess), "success");
+      router.push("/admin/services");
+    } catch {
+      toast(t(adminI18n.services.deleteFailed), "error");
+    }
+  }
+
   return (
-    <>
-      <TopBar
-        title={t(adminI18n.services.editService)}
-        breadcrumbs={[
-          { label: t(adminI18n.services.title), href: "/admin/services" },
-          { label: t(adminI18n.common.edit) },
-        ]}
-      >
-        <Link href="/admin/services" className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
-          <span className="material-symbols-outlined text-[18px]">arrow_back</span>
-          {t(adminI18n.common.back)}
-        </Link>
-      </TopBar>
-      <div className="p-6 max-w-4xl">
-        {loading ? <PageSkeleton variant="form" /> : initialData && <ServiceForm initialData={initialData} onSubmit={handleSubmit} isSubmitting={submitting} />}
-      </div>
-    </>
+    <FormPageLayout
+      title={t(adminI18n.services.editService)}
+      breadcrumbs={[
+        { label: t(adminI18n.services.title), href: "/admin/services" },
+        { label: t(adminI18n.common.edit) },
+      ]}
+      backHref="/admin/services"
+      formId="service-form"
+      isSubmitting={submitting}
+      isEditing
+      submitLabel={t(adminI18n.common.saveChanges)}
+      submittingLabel={t(adminI18n.common.saving)}
+      onDelete={handleDelete}
+    >
+      {loading ? <PageSkeleton variant="form" /> : initialData && <ServiceForm formId="service-form" initialData={initialData} onSubmit={handleSubmit} isSubmitting={submitting} />}
+    </FormPageLayout>
   );
 }

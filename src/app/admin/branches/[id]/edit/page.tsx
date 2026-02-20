@@ -2,8 +2,7 @@
 
 import React, { useEffect, useState, use } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
-import TopBar from "@/components/admin/TopBar";
+import FormPageLayout from "@/components/admin/FormPageLayout";
 import BranchForm, { type BranchFormData } from "@/components/admin/forms/BranchForm";
 import PageSkeleton from "@/components/admin/PageSkeleton";
 import { useToast } from "@/components/admin/ToastProvider";
@@ -60,16 +59,30 @@ export default function EditBranchPage({ params }: { params: Promise<{ id: strin
     } finally { setSubmitting(false); }
   }
 
+  async function handleDelete() {
+    try {
+      const res = await fetch(`/api/branches/${id}`, { method: "DELETE" });
+      if (!res.ok) throw new Error();
+      toast(t(adminI18n.branches.deleteSuccess), "success");
+      router.push("/admin/branches");
+    } catch {
+      toast(t(adminI18n.branches.deleteFailed), "error");
+    }
+  }
+
   return (
-    <>
-      <TopBar title={t(adminI18n.branches.editBranch)} breadcrumbs={[{ label: t(adminI18n.branches.title), href: "/admin/branches" }, { label: t(adminI18n.common.edit) }]}>
-        <Link href="/admin/branches" className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
-          <span className="material-symbols-outlined text-[18px]">arrow_back</span> {t(adminI18n.common.back)}
-        </Link>
-      </TopBar>
-      <div className="p-6 max-w-4xl">
-        {loading ? <PageSkeleton variant="form" /> : initialData && <BranchForm initialData={initialData} onSubmit={handleSubmit} isSubmitting={submitting} />}
-      </div>
-    </>
+    <FormPageLayout
+      formId="branch-form"
+      backHref="/admin/branches"
+      title={t(adminI18n.branches.editBranch)}
+      breadcrumbs={[{ label: t(adminI18n.branches.title), href: "/admin/branches" }, { label: t(adminI18n.common.edit) }]}
+      submitLabel={t(adminI18n.common.saveChanges)}
+      submittingLabel={t(adminI18n.common.saving)}
+      isSubmitting={submitting}
+      isEditing={true}
+      onDelete={handleDelete}
+    >
+      {loading ? <PageSkeleton variant="form" /> : initialData && <BranchForm formId="branch-form" initialData={initialData} onSubmit={handleSubmit} isSubmitting={submitting} />}
+    </FormPageLayout>
   );
 }

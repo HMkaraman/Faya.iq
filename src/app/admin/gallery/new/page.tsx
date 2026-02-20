@@ -2,8 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
-import TopBar from "@/components/admin/TopBar";
+import FormPageLayout from "@/components/admin/FormPageLayout";
 import GalleryForm, { type GalleryFormData } from "@/components/admin/forms/GalleryForm";
 import { useToast } from "@/components/admin/ToastProvider";
 import { useLanguage } from "@/context/LanguageContext";
@@ -28,13 +27,16 @@ export default function NewGalleryItemPage() {
   }
 
   return (
-    <>
-      <TopBar title={t(adminI18n.gallery.addGalleryItem)} breadcrumbs={[{ label: t(adminI18n.gallery.title), href: "/admin/gallery" }, { label: t(adminI18n.gallery.newItem) }]}>
-        <Link href="/admin/gallery" className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
-          <span className="material-symbols-outlined text-[18px]">arrow_back</span> {t(adminI18n.common.back)}
-        </Link>
-      </TopBar>
-      <div className="p-6 max-w-4xl"><GalleryForm onSubmit={handleSubmit} isSubmitting={submitting} /></div>
-    </>
+    <FormPageLayout
+      formId="gallery-form"
+      backHref="/admin/gallery"
+      title={t(adminI18n.gallery.addGalleryItem)}
+      breadcrumbs={[{ label: t(adminI18n.gallery.title), href: "/admin/gallery" }, { label: t(adminI18n.gallery.newItem) }]}
+      submitLabel={t(adminI18n.galleryForm.createItem)}
+      submittingLabel={t(adminI18n.common.creating)}
+      isSubmitting={submitting}
+    >
+      <GalleryForm formId="gallery-form" onSubmit={handleSubmit} isSubmitting={submitting} />
+    </FormPageLayout>
   );
 }

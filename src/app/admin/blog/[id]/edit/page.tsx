@@ -2,8 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
-import TopBar from "@/components/admin/TopBar";
+import FormPageLayout from "@/components/admin/FormPageLayout";
 import BlogForm, { type BlogFormData } from "@/components/admin/forms/BlogForm";
 import PageSkeleton from "@/components/admin/PageSkeleton";
 import { useToast } from "@/components/admin/ToastProvider";
@@ -55,14 +54,30 @@ export default function EditBlogPost({ params }: { params: Promise<{ id: string 
     } finally { setSubmitting(false); }
   }
 
+  async function handleDelete() {
+    try {
+      const res = await fetch(`/api/blog/${id}`, { method: "DELETE" });
+      if (!res.ok) throw new Error();
+      toast(t(adminI18n.blog.deleteSuccess), "success");
+      router.push("/admin/blog");
+    } catch {
+      toast(t(adminI18n.blog.deleteFailed), "error");
+    }
+  }
+
   return (
-    <>
-      <TopBar title={t(adminI18n.blog.editBlogPost)} breadcrumbs={[{ label: t(adminI18n.blog.title), href: "/admin/blog" }, { label: t(adminI18n.common.edit) }]}>
-        <Link href="/admin/blog" className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">{t(adminI18n.common.cancel)}</Link>
-      </TopBar>
-      <div className="p-6 max-w-4xl">
-        {loading ? <PageSkeleton variant="form" /> : initialData && <BlogForm initialData={initialData} onSubmit={handleSubmit} isSubmitting={submitting} />}
-      </div>
-    </>
+    <FormPageLayout
+      title={t(adminI18n.blog.editBlogPost)}
+      breadcrumbs={[{ label: t(adminI18n.blog.title), href: "/admin/blog" }, { label: t(adminI18n.common.edit) }]}
+      backHref="/admin/blog"
+      formId="blog-form"
+      isSubmitting={submitting}
+      isEditing
+      submitLabel={t(adminI18n.common.saveChanges)}
+      submittingLabel={t(adminI18n.common.saving)}
+      onDelete={handleDelete}
+    >
+      {loading ? <PageSkeleton variant="form" /> : initialData && <BlogForm formId="blog-form" initialData={initialData} onSubmit={handleSubmit} isSubmitting={submitting} />}
+    </FormPageLayout>
   );
 }

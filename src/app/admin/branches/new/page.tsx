@@ -2,8 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
-import TopBar from "@/components/admin/TopBar";
+import FormPageLayout from "@/components/admin/FormPageLayout";
 import BranchForm, { type BranchFormData } from "@/components/admin/forms/BranchForm";
 import { useToast } from "@/components/admin/ToastProvider";
 import { useLanguage } from "@/context/LanguageContext";
@@ -28,13 +27,16 @@ export default function NewBranchPage() {
   }
 
   return (
-    <>
-      <TopBar title={t(adminI18n.branches.addBranch)} breadcrumbs={[{ label: t(adminI18n.branches.title), href: "/admin/branches" }, { label: t(adminI18n.branches.newBranch) }]}>
-        <Link href="/admin/branches" className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
-          <span className="material-symbols-outlined text-[18px]">arrow_back</span> {t(adminI18n.common.back)}
-        </Link>
-      </TopBar>
-      <div className="p-6 max-w-4xl"><BranchForm onSubmit={handleSubmit} isSubmitting={submitting} /></div>
-    </>
+    <FormPageLayout
+      formId="branch-form"
+      backHref="/admin/branches"
+      title={t(adminI18n.branches.addBranch)}
+      breadcrumbs={[{ label: t(adminI18n.branches.title), href: "/admin/branches" }, { label: t(adminI18n.branches.newBranch) }]}
+      submitLabel={t(adminI18n.branchForm.createBranch)}
+      submittingLabel={t(adminI18n.common.creating)}
+      isSubmitting={submitting}
+    >
+      <BranchForm formId="branch-form" onSubmit={handleSubmit} isSubmitting={submitting} />
+    </FormPageLayout>
   );
 }

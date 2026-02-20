@@ -2,8 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
-import TopBar from "@/components/admin/TopBar";
+import FormPageLayout from "@/components/admin/FormPageLayout";
 import TestimonialForm, { type TestimonialFormData } from "@/components/admin/forms/TestimonialForm";
 import PageSkeleton from "@/components/admin/PageSkeleton";
 import { useToast } from "@/components/admin/ToastProvider";
@@ -48,16 +47,30 @@ export default function EditTestimonialPage({ params }: { params: Promise<{ id: 
     } finally { setSubmitting(false); }
   }
 
+  async function handleDelete() {
+    try {
+      const res = await fetch(`/api/testimonials/${id}`, { method: "DELETE" });
+      if (!res.ok) throw new Error();
+      toast(t(adminI18n.testimonials.deleteSuccess), "success");
+      router.push("/admin/testimonials");
+    } catch {
+      toast(t(adminI18n.testimonials.deleteFailed), "error");
+    }
+  }
+
   return (
-    <>
-      <TopBar title={t(adminI18n.testimonials.editTestimonial)} breadcrumbs={[{ label: t(adminI18n.testimonials.title), href: "/admin/testimonials" }, { label: t(adminI18n.common.edit) }]}>
-        <Link href="/admin/testimonials" className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
-          <span className="material-symbols-outlined text-[18px]">arrow_back</span> {t(adminI18n.common.back)}
-        </Link>
-      </TopBar>
-      <div className="p-6 max-w-4xl">
-        {loading ? <PageSkeleton variant="form" /> : initialData && <TestimonialForm initialData={initialData} onSubmit={handleSubmit} isSubmitting={submitting} />}
-      </div>
-    </>
+    <FormPageLayout
+      formId="testimonial-form"
+      backHref="/admin/testimonials"
+      title={t(adminI18n.testimonials.editTestimonial)}
+      breadcrumbs={[{ label: t(adminI18n.testimonials.title), href: "/admin/testimonials" }, { label: t(adminI18n.common.edit) }]}
+      isSubmitting={submitting}
+      submitLabel={t(adminI18n.common.saveChanges)}
+      submittingLabel={t(adminI18n.common.saving)}
+      isEditing={true}
+      onDelete={handleDelete}
+    >
+      {loading ? <PageSkeleton variant="form" /> : initialData && <TestimonialForm formId="testimonial-form" initialData={initialData} onSubmit={handleSubmit} isSubmitting={submitting} />}
+    </FormPageLayout>
   );
 }

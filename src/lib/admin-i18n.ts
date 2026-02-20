@@ -67,6 +67,7 @@ export const adminI18n = {
     status: { en: "Status", ar: "الحالة" } as BilingualString,
     english: { en: "English", ar: "الإنجليزية" } as BilingualString,
     arabic: { en: "Arabic", ar: "العربية" } as BilingualString,
+    deleteItem: { en: "Delete", ar: "حذف" } as BilingualString,
     deleteConfirm: { en: "This action cannot be undone.", ar: "لا يمكن التراجع عن هذا الإجراء." } as BilingualString,
     addRow: { en: "Add Row", ar: "إضافة صف" } as BilingualString,
     remove: { en: "Remove", ar: "إزالة" } as BilingualString,

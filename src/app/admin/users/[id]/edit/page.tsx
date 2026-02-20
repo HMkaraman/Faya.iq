@@ -2,8 +2,7 @@
 
 import React, { useEffect, useState, use } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
-import TopBar from "@/components/admin/TopBar";
+import FormPageLayout from "@/components/admin/FormPageLayout";
 import UserForm, { type UserFormData } from "@/components/admin/forms/UserForm";
 import PageSkeleton from "@/components/admin/PageSkeleton";
 import { useToast } from "@/components/admin/ToastProvider";
@@ -48,16 +47,30 @@ export default function EditUserPage({ params }: { params: Promise<{ id: string 
     } finally { setSubmitting(false); }
   }
 
+  async function handleDelete() {
+    try {
+      const res = await fetch(`/api/users/${id}`, { method: "DELETE" });
+      if (!res.ok) throw new Error();
+      toast(t(adminI18n.users.deleteSuccess), "success");
+      router.push("/admin/users");
+    } catch {
+      toast(t(adminI18n.users.deleteFailed), "error");
+    }
+  }
+
   return (
-    <>
-      <TopBar title={t(adminI18n.users.editUser)} breadcrumbs={[{ label: t(adminI18n.users.title), href: "/admin/users" }, { label: t(adminI18n.common.edit) }]}>
-        <Link href="/admin/users" className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
-          <span className="material-symbols-outlined text-[18px]">arrow_back</span> {t(adminI18n.common.back)}
-        </Link>
-      </TopBar>
-      <div className="p-6 max-w-4xl">
-        {loading ? <PageSkeleton variant="form" /> : initialData && <UserForm initialData={initialData} onSubmit={handleSubmit} isSubmitting={submitting} />}
-      </div>
-    </>
+    <FormPageLayout
+      formId="user-form"
+      backHref="/admin/users"
+      title={t(adminI18n.users.editUser)}
+      breadcrumbs={[{ label: t(adminI18n.users.title), href: "/admin/users" }, { label: t(adminI18n.common.edit) }]}
+      submitLabel={t(adminI18n.common.saveChanges)}
+      submittingLabel={t(adminI18n.common.saving)}
+      isSubmitting={submitting}
+      isEditing={true}
+      onDelete={handleDelete}
+    >
+      {loading ? <PageSkeleton variant="form" /> : initialData && <UserForm formId="user-form" initialData={initialData} onSubmit={handleSubmit} isSubmitting={submitting} />}
+    </FormPageLayout>
   );
 }

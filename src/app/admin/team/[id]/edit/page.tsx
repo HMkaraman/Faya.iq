@@ -2,8 +2,7 @@
 
 import React, { useEffect, useState, use } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
-import TopBar from "@/components/admin/TopBar";
+import FormPageLayout from "@/components/admin/FormPageLayout";
 import TeamForm, { type TeamFormData } from "@/components/admin/forms/TeamForm";
 import PageSkeleton from "@/components/admin/PageSkeleton";
 import { useToast } from "@/components/admin/ToastProvider";
@@ -50,16 +49,30 @@ export default function EditTeamMemberPage({ params }: { params: Promise<{ id: s
     } finally { setSubmitting(false); }
   }
 
+  async function handleDelete() {
+    try {
+      const res = await fetch(`/api/team/${id}`, { method: "DELETE" });
+      if (!res.ok) throw new Error();
+      toast(t(adminI18n.team.deleteSuccess), "success");
+      router.push("/admin/team");
+    } catch {
+      toast(t(adminI18n.team.deleteFailed), "error");
+    }
+  }
+
   return (
-    <>
-      <TopBar title={t(adminI18n.team.editMember)} breadcrumbs={[{ label: t(adminI18n.team.title), href: "/admin/team" }, { label: t(adminI18n.common.edit) }]}>
-        <Link href="/admin/team" className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
-          <span className="material-symbols-outlined text-[18px]">arrow_back</span> {t(adminI18n.common.back)}
-        </Link>
-      </TopBar>
-      <div className="p-6 max-w-4xl">
-        {loading ? <PageSkeleton variant="form" /> : initialData && <TeamForm initialData={initialData} onSubmit={handleSubmit} isSubmitting={submitting} />}
-      </div>
-    </>
+    <FormPageLayout
+      formId="team-form"
+      backHref="/admin/team"
+      title={t(adminI18n.team.editMember)}
+      breadcrumbs={[{ label: t(adminI18n.team.title), href: "/admin/team" }, { label: t(adminI18n.common.edit) }]}
+      isSubmitting={submitting}
+      submitLabel={t(adminI18n.common.saveChanges)}
+      submittingLabel={t(adminI18n.common.saving)}
+      isEditing={true}
+      onDelete={handleDelete}
+    >
+      {loading ? <PageSkeleton variant="form" /> : initialData && <TeamForm formId="team-form" initialData={initialData} onSubmit={handleSubmit} isSubmitting={submitting} />}
+    </FormPageLayout>
   );
 }

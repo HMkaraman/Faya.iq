@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import Link from "next/link";
 import FormField from "@/components/admin/FormField";
 import BilingualInput from "@/components/admin/BilingualInput";
 import BilingualTextarea from "@/components/admin/BilingualTextarea";
@@ -46,9 +45,10 @@ interface BlogFormProps {
   initialData?: BlogFormData;
   onSubmit: (data: BlogFormData) => Promise<void>;
   isSubmitting: boolean;
+  formId?: string;
 }
 
-export default function BlogForm({ initialData, onSubmit, isSubmitting }: BlogFormProps) {
+export default function BlogForm({ initialData, onSubmit, isSubmitting, formId }: BlogFormProps) {
   const [form, setForm] = useState<BlogFormData>(initialData || emptyForm);
   const [errors, setErrors] = useState<ValidationErrors>({});
   const initialRef = useRef(JSON.stringify(initialData || emptyForm));
@@ -76,7 +76,7 @@ export default function BlogForm({ initialData, onSubmit, isSubmitting }: BlogFo
   const inputClass = "w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors";
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form id={formId} onSubmit={handleSubmit} className="space-y-6">
       {/* Basic Info */}
       <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-5">
         <h2 className="text-base font-semibold text-gray-900">{t(adminI18n.blogForm.basicInfo)}</h2>
@@ -150,14 +150,6 @@ export default function BlogForm({ initialData, onSubmit, isSubmitting }: BlogFo
         </div>
       </div>
 
-      {/* Submit */}
-      <div className="flex items-center justify-end gap-3 pb-6">
-        <Link href="/admin/blog" className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">{t(adminI18n.common.cancel)}</Link>
-        <button type="submit" disabled={isSubmitting} className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary-dark disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
-          {isSubmitting && <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />}
-          {isSubmitting ? (isEditing ? t(adminI18n.common.saving) : t(adminI18n.common.creating)) : (isEditing ? t(adminI18n.common.saveChanges) : t(adminI18n.blogForm.createPost))}
-        </button>
-      </div>
     </form>
   );
 }

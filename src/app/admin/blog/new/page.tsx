@@ -2,8 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
-import TopBar from "@/components/admin/TopBar";
+import FormPageLayout from "@/components/admin/FormPageLayout";
 import BlogForm, { type BlogFormData } from "@/components/admin/forms/BlogForm";
 import { useToast } from "@/components/admin/ToastProvider";
 import { useLanguage } from "@/context/LanguageContext";
@@ -29,13 +28,16 @@ export default function NewBlogPost() {
   }
 
   return (
-    <>
-      <TopBar title={t(adminI18n.blog.newBlogPost)} breadcrumbs={[{ label: t(adminI18n.blog.title), href: "/admin/blog" }, { label: t(adminI18n.blog.newPost) }]}>
-        <Link href="/admin/blog" className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">{t(adminI18n.common.cancel)}</Link>
-      </TopBar>
-      <div className="p-6 max-w-4xl">
-        <BlogForm onSubmit={handleSubmit} isSubmitting={submitting} />
-      </div>
-    </>
+    <FormPageLayout
+      title={t(adminI18n.blog.newBlogPost)}
+      breadcrumbs={[{ label: t(adminI18n.blog.title), href: "/admin/blog" }, { label: t(adminI18n.blog.newPost) }]}
+      backHref="/admin/blog"
+      formId="blog-form"
+      isSubmitting={submitting}
+      submitLabel={t(adminI18n.blogForm.createPost)}
+      submittingLabel={t(adminI18n.common.creating)}
+    >
+      <BlogForm formId="blog-form" onSubmit={handleSubmit} isSubmitting={submitting} />
+    </FormPageLayout>
   );
 }
