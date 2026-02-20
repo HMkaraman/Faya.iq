@@ -9,6 +9,8 @@ import ImageUpload from "@/components/admin/ImageUpload";
 import TagInput from "@/components/admin/TagInput";
 import { validate, teamSchema, type ValidationErrors } from "@/lib/validation";
 import { useUnsavedChanges } from "@/hooks/useUnsavedChanges";
+import { useLanguage } from "@/context/LanguageContext";
+import { adminI18n } from "@/lib/admin-i18n";
 import type { Branch } from "@/types";
 
 export interface TeamFormData {
@@ -40,6 +42,7 @@ export default function TeamForm({ initialData, onSubmit, isSubmitting }: TeamFo
   const initialRef = useRef(JSON.stringify(initialData || emptyForm));
   const isDirty = JSON.stringify(form) !== initialRef.current;
   const isEditing = !!initialData;
+  const { t } = useLanguage();
 
   useUnsavedChanges(isDirty);
 
@@ -68,28 +71,28 @@ export default function TeamForm({ initialData, onSubmit, isSubmitting }: TeamFo
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-5">
-        <h2 className="text-base font-semibold text-gray-900">Personal Information</h2>
-        <BilingualInput label="Name" nameEn="name_en" nameAr="name_ar" valueEn={form.name.en} valueAr={form.name.ar} onChangeEn={(v) => updateForm("name", { ...form.name, en: v })} onChangeAr={(v) => updateForm("name", { ...form.name, ar: v })} required />
+        <h2 className="text-base font-semibold text-gray-900">{t(adminI18n.teamForm.personalInfo)}</h2>
+        <BilingualInput label={t(adminI18n.common.name)} nameEn="name_en" nameAr="name_ar" valueEn={form.name.en} valueAr={form.name.ar} onChangeEn={(v) => updateForm("name", { ...form.name, en: v })} onChangeAr={(v) => updateForm("name", { ...form.name, ar: v })} required />
         {errors.name && <p className="text-sm text-red-500">{errors.name}</p>}
-        <BilingualInput label="Title" nameEn="title_en" nameAr="title_ar" valueEn={form.title.en} valueAr={form.title.ar} onChangeEn={(v) => updateForm("title", { ...form.title, en: v })} onChangeAr={(v) => updateForm("title", { ...form.title, ar: v })} required />
+        <BilingualInput label={t(adminI18n.common.title)} nameEn="title_en" nameAr="title_ar" valueEn={form.title.en} valueAr={form.title.ar} onChangeEn={(v) => updateForm("title", { ...form.title, en: v })} onChangeAr={(v) => updateForm("title", { ...form.title, ar: v })} required />
         {errors.title && <p className="text-sm text-red-500">{errors.title}</p>}
-        <BilingualInput label="Specialization" nameEn="spec_en" nameAr="spec_ar" valueEn={form.specialization.en} valueAr={form.specialization.ar} onChangeEn={(v) => updateForm("specialization", { ...form.specialization, en: v })} onChangeAr={(v) => updateForm("specialization", { ...form.specialization, ar: v })} />
-        <BilingualTextarea label="Bio" nameEn="bio_en" nameAr="bio_ar" valueEn={form.bio.en} valueAr={form.bio.ar} onChangeEn={(v) => updateForm("bio", { ...form.bio, en: v })} onChangeAr={(v) => updateForm("bio", { ...form.bio, ar: v })} rows={4} />
-        <ImageUpload label="Profile Image" value={form.image} onChange={(url) => updateForm("image", url)} />
+        <BilingualInput label={t(adminI18n.team.specialization)} nameEn="spec_en" nameAr="spec_ar" valueEn={form.specialization.en} valueAr={form.specialization.ar} onChangeEn={(v) => updateForm("specialization", { ...form.specialization, en: v })} onChangeAr={(v) => updateForm("specialization", { ...form.specialization, ar: v })} />
+        <BilingualTextarea label={t(adminI18n.teamForm.bio)} nameEn="bio_en" nameAr="bio_ar" valueEn={form.bio.en} valueAr={form.bio.ar} onChangeEn={(v) => updateForm("bio", { ...form.bio, en: v })} onChangeAr={(v) => updateForm("bio", { ...form.bio, ar: v })} rows={4} />
+        <ImageUpload label={t(adminI18n.teamForm.profileImage)} value={form.image} onChange={(url) => updateForm("image", url)} />
       </div>
 
       <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-5">
-        <h2 className="text-base font-semibold text-gray-900">Professional Details</h2>
-        <FormField label="Years of Experience">
+        <h2 className="text-base font-semibold text-gray-900">{t(adminI18n.teamForm.professionalDetails)}</h2>
+        <FormField label={t(adminI18n.teamForm.yearsOfExperience)}>
           <input type="number" min={0} value={form.yearsExperience} onChange={(e) => updateForm("yearsExperience", parseInt(e.target.value) || 0)} className={inputClass} />
         </FormField>
-        <FormField label="Credentials">
-          <TagInput value={form.credentials} onChange={(c) => updateForm("credentials", c)} placeholder="Add credential and press Enter..." />
+        <FormField label={t(adminI18n.teamForm.credentials)}>
+          <TagInput value={form.credentials} onChange={(c) => updateForm("credentials", c)} placeholder={t(adminI18n.teamForm.credentialsPlaceholder)} />
         </FormField>
       </div>
 
       <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-5">
-        <h2 className="text-base font-semibold text-gray-900">Branches</h2>
+        <h2 className="text-base font-semibold text-gray-900">{t(adminI18n.sidebar.branches)}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
           {allBranches.map((branch) => (
             <label key={branch.id} className="flex items-center gap-2 px-3 py-2 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
@@ -101,10 +104,10 @@ export default function TeamForm({ initialData, onSubmit, isSubmitting }: TeamFo
       </div>
 
       <div className="flex items-center justify-end gap-3 pb-6">
-        <Link href="/admin/team" className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">Cancel</Link>
+        <Link href="/admin/team" className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">{t(adminI18n.common.cancel)}</Link>
         <button type="submit" disabled={isSubmitting} className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary-dark disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
           {isSubmitting && <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />}
-          {isSubmitting ? (isEditing ? "Saving..." : "Creating...") : (isEditing ? "Save Changes" : "Create Member")}
+          {isSubmitting ? (isEditing ? t(adminI18n.common.saving) : t(adminI18n.common.creating)) : (isEditing ? t(adminI18n.common.saveChanges) : t(adminI18n.teamForm.createMember))}
         </button>
       </div>
     </form>

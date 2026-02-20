@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import { useLanguage } from "@/context/LanguageContext";
+import { adminI18n } from "@/lib/admin-i18n";
 
 interface BilingualTextareaProps {
   label: string;
@@ -27,16 +29,18 @@ export default function BilingualTextarea({
   error,
   rows = 4,
 }: BilingualTextareaProps) {
+  const { t } = useLanguage();
+
   return (
     <div className="space-y-1.5">
       <label className="block text-sm font-medium text-gray-700">
         {label}
-        {required && <span className="text-red-500 ml-0.5">*</span>}
+        {required && <span className="text-red-500 ms-0.5">*</span>}
       </label>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {/* English */}
         <div>
-          <label className="block text-xs text-gray-500 mb-1">English</label>
+          <label className="block text-xs text-gray-500 mb-1">{t(adminI18n.common.english)}</label>
           <textarea
             name={nameEn}
             value={valueEn}
@@ -48,7 +52,7 @@ export default function BilingualTextarea({
         </div>
         {/* Arabic */}
         <div>
-          <label className="block text-xs text-gray-500 mb-1">Arabic</label>
+          <label className="block text-xs text-gray-500 mb-1">{t(adminI18n.common.arabic)}</label>
           <textarea
             name={nameAr}
             value={valueAr}

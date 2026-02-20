@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useRef, useCallback } from "react";
+import { useLanguage } from "@/context/LanguageContext";
+import { adminI18n } from "@/lib/admin-i18n";
 
 interface ImageUploadProps {
   value: string;
@@ -19,6 +21,7 @@ export default function ImageUpload({
   maxSizeMB = 5,
   acceptedTypes = DEFAULT_ACCEPTED,
 }: ImageUploadProps) {
+  const { t } = useLanguage();
   const [uploading, setUploading] = useState(false);
   const [dragActive, setDragActive] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -28,14 +31,14 @@ export default function ImageUpload({
     (file: File): string | null => {
       if (!acceptedTypes.includes(file.type)) {
         const names = acceptedTypes.map((t) => t.split("/")[1].toUpperCase()).join(", ");
-        return `Invalid file type. Accepted: ${names}`;
+        return `${t(adminI18n.imageUpload.invalidType)} ${names}`;
       }
       if (file.size > maxSizeMB * 1024 * 1024) {
-        return `File too large. Maximum size: ${maxSizeMB}MB`;
+        return `${t(adminI18n.imageUpload.tooLarge)} ${maxSizeMB}MB`;
       }
       return null;
     },
-    [acceptedTypes, maxSizeMB]
+    [acceptedTypes, maxSizeMB, t]
   );
 
   const uploadFile = useCallback(
@@ -58,18 +61,18 @@ export default function ImageUpload({
         });
 
         if (!res.ok) {
-          throw new Error("Upload failed");
+          throw new Error(t(adminI18n.imageUpload.uploadFailed));
         }
 
         const data = await res.json();
         onChange(data.url);
       } catch {
-        setError("Failed to upload image. Please try again.");
+        setError(t(adminI18n.imageUpload.uploadFailedMessage));
       } finally {
         setUploading(false);
       }
     },
-    [onChange, validateFile]
+    [onChange, validateFile, t]
   );
 
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -118,8 +121,8 @@ export default function ImageUpload({
           />
           <button
             onClick={handleRemove}
-            className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
-            title="Remove image"
+            className="absolute -top-2 -end-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
+            title={t(adminI18n.common.remove)}
           >
             <span className="material-symbols-outlined text-[14px]">close</span>
           </button>
@@ -145,7 +148,7 @@ export default function ImageUpload({
         {uploading ? (
           <div className="flex flex-col items-center gap-2">
             <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
-            <p className="text-sm text-gray-500">Uploading...</p>
+            <p className="text-sm text-gray-500">{t(adminI18n.imageUpload.uploading)}</p>
           </div>
         ) : (
           <div className="flex flex-col items-center gap-2">
@@ -153,10 +156,10 @@ export default function ImageUpload({
               cloud_upload
             </span>
             <p className="text-sm text-gray-500">
-              Drag & drop an image here, or{" "}
-              <span className="text-primary font-medium">click to browse</span>
+              {t(adminI18n.imageUpload.dragDrop)}{" "}
+              <span className="text-primary font-medium">{t(adminI18n.imageUpload.clickBrowse)}</span>
             </p>
-            <p className="text-xs text-gray-400">{typeNames} up to {maxSizeMB}MB</p>
+            <p className="text-xs text-gray-400">{typeNames} {t(adminI18n.imageUpload.upTo)} {maxSizeMB}MB</p>
           </div>
         )}
       </div>

@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { useAdmin } from "./AdminProvider";
+import { useLanguage } from "@/context/LanguageContext";
+import { adminI18n } from "@/lib/admin-i18n";
 import Breadcrumbs, { type BreadcrumbItem } from "./Breadcrumbs";
 import ConfirmDialog from "./ConfirmDialog";
 
@@ -13,6 +15,7 @@ interface TopBarProps {
 
 export default function TopBar({ title, breadcrumbs, children }: TopBarProps) {
   const { user, toggleSidebar } = useAdmin();
+  const { t } = useLanguage();
   const [showLogout, setShowLogout] = useState(false);
 
   async function handleLogout() {
@@ -34,7 +37,7 @@ export default function TopBar({ title, breadcrumbs, children }: TopBarProps) {
             <button
               onClick={toggleSidebar}
               className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
-              aria-label="Toggle sidebar"
+              aria-label={t(adminI18n.topbar.toggleSidebar)}
             >
               <span className="material-symbols-outlined text-gray-600">menu</span>
             </button>
@@ -51,7 +54,7 @@ export default function TopBar({ title, breadcrumbs, children }: TopBarProps) {
 
             {/* User info */}
             {user && (
-              <div className="hidden sm:flex items-center gap-2 pl-3 border-l border-gray-200">
+              <div className="hidden sm:flex items-center gap-2 ps-3 border-s border-gray-200">
                 <span className="text-sm text-gray-600">{user.name}</span>
                 <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-primary/10 text-primary font-semibold uppercase">
                   {user.role}
@@ -63,10 +66,10 @@ export default function TopBar({ title, breadcrumbs, children }: TopBarProps) {
             <button
               onClick={() => setShowLogout(true)}
               className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
-              title="Logout"
+              title={t(adminI18n.topbar.logout)}
             >
               <span className="material-symbols-outlined text-[18px]">logout</span>
-              <span className="hidden sm:inline">Logout</span>
+              <span className="hidden sm:inline">{t(adminI18n.topbar.logout)}</span>
             </button>
           </div>
         </div>
@@ -74,9 +77,10 @@ export default function TopBar({ title, breadcrumbs, children }: TopBarProps) {
 
       <ConfirmDialog
         open={showLogout}
-        title="Confirm Logout"
-        message="Are you sure you want to log out of the admin dashboard?"
-        confirmLabel="Logout"
+        title={t(adminI18n.topbar.confirmLogout)}
+        message={t(adminI18n.topbar.logoutMessage)}
+        confirmLabel={t(adminI18n.topbar.logout)}
+        cancelLabel={t(adminI18n.common.cancel)}
         variant="danger"
         onConfirm={handleLogout}
         onCancel={() => setShowLogout(false)}

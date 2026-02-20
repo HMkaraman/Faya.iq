@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import { useLanguage } from "@/context/LanguageContext";
+import { adminI18n } from "@/lib/admin-i18n";
 
 interface BilingualInputProps {
   label: string;
@@ -25,16 +27,18 @@ export default function BilingualInput({
   required,
   error,
 }: BilingualInputProps) {
+  const { t } = useLanguage();
+
   return (
     <div className="space-y-1.5">
       <label className="block text-sm font-medium text-gray-700">
         {label}
-        {required && <span className="text-red-500 ml-0.5">*</span>}
+        {required && <span className="text-red-500 ms-0.5">*</span>}
       </label>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {/* English */}
         <div>
-          <label className="block text-xs text-gray-500 mb-1">English</label>
+          <label className="block text-xs text-gray-500 mb-1">{t(adminI18n.common.english)}</label>
           <input
             type="text"
             name={nameEn}
@@ -46,7 +50,7 @@ export default function BilingualInput({
         </div>
         {/* Arabic */}
         <div>
-          <label className="block text-xs text-gray-500 mb-1">Arabic</label>
+          <label className="block text-xs text-gray-500 mb-1">{t(adminI18n.common.arabic)}</label>
           <input
             type="text"
             name={nameAr}

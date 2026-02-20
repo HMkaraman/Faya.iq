@@ -7,6 +7,8 @@ import TopBar from "@/components/admin/TopBar";
 import DataTable from "@/components/admin/DataTable";
 import DeleteConfirm from "@/components/admin/DeleteConfirm";
 import { useToast } from "@/components/admin/ToastProvider";
+import { useLanguage } from "@/context/LanguageContext";
+import { adminI18n } from "@/lib/admin-i18n";
 
 interface TeamMember {
   id: string;
@@ -20,6 +22,7 @@ interface TeamMember {
 }
 
 export default function TeamPage() {
+  const { t, lang } = useLanguage();
   const [team, setTeam] = useState<TeamMember[]>([]);
   const [loading, setLoading] = useState(true);
   const [deleteTarget, setDeleteTarget] = useState<TeamMember | null>(null);
@@ -37,7 +40,7 @@ export default function TeamPage() {
       const data = await res.json();
       setTeam(data);
     } catch {
-      toast("Failed to load team members", "error");
+      toast(t(adminI18n.team.loadFailed), "error");
     } finally {
       setLoading(false);
     }
@@ -51,9 +54,9 @@ export default function TeamPage() {
       });
       if (!res.ok) throw new Error("Failed to delete");
       setTeam((prev) => prev.filter((t) => t.id !== deleteTarget.id));
-      toast("Team member deleted successfully", "success");
+      toast(t(adminI18n.team.deleteSuccess), "success");
     } catch {
-      toast("Failed to delete team member", "error");
+      toast(t(adminI18n.team.deleteFailed), "error");
     }
     setDeleteTarget(null);
   }
@@ -61,45 +64,45 @@ export default function TeamPage() {
   const columns = [
     {
       key: "image",
-      label: "Image",
+      label: t(adminI18n.common.image),
       render: (item: TeamMember) => (
         <img
           src={item.image}
-          alt={item.name.en}
+          alt={item.name?.[lang] || item.name?.en}
           className="w-12 h-12 rounded-full object-cover"
         />
       ),
     },
     {
       key: "name",
-      label: "Name",
+      label: t(adminI18n.common.name),
       render: (item: TeamMember) => (
-        <span className="font-medium text-gray-900">{item.name.en}</span>
+        <span className="font-medium text-gray-900">{item.name?.[lang] || item.name?.en}</span>
       ),
     },
     {
       key: "title",
-      label: "Title",
-      render: (item: TeamMember) => item.title.en,
+      label: t(adminI18n.common.title),
+      render: (item: TeamMember) => item.title?.[lang] || item.title?.en,
     },
     {
       key: "specialization",
-      label: "Specialization",
-      render: (item: TeamMember) => item.specialization.en,
+      label: t(adminI18n.team.specialization),
+      render: (item: TeamMember) => item.specialization?.[lang] || item.specialization?.en,
     },
     {
       key: "yearsExperience",
-      label: "Experience",
+      label: t(adminI18n.team.experience),
       render: (item: TeamMember) => (
-        <span>{item.yearsExperience} years</span>
+        <span>{item.yearsExperience} {t(adminI18n.team.years)}</span>
       ),
     },
     {
       key: "branches",
-      label: "Branches",
+      label: t(adminI18n.sidebar.branches),
       render: (item: TeamMember) => (
         <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-blue-50 text-blue-700 rounded-full text-xs font-medium">
-          {item.branches.length} {item.branches.length === 1 ? "branch" : "branches"}
+          {item.branches.length} {item.branches.length === 1 ? t(adminI18n.team.branchCount) : t(adminI18n.team.branchesCount)}
         </span>
       ),
     },
@@ -118,13 +121,13 @@ export default function TeamPage() {
 
   return (
     <div>
-      <TopBar title="Team">
+      <TopBar title={t(adminI18n.team.title)}>
         <Link
           href="/admin/team/new"
           className="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors flex items-center gap-1.5"
         >
           <span className="material-symbols-outlined text-[18px]">add</span>
-          Add Member
+          {t(adminI18n.team.addMember)}
         </Link>
       </TopBar>
 
@@ -145,8 +148,8 @@ export default function TeamPage() {
         open={!!deleteTarget}
         onClose={() => setDeleteTarget(null)}
         onConfirm={handleDelete}
-        title="Delete Team Member"
-        message={`Are you sure you want to delete "${deleteTarget?.name.en}"? This action cannot be undone.`}
+        title={t(adminI18n.team.deleteTitle)}
+        message={t(adminI18n.team.deleteMessage)}
       />
     </div>
   );

@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import { useLanguage } from "@/context/LanguageContext";
+import { adminI18n } from "@/lib/admin-i18n";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface Column<T = any> {
@@ -43,6 +45,7 @@ export default function DataTable<T extends Record<string, any>>({
   perPage = 10,
   filters,
 }: DataTableProps<T>) {
+  const { t } = useLanguage();
   const [search, setSearch] = useState("");
   const [sortKey, setSortKey] = useState<string | null>(null);
   const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
@@ -126,15 +129,15 @@ export default function DataTable<T extends Record<string, any>>({
         <div className="p-4 border-b border-gray-200 flex flex-wrap items-center gap-3">
           {searchKey && (
             <div className="relative max-w-sm flex-1 min-w-[200px]">
-              <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-[20px]">
+              <span className="material-symbols-outlined absolute start-3 top-1/2 -translate-y-1/2 text-gray-400 text-[20px]">
                 search
               </span>
               <input
                 type="text"
-                placeholder="Search..."
+                placeholder={t(adminI18n.common.search)}
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
+                className="w-full ps-10 pe-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
               />
             </div>
           )}
@@ -147,7 +150,7 @@ export default function DataTable<T extends Record<string, any>>({
               }
               className="px-3 py-2 border border-gray-300 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
             >
-              <option value="">{filter.label}: All</option>
+              <option value="">{filter.label}: {t(adminI18n.common.all)}</option>
               {filter.options.map((opt) => (
                 <option key={opt.value} value={opt.value}>
                   {opt.label}
@@ -167,7 +170,7 @@ export default function DataTable<T extends Record<string, any>>({
                 <th
                   key={col.key}
                   onClick={() => handleSort(col.key)}
-                  className="px-4 py-3 text-left font-semibold text-gray-600 cursor-pointer select-none hover:text-gray-900 transition-colors"
+                  className="px-4 py-3 text-start font-semibold text-gray-600 cursor-pointer select-none hover:text-gray-900 transition-colors"
                 >
                   <span className="inline-flex items-center gap-1">
                     {col.label}
@@ -180,7 +183,7 @@ export default function DataTable<T extends Record<string, any>>({
                 </th>
               ))}
               {(onEdit || onDelete) && (
-                <th className="px-4 py-3 text-right font-semibold text-gray-600">Actions</th>
+                <th className="px-4 py-3 text-end font-semibold text-gray-600">{t(adminI18n.common.actions)}</th>
               )}
             </tr>
           </thead>
@@ -196,19 +199,19 @@ export default function DataTable<T extends Record<string, any>>({
                       <span className="material-symbols-outlined text-[40px] text-gray-300">
                         inbox
                       </span>
-                      <p className="text-gray-400 font-medium">No data yet</p>
-                      <p className="text-gray-400 text-xs">Items will appear here once added.</p>
+                      <p className="text-gray-400 font-medium">{t(adminI18n.common.noData)}</p>
+                      <p className="text-gray-400 text-xs">{t(adminI18n.common.noDataHint)}</p>
                     </div>
                   ) : hasNoResults ? (
                     <div className="flex flex-col items-center gap-2">
                       <span className="material-symbols-outlined text-[40px] text-gray-300">
                         search_off
                       </span>
-                      <p className="text-gray-400 font-medium">No results found</p>
-                      <p className="text-gray-400 text-xs">Try adjusting your search or filters.</p>
+                      <p className="text-gray-400 font-medium">{t(adminI18n.common.noResults)}</p>
+                      <p className="text-gray-400 text-xs">{t(adminI18n.common.noResultsHint)}</p>
                     </div>
                   ) : (
-                    <p className="text-gray-400">No data found.</p>
+                    <p className="text-gray-400">{t(adminI18n.common.noDataFound)}</p>
                   )}
                 </td>
               </tr>
@@ -221,13 +224,13 @@ export default function DataTable<T extends Record<string, any>>({
                     </td>
                   ))}
                   {(onEdit || onDelete) && (
-                    <td className="px-4 py-3 text-right">
+                    <td className="px-4 py-3 text-end">
                       <div className="flex items-center justify-end gap-1">
                         {onEdit && (
                           <button
                             onClick={() => onEdit(item)}
                             className="p-1.5 rounded-lg text-gray-400 hover:text-primary hover:bg-primary/10 transition-colors"
-                            title="Edit"
+                            title={t(adminI18n.common.edit)}
                           >
                             <span className="material-symbols-outlined text-[18px]">edit</span>
                           </button>
@@ -236,7 +239,7 @@ export default function DataTable<T extends Record<string, any>>({
                           <button
                             onClick={() => onDelete(item)}
                             className="p-1.5 rounded-lg text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors"
-                            title="Delete"
+                            title={t(adminI18n.common.delete)}
                           >
                             <span className="material-symbols-outlined text-[18px]">delete</span>
                           </button>
@@ -256,7 +259,7 @@ export default function DataTable<T extends Record<string, any>>({
         <div className="flex items-center justify-between px-4 py-3 border-t border-gray-200">
           <div className="flex items-center gap-3">
             <p className="text-sm text-gray-500">
-              Showing {startItem}\u2013{endItem} of {sorted.length}
+              {t(adminI18n.common.showing)} {startItem}&ndash;{endItem} {t(adminI18n.common.of)} {sorted.length}
             </p>
             <select
               value={pageSize}
@@ -265,7 +268,7 @@ export default function DataTable<T extends Record<string, any>>({
             >
               {PAGE_SIZES.map((s) => (
                 <option key={s} value={s}>
-                  {s} / page
+                  {s} {t(adminI18n.common.perPage)}
                 </option>
               ))}
             </select>
@@ -277,7 +280,7 @@ export default function DataTable<T extends Record<string, any>>({
                 disabled={page === 1}
                 className="px-3 py-1.5 text-sm rounded-lg border border-gray-300 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               >
-                Previous
+                {t(adminI18n.common.previous)}
               </button>
               {Array.from({ length: totalPages }, (_, i) => i + 1)
                 .filter((p) => {
@@ -311,7 +314,7 @@ export default function DataTable<T extends Record<string, any>>({
                 disabled={page === totalPages}
                 className="px-3 py-1.5 text-sm rounded-lg border border-gray-300 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               >
-                Next
+                {t(adminI18n.common.next)}
               </button>
             </div>
           )}

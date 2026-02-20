@@ -8,9 +8,12 @@ import DataTable from "@/components/admin/DataTable";
 import DeleteConfirm from "@/components/admin/DeleteConfirm";
 import StatusBadge from "@/components/admin/StatusBadge";
 import { useToast } from "@/components/admin/ToastProvider";
+import { useLanguage } from "@/context/LanguageContext";
+import { adminI18n } from "@/lib/admin-i18n";
 import type { Offer } from "@/types";
 
 export default function OffersPage() {
+  const { t, lang } = useLanguage();
   const [offers, setOffers] = useState<Offer[]>([]);
   const [loading, setLoading] = useState(true);
   const [deleteTarget, setDeleteTarget] = useState<Offer | null>(null);
@@ -28,7 +31,7 @@ export default function OffersPage() {
       const data = await res.json();
       setOffers(data);
     } catch {
-      toast("Failed to load offers", "error");
+      toast(t(adminI18n.offers.loadFailed), "error");
     } finally {
       setLoading(false);
     }
@@ -42,9 +45,9 @@ export default function OffersPage() {
       });
       if (!res.ok) throw new Error("Failed to delete");
       setOffers((prev) => prev.filter((o) => o.id !== deleteTarget.id));
-      toast("Offer deleted successfully", "success");
+      toast(t(adminI18n.offers.deleteSuccess), "success");
     } catch {
-      toast("Failed to delete offer", "error");
+      toast(t(adminI18n.offers.deleteFailed), "error");
     } finally {
       setDeleteTarget(null);
     }
@@ -53,25 +56,25 @@ export default function OffersPage() {
   const columns = [
     {
       key: "image",
-      label: "Image",
+      label: t(adminI18n.common.image),
       render: (item: Offer) => (
         <img
           src={item.image || "/placeholder.png"}
-          alt={item.title.en}
+          alt={item.title?.[lang] || item.title?.en}
           className="w-10 h-10 rounded-lg object-cover bg-gray-100"
         />
       ),
     },
     {
       key: "title",
-      label: "Title",
+      label: t(adminI18n.common.title),
       render: (item: Offer) => (
-        <span className="font-medium text-gray-900">{item.title.en}</span>
+        <span className="font-medium text-gray-900">{item.title?.[lang] || item.title?.en}</span>
       ),
     },
     {
       key: "discount",
-      label: "Discount",
+      label: t(adminI18n.offers.discount),
       render: (item: Offer) => (
         <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-red-100 text-red-700">
           {item.discount}
@@ -80,18 +83,18 @@ export default function OffersPage() {
     },
     {
       key: "salePrice",
-      label: "Sale Price",
+      label: t(adminI18n.offers.salePrice),
       render: (item: Offer) => (
-        <span className="text-sm text-gray-600">{item.salePrice.en || "—"}</span>
+        <span className="text-sm text-gray-600">{item.salePrice?.[lang] || item.salePrice?.en || "—"}</span>
       ),
     },
     {
       key: "validUntil",
-      label: "Valid Until",
+      label: t(adminI18n.offers.validUntil),
       render: (item: Offer) => (
         <span className="text-sm text-gray-600">
           {item.validUntil
-            ? new Date(item.validUntil).toLocaleDateString("en-US", {
+            ? new Date(item.validUntil).toLocaleDateString(lang === "ar" ? "ar" : "en-US", {
                 year: "numeric",
                 month: "short",
                 day: "numeric",
@@ -102,7 +105,7 @@ export default function OffersPage() {
     },
     {
       key: "active",
-      label: "Status",
+      label: t(adminI18n.common.status),
       render: (item: Offer) => (
         <StatusBadge status={item.active ? "active" : "inactive"} />
       ),
@@ -112,7 +115,7 @@ export default function OffersPage() {
   if (loading) {
     return (
       <>
-        <TopBar title="Offers" />
+        <TopBar title={t(adminI18n.offers.title)} />
         <div className="p-6">
           <div className="flex items-center justify-center py-20">
             <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
@@ -124,13 +127,13 @@ export default function OffersPage() {
 
   return (
     <>
-      <TopBar title="Offers">
+      <TopBar title={t(adminI18n.offers.title)}>
         <Link
           href="/admin/offers/new"
           className="inline-flex items-center gap-1.5 px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary-dark transition-colors"
         >
           <span className="material-symbols-outlined text-[18px]">add</span>
-          Add Offer
+          {t(adminI18n.offers.addOffer)}
         </Link>
       </TopBar>
 
@@ -153,8 +156,8 @@ export default function OffersPage() {
         open={!!deleteTarget}
         onClose={() => setDeleteTarget(null)}
         onConfirm={handleDelete}
-        title="Delete Offer"
-        message={`Are you sure you want to delete "${deleteTarget?.title.en}"? This action cannot be undone.`}
+        title={t(adminI18n.offers.deleteTitle)}
+        message={t(adminI18n.offers.deleteMessage)}
       />
     </>
   );

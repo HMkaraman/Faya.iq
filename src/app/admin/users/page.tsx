@@ -8,6 +8,8 @@ import DataTable from "@/components/admin/DataTable";
 import DeleteConfirm from "@/components/admin/DeleteConfirm";
 import { useToast } from "@/components/admin/ToastProvider";
 import { useAdmin } from "@/components/admin/AdminProvider";
+import { useLanguage } from "@/context/LanguageContext";
+import { adminI18n } from "@/lib/admin-i18n";
 
 interface User {
   id: string;
@@ -28,6 +30,7 @@ const roleBadgeColors: Record<string, { bg: string; text: string }> = {
 };
 
 export default function UsersPage() {
+  const { t, lang } = useLanguage();
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const [deleteTarget, setDeleteTarget] = useState<User | null>(null);
@@ -46,7 +49,7 @@ export default function UsersPage() {
       const data = await res.json();
       setUsers(data);
     } catch {
-      toast("Failed to load users", "error");
+      toast(t(adminI18n.users.loadFailed), "error");
     } finally {
       setLoading(false);
     }
@@ -63,18 +66,18 @@ export default function UsersPage() {
         throw new Error(err.error || "Failed to delete");
       }
       setUsers((prev) => prev.filter((u) => u.id !== deleteTarget.id));
-      toast("User deleted successfully", "success");
+      toast(t(adminI18n.users.deleteSuccess), "success");
     } catch (err) {
-      toast(err instanceof Error ? err.message : "Failed to delete user", "error");
+      toast(err instanceof Error ? err.message : t(adminI18n.users.deleteFailed), "error");
     } finally {
       setDeleteTarget(null);
     }
   }
 
   function formatDate(dateStr?: string): string {
-    if (!dateStr) return "Never";
+    if (!dateStr) return t(adminI18n.users.never);
     try {
-      return new Date(dateStr).toLocaleDateString("en-US", {
+      return new Date(dateStr).toLocaleDateString(lang === "ar" ? "ar" : "en-US", {
         year: "numeric",
         month: "short",
         day: "numeric",
@@ -89,28 +92,28 @@ export default function UsersPage() {
   const columns = [
     {
       key: "name",
-      label: "Name",
+      label: t(adminI18n.common.name),
       render: (item: User) => (
         <span className="font-medium text-gray-900">{item.name}</span>
       ),
     },
     {
       key: "username",
-      label: "Username",
+      label: t(adminI18n.users.username),
       render: (item: User) => (
         <span className="text-sm text-gray-600">{item.username}</span>
       ),
     },
     {
       key: "email",
-      label: "Email",
+      label: t(adminI18n.common.email),
       render: (item: User) => (
         <span className="text-sm text-gray-600">{item.email}</span>
       ),
     },
     {
       key: "role",
-      label: "Role",
+      label: t(adminI18n.users.role),
       render: (item: User) => {
         const colors = roleBadgeColors[item.role] || roleBadgeColors.viewer;
         return (
@@ -124,7 +127,7 @@ export default function UsersPage() {
     },
     {
       key: "isActive",
-      label: "Status",
+      label: t(adminI18n.common.status),
       render: (item: User) => (
         <span
           className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${
@@ -138,13 +141,13 @@ export default function UsersPage() {
               item.isActive ? "bg-green-500" : "bg-red-500"
             }`}
           />
-          {item.isActive ? "Active" : "Inactive"}
+          {item.isActive ? t(adminI18n.common.active) : t(adminI18n.common.inactive)}
         </span>
       ),
     },
     {
       key: "lastLogin",
-      label: "Last Login",
+      label: t(adminI18n.users.lastLogin),
       render: (item: User) => (
         <span className="text-sm text-gray-500">{formatDate(item.lastLogin)}</span>
       ),
@@ -154,7 +157,7 @@ export default function UsersPage() {
   if (loading) {
     return (
       <>
-        <TopBar title="Users" />
+        <TopBar title={t(adminI18n.users.title)} />
         <div className="p-6">
           <div className="flex items-center justify-center py-20">
             <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
@@ -166,13 +169,13 @@ export default function UsersPage() {
 
   return (
     <>
-      <TopBar title="Users">
+      <TopBar title={t(adminI18n.users.title)}>
         <Link
           href="/admin/users/new"
           className="inline-flex items-center gap-1.5 px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary-dark transition-colors"
         >
           <span className="material-symbols-outlined text-[18px]">add</span>
-          Add User
+          {t(adminI18n.users.addUser)}
         </Link>
       </TopBar>
 
@@ -188,7 +191,7 @@ export default function UsersPage() {
           onDelete={(item) => {
             const user = item as unknown as User;
             if (currentUser && user.id === currentUser.id) {
-              toast("You cannot delete your own account", "error");
+              toast(t(adminI18n.users.cannotDeleteSelf), "error");
               return;
             }
             setDeleteTarget(user);
@@ -200,8 +203,8 @@ export default function UsersPage() {
         open={!!deleteTarget}
         onClose={() => setDeleteTarget(null)}
         onConfirm={handleDelete}
-        title="Delete User"
-        message={`Are you sure you want to delete user "${deleteTarget?.name}"? This action cannot be undone.`}
+        title={t(adminI18n.users.deleteTitle)}
+        message={t(adminI18n.users.deleteMessage)}
       />
     </>
   );

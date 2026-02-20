@@ -38,5 +38,55 @@
   "footer": {
     "description": { "en": "Your premier destination for advanced beauty treatments and skincare in Iraq. We combine cutting-edge technology with personalized care.", "ar": "وجهتك المثالية لعلاجات التجميل المتقدمة والعناية بالبشرة في العراق. نجمع بين أحدث التقنيات والرعاية الشخصية." },
     "copyrightYear": 2024
-  }
+  },
+  "heroSlides": [
+    {
+      "id": "hero-1",
+      "backgroundImage": "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=1920&q=85&auto=format&fit=crop",
+      "title": {
+        "en": "Reveal Your Natural Radiance",
+        "ar": "اكشفي عن إشراقتكِ الطبيعية"
+      },
+      "subtitle": {
+        "en": "Advanced skincare and beauty treatments tailored to perfection by Iraq's leading aesthetic specialists.",
+        "ar": "علاجات متقدمة للعناية بالبشرة والجمال مصممة بإتقان على يد أفضل أخصائيي التجميل في العراق."
+      },
+      "ctaText": { "en": "Explore Services", "ar": "استكشف الخدمات" },
+      "ctaHref": "/services",
+      "order": 1,
+      "active": true
+    },
+    {
+      "id": "hero-2",
+      "backgroundImage": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1920&q=85&auto=format&fit=crop",
+      "title": {
+        "en": "Expert Care You Can Trust",
+        "ar": "رعاية احترافية تستحق ثقتكِ"
+      },
+      "subtitle": {
+        "en": "Our board-certified dermatologists and surgeons deliver world-class results with the highest safety standards.",
+        "ar": "أطباء الجلدية والجراحون المعتمدون لدينا يقدمون نتائج عالمية بأعلى معايير السلامة."
+      },
+      "ctaText": { "en": "Book a Consultation", "ar": "احجز استشارة" },
+      "ctaHref": "/contact",
+      "order": 2,
+      "active": true
+    },
+    {
+      "id": "hero-3",
+      "backgroundImage": "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1920&q=85&auto=format&fit=crop",
+      "title": {
+        "en": "Transformations That Inspire",
+        "ar": "تحولات تُلهم الجميع"
+      },
+      "subtitle": {
+        "en": "See the stunning before & after results from thousands of happy clients across Iraq.",
+        "ar": "شاهدي نتائج مذهلة قبل وبعد من آلاف العملاء السعداء في جميع أنحاء العراق."
+      },
+      "ctaText": { "en": "View Gallery", "ar": "عرض المعرض" },
+      "ctaHref": "/gallery",
+      "order": 3,
+      "active": true
+    }
+  ]
 }

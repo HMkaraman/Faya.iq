@@ -11,6 +11,8 @@ import { useToast } from "@/components/admin/ToastProvider";
 import { validate, serviceSchema } from "@/lib/validation";
 import type { ValidationErrors } from "@/lib/validation";
 import { useUnsavedChanges } from "@/hooks/useUnsavedChanges";
+import { useLanguage } from "@/context/LanguageContext";
+import { adminI18n } from "@/lib/admin-i18n";
 import type { ServiceCategory, Branch } from "@/types";
 
 export interface ServiceFormData {
@@ -83,6 +85,7 @@ export default function ServiceForm({
   const [isDirty, setIsDirty] = useState(false);
   const initialDataRef = useRef(initialData);
   const { toast } = useToast();
+  const { t } = useLanguage();
 
   useUnsavedChanges(isDirty);
 
@@ -357,26 +360,26 @@ export default function ServiceForm({
       {/* Basic Info */}
       <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-5">
         <h2 className="text-base font-semibold text-gray-900">
-          Basic Information
+          {t(adminI18n.serviceForm.basicInfo)}
         </h2>
 
-        <FormField label="Slug" required error={errors.slug}>
+        <FormField label={t(adminI18n.common.slug)} required error={errors.slug}>
           <input
             type="text"
             value={form.slug}
             onChange={(e) => updateForm("slug", e.target.value)}
-            placeholder="e.g. hydrafacial"
+            placeholder={t(adminI18n.serviceForm.slugPlaceholder)}
             className={inputClass}
           />
         </FormField>
 
-        <FormField label="Category" required error={errors.categorySlug}>
+        <FormField label={t(adminI18n.common.category)} required error={errors.categorySlug}>
           <select
             value={form.categorySlug}
             onChange={(e) => handleCategoryChange(e.target.value)}
             className={`${inputClass} bg-white`}
           >
-            <option value="">Select a category...</option>
+            <option value="">{t(adminI18n.serviceForm.selectCategory)}</option>
             {categories.map((cat) => (
               <option key={cat.slug} value={cat.slug}>
                 {cat.name.en}
@@ -386,7 +389,7 @@ export default function ServiceForm({
         </FormField>
 
         <BilingualInput
-          label="Name"
+          label={t(adminI18n.common.name)}
           nameEn="name_en"
           nameAr="name_ar"
           valueEn={form.name.en}
@@ -398,7 +401,7 @@ export default function ServiceForm({
         />
 
         <BilingualInput
-          label="Short Description"
+          label={t(adminI18n.serviceForm.shortDescription)}
           nameEn="shortDesc_en"
           nameAr="shortDesc_ar"
           valueEn={form.shortDescription.en}
@@ -418,7 +421,7 @@ export default function ServiceForm({
         />
 
         <BilingualTextarea
-          label="Description"
+          label={t(adminI18n.common.description)}
           nameEn="desc_en"
           nameAr="desc_ar"
           valueEn={form.description.en}
@@ -431,18 +434,18 @@ export default function ServiceForm({
           }
         />
 
-        <FormField label="Icon (Material Symbol name)">
+        <FormField label={t(adminI18n.common.icon)}>
           <input
             type="text"
             value={form.icon}
             onChange={(e) => updateForm("icon", e.target.value)}
-            placeholder="e.g. face, science, spa"
+            placeholder={t(adminI18n.serviceForm.iconPlaceholder)}
             className={inputClass}
           />
         </FormField>
 
         <ImageUpload
-          label="Image"
+          label={t(adminI18n.common.image)}
           value={form.image}
           onChange={(url) => updateForm("image", url)}
         />
@@ -451,18 +454,18 @@ export default function ServiceForm({
       {/* Tags & Branches */}
       <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-5">
         <h2 className="text-base font-semibold text-gray-900">
-          Tags & Branches
+          {t(adminI18n.serviceForm.tagsBranches)}
         </h2>
 
-        <FormField label="Tags">
+        <FormField label={t(adminI18n.common.tags)}>
           <TagInput
             value={form.tags}
             onChange={(tags) => updateForm("tags", tags)}
-            placeholder="Add a tag and press Enter..."
+            placeholder={t(adminI18n.serviceForm.addTag)}
           />
         </FormField>
 
-        <FormField label="Branches">
+        <FormField label={t(adminI18n.sidebar.branches)}>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
             {allBranches.map((branch) => (
               <label
@@ -487,21 +490,21 @@ export default function ServiceForm({
       {/* Duration & Pricing */}
       <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-5">
         <h2 className="text-base font-semibold text-gray-900">
-          Duration & Pricing
+          {t(adminI18n.serviceForm.durationPricing)}
         </h2>
 
-        <FormField label="Duration">
+        <FormField label={t(adminI18n.services.duration)}>
           <input
             type="text"
             value={form.duration}
             onChange={(e) => updateForm("duration", e.target.value)}
-            placeholder="e.g. 45 min, 1-2 hours"
+            placeholder={t(adminI18n.serviceForm.durationPlaceholder)}
             className={inputClass}
           />
         </FormField>
 
         <BilingualInput
-          label="Price Range"
+          label={t(adminI18n.serviceForm.priceRange)}
           nameEn="price_en"
           nameAr="price_ar"
           valueEn={form.priceRange.en}
@@ -515,7 +518,7 @@ export default function ServiceForm({
         />
 
         <BilingualInput
-          label="Downtime"
+          label={t(adminI18n.serviceForm.downtime)}
           nameEn="downtime_en"
           nameAr="downtime_ar"
           valueEn={form.downtime.en}
@@ -532,14 +535,14 @@ export default function ServiceForm({
       {/* Benefits */}
       <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-5">
         <div className="flex items-center justify-between">
-          <h2 className="text-base font-semibold text-gray-900">Benefits</h2>
+          <h2 className="text-base font-semibold text-gray-900">{t(adminI18n.serviceForm.benefits)}</h2>
           <button
             type="button"
             onClick={addBenefitRow}
             className="inline-flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-primary bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors"
           >
             <span className="material-symbols-outlined text-[16px]">add</span>
-            Add Row
+            {t(adminI18n.common.addRow)}
           </button>
         </div>
 
@@ -548,24 +551,24 @@ export default function ServiceForm({
             <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="block text-xs text-gray-500 mb-1">
-                  English
+                  {t(adminI18n.common.english)}
                 </label>
                 <textarea
                   value={form.benefits.en[index]}
                   onChange={(e) => updateBenefit(index, "en", e.target.value)}
-                  placeholder="Benefit in English..."
+                  placeholder={t(adminI18n.serviceForm.benefitEnPlaceholder)}
                   rows={2}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm resize-y focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
                 />
               </div>
               <div>
                 <label className="block text-xs text-gray-500 mb-1">
-                  Arabic
+                  {t(adminI18n.common.arabic)}
                 </label>
                 <textarea
                   value={form.benefits.ar[index] || ""}
                   onChange={(e) => updateBenefit(index, "ar", e.target.value)}
-                  placeholder="...الفائدة بالعربي"
+                  placeholder={t(adminI18n.serviceForm.benefitArPlaceholder)}
                   dir="rtl"
                   rows={2}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm resize-y focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
@@ -578,7 +581,7 @@ export default function ServiceForm({
                 type="button"
                 onClick={() => removeBenefitRow(index)}
                 className="mt-6 p-1.5 rounded-lg text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors"
-                title="Remove row"
+                title={t(adminI18n.serviceForm.removeRow)}
               >
                 <span className="material-symbols-outlined text-[18px]">
                   close
@@ -592,14 +595,14 @@ export default function ServiceForm({
       {/* Steps */}
       <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-5">
         <div className="flex items-center justify-between">
-          <h2 className="text-base font-semibold text-gray-900">Steps</h2>
+          <h2 className="text-base font-semibold text-gray-900">{t(adminI18n.serviceForm.steps)}</h2>
           <button
             type="button"
             onClick={addStepRow}
             className="inline-flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-primary bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors"
           >
             <span className="material-symbols-outlined text-[16px]">add</span>
-            Add Row
+            {t(adminI18n.common.addRow)}
           </button>
         </div>
 
@@ -611,24 +614,24 @@ export default function ServiceForm({
             <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="block text-xs text-gray-500 mb-1">
-                  English
+                  {t(adminI18n.common.english)}
                 </label>
                 <textarea
                   value={form.steps.en[index]}
                   onChange={(e) => updateStep(index, "en", e.target.value)}
-                  placeholder="Step in English..."
+                  placeholder={t(adminI18n.serviceForm.stepEnPlaceholder)}
                   rows={2}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm resize-y focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
                 />
               </div>
               <div>
                 <label className="block text-xs text-gray-500 mb-1">
-                  Arabic
+                  {t(adminI18n.common.arabic)}
                 </label>
                 <textarea
                   value={form.steps.ar[index] || ""}
                   onChange={(e) => updateStep(index, "ar", e.target.value)}
-                  placeholder="...الخطوة بالعربي"
+                  placeholder={t(adminI18n.serviceForm.stepArPlaceholder)}
                   dir="rtl"
                   rows={2}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm resize-y focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
@@ -641,7 +644,7 @@ export default function ServiceForm({
                 type="button"
                 onClick={() => removeStepRow(index)}
                 className="mt-6 p-1.5 rounded-lg text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors"
-                title="Remove row"
+                title={t(adminI18n.serviceForm.removeRow)}
               >
                 <span className="material-symbols-outlined text-[18px]">
                   close
@@ -656,7 +659,7 @@ export default function ServiceForm({
       <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-5">
         <div className="flex items-center justify-between">
           <h2 className="text-base font-semibold text-gray-900">
-            Before & After Gallery
+            {t(adminI18n.serviceForm.beforeAfterGallery)}
           </h2>
           <button
             type="button"
@@ -664,13 +667,13 @@ export default function ServiceForm({
             className="inline-flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-primary bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors"
           >
             <span className="material-symbols-outlined text-[16px]">add</span>
-            Add Pair
+            {t(adminI18n.serviceForm.addPair)}
           </button>
         </div>
 
         {form.beforeAfterPairs.length === 0 && (
           <p className="text-sm text-gray-400 text-center py-4">
-            No before & after pairs yet. Click &quot;Add Pair&quot; to add one.
+            {t(adminI18n.serviceForm.noPairs)}
           </p>
         )}
 
@@ -681,13 +684,13 @@ export default function ServiceForm({
           >
             <div className="flex items-center justify-between">
               <span className="text-sm font-medium text-gray-700">
-                Pair #{index + 1}
+                {t(adminI18n.serviceForm.pairLabel)} #{index + 1}
               </span>
               <button
                 type="button"
                 onClick={() => removeBeforeAfterPair(index)}
                 className="p-1 rounded-lg text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors"
-                title="Remove pair"
+                title={t(adminI18n.serviceForm.removePair)}
               >
                 <span className="material-symbols-outlined text-[18px]">
                   close
@@ -698,7 +701,7 @@ export default function ServiceForm({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs text-gray-500 mb-2">
-                  Before Image
+                  {t(adminI18n.serviceForm.beforeImage)}
                 </label>
                 <ImageUpload
                   value={pair.beforeImage}
@@ -709,7 +712,7 @@ export default function ServiceForm({
               </div>
               <div>
                 <label className="block text-xs text-gray-500 mb-2">
-                  After Image
+                  {t(adminI18n.serviceForm.afterImage)}
                 </label>
                 <ImageUpload
                   value={pair.afterImage}
@@ -721,7 +724,7 @@ export default function ServiceForm({
             </div>
 
             <BilingualInput
-              label="Caption (optional)"
+              label={t(adminI18n.serviceForm.captionOptional)}
               nameEn={`ba_caption_en_${index}`}
               nameAr={`ba_caption_ar_${index}`}
               valueEn={pair.caption?.en || ""}
@@ -736,20 +739,20 @@ export default function ServiceForm({
       {/* FAQ */}
       <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-5">
         <div className="flex items-center justify-between">
-          <h2 className="text-base font-semibold text-gray-900">FAQ</h2>
+          <h2 className="text-base font-semibold text-gray-900">{t(adminI18n.serviceForm.faq)}</h2>
           <button
             type="button"
             onClick={addFaqRow}
             className="inline-flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-primary bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors"
           >
             <span className="material-symbols-outlined text-[16px]">add</span>
-            Add FAQ
+            {t(adminI18n.serviceForm.addFaq)}
           </button>
         </div>
 
         {form.faq.length === 0 && (
           <p className="text-sm text-gray-400 text-center py-4">
-            No FAQ items yet. Click &quot;Add FAQ&quot; to add one.
+            {t(adminI18n.serviceForm.noFaq)}
           </p>
         )}
 
@@ -760,13 +763,13 @@ export default function ServiceForm({
           >
             <div className="flex items-center justify-between">
               <span className="text-sm font-medium text-gray-700">
-                FAQ #{index + 1}
+                {t(adminI18n.serviceForm.faqLabel)} #{index + 1}
               </span>
               <button
                 type="button"
                 onClick={() => removeFaqRow(index)}
                 className="p-1 rounded-lg text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors"
-                title="Remove FAQ"
+                title={t(adminI18n.serviceForm.removeFaq)}
               >
                 <span className="material-symbols-outlined text-[18px]">
                   close
@@ -775,7 +778,7 @@ export default function ServiceForm({
             </div>
 
             <BilingualInput
-              label="Question"
+              label={t(adminI18n.serviceForm.question)}
               nameEn={`faq_q_en_${index}`}
               nameAr={`faq_q_ar_${index}`}
               valueEn={faqItem.question.en}
@@ -785,7 +788,7 @@ export default function ServiceForm({
             />
 
             <BilingualTextarea
-              label="Answer"
+              label={t(adminI18n.serviceForm.answer)}
               nameEn={`faq_a_en_${index}`}
               nameAr={`faq_a_ar_${index}`}
               valueEn={faqItem.answer.en}
@@ -804,7 +807,7 @@ export default function ServiceForm({
           href="/admin/services"
           className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
         >
-          Cancel
+          {t(adminI18n.common.cancel)}
         </Link>
         <button
           type="submit"
@@ -816,11 +819,11 @@ export default function ServiceForm({
           )}
           {isSubmitting
             ? isEditing
-              ? "Saving..."
-              : "Creating..."
+              ? t(adminI18n.common.saving)
+              : t(adminI18n.common.creating)
             : isEditing
-              ? "Save Changes"
-              : "Create Service"}
+              ? t(adminI18n.common.saveChanges)
+              : t(adminI18n.serviceForm.createService)}
         </button>
       </div>
     </form>

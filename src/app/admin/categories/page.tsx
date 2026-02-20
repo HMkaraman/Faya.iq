@@ -9,6 +9,8 @@ import ImageUpload from "@/components/admin/ImageUpload";
 import FormField from "@/components/admin/FormField";
 import DeleteConfirm from "@/components/admin/DeleteConfirm";
 import { useToast } from "@/components/admin/ToastProvider";
+import { useLanguage } from "@/context/LanguageContext";
+import { adminI18n } from "@/lib/admin-i18n";
 import type { ServiceCategory } from "@/types";
 
 interface CategoryForm {
@@ -28,6 +30,7 @@ const emptyForm: CategoryForm = {
 };
 
 export default function CategoriesPage() {
+  const { t, lang } = useLanguage();
   const [categories, setCategories] = useState<ServiceCategory[]>([]);
   const [loading, setLoading] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
@@ -48,7 +51,7 @@ export default function CategoriesPage() {
       const data = await res.json();
       setCategories(data);
     } catch {
-      toast("Failed to load categories", "error");
+      toast(t(adminI18n.categories.loadFailed), "error");
     } finally {
       setLoading(false);
     }
@@ -81,7 +84,7 @@ export default function CategoriesPage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!form.name.en || !form.name.ar) {
-      toast("Category name is required in both languages", "error");
+      toast(t(adminI18n.categories.nameRequired), "error");
       return;
     }
 
@@ -104,15 +107,12 @@ export default function CategoriesPage() {
         throw new Error(data.error || `Failed to ${isEdit ? "update" : "create"} category`);
       }
 
-      toast(
-        `Category ${isEdit ? "updated" : "created"} successfully`,
-        "success"
-      );
+      toast(t(adminI18n.categories.saveSuccess), "success");
       closeModal();
       fetchCategories();
     } catch (err) {
       toast(
-        err instanceof Error ? err.message : "Failed to save category",
+        err instanceof Error ? err.message : t(adminI18n.categories.saveFailed),
         "error"
       );
     } finally {
@@ -128,9 +128,9 @@ export default function CategoriesPage() {
       });
       if (!res.ok) throw new Error("Failed to delete");
       setCategories((prev) => prev.filter((c) => c.slug !== deleteTarget.slug));
-      toast("Category deleted successfully", "success");
+      toast(t(adminI18n.categories.deleteSuccess), "success");
     } catch {
-      toast("Failed to delete category", "error");
+      toast(t(adminI18n.categories.deleteFailed), "error");
     } finally {
       setDeleteTarget(null);
     }
@@ -139,7 +139,7 @@ export default function CategoriesPage() {
   if (loading) {
     return (
       <>
-        <TopBar title="Service Categories" />
+        <TopBar title={t(adminI18n.categories.title)} />
         <div className="p-6">
           <div className="flex items-center justify-center py-20">
             <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
@@ -151,13 +151,13 @@ export default function CategoriesPage() {
 
   return (
     <>
-      <TopBar title="Service Categories">
+      <TopBar title={t(adminI18n.categories.title)}>
         <button
           onClick={openAddModal}
           className="inline-flex items-center gap-1.5 px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary-dark transition-colors"
         >
           <span className="material-symbols-outlined text-[18px]">add</span>
-          Add Category
+          {t(adminI18n.categories.addCategory)}
         </button>
       </TopBar>
 
@@ -167,13 +167,13 @@ export default function CategoriesPage() {
             <span className="material-symbols-outlined text-[48px] text-gray-300">
               category
             </span>
-            <p className="mt-2 text-gray-500">No categories yet.</p>
+            <p className="mt-2 text-gray-500">{t(adminI18n.categories.noCategories)}</p>
             <button
               onClick={openAddModal}
               className="mt-4 inline-flex items-center gap-1.5 px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary-dark transition-colors"
             >
               <span className="material-symbols-outlined text-[18px]">add</span>
-              Add your first category
+              {t(adminI18n.categories.addFirst)}
             </button>
           </div>
         ) : (
@@ -188,7 +188,7 @@ export default function CategoriesPage() {
                   <div className="h-40 overflow-hidden">
                     <img
                       src={cat.image}
-                      alt={cat.name.en}
+                      alt={cat.name?.[lang] || cat.name?.en}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -204,13 +204,13 @@ export default function CategoriesPage() {
                         </span>
                       )}
                       <div>
-                        <h3 className="font-semibold text-gray-900">{cat.name.en}</h3>
+                        <h3 className="font-semibold text-gray-900">{cat.name?.[lang] || cat.name?.en}</h3>
                         <p
                           className="text-sm text-gray-500"
                           dir="rtl"
                           style={{ fontFamily: "var(--font-arabic)" }}
                         >
-                          {cat.name.ar}
+                          {lang === "en" ? cat.name.ar : cat.name.en}
                         </p>
                       </div>
                     </div>
@@ -222,11 +222,11 @@ export default function CategoriesPage() {
                     </span>
                   </div>
 
-                  {cat.description.en && (
+                  {cat.description?.[lang] || cat.description?.en ? (
                     <p className="text-sm text-gray-600 line-clamp-2">
-                      {cat.description.en}
+                      {cat.description?.[lang] || cat.description?.en}
                     </p>
-                  )}
+                  ) : null}
 
                   {/* Actions */}
                   <div className="flex items-center gap-2 pt-2 border-t border-gray-100">
@@ -235,14 +235,14 @@ export default function CategoriesPage() {
                       className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
                     >
                       <span className="material-symbols-outlined text-[16px]">edit</span>
-                      Edit
+                      {t(adminI18n.common.edit)}
                     </button>
                     <button
                       onClick={() => setDeleteTarget(cat)}
                       className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition-colors"
                     >
                       <span className="material-symbols-outlined text-[16px]">delete</span>
-                      Delete
+                      {t(adminI18n.common.delete)}
                     </button>
                   </div>
                 </div>
@@ -256,11 +256,11 @@ export default function CategoriesPage() {
       <Modal
         open={modalOpen}
         onClose={closeModal}
-        title={editingSlug ? "Edit Category" : "Add Category"}
+        title={editingSlug ? t(adminI18n.categories.editCategory) : t(adminI18n.categories.addCategory)}
       >
         <form onSubmit={handleSubmit} className="space-y-5">
           <BilingualInput
-            label="Name"
+            label={t(adminI18n.common.name)}
             nameEn="cat_name_en"
             nameAr="cat_name_ar"
             valueEn={form.name.en}
@@ -270,27 +270,27 @@ export default function CategoriesPage() {
             required
           />
 
-          <FormField label="Slug">
+          <FormField label={t(adminI18n.common.slug)}>
             <input
               type="text"
               value={form.slug}
               onChange={(e) => setForm((prev) => ({ ...prev, slug: e.target.value }))}
-              placeholder="e.g. skin-care"
+              placeholder={t(adminI18n.categories.slugPlaceholder)}
               disabled={editingSlug !== null}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary disabled:bg-gray-50 disabled:text-gray-500"
             />
             {editingSlug && (
-              <p className="text-xs text-gray-400 mt-1">Slug cannot be changed after creation.</p>
+              <p className="text-xs text-gray-400 mt-1">{t(adminI18n.categories.slugNote)}</p>
             )}
           </FormField>
 
-          <FormField label="Icon (Material Symbol name)">
+          <FormField label={t(adminI18n.common.icon)}>
             <div className="flex items-center gap-3">
               <input
                 type="text"
                 value={form.icon}
                 onChange={(e) => setForm((prev) => ({ ...prev, icon: e.target.value }))}
-                placeholder="e.g. face, spa, bolt"
+                placeholder={t(adminI18n.categories.iconPlaceholder)}
                 className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
               />
               {form.icon && (
@@ -302,7 +302,7 @@ export default function CategoriesPage() {
           </FormField>
 
           <BilingualTextarea
-            label="Description"
+            label={t(adminI18n.common.description)}
             nameEn="cat_desc_en"
             nameAr="cat_desc_ar"
             valueEn={form.description.en}
@@ -313,7 +313,7 @@ export default function CategoriesPage() {
           />
 
           <ImageUpload
-            label="Image"
+            label={t(adminI18n.common.image)}
             value={form.image}
             onChange={(url) => setForm((prev) => ({ ...prev, image: url }))}
           />
@@ -324,7 +324,7 @@ export default function CategoriesPage() {
               onClick={closeModal}
               className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
             >
-              Cancel
+              {t(adminI18n.common.cancel)}
             </button>
             <button
               type="submit"
@@ -335,10 +335,10 @@ export default function CategoriesPage() {
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
               )}
               {submitting
-                ? "Saving..."
+                ? t(adminI18n.common.saving)
                 : editingSlug
-                  ? "Save Changes"
-                  : "Create Category"}
+                  ? t(adminI18n.common.saveChanges)
+                  : t(adminI18n.categories.createCategory)}
             </button>
           </div>
         </form>
@@ -349,8 +349,8 @@ export default function CategoriesPage() {
         open={!!deleteTarget}
         onClose={() => setDeleteTarget(null)}
         onConfirm={handleDelete}
-        title="Delete Category"
-        message={`Are you sure you want to delete "${deleteTarget?.name.en}"? Services in this category will not be deleted but will lose their category association.`}
+        title={t(adminI18n.categories.deleteTitle)}
+        message={t(adminI18n.categories.deleteMessage)}
       />
     </>
   );

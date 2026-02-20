@@ -7,6 +7,8 @@ import TopBar from "@/components/admin/TopBar";
 import DataTable from "@/components/admin/DataTable";
 import DeleteConfirm from "@/components/admin/DeleteConfirm";
 import { useToast } from "@/components/admin/ToastProvider";
+import { useLanguage } from "@/context/LanguageContext";
+import { adminI18n } from "@/lib/admin-i18n";
 
 interface Branch {
   id: string;
@@ -21,6 +23,7 @@ interface Branch {
 }
 
 export default function BranchesPage() {
+  const { t, lang } = useLanguage();
   const [branches, setBranches] = useState<Branch[]>([]);
   const [loading, setLoading] = useState(true);
   const [deleteTarget, setDeleteTarget] = useState<Branch | null>(null);
@@ -38,7 +41,7 @@ export default function BranchesPage() {
       const data = await res.json();
       setBranches(data);
     } catch {
-      toast("Failed to load branches", "error");
+      toast(t(adminI18n.branches.loadFailed), "error");
     } finally {
       setLoading(false);
     }
@@ -52,9 +55,9 @@ export default function BranchesPage() {
       });
       if (!res.ok) throw new Error("Failed to delete");
       setBranches((prev) => prev.filter((b) => b.id !== deleteTarget.id));
-      toast("Branch deleted successfully", "success");
+      toast(t(adminI18n.branches.deleteSuccess), "success");
     } catch {
-      toast("Failed to delete branch", "error");
+      toast(t(adminI18n.branches.deleteFailed), "error");
     }
     setDeleteTarget(null);
   }
@@ -62,35 +65,35 @@ export default function BranchesPage() {
   const columns = [
     {
       key: "image",
-      label: "Image",
+      label: t(adminI18n.common.image),
       render: (item: Branch) => (
         <img
           src={item.image}
-          alt={item.name.en}
+          alt={item.name?.[lang] || item.name?.en}
           className="w-12 h-12 rounded-lg object-cover"
         />
       ),
     },
     {
       key: "name",
-      label: "Name",
+      label: t(adminI18n.common.name),
       render: (item: Branch) => (
-        <span className="font-medium text-gray-900">{item.name.en}</span>
+        <span className="font-medium text-gray-900">{item.name?.[lang] || item.name?.en}</span>
       ),
     },
     {
       key: "city",
-      label: "City",
-      render: (item: Branch) => item.city.en,
+      label: t(adminI18n.branches.city),
+      render: (item: Branch) => item.city?.[lang] || item.city?.en,
     },
     {
       key: "phone",
-      label: "Phone",
+      label: t(adminI18n.common.phone),
       render: (item: Branch) => item.phone,
     },
     {
       key: "rating",
-      label: "Rating",
+      label: t(adminI18n.common.rating),
       render: (item: Branch) => (
         <span className="inline-flex items-center gap-1">
           <span className="material-symbols-outlined text-yellow-500 text-[16px]">
@@ -115,13 +118,13 @@ export default function BranchesPage() {
 
   return (
     <div>
-      <TopBar title="Branches">
+      <TopBar title={t(adminI18n.branches.title)}>
         <Link
           href="/admin/branches/new"
           className="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors flex items-center gap-1.5"
         >
           <span className="material-symbols-outlined text-[18px]">add</span>
-          Add Branch
+          {t(adminI18n.branches.addBranch)}
         </Link>
       </TopBar>
 
@@ -142,8 +145,8 @@ export default function BranchesPage() {
         open={!!deleteTarget}
         onClose={() => setDeleteTarget(null)}
         onConfirm={handleDelete}
-        title="Delete Branch"
-        message={`Are you sure you want to delete "${deleteTarget?.name.en}"? This action cannot be undone.`}
+        title={t(adminI18n.branches.deleteTitle)}
+        message={t(adminI18n.branches.deleteMessage)}
       />
     </div>
   );

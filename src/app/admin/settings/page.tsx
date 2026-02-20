@@ -8,6 +8,8 @@ import BilingualTextarea from "@/components/admin/BilingualTextarea";
 import TagInput from "@/components/admin/TagInput";
 import HeroSettings from "@/components/admin/settings/HeroSettings";
 import { useToast } from "@/components/admin/ToastProvider";
+import { useLanguage } from "@/context/LanguageContext";
+import { adminI18n } from "@/lib/admin-i18n";
 import type { HeroSlide } from "@/types";
 
 interface NavItem {
@@ -68,6 +70,7 @@ const defaultSettings: SettingsData = {
 };
 
 export default function SettingsPage() {
+  const { t } = useLanguage();
   const { toast } = useToast();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -141,13 +144,13 @@ export default function SettingsPage() {
           heroSlides: data.heroSlides || [],
         });
       } catch {
-        toast("Failed to load settings", "error");
+        toast(t(adminI18n.settings.loadFailed), "error");
       } finally {
         setLoading(false);
       }
     }
     fetchSettings();
-  }, [toast]);
+  }, [toast, t]);
 
   function toggleSection(key: string) {
     setOpenSections((prev) => ({ ...prev, [key]: !prev[key] }));
@@ -215,9 +218,9 @@ export default function SettingsPage() {
         throw new Error(err.error || "Failed to save settings");
       }
 
-      toast("Settings saved successfully", "success");
+      toast(t(adminI18n.settings.saveSuccess), "success");
     } catch (err) {
-      toast(err instanceof Error ? err.message : "Failed to save settings", "error");
+      toast(err instanceof Error ? err.message : t(adminI18n.settings.saveFailed), "error");
     } finally {
       setSaving(false);
     }
@@ -229,7 +232,7 @@ export default function SettingsPage() {
       <button
         type="button"
         onClick={() => toggleSection(id)}
-        className="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors rounded-t-xl"
+        className="w-full flex items-center justify-between p-5 text-start hover:bg-gray-50 transition-colors rounded-t-xl"
       >
         <div className="flex items-center gap-2.5">
           <span className="material-symbols-outlined text-[20px] text-primary">{icon}</span>
@@ -249,7 +252,7 @@ export default function SettingsPage() {
   if (loading) {
     return (
       <>
-        <TopBar title="Site Settings" />
+        <TopBar title={t(adminI18n.settings.title)} />
         <div className="p-6">
           <div className="flex items-center justify-center py-20">
             <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
@@ -261,30 +264,30 @@ export default function SettingsPage() {
 
   return (
     <>
-      <TopBar title="Site Settings" />
+      <TopBar title={t(adminI18n.settings.title)} />
 
       <div className="p-6 max-w-4xl space-y-4">
         {/* General */}
         <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-          <SectionHeader id="general" title="General" icon="settings" />
+          <SectionHeader id="general" title={t(adminI18n.settings.general)} icon="settings" />
           {openSections.general && (
             <div className="px-6 pb-6 space-y-5 border-t border-gray-100 pt-5">
-              <FormField label="Site Name" required>
+              <FormField label={t(adminI18n.settings.siteName)} required>
                 <input
                   type="text"
                   value={settings.siteName}
                   onChange={(e) => updateSettings("siteName", e.target.value)}
-                  placeholder="e.g. Faya Beauty Center"
+                  placeholder={t(adminI18n.settings.siteNamePlaceholder)}
                   className={INPUT_CLASS}
                 />
               </FormField>
 
-              <FormField label="Logo Text">
+              <FormField label={t(adminI18n.settings.logoText)}>
                 <input
                   type="text"
                   value={settings.logoText}
                   onChange={(e) => updateSettings("logoText", e.target.value)}
-                  placeholder="e.g. FAYA"
+                  placeholder={t(adminI18n.settings.logoTextPlaceholder)}
                   className={INPUT_CLASS}
                 />
               </FormField>
@@ -294,12 +297,12 @@ export default function SettingsPage() {
 
         {/* Colors */}
         <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-          <SectionHeader id="colors" title="Colors" icon="palette" />
+          <SectionHeader id="colors" title={t(adminI18n.settings.colors)} icon="palette" />
           {openSections.colors && (
             <div className="px-6 pb-6 space-y-5 border-t border-gray-100 pt-5">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="space-y-1.5">
-                  <label className="block text-sm font-medium text-gray-700">Primary</label>
+                  <label className="block text-sm font-medium text-gray-700">{t(adminI18n.settings.primary)}</label>
                   <div className="flex items-center gap-3">
                     <input
                       type="color"
@@ -321,7 +324,7 @@ export default function SettingsPage() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="block text-sm font-medium text-gray-700">Primary Dark</label>
+                  <label className="block text-sm font-medium text-gray-700">{t(adminI18n.settings.primaryDark)}</label>
                   <div className="flex items-center gap-3">
                     <input
                       type="color"
@@ -343,7 +346,7 @@ export default function SettingsPage() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="block text-sm font-medium text-gray-700">Primary Light</label>
+                  <label className="block text-sm font-medium text-gray-700">{t(adminI18n.settings.primaryLight)}</label>
                   <div className="flex items-center gap-3">
                     <input
                       type="color"
@@ -370,43 +373,43 @@ export default function SettingsPage() {
 
         {/* Contact */}
         <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-          <SectionHeader id="contact" title="Contact" icon="call" />
+          <SectionHeader id="contact" title={t(adminI18n.settings.contactSection)} icon="call" />
           {openSections.contact && (
             <div className="px-6 pb-6 space-y-5 border-t border-gray-100 pt-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <FormField label="Phone">
+                <FormField label={t(adminI18n.common.phone)}>
                   <input
                     type="text"
                     value={settings.contact.phone}
                     onChange={(e) => updateSettings("contact.phone", e.target.value)}
-                    placeholder="+964 770 000 0000"
+                    placeholder={t(adminI18n.settings.phonePlaceholder)}
                     className={INPUT_CLASS}
                   />
                 </FormField>
 
-                <FormField label="Email">
+                <FormField label={t(adminI18n.common.email)}>
                   <input
                     type="email"
                     value={settings.contact.email}
                     onChange={(e) => updateSettings("contact.email", e.target.value)}
-                    placeholder="info@faya.iq"
+                    placeholder={t(adminI18n.settings.emailPlaceholder)}
                     className={INPUT_CLASS}
                   />
                 </FormField>
               </div>
 
-              <FormField label="WhatsApp Number">
+              <FormField label={t(adminI18n.settings.whatsappNumber)}>
                 <input
                   type="text"
                   value={settings.contact.whatsapp}
                   onChange={(e) => updateSettings("contact.whatsapp", e.target.value)}
-                  placeholder="964770000000"
+                  placeholder={t(adminI18n.settings.whatsappPlaceholder)}
                   className={INPUT_CLASS}
                 />
               </FormField>
 
               <BilingualInput
-                label="Working Hours"
+                label={t(adminI18n.settings.workingHours)}
                 nameEn="contactHoursEn"
                 nameAr="contactHoursAr"
                 valueEn={settings.contact.hours.en}
@@ -420,10 +423,10 @@ export default function SettingsPage() {
 
         {/* Social */}
         <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-          <SectionHeader id="social" title="Social Media" icon="share" />
+          <SectionHeader id="social" title={t(adminI18n.settings.socialMedia)} icon="share" />
           {openSections.social && (
             <div className="px-6 pb-6 space-y-5 border-t border-gray-100 pt-5">
-              <FormField label="Facebook URL">
+              <FormField label={t(adminI18n.settings.facebookUrl)}>
                 <input
                   type="url"
                   value={settings.social.facebook}
@@ -433,7 +436,7 @@ export default function SettingsPage() {
                 />
               </FormField>
 
-              <FormField label="Instagram URL">
+              <FormField label={t(adminI18n.settings.instagramUrl)}>
                 <input
                   type="url"
                   value={settings.social.instagram}
@@ -443,7 +446,7 @@ export default function SettingsPage() {
                 />
               </FormField>
 
-              <FormField label="TikTok URL">
+              <FormField label={t(adminI18n.settings.tiktokUrl)}>
                 <input
                   type="url"
                   value={settings.social.tiktok}
@@ -453,7 +456,7 @@ export default function SettingsPage() {
                 />
               </FormField>
 
-              <FormField label="WhatsApp URL">
+              <FormField label={t(adminI18n.settings.whatsappUrl)}>
                 <input
                   type="url"
                   value={settings.social.whatsapp}
@@ -468,11 +471,11 @@ export default function SettingsPage() {
 
         {/* SEO */}
         <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-          <SectionHeader id="seo" title="SEO" icon="search" />
+          <SectionHeader id="seo" title={t(adminI18n.settings.seo)} icon="search" />
           {openSections.seo && (
             <div className="px-6 pb-6 space-y-5 border-t border-gray-100 pt-5">
               <BilingualInput
-                label="SEO Title"
+                label={t(adminI18n.settings.seoTitle)}
                 nameEn="seoTitleEn"
                 nameAr="seoTitleAr"
                 valueEn={settings.seo.title.en}
@@ -482,7 +485,7 @@ export default function SettingsPage() {
               />
 
               <BilingualTextarea
-                label="SEO Description"
+                label={t(adminI18n.settings.seoDescription)}
                 nameEn="seoDescEn"
                 nameAr="seoDescAr"
                 valueEn={settings.seo.description.en}
@@ -492,11 +495,11 @@ export default function SettingsPage() {
                 rows={3}
               />
 
-              <FormField label="Keywords">
+              <FormField label={t(adminI18n.settings.keywords)}>
                 <TagInput
                   value={settings.seo.keywords}
                   onChange={(tags) => updateSettings("seo.keywords", tags)}
-                  placeholder="Add keyword and press Enter..."
+                  placeholder={t(adminI18n.settings.keywordsPlaceholder)}
                 />
               </FormField>
             </div>
@@ -505,26 +508,26 @@ export default function SettingsPage() {
 
         {/* Header */}
         <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-          <SectionHeader id="header" title="Header" icon="web" />
+          <SectionHeader id="header" title={t(adminI18n.settings.header)} icon="web" />
           {openSections.header && (
             <div className="px-6 pb-6 space-y-5 border-t border-gray-100 pt-5">
               {/* Nav Items */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <label className="block text-sm font-medium text-gray-700">Navigation Items</label>
+                  <label className="block text-sm font-medium text-gray-700">{t(adminI18n.settings.navItems)}</label>
                   <button
                     type="button"
                     onClick={addNavItem}
                     className="text-sm text-primary hover:text-primary-dark font-medium flex items-center gap-1 transition-colors"
                   >
                     <span className="material-symbols-outlined text-[18px]">add</span>
-                    Add Item
+                    {t(adminI18n.settings.addNavItem)}
                   </button>
                 </div>
 
                 {settings.header.navItems.length === 0 && (
                   <p className="text-sm text-gray-400 py-3 text-center">
-                    No navigation items. Click &quot;Add Item&quot; to create one.
+                    {t(adminI18n.settings.noNavItems)}
                   </p>
                 )}
 
@@ -535,33 +538,33 @@ export default function SettingsPage() {
                   >
                     <div className="flex-1 space-y-3">
                       <div>
-                        <label className="block text-xs text-gray-500 mb-1">Href</label>
+                        <label className="block text-xs text-gray-500 mb-1">{t(adminI18n.settings.href)}</label>
                         <input
                           type="text"
                           value={item.href}
                           onChange={(e) => updateNavItem(index, "href", e.target.value)}
-                          placeholder="/about"
+                          placeholder={t(adminI18n.settings.hrefPlaceholder)}
                           className={INPUT_CLASS}
                         />
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
-                          <label className="block text-xs text-gray-500 mb-1">Label (English)</label>
+                          <label className="block text-xs text-gray-500 mb-1">{t(adminI18n.settings.labelEn)}</label>
                           <input
                             type="text"
                             value={item.label.en}
                             onChange={(e) => updateNavItem(index, "labelEn", e.target.value)}
-                            placeholder="About"
+                            placeholder={t(adminI18n.settings.labelEnPlaceholder)}
                             className={INPUT_CLASS}
                           />
                         </div>
                         <div>
-                          <label className="block text-xs text-gray-500 mb-1">Label (Arabic)</label>
+                          <label className="block text-xs text-gray-500 mb-1">{t(adminI18n.settings.labelAr)}</label>
                           <input
                             type="text"
                             value={item.label.ar}
                             onChange={(e) => updateNavItem(index, "labelAr", e.target.value)}
-                            placeholder="...عربي"
+                            placeholder={t(adminI18n.settings.labelArPlaceholder)}
                             dir="rtl"
                             className={INPUT_CLASS}
                             style={{ fontFamily: "var(--font-arabic)" }}
@@ -573,7 +576,7 @@ export default function SettingsPage() {
                       type="button"
                       onClick={() => removeNavItem(index)}
                       className="mt-1 p-1.5 rounded-lg text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors"
-                      title="Remove nav item"
+                      title={t(adminI18n.common.remove)}
                     >
                       <span className="material-symbols-outlined text-[18px]">close</span>
                     </button>
@@ -582,7 +585,7 @@ export default function SettingsPage() {
               </div>
 
               <BilingualInput
-                label="CTA Text"
+                label={t(adminI18n.settings.ctaText)}
                 nameEn="ctaTextEn"
                 nameAr="ctaTextAr"
                 valueEn={settings.header.ctaText.en}
@@ -591,12 +594,12 @@ export default function SettingsPage() {
                 onChangeAr={(v) => updateSettings("header.ctaText.ar", v)}
               />
 
-              <FormField label="CTA Link">
+              <FormField label={t(adminI18n.settings.ctaLink)}>
                 <input
                   type="text"
                   value={settings.header.ctaHref}
                   onChange={(e) => updateSettings("header.ctaHref", e.target.value)}
-                  placeholder="/booking"
+                  placeholder={t(adminI18n.settings.ctaLinkPlaceholder)}
                   className={INPUT_CLASS}
                 />
               </FormField>
@@ -606,7 +609,7 @@ export default function SettingsPage() {
 
         {/* Hero Slides */}
         <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-          <SectionHeader id="hero" title="Hero Slides" icon="slideshow" />
+          <SectionHeader id="hero" title={t(adminI18n.settings.heroSlides)} icon="slideshow" />
           {openSections.hero && (
             <div className="px-6 pb-6 border-t border-gray-100 pt-5">
               <HeroSettings
@@ -619,11 +622,11 @@ export default function SettingsPage() {
 
         {/* Footer */}
         <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-          <SectionHeader id="footer" title="Footer" icon="bottom_app_bar" />
+          <SectionHeader id="footer" title={t(adminI18n.settings.footer)} icon="bottom_app_bar" />
           {openSections.footer && (
             <div className="px-6 pb-6 space-y-5 border-t border-gray-100 pt-5">
               <BilingualTextarea
-                label="Footer Description"
+                label={t(adminI18n.settings.footerDescription)}
                 nameEn="footerDescEn"
                 nameAr="footerDescAr"
                 valueEn={settings.footer.description.en}
@@ -633,7 +636,7 @@ export default function SettingsPage() {
                 rows={3}
               />
 
-              <FormField label="Copyright Year">
+              <FormField label={t(adminI18n.settings.copyrightYear)}>
                 <input
                   type="number"
                   value={settings.footer.copyrightYear}
@@ -659,7 +662,7 @@ export default function SettingsPage() {
             {saving && (
               <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
             )}
-            {saving ? "Saving..." : "Save All Settings"}
+            {saving ? t(adminI18n.common.saving) : t(adminI18n.settings.saveAll)}
           </button>
         </div>
       </div>

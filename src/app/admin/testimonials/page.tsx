@@ -7,9 +7,12 @@ import TopBar from "@/components/admin/TopBar";
 import DataTable from "@/components/admin/DataTable";
 import DeleteConfirm from "@/components/admin/DeleteConfirm";
 import { useToast } from "@/components/admin/ToastProvider";
+import { useLanguage } from "@/context/LanguageContext";
+import { adminI18n } from "@/lib/admin-i18n";
 import type { Testimonial } from "@/types";
 
 export default function AdminTestimonialsList() {
+  const { t, lang } = useLanguage();
   const router = useRouter();
   const { toast } = useToast();
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
@@ -27,7 +30,7 @@ export default function AdminTestimonialsList() {
       const data = await res.json();
       setTestimonials(data);
     } catch {
-      toast("Failed to load testimonials", "error");
+      toast(t(adminI18n.testimonials.loadFailed), "error");
     } finally {
       setLoading(false);
     }
@@ -39,9 +42,9 @@ export default function AdminTestimonialsList() {
       const res = await fetch(`/api/testimonials/${deleteTarget.id}`, { method: "DELETE" });
       if (!res.ok) throw new Error("Failed to delete");
       setTestimonials((prev) => prev.filter((t) => t.id !== deleteTarget.id));
-      toast("Testimonial deleted successfully", "success");
+      toast(t(adminI18n.testimonials.deleteSuccess), "success");
     } catch {
-      toast("Failed to delete testimonial", "error");
+      toast(t(adminI18n.testimonials.deleteFailed), "error");
     } finally {
       setDeleteTarget(null);
     }
@@ -68,12 +71,12 @@ export default function AdminTestimonialsList() {
   const columns = [
     {
       key: "image",
-      label: "Image",
+      label: t(adminI18n.common.image),
       render: (item: Testimonial) =>
         item.image ? (
           <img
             src={item.image}
-            alt={item.name.en}
+            alt={item.name?.[lang] || item.name?.en}
             className="w-10 h-10 rounded-full object-cover border border-gray-200"
           />
         ) : (
@@ -84,21 +87,21 @@ export default function AdminTestimonialsList() {
     },
     {
       key: "name",
-      label: "Name",
+      label: t(adminI18n.common.name),
       render: (item: Testimonial) => (
-        <span className="font-medium text-gray-900">{item.name.en}</span>
+        <span className="font-medium text-gray-900">{item.name?.[lang] || item.name?.en}</span>
       ),
     },
     {
       key: "service",
-      label: "Service",
+      label: t(adminI18n.common.service),
       render: (item: Testimonial) => (
-        <span className="text-gray-600">{item.service.en}</span>
+        <span className="text-gray-600">{item.service?.[lang] || item.service?.en}</span>
       ),
     },
     {
       key: "branch",
-      label: "Branch",
+      label: t(adminI18n.common.branch),
       render: (item: Testimonial) => (
         <span className="inline-flex px-2.5 py-1 rounded-full text-xs font-medium bg-purple-50 text-purple-700">
           {item.branch}
@@ -107,7 +110,7 @@ export default function AdminTestimonialsList() {
     },
     {
       key: "rating",
-      label: "Rating",
+      label: t(adminI18n.common.rating),
       render: (item: Testimonial) => renderStars(item.rating),
     },
   ];
@@ -125,13 +128,13 @@ export default function AdminTestimonialsList() {
 
   return (
     <div>
-      <TopBar title="Testimonials">
+      <TopBar title={t(adminI18n.testimonials.title)}>
         <Link
           href="/admin/testimonials/new"
           className="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors flex items-center gap-1.5"
         >
           <span className="material-symbols-outlined text-[18px]">add</span>
-          Add Testimonial
+          {t(adminI18n.testimonials.addTestimonial)}
         </Link>
       </TopBar>
 
@@ -152,8 +155,8 @@ export default function AdminTestimonialsList() {
         open={!!deleteTarget}
         onClose={() => setDeleteTarget(null)}
         onConfirm={handleDelete}
-        title="Delete Testimonial"
-        message={`Are you sure you want to delete the testimonial from "${deleteTarget?.name?.en}"? This action cannot be undone.`}
+        title={t(adminI18n.testimonials.deleteTitle)}
+        message={t(adminI18n.testimonials.deleteMessage)}
       />
     </div>
   );

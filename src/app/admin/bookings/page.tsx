@@ -6,6 +6,8 @@ import TopBar from "@/components/admin/TopBar";
 import DataTable from "@/components/admin/DataTable";
 import StatusBadge from "@/components/admin/StatusBadge";
 import { useToast } from "@/components/admin/ToastProvider";
+import { useLanguage } from "@/context/LanguageContext";
+import { adminI18n } from "@/lib/admin-i18n";
 
 interface Booking {
   id: string;
@@ -33,6 +35,7 @@ interface ServiceRef {
 }
 
 export default function BookingsPage() {
+  const { t, lang } = useLanguage();
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [branches, setBranches] = useState<BranchRef[]>([]);
   const [services, setServices] = useState<ServiceRef[]>([]);
@@ -58,7 +61,7 @@ export default function BookingsPage() {
       if (branchesRes.ok) setBranches(await branchesRes.json());
       if (servicesRes.ok) setServices(await servicesRes.json());
     } catch {
-      toast("Failed to load bookings", "error");
+      toast(t(adminI18n.bookings.loadFailed), "error");
     } finally {
       setLoading(false);
     }
@@ -66,18 +69,18 @@ export default function BookingsPage() {
 
   function getBranchName(branchId: string): string {
     const branch = branches.find((b) => b.id === branchId);
-    return branch?.name?.en || branchId;
+    return branch?.name?.[lang] || branch?.name?.en || branchId;
   }
 
   function getServiceName(serviceId: string): string {
     const service = services.find((s) => s.id === serviceId);
-    return service?.name?.en || serviceId;
+    return service?.name?.[lang] || service?.name?.en || serviceId;
   }
 
   function formatDate(dateStr: string): string {
     if (!dateStr) return "—";
     try {
-      return new Date(dateStr).toLocaleDateString("en-US", {
+      return new Date(dateStr).toLocaleDateString(lang === "ar" ? "ar" : "en-US", {
         year: "numeric",
         month: "short",
         day: "numeric",
@@ -90,54 +93,54 @@ export default function BookingsPage() {
   const columns = [
     {
       key: "fullName",
-      label: "Full Name",
+      label: t(adminI18n.bookings.fullName),
       render: (item: Booking) => (
         <span className="font-medium text-gray-900">{item.fullName}</span>
       ),
     },
     {
       key: "phone",
-      label: "Phone",
+      label: t(adminI18n.common.phone),
       render: (item: Booking) => (
         <span className="text-sm text-gray-600">{item.phone}</span>
       ),
     },
     {
       key: "branchId",
-      label: "Branch",
+      label: t(adminI18n.common.branch),
       render: (item: Booking) => (
         <span className="text-sm text-gray-600">{getBranchName(item.branchId)}</span>
       ),
     },
     {
       key: "serviceId",
-      label: "Service",
+      label: t(adminI18n.common.service),
       render: (item: Booking) => (
         <span className="text-sm text-gray-600">{getServiceName(item.serviceId)}</span>
       ),
     },
     {
       key: "date",
-      label: "Date",
+      label: t(adminI18n.common.date),
       render: (item: Booking) => (
         <span className="text-sm text-gray-600">{item.date}</span>
       ),
     },
     {
       key: "time",
-      label: "Time",
+      label: t(adminI18n.bookings.time),
       render: (item: Booking) => (
         <span className="text-sm text-gray-600">{item.time}</span>
       ),
     },
     {
       key: "status",
-      label: "Status",
+      label: t(adminI18n.common.status),
       render: (item: Booking) => <StatusBadge status={item.status} />,
     },
     {
       key: "createdAt",
-      label: "Created",
+      label: t(adminI18n.bookings.created),
       render: (item: Booking) => (
         <span className="text-sm text-gray-500">{formatDate(item.createdAt)}</span>
       ),
@@ -147,7 +150,7 @@ export default function BookingsPage() {
   if (loading) {
     return (
       <>
-        <TopBar title="Bookings" />
+        <TopBar title={t(adminI18n.bookings.title)} />
         <div className="p-6">
           <div className="flex items-center justify-center py-20">
             <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
@@ -159,7 +162,7 @@ export default function BookingsPage() {
 
   return (
     <>
-      <TopBar title="Bookings" />
+      <TopBar title={t(adminI18n.bookings.title)} />
 
       <div className="p-6">
         <DataTable
