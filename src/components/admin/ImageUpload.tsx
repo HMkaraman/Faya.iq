@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback, useId } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { adminI18n } from "@/lib/admin-i18n";
 
@@ -26,6 +26,7 @@ export default function ImageUpload({
   const [dragActive, setDragActive] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const inputId = useId();
 
   const validateFile = useCallback(
     (file: File): string | null => {
@@ -120,7 +121,8 @@ export default function ImageUpload({
             className="w-32 h-32 object-cover rounded-lg border border-gray-200"
           />
           <button
-            onClick={handleRemove}
+            type="button"
+            onClick={(e) => { e.stopPropagation(); e.preventDefault(); handleRemove(); }}
             className="absolute -top-2 -end-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
             title={t(adminI18n.common.remove)}
           >
@@ -130,13 +132,13 @@ export default function ImageUpload({
       )}
 
       {/* Drop zone */}
-      <div
-        onClick={() => inputRef.current?.click()}
+      <label
+        htmlFor={inputId}
         onDrop={handleDrop}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         className={`
-          border-2 border-dashed rounded-lg p-6 text-center cursor-pointer
+          block border-2 border-dashed rounded-lg p-6 text-center cursor-pointer
           transition-colors duration-150
           ${dragActive
             ? "border-primary bg-primary/5"
@@ -162,9 +164,10 @@ export default function ImageUpload({
             <p className="text-xs text-gray-400">{typeNames} {t(adminI18n.imageUpload.upTo)} {maxSizeMB}MB</p>
           </div>
         )}
-      </div>
+      </label>
 
       <input
+        id={inputId}
         ref={inputRef}
         type="file"
         accept={acceptStr}
