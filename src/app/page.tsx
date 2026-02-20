@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import ScrollReveal from "@/components/ScrollReveal";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import HeroSlider from "@/components/HeroSlider";
+import type { HeroSlide } from "@/types";
 
 /* ------------------------------------------------------------------ */
 /*  Icon helper – renders a Material Symbols Outlined icon             */
@@ -54,27 +56,31 @@ export default function HomePage() {
   const [testimonials, setTestimonials] = useState<any[]>([]);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [blogPosts, setBlogPosts] = useState<any[]>([]);
+  const [heroSlides, setHeroSlides] = useState<HeroSlide[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const [catRes, branchRes, testRes, blogRes] = await Promise.all([
+        const [catRes, branchRes, testRes, blogRes, settingsRes] = await Promise.all([
           fetch("/api/service-categories"),
           fetch("/api/branches"),
           fetch("/api/testimonials"),
           fetch("/api/blog"),
+          fetch("/api/settings"),
         ]);
-        const [catData, branchData, testData, blogData] = await Promise.all([
+        const [catData, branchData, testData, blogData, settingsData] = await Promise.all([
           catRes.json(),
           branchRes.json(),
           testRes.json(),
           blogRes.json(),
+          settingsRes.json(),
         ]);
         setServiceCategories(catData);
         setBranches(branchData);
         setTestimonials(testData);
         setBlogPosts(blogData);
+        if (settingsData.heroSlides) setHeroSlides(settingsData.heroSlides);
       } catch (err) {
         console.error("Failed to fetch homepage data:", err);
       } finally {
@@ -125,7 +131,7 @@ export default function HomePage() {
     return (
       <main dir={dir} className="flex min-h-screen items-center justify-center">
         <div className="text-center">
-          <div className="mx-auto mb-4 h-12 w-12 animate-spin rounded-full border-4 border-[#c8567e]/20 border-t-[#c8567e]" />
+          <div className="mx-auto mb-4 h-12 w-12 animate-spin rounded-full border-4 border-primary/20 border-t-primary" />
           <p className="text-sm text-[#8c7284]">{t({ en: "Loading...", ar: "جارٍ التحميل..." })}</p>
         </div>
       </main>
@@ -137,86 +143,90 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* 1. HERO SECTION                                               */}
       {/* ============================================================ */}
-      <section
-        aria-label={t({ en: "Hero", ar: "القسم الرئيسي" })}
-        className="relative bg-gradient-to-b from-[#fff0f3] via-[#fff8f5] to-white pb-28 pt-32 md:pt-40 md:pb-36"
-      >
-        {/* Decorative blobs */}
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-[#c8567e]/5 blur-3xl" />
-          <div className="absolute top-1/2 -left-48 h-80 w-80 rounded-full bg-[#f4c2c2]/20 blur-3xl" />
-        </div>
+      {heroSlides.filter((s) => s.active).length > 0 ? (
+        <HeroSlider slides={heroSlides} />
+      ) : (
+        <section
+          aria-label={t({ en: "Hero", ar: "القسم الرئيسي" })}
+          className="relative bg-gradient-to-b from-[#fff0f3] via-[#fff8f5] to-white pb-28 pt-32 md:pt-40 md:pb-36"
+        >
+          {/* Decorative blobs */}
+          <div className="pointer-events-none absolute inset-0 overflow-hidden">
+            <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
+            <div className="absolute top-1/2 -left-48 h-80 w-80 rounded-full bg-[#f4c2c2]/20 blur-3xl" />
+          </div>
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          {/* Badge */}
-          <ScrollReveal>
-            <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-[#c8567e]/20 bg-white/70 px-5 py-2 text-sm font-medium text-[#c8567e] shadow-sm backdrop-blur-sm">
-              <span className="inline-block h-2 w-2 rounded-full bg-[#c8567e] animate-pulse" />
-              {t({ en: "The Premier Aesthetic Destination", ar: "الوجهة التجميلية الأولى" })}
-            </div>
-          </ScrollReveal>
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+            {/* Badge */}
+            <ScrollReveal>
+              <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/70 px-5 py-2 text-sm font-medium text-primary shadow-sm backdrop-blur-sm">
+                <span className="inline-block h-2 w-2 rounded-full bg-primary animate-pulse" />
+                {t({ en: "The Premier Aesthetic Destination", ar: "الوجهة التجميلية الأولى" })}
+              </div>
+            </ScrollReveal>
 
-          {/* Main heading */}
-          <ScrollReveal delay={100}>
-            <h1 className="mx-auto max-w-4xl font-[Playfair_Display] text-4xl font-bold leading-tight tracking-tight text-[#333333] sm:text-5xl md:text-6xl lg:text-7xl">
-              {t({ en: "Your Journey to", ar: "رحلتك نحو" })}{" "}
-              <br className="hidden sm:block" />
-              <span className="italic text-[#c8567e]">
-                {t({ en: "Timeless Beauty", ar: "الجمال الخالد" })}
-              </span>
-            </h1>
-          </ScrollReveal>
+            {/* Main heading */}
+            <ScrollReveal delay={100}>
+              <h1 className="mx-auto max-w-4xl font-[Playfair_Display] text-4xl font-bold leading-tight tracking-tight text-[#333333] sm:text-5xl md:text-6xl lg:text-7xl">
+                {t({ en: "Your Journey to", ar: "رحلتك نحو" })}{" "}
+                <br className="hidden sm:block" />
+                <span className="italic text-primary">
+                  {t({ en: "Timeless Beauty", ar: "الجمال الخالد" })}
+                </span>
+              </h1>
+            </ScrollReveal>
 
-          {/* Arabic subtitle */}
-          <ScrollReveal delay={200}>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-[#8c7284] md:text-xl" dir="rtl">
-              {lang === "en"
-                ? "رحلتك نحو الجمال الخالد"
-                : t({
-                    en: "Where science meets artistry to reveal your most radiant self.",
-                    ar: "حيث يلتقي العلم بالفن ليكشف عن أجمل ما فيك.",
-                  })}
-            </p>
-          </ScrollReveal>
+            {/* Arabic subtitle */}
+            <ScrollReveal delay={200}>
+              <p className="mx-auto mt-6 max-w-2xl text-lg text-[#8c7284] md:text-xl" dir="rtl">
+                {lang === "en"
+                  ? "رحلتك نحو الجمال الخالد"
+                  : t({
+                      en: "Where science meets artistry to reveal your most radiant self.",
+                      ar: "حيث يلتقي العلم بالفن ليكشف عن أجمل ما فيك.",
+                    })}
+              </p>
+            </ScrollReveal>
 
-          {/* Description */}
-          <ScrollReveal delay={250}>
-            <p className="mx-auto mt-4 max-w-2xl text-base text-[#8c7284]/80">
-              {t({
-                en: "Iraq's most trusted beauty & aesthetics clinics — advanced treatments, world-class specialists, three premium locations.",
-                ar: "أكثر عيادات التجميل موثوقية في العراق — علاجات متقدمة، متخصصون عالميون، ثلاثة فروع فاخرة.",
-              })}
-            </p>
-          </ScrollReveal>
+            {/* Description */}
+            <ScrollReveal delay={250}>
+              <p className="mx-auto mt-4 max-w-2xl text-base text-[#8c7284]/80">
+                {t({
+                  en: "Iraq's most trusted beauty & aesthetics clinics — advanced treatments, world-class specialists, three premium locations.",
+                  ar: "أكثر عيادات التجميل موثوقية في العراق — علاجات متقدمة، متخصصون عالميون، ثلاثة فروع فاخرة.",
+                })}
+              </p>
+            </ScrollReveal>
 
-          {/* CTAs */}
-          <ScrollReveal delay={300}>
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 rounded-full bg-[#c8567e] px-8 py-4 text-base font-semibold text-white shadow-lg shadow-[#c8567e]/25 transition-all duration-300 hover:bg-[#a03d5e] hover:shadow-xl hover:shadow-[#c8567e]/30 hover:-translate-y-0.5"
-              >
-                {t({ en: "Book a Consultation", ar: "احجز استشارة" })}
-                <svg
-                  className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  viewBox="0 0 24 24"
+            {/* CTAs */}
+            <ScrollReveal delay={300}>
+              <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary/25 transition-all duration-300 hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </Link>
-              <Link
-                href="/services"
-                className="inline-flex items-center gap-2 rounded-full border-2 border-[#c8567e]/30 bg-white/60 px-8 py-4 text-base font-semibold text-[#c8567e] backdrop-blur-sm transition-all duration-300 hover:border-[#c8567e] hover:bg-white hover:-translate-y-0.5"
-              >
-                {t({ en: "Explore Services", ar: "اكتشف خدماتنا" })}
-              </Link>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+                  {t({ en: "Book a Consultation", ar: "احجز استشارة" })}
+                  <svg
+                    className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </Link>
+                <Link
+                  href="/services"
+                  className="inline-flex items-center gap-2 rounded-full border-2 border-primary/30 bg-white/60 px-8 py-4 text-base font-semibold text-primary backdrop-blur-sm transition-all duration-300 hover:border-primary hover:bg-white hover:-translate-y-0.5"
+                >
+                  {t({ en: "Explore Services", ar: "اكتشف خدماتنا" })}
+                </Link>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
 
       {/* ============================================================ */}
       {/* 2. BRANCH SELECTOR (Floating card overlapping hero)           */}
@@ -243,13 +253,13 @@ export default function HomePage() {
                   onClick={() => setSelectedBranch(idx)}
                   className={`group relative rounded-xl border-2 p-5 text-start transition-all duration-300 ${
                     selectedBranch === idx
-                      ? "border-[#c8567e] bg-[#fff0f3]/50 shadow-md"
-                      : "border-gray-100 bg-white hover:border-[#c8567e]/30 hover:shadow-sm"
+                      ? "border-primary bg-[#fff0f3]/50 shadow-md"
+                      : "border-gray-100 bg-white hover:border-primary/30 hover:shadow-sm"
                   }`}
                 >
                   {/* Selected indicator */}
                   {selectedBranch === idx && (
-                    <span className="absolute top-3 end-3 flex h-6 w-6 items-center justify-center rounded-full bg-[#c8567e] text-white">
+                    <span className="absolute top-3 end-3 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-white">
                       <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
@@ -299,7 +309,7 @@ export default function HomePage() {
           {/* Section header */}
           <ScrollReveal>
             <div className="text-center">
-              <span className="inline-block rounded-full bg-[#c8567e]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c8567e]">
+              <span className="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
                 {t({ en: "Our Expertise", ar: "خبراتنا" })}
               </span>
               <h2 className="mt-4 font-[Playfair_Display] text-3xl font-bold text-[#333333] md:text-4xl lg:text-5xl">
@@ -336,11 +346,11 @@ export default function HomePage() {
                     {/* Content */}
                     <div className="relative px-6 pb-6 pt-0">
                       {/* Floating icon */}
-                      <div className="-mt-7 mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#c8567e] text-white shadow-lg shadow-[#c8567e]/30">
+                      <div className="-mt-7 mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/30">
                         <MIcon name={meta?.icon || cat.icon} className="text-2xl" />
                       </div>
 
-                      <h3 className="text-lg font-bold text-[#333333] group-hover:text-[#c8567e] transition-colors duration-300">
+                      <h3 className="text-lg font-bold text-[#333333] group-hover:text-primary transition-colors duration-300">
                         {meta ? t(meta.label) : t(cat.name)}
                       </h3>
                       <p className="mt-2 text-sm leading-relaxed text-[#8c7284] line-clamp-2">
@@ -348,7 +358,7 @@ export default function HomePage() {
                       </p>
 
                       {/* Explore link */}
-                      <div className="mt-4 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#c8567e]">
+                      <div className="mt-4 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary">
                         {t({ en: "EXPLORE", ar: "استكشف" })}
                         <svg
                           className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1"
@@ -372,7 +382,7 @@ export default function HomePage() {
             <div className="mt-12 text-center">
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-[#c8567e] transition-colors hover:text-[#a03d5e]"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
               >
                 {t({ en: "View All Services", ar: "عرض جميع الخدمات" })}
                 <svg
@@ -463,7 +473,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center">
-              <span className="inline-block rounded-full bg-[#c8567e]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c8567e]">
+              <span className="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
                 {t({ en: "Real Results", ar: "نتائج حقيقية" })}
               </span>
               <h2 className="mt-4 font-[Playfair_Display] text-3xl font-bold text-[#333333] md:text-4xl">
@@ -514,7 +524,7 @@ export default function HomePage() {
             <div className="mt-10 text-center">
               <Link
                 href="/gallery"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-[#c8567e] transition-colors hover:text-[#a03d5e]"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
               >
                 {t({ en: "Browse Full Gallery", ar: "تصفح المعرض الكامل" })}
                 <svg
@@ -542,7 +552,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center">
-              <span className="inline-block rounded-full bg-[#c8567e]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c8567e]">
+              <span className="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
                 {t({ en: "Testimonials", ar: "الشهادات" })}
               </span>
               <h2 className="mt-4 font-[Playfair_Display] text-3xl font-bold text-[#333333] md:text-4xl">
@@ -555,7 +565,7 @@ export default function HomePage() {
           <div className="mt-4 flex items-center justify-center gap-3">
             <button
               onClick={() => scrollTestimonials("left")}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-[#8c7284] transition-all hover:border-[#c8567e] hover:text-[#c8567e]"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-[#8c7284] transition-all hover:border-primary hover:text-primary"
               aria-label={t({ en: "Scroll left", ar: "التمرير لليسار" })}
             >
               <svg className="h-5 w-5 rtl:rotate-180" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
@@ -564,7 +574,7 @@ export default function HomePage() {
             </button>
             <button
               onClick={() => scrollTestimonials("right")}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-[#8c7284] transition-all hover:border-[#c8567e] hover:text-[#c8567e]"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-[#8c7284] transition-all hover:border-primary hover:text-primary"
               aria-label={t({ en: "Scroll right", ar: "التمرير لليمين" })}
             >
               <svg className="h-5 w-5 rtl:rotate-180" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
@@ -624,7 +634,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center">
-              <span className="inline-block rounded-full bg-[#c8567e]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c8567e]">
+              <span className="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
                 {t({ en: "From Our Blog", ar: "من مدونتنا" })}
               </span>
               <h2 className="mt-4 font-[Playfair_Display] text-3xl font-bold text-[#333333] md:text-4xl">
@@ -652,14 +662,14 @@ export default function HomePage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                       {/* Category badge */}
-                      <span className="absolute top-4 start-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-[#c8567e] backdrop-blur-sm">
+                      <span className="absolute top-4 start-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-primary backdrop-blur-sm">
                         {post.category}
                       </span>
                     </div>
 
                     {/* Content */}
                     <div className="p-5">
-                      <h3 className="text-base font-bold leading-snug text-[#333333] group-hover:text-[#c8567e] transition-colors duration-300 line-clamp-2">
+                      <h3 className="text-base font-bold leading-snug text-[#333333] group-hover:text-primary transition-colors duration-300 line-clamp-2">
                         {t(post.title)}
                       </h3>
                       <p className="mt-2 text-sm leading-relaxed text-[#8c7284] line-clamp-2">
@@ -692,7 +702,7 @@ export default function HomePage() {
             <div className="mt-12 text-center">
               <Link
                 href="/blog"
-                className="inline-flex items-center gap-2 rounded-full border-2 border-[#c8567e]/30 px-7 py-3 text-sm font-semibold text-[#c8567e] transition-all duration-300 hover:border-[#c8567e] hover:bg-[#c8567e] hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-primary/30 px-7 py-3 text-sm font-semibold text-primary transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white"
               >
                 {t({ en: "Read All Articles", ar: "اقرأ جميع المقالات" })}
                 <svg
@@ -715,13 +725,13 @@ export default function HomePage() {
       {/* ============================================================ */}
       <section
         aria-label={t({ en: "Call to Action", ar: "دعوة للعمل" })}
-        className="relative overflow-hidden bg-[#c8567e] py-20 md:py-28"
+        className="relative overflow-hidden bg-primary py-20 md:py-28"
       >
         {/* Decorative elements */}
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-white/5" />
           <div className="absolute -bottom-32 -left-32 h-80 w-80 rounded-full bg-white/5" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-[#a03d5e]/40 blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-primary-dark/40 blur-3xl" />
         </div>
 
         <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
@@ -738,7 +748,7 @@ export default function HomePage() {
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-[#c8567e] shadow-lg transition-all duration-300 hover:bg-[#fff0f3] hover:shadow-xl hover:-translate-y-0.5"
+                className="group inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-primary shadow-lg transition-all duration-300 hover:bg-[#fff0f3] hover:shadow-xl hover:-translate-y-0.5"
               >
                 {t({ en: "Book Appointment", ar: "احجز موعداً" })}
                 <svg

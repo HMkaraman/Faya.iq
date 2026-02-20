@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useRef } from "react";
-import Link from "next/link";
+import { useState, useRef, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import ScrollReveal from "@/components/ScrollReveal";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import PhotoCarousel from "@/components/PhotoCarousel";
 
 /* ------------------------------------------------------------------ */
 /*  Categories                                                         */
@@ -15,136 +16,6 @@ const categories = [
   { id: "injectables", label: { en: "Injectables", ar: "الحقن" } },
   { id: "laser", label: { en: "Laser", ar: "الليزر" } },
   { id: "body-contouring", label: { en: "Body Contouring", ar: "نحت الجسم" } },
-];
-
-/* ------------------------------------------------------------------ */
-/*  Gallery items                                                      */
-/* ------------------------------------------------------------------ */
-interface GalleryItem {
-  id: string;
-  title: { en: string; ar: string };
-  category: string;
-  type: "before-after" | "showcase";
-  beforeImage: string;
-  afterImage: string;
-  doctor: { en: string; ar: string };
-  sessions: number;
-  tags: { en: string; ar: string }[];
-}
-
-const galleryItems: GalleryItem[] = [
-  {
-    id: "g1",
-    title: { en: "HydraFacial Transformation", ar: "تحول الهيدرافيشل" },
-    category: "skin-care",
-    type: "before-after",
-    beforeImage: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80",
-    afterImage: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80",
-    doctor: { en: "Dr. Sarah Ahmed", ar: "د. سارة أحمد" },
-    sessions: 4,
-    tags: [
-      { en: "Skin Rejuvenation", ar: "تجديد البشرة" },
-      { en: "No Downtime", ar: "بدون فترة تعافي" },
-    ],
-  },
-  {
-    id: "g2",
-    title: { en: "FUE Hair Transplant - 3000 Grafts", ar: "زراعة الشعر FUE - ٣٠٠٠ بصيلة" },
-    category: "hair-transplant",
-    type: "before-after",
-    beforeImage: "https://images.unsplash.com/photo-1585747860019-8e7e4d6e2a2f?w=600&q=80",
-    afterImage: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80",
-    doctor: { en: "Dr. Youssef Ali", ar: "د. يوسف علي" },
-    sessions: 1,
-    tags: [
-      { en: "Hair Restoration", ar: "استعادة الشعر" },
-      { en: "Permanent", ar: "دائم" },
-    ],
-  },
-  {
-    id: "g3",
-    title: { en: "Lip Filler Enhancement", ar: "تعزيز فيلر الشفاه" },
-    category: "injectables",
-    type: "before-after",
-    beforeImage: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80",
-    afterImage: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&q=80",
-    doctor: { en: "Dr. Layla Hassan", ar: "د. ليلى حسن" },
-    sessions: 2,
-    tags: [
-      { en: "Fillers", ar: "فيلر" },
-      { en: "Natural Look", ar: "مظهر طبيعي" },
-    ],
-  },
-  {
-    id: "g4",
-    title: { en: "Full Body Laser Results", ar: "نتائج ليزر الجسم الكامل" },
-    category: "laser",
-    type: "before-after",
-    beforeImage: "https://images.unsplash.com/photo-1598524374912-6b0b0bab43a5?w=600&q=80",
-    afterImage: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80",
-    doctor: { en: "Dr. Sarah Ahmed", ar: "د. سارة أحمد" },
-    sessions: 6,
-    tags: [
-      { en: "Hair Removal", ar: "إزالة الشعر" },
-      { en: "FDA Approved", ar: "معتمد FDA" },
-    ],
-  },
-  {
-    id: "g5",
-    title: { en: "Luxury Gel Nail Art", ar: "فن أظافر الجل الفاخر" },
-    category: "skin-care",
-    type: "showcase",
-    beforeImage: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80",
-    afterImage: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80",
-    doctor: { en: "Faya Nail Studio", ar: "استوديو أظافر فايا" },
-    sessions: 1,
-    tags: [
-      { en: "Nail Art", ar: "فن الأظافر" },
-      { en: "Trending", ar: "رائج" },
-    ],
-  },
-  {
-    id: "g6",
-    title: { en: "Jawline Contouring", ar: "نحت خط الفك" },
-    category: "body-contouring",
-    type: "before-after",
-    beforeImage: "https://images.unsplash.com/photo-1551190822-a9ce113ac100?w=600&q=80",
-    afterImage: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80",
-    doctor: { en: "Dr. Youssef Ali", ar: "د. يوسف علي" },
-    sessions: 3,
-    tags: [
-      { en: "Body Contouring", ar: "نحت الجسم" },
-      { en: "Non-Surgical", ar: "بدون جراحة" },
-    ],
-  },
-  {
-    id: "g7",
-    title: { en: "Chemical Peel Glow-Up", ar: "توهج التقشير الكيميائي" },
-    category: "skin-care",
-    type: "before-after",
-    beforeImage: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80",
-    afterImage: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80",
-    doctor: { en: "Dr. Layla Hassan", ar: "د. ليلى حسن" },
-    sessions: 3,
-    tags: [
-      { en: "Peel", ar: "تقشير" },
-      { en: "Anti-Aging", ar: "مكافحة الشيخوخة" },
-    ],
-  },
-  {
-    id: "g8",
-    title: { en: "Bridal Hair Styling", ar: "تصفيف شعر العروس" },
-    category: "hair-transplant",
-    type: "showcase",
-    beforeImage: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80",
-    afterImage: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80",
-    doctor: { en: "Faya Hair Studio", ar: "استوديو شعر فايا" },
-    sessions: 1,
-    tags: [
-      { en: "Bridal", ar: "عرائس" },
-      { en: "Styling", ar: "تصفيف" },
-    ],
-  },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -176,37 +47,47 @@ function SparklesIcon({ className = "w-5 h-5" }: { className?: string }) {
   );
 }
 
-function ArrowRightIcon({ className = "w-4 h-4" }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-      <path d="M5 12h14" />
-      <path d="m12 5 7 7-7 7" />
-    </svg>
-  );
-}
-
 /* ------------------------------------------------------------------ */
 /*  Gallery Card component                                             */
 /* ------------------------------------------------------------------ */
-function GalleryCard({ item }: { item: GalleryItem }) {
-  const { t, dir } = useLanguage();
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function GalleryCard({ item, onOpen }: { item: any; onOpen: () => void }) {
+  const { t } = useLanguage();
 
   const isBeforeAfter = item.type === "before-after";
   const categoryLabel = categories.find((c) => c.id === item.category);
+  const showcaseCount = item.images?.length || 0;
 
   return (
-    <div className="group rounded-xl shadow-sm overflow-hidden bg-white hover:shadow-lg transition-all duration-300">
+    <div
+      onClick={onOpen}
+      className="group rounded-xl shadow-sm overflow-hidden bg-white hover:shadow-lg transition-all duration-300 cursor-pointer"
+    >
       {/* Image area */}
       <div className="relative aspect-[4/3] overflow-hidden">
         {/* Gradient placeholder background */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#f8bbd0] via-[#f4c2c2] to-[#e8a0bf]" />
 
-        {/* Actual image */}
-        <img
-          src={item.afterImage}
-          alt={t(item.title)}
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
+        {isBeforeAfter ? (
+          /* Split preview for before/after */
+          <>
+            <div className="absolute inset-0 w-1/2 overflow-hidden">
+              <img src={item.beforeImage} alt="Before" className="w-full h-full object-cover" style={{ width: "200%" }} />
+            </div>
+            <div className="absolute inset-0 start-1/2 w-1/2 overflow-hidden">
+              <img src={item.afterImage} alt="After" className="w-full h-full object-cover" style={{ width: "200%", objectPosition: "right" }} />
+            </div>
+            {/* Divider line */}
+            <div className="absolute top-0 bottom-0 start-1/2 w-0.5 bg-white z-10" />
+          </>
+        ) : (
+          /* First image for showcase */
+          <img
+            src={item.images?.[0] || item.afterImage}
+            alt={t(item.title)}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        )}
 
         {/* Gradient overlay at bottom */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
@@ -215,17 +96,25 @@ function GalleryCard({ item }: { item: GalleryItem }) {
         {isBeforeAfter ? (
           <div className="absolute top-3 start-3 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-primary text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm">
             <ShieldIcon className="w-3.5 h-3.5" />
-            <span>{t({ en: "Before / After Verified", ar: "قبل / بعد موثق" })}</span>
+            <span>{t({ en: "Before / After", ar: "قبل / بعد" })}</span>
           </div>
         ) : (
-          <div className="absolute top-3 start-3 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-warm-gold text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm">
+          <div className="absolute top-3 start-3 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-amber-600 text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm">
             <SparklesIcon className="w-3.5 h-3.5" />
             <span>{t({ en: "Showcase", ar: "عرض" })}</span>
           </div>
         )}
 
+        {/* Image count badge for showcase */}
+        {!isBeforeAfter && showcaseCount > 1 && (
+          <div className="absolute top-3 end-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2.5 py-1 rounded-full flex items-center gap-1">
+            <CameraIcon className="w-3 h-3" />
+            <span>{showcaseCount}</span>
+          </div>
+        )}
+
         {/* Category tag */}
-        {categoryLabel && (
+        {categoryLabel && isBeforeAfter && (
           <div className="absolute top-3 end-3 bg-primary/80 backdrop-blur-sm text-white text-[11px] font-medium px-2.5 py-1 rounded-full">
             {t(categoryLabel.label)}
           </div>
@@ -238,13 +127,13 @@ function GalleryCard({ item }: { item: GalleryItem }) {
           </h3>
           <p className="text-white/80 text-sm mt-1">
             {t(item.doctor)}
-            {isBeforeAfter && (
-              <span className="mx-1.5 text-white/50">|</span>
-            )}
-            {isBeforeAfter && (
-              <span>
-                {item.sessions} {t({ en: "sessions", ar: "جلسات" })}
-              </span>
+            {isBeforeAfter && item.sessions > 0 && (
+              <>
+                <span className="mx-1.5 text-white/50">|</span>
+                <span>
+                  {item.sessions} {t({ en: "sessions", ar: "جلسات" })}
+                </span>
+              </>
             )}
           </p>
         </div>
@@ -254,7 +143,7 @@ function GalleryCard({ item }: { item: GalleryItem }) {
       <div className="p-4">
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-3">
-          {item.tags.map((tag: any, i: number) => (
+          {item.tags?.map((tag: any, i: number) => (
             <span
               key={i}
               className="text-[11px] font-medium text-text-muted bg-bg-light px-2.5 py-1 rounded-full"
@@ -265,19 +154,93 @@ function GalleryCard({ item }: { item: GalleryItem }) {
         </div>
 
         {/* CTA */}
-        <Link
-          href={`/gallery/${item.id}`}
-          className={`inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-dark transition-colors ${
-            dir === "rtl" ? "flex-row-reverse" : ""
-          }`}
+        <button
+          className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-dark transition-colors"
         >
           <span>
             {isBeforeAfter
-              ? t({ en: "View Full Story", ar: "عرض القصة الكاملة" })
-              : t({ en: "View Details", ar: "عرض التفاصيل" })}
+              ? t({ en: "View Comparison", ar: "عرض المقارنة" })
+              : t({ en: "View Gallery", ar: "عرض المعرض" })}
           </span>
-          <ArrowRightIcon className={`w-4 h-4 transition-transform group-hover:translate-x-1 ${dir === "rtl" ? "rotate-180 group-hover:-translate-x-1" : ""}`} />
-        </Link>
+          <svg className="w-4 h-4 transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+            <path d="M5 12h14" />
+            <path d="m12 5 7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Modal                                                              */
+/* ------------------------------------------------------------------ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function GalleryModal({ item, onClose }: { item: any; onClose: () => void }) {
+  const { t } = useLanguage();
+
+  useEffect(() => {
+    function handleEsc(e: KeyboardEvent) {
+      if (e.key === "Escape") onClose();
+    }
+    document.addEventListener("keydown", handleEsc);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", handleEsc);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  const isBeforeAfter = item.type === "before-after";
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={onClose}>
+      <div className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white rounded-2xl shadow-2xl" onClick={(e) => e.stopPropagation()}>
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+        >
+          <span className="material-symbols-outlined text-[20px]">close</span>
+        </button>
+
+        {/* Content */}
+        <div className="p-6">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">{t(item.title)}</h2>
+
+          {isBeforeAfter ? (
+            <BeforeAfterSlider
+              beforeImage={item.beforeImage}
+              afterImage={item.afterImage}
+            />
+          ) : (
+            <PhotoCarousel
+              images={item.images?.length ? item.images : [item.afterImage]}
+            />
+          )}
+
+          {/* Info */}
+          <div className="mt-4 flex items-center gap-4 text-sm text-gray-600">
+            <span>{t(item.doctor)}</span>
+            {isBeforeAfter && item.sessions > 0 && (
+              <>
+                <span className="text-gray-300">|</span>
+                <span>{item.sessions} {t({ en: "sessions", ar: "جلسات" })}</span>
+              </>
+            )}
+          </div>
+
+          {/* Tags */}
+          {item.tags?.length > 0 && (
+            <div className="mt-3 flex flex-wrap gap-2">
+              {item.tags.map((tag: any, i: number) => (
+                <span key={i} className="text-xs font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
+                  {t(tag)}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -287,14 +250,35 @@ function GalleryCard({ item }: { item: GalleryItem }) {
 /*  Page                                                               */
 /* ------------------------------------------------------------------ */
 export default function GalleryPage() {
-  const { t, dir, lang } = useLanguage();
+  const { t, dir } = useLanguage();
   const [activeCategory, setActiveCategory] = useState("all");
   const scrollRef = useRef<HTMLDivElement>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [galleryItems, setGalleryItems] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [modalItem, setModalItem] = useState<any | null>(null);
+
+  useEffect(() => {
+    async function fetchGallery() {
+      try {
+        const res = await fetch("/api/gallery");
+        if (!res.ok) throw new Error("Failed to fetch");
+        const data = await res.json();
+        setGalleryItems(data.filter((item: any) => item.active !== false));
+      } catch (err) {
+        console.error("Failed to fetch gallery:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchGallery();
+  }, []);
 
   const filtered =
     activeCategory === "all"
       ? galleryItems
-      : galleryItems.filter((i) => i.category === activeCategory);
+      : galleryItems.filter((i: any) => i.category === activeCategory);
 
   return (
     <main dir={dir} className="min-h-screen bg-bg-light">
@@ -336,7 +320,7 @@ export default function GalleryPage() {
             ref={scrollRef}
             className="flex gap-2 py-4 overflow-x-auto hide-scrollbar"
           >
-            {categories.map((cat: any) => {
+            {categories.map((cat) => {
               const isActive = activeCategory === cat.id;
               return (
                 <button
@@ -356,50 +340,55 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* ─── Results count ─── */}
+      {/* ─── Loading / Results count ─── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 mb-4">
-        <p className="text-sm text-text-muted">
-          {t({
-            en: `Showing ${filtered.length} result${filtered.length !== 1 ? "s" : ""}`,
-            ar: `عرض ${filtered.length} نتيجة`,
-          })}
-        </p>
+        {loading ? (
+          <div className="flex items-center gap-2">
+            <div className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+            <p className="text-sm text-text-muted">{t({ en: "Loading gallery...", ar: "جارٍ تحميل المعرض..." })}</p>
+          </div>
+        ) : (
+          <p className="text-sm text-text-muted">
+            {t({
+              en: `Showing ${filtered.length} result${filtered.length !== 1 ? "s" : ""}`,
+              ar: `عرض ${filtered.length} نتيجة`,
+            })}
+          </p>
+        )}
       </div>
 
       {/* ─── Gallery Grid (masonry-style) ─── */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 space-y-5">
-          {filtered.map((item: any, index: number) => (
-            <ScrollReveal key={item.id} delay={index * 80} className="break-inside-avoid">
-              <GalleryCard item={item} />
-            </ScrollReveal>
-          ))}
-        </div>
-
-        {/* Empty state */}
-        {filtered.length === 0 && (
-          <div className="text-center py-20">
-            <CameraIcon className="w-12 h-12 text-primary/30 mx-auto mb-4" />
-            <p className="text-text-muted text-lg">
-              {t({
-                en: "No results found in this category yet.",
-                ar: "لم يتم العثور على نتائج في هذه الفئة بعد.",
-              })}
-            </p>
+      {!loading && (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 space-y-5">
+            {filtered.map((item: any, index: number) => (
+              <ScrollReveal key={item.id} delay={index * 80} className="break-inside-avoid">
+                <GalleryCard item={item} onOpen={() => setModalItem(item)} />
+              </ScrollReveal>
+            ))}
           </div>
-        )}
-      </section>
 
-      {/* ─── Load More ─── */}
-      {filtered.length > 0 && (
-        <div className="text-center pb-20">
-          <button className="inline-flex items-center gap-2 border-2 border-primary text-primary font-semibold px-8 py-3 rounded-full hover:bg-primary hover:text-white transition-all duration-300">
-            <span>{t({ en: "Load More Results", ar: "تحميل المزيد من النتائج" })}</span>
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-              <path d="M12 5v14M5 12l7 7 7-7" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-        </div>
+          {/* Empty state */}
+          {filtered.length === 0 && (
+            <div className="text-center py-20">
+              <CameraIcon className="w-12 h-12 text-primary/30 mx-auto mb-4" />
+              <p className="text-text-muted text-lg">
+                {t({
+                  en: "No results found in this category yet.",
+                  ar: "لم يتم العثور على نتائج في هذه الفئة بعد.",
+                })}
+              </p>
+            </div>
+          )}
+        </section>
+      )}
+
+      {/* Spacer */}
+      <div className="h-16" />
+
+      {/* Modal */}
+      {modalItem && (
+        <GalleryModal item={modalItem} onClose={() => setModalItem(null)} />
       )}
     </main>
   );

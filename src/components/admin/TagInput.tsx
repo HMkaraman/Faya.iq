@@ -36,12 +36,12 @@ export default function TagInput({ value, onChange, placeholder = "Add tag..." }
   return (
     <div
       onClick={() => inputRef.current?.focus()}
-      className="flex flex-wrap items-center gap-2 px-3 py-2 border border-gray-300 rounded-lg bg-white cursor-text focus-within:ring-2 focus-within:ring-[#c8567e]/30 focus-within:border-[#c8567e] transition-colors min-h-[42px]"
+      className="flex flex-wrap items-center gap-2 px-3 py-2 border border-gray-300 rounded-lg bg-white cursor-text focus-within:ring-2 focus-within:ring-primary/30 focus-within:border-primary transition-colors min-h-[42px]"
     >
       {value.map((tag, index) => (
         <span
           key={index}
-          className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#c8567e]/10 text-[#c8567e] rounded-full text-sm font-medium"
+          className="inline-flex items-center gap-1 px-2.5 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
         >
           {tag}
           <button
@@ -49,7 +49,7 @@ export default function TagInput({ value, onChange, placeholder = "Add tag..." }
               e.stopPropagation();
               removeTag(index);
             }}
-            className="p-0.5 rounded-full hover:bg-[#c8567e]/20 transition-colors"
+            className="p-0.5 rounded-full hover:bg-primary/20 transition-colors"
             type="button"
           >
             <span className="material-symbols-outlined text-[14px]">close</span>

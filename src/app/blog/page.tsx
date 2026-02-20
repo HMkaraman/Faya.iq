@@ -49,7 +49,7 @@ export default function BlogPage() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#fbf9fa]">
-        <div className="w-8 h-8 border-4 border-[#c8567e] border-t-transparent rounded-full animate-spin" />
+        <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }
@@ -130,7 +130,7 @@ export default function BlogPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
               <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10 lg:p-14">
-                <span className="inline-block w-fit bg-[#c8567e] text-white text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+                <span className="inline-block w-fit bg-primary text-white text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
                   {t({ en: "Featured Article", ar: "\u0645\u0642\u0627\u0644 \u0645\u0645\u064a\u0651\u0632" })}
                 </span>
                 <h2 className="text-white font-[Playfair_Display] text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 max-w-3xl leading-tight">
@@ -174,8 +174,8 @@ export default function BlogPage() {
                 }}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeCategory === idx
-                    ? "bg-[#c8567e] text-white shadow-md"
-                    : "bg-white text-[#8c7284] border border-gray-200 hover:border-[#c8567e] hover:text-[#c8567e]"
+                    ? "bg-primary text-white shadow-md"
+                    : "bg-white text-[#8c7284] border border-gray-200 hover:border-primary hover:text-primary"
                 }`}
               >
                 {t(cat)}
@@ -199,7 +199,7 @@ export default function BlogPage() {
                 setSearchTerm(e.target.value);
                 setVisibleCount(4);
               }}
-              className="w-full pl-10 rtl:pl-4 rtl:pr-10 pr-4 py-2.5 rounded-full border border-gray-200 bg-white text-sm text-[#333333] placeholder:text-[#8c7284] focus:outline-none focus:ring-2 focus:ring-[#c8567e]/30 focus:border-[#c8567e] transition"
+              className="w-full pl-10 rtl:pl-4 rtl:pr-10 pr-4 py-2.5 rounded-full border border-gray-200 bg-white text-sm text-[#333333] placeholder:text-[#8c7284] focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
             />
           </div>
         </div>
@@ -235,7 +235,7 @@ export default function BlogPage() {
                           alt={t(post.title)}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
-                        <span className="absolute top-3 ltr:left-3 rtl:right-3 bg-white/90 backdrop-blur-sm text-[#c8567e] text-xs font-semibold px-3 py-1 rounded-full">
+                        <span className="absolute top-3 ltr:left-3 rtl:right-3 bg-white/90 backdrop-blur-sm text-primary text-xs font-semibold px-3 py-1 rounded-full">
                           {lang === "ar"
                             ? blogCategories.find((c: any) => c.en === post.category)?.ar || post.category
                             : post.category}
@@ -244,7 +244,7 @@ export default function BlogPage() {
 
                       {/* Content */}
                       <div className="p-5">
-                        <h3 className="font-semibold text-lg text-[#333333] mb-2 group-hover:text-[#c8567e] transition-colors line-clamp-2">
+                        <h3 className="font-semibold text-lg text-[#333333] mb-2 group-hover:text-primary transition-colors line-clamp-2">
                           {t(post.title)}
                         </h3>
                         <p className="text-[#8c7284] text-sm line-clamp-2 mb-4">
@@ -280,7 +280,7 @@ export default function BlogPage() {
               <div className="text-center mt-10">
                 <button
                   onClick={() => setVisibleCount((prev) => prev + 4)}
-                  className="inline-flex items-center gap-2 bg-white border border-[#c8567e] text-[#c8567e] px-8 py-3 rounded-full font-medium text-sm hover:bg-[#c8567e] hover:text-white transition-all duration-300"
+                  className="inline-flex items-center gap-2 bg-white border border-primary text-primary px-8 py-3 rounded-full font-medium text-sm hover:bg-primary hover:text-white transition-all duration-300"
                 >
                   <span className="material-symbols-outlined text-[18px]">expand_more</span>
                   {t({
@@ -297,7 +297,7 @@ export default function BlogPage() {
             {/* Search Insights */}
             <div className="bg-white rounded-2xl p-6 border border-gray-100">
               <h4 className="font-semibold text-[#333333] mb-4 flex items-center gap-2">
-                <span className="material-symbols-outlined text-[20px] text-[#c8567e]">search</span>
+                <span className="material-symbols-outlined text-[20px] text-primary">search</span>
                 {t({ en: "Search Insights", ar: "\u0628\u062d\u062b \u0641\u064a \u0627\u0644\u0645\u0642\u0627\u0644\u0627\u062a" })}
               </h4>
               <input
@@ -311,14 +311,14 @@ export default function BlogPage() {
                   setSearchTerm(e.target.value);
                   setVisibleCount(4);
                 }}
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-[#fbf9fa] text-sm text-[#333333] placeholder:text-[#8c7284] focus:outline-none focus:ring-2 focus:ring-[#c8567e]/30 focus:border-[#c8567e] transition"
+                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-[#fbf9fa] text-sm text-[#333333] placeholder:text-[#8c7284] focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
               />
             </div>
 
             {/* Trending Now */}
             <div className="bg-white rounded-2xl p-6 border border-gray-100">
               <h4 className="font-semibold text-[#333333] mb-5 flex items-center gap-2">
-                <span className="material-symbols-outlined text-[20px] text-[#c8567e]">trending_up</span>
+                <span className="material-symbols-outlined text-[20px] text-primary">trending_up</span>
                 {t({ en: "Trending Now", ar: "\u0627\u0644\u0623\u0643\u062b\u0631 \u0631\u0648\u0627\u062c\u0627\u064b" })}
               </h4>
               <div className="space-y-4">
@@ -334,7 +334,7 @@ export default function BlogPage() {
                       className="w-16 h-16 rounded-xl object-cover shrink-0"
                     />
                     <div className="flex-1 min-w-0">
-                      <h5 className="text-sm font-medium text-[#333333] line-clamp-2 group-hover:text-[#c8567e] transition-colors">
+                      <h5 className="text-sm font-medium text-[#333333] line-clamp-2 group-hover:text-primary transition-colors">
                         {t(post.title)}
                       </h5>
                       <span className="text-xs text-[#8c7284] mt-1 inline-block">
@@ -349,7 +349,7 @@ export default function BlogPage() {
             {/* Tags Cloud */}
             <div className="bg-white rounded-2xl p-6 border border-gray-100">
               <h4 className="font-semibold text-[#333333] mb-4 flex items-center gap-2">
-                <span className="material-symbols-outlined text-[20px] text-[#c8567e]">label</span>
+                <span className="material-symbols-outlined text-[20px] text-primary">label</span>
                 {t({ en: "Popular Tags", ar: "\u0627\u0644\u0648\u0633\u0648\u0645 \u0627\u0644\u0634\u0627\u0626\u0639\u0629" })}
               </h4>
               <div className="flex flex-wrap gap-2">
@@ -357,7 +357,7 @@ export default function BlogPage() {
                   (tag: string) => (
                     <span
                       key={tag}
-                      className="bg-[#fbf9fa] text-[#8c7284] text-xs px-3 py-1.5 rounded-full border border-gray-100 hover:border-[#c8567e] hover:text-[#c8567e] transition cursor-default"
+                      className="bg-[#fbf9fa] text-[#8c7284] text-xs px-3 py-1.5 rounded-full border border-gray-100 hover:border-primary hover:text-primary transition cursor-default"
                     >
                       {tag}
                     </span>

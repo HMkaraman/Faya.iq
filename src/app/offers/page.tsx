@@ -74,7 +74,7 @@ function CountdownTimer({ targetDate }: { targetDate: string }) {
   const days = Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
 
   return (
-    <div className="flex items-center gap-1 text-xs text-[#c8567e] font-semibold">
+    <div className="flex items-center gap-1 text-xs text-primary font-semibold">
       <span className="material-symbols-outlined text-sm">timer</span>
       <span>{days} days left</span>
     </div>
@@ -89,7 +89,7 @@ export default function OffersPage() {
       {/* Hero */}
       <section className="bg-gradient-to-b from-[#fff0f3] to-[#fbf9fa] py-16 md:py-24 px-6">
         <div className="max-w-7xl mx-auto text-center">
-          <span className="text-[#c8567e] font-bold text-sm tracking-widest uppercase mb-3 block">
+          <span className="text-primary font-bold text-sm tracking-widest uppercase mb-3 block">
             {t({ en: "Special Offers", ar: "عروض خاصة" })}
           </span>
           <h1 className="font-[Playfair_Display] text-4xl md:text-5xl font-bold text-[#333] mb-4">
@@ -118,7 +118,7 @@ export default function OffersPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                   {/* Discount Badge */}
-                  <div className="absolute top-4 left-4 bg-[#c8567e] text-white px-3 py-1.5 rounded-full text-sm font-bold shadow-lg">
+                  <div className="absolute top-4 left-4 bg-primary text-white px-3 py-1.5 rounded-full text-sm font-bold shadow-lg">
                     {offer.discount} {t({ en: "OFF", ar: "خصم" })}
                   </div>
                   {/* Tag */}
@@ -143,7 +143,7 @@ export default function OffersPage() {
                         {t(offer.originalPrice)}
                       </span>
                     )}
-                    <span className="text-[#c8567e] font-bold text-lg">
+                    <span className="text-primary font-bold text-lg">
                       {t(offer.salePrice)}
                     </span>
                   </div>
@@ -159,7 +159,7 @@ export default function OffersPage() {
                     </div>
                     <Link
                       href="/booking"
-                      className="bg-[#c8567e] hover:bg-[#a03d5e] text-white text-sm font-bold px-5 py-2 rounded-lg transition-colors"
+                      className="bg-primary hover:bg-primary-dark text-white text-sm font-bold px-5 py-2 rounded-lg transition-colors"
                     >
                       {t({ en: "Book Now", ar: "احجزي الآن" })}
                     </Link>
@@ -172,7 +172,7 @@ export default function OffersPage() {
 
         {/* Referral Program Banner */}
         <ScrollReveal>
-          <div className="mt-16 bg-gradient-to-r from-[#c8567e] to-[#a03d5e] rounded-2xl p-8 md:p-12 text-white text-center">
+          <div className="mt-16 bg-gradient-to-r from-primary to-primary-dark rounded-2xl p-8 md:p-12 text-white text-center">
             <span className="material-symbols-outlined text-5xl mb-4 block opacity-80">loyalty</span>
             <h2 className="font-[Playfair_Display] text-3xl font-bold mb-3">
               {t({ en: "Faya Loyalty Program", ar: "برنامج ولاء فايا" })}
@@ -185,7 +185,7 @@ export default function OffersPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-white text-[#c8567e] font-bold px-6 py-3 rounded-lg hover:bg-white/90 transition-colors"
+              className="inline-flex items-center gap-2 bg-white text-primary font-bold px-6 py-3 rounded-lg hover:bg-white/90 transition-colors"
             >
               {t({ en: "Learn More", ar: "اعرفي المزيد" })}
               <span className="material-symbols-outlined text-sm">arrow_forward</span>

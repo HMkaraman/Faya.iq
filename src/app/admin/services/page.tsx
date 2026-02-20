@@ -91,7 +91,7 @@ export default function ServicesPage() {
             ? item.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="inline-block px-2 py-0.5 text-xs rounded-full bg-[#c8567e]/10 text-[#c8567e] font-medium"
+                  className="inline-block px-2 py-0.5 text-xs rounded-full bg-primary/10 text-primary font-medium"
                 >
                   {tag}
                 </span>
@@ -108,7 +108,7 @@ export default function ServicesPage() {
         <TopBar title="Services" />
         <div className="p-6">
           <div className="flex items-center justify-center py-20">
-            <div className="w-8 h-8 border-2 border-[#c8567e] border-t-transparent rounded-full animate-spin" />
+            <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
           </div>
         </div>
       </>
@@ -120,7 +120,7 @@ export default function ServicesPage() {
       <TopBar title="Services">
         <Link
           href="/admin/services/new"
-          className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#c8567e] text-white text-sm font-medium rounded-lg hover:bg-[#b34469] transition-colors"
+          className="inline-flex items-center gap-1.5 px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary-dark transition-colors"
         >
           <span className="material-symbols-outlined text-[18px]">add</span>
           Add Service

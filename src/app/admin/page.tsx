@@ -64,7 +64,7 @@ export default function AdminDashboard() {
       <TopBar title="Dashboard">
         <Link
           href="/admin/services/new"
-          className="bg-[#c8567e] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#a03d5e] transition-colors"
+          className="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors"
         >
           + Add Service
         </Link>
@@ -85,10 +85,10 @@ export default function AdminDashboard() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <Link
             href="/admin/services/new"
-            className="bg-white rounded-xl p-4 border border-gray-200 hover:border-[#c8567e] hover:shadow-md transition-all flex items-center gap-3"
+            className="bg-white rounded-xl p-4 border border-gray-200 hover:border-primary hover:shadow-md transition-all flex items-center gap-3"
           >
-            <div className="w-10 h-10 rounded-lg bg-[#c8567e]/10 flex items-center justify-center">
-              <span className="material-symbols-outlined text-[#c8567e]">add</span>
+            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+              <span className="material-symbols-outlined text-primary">add</span>
             </div>
             <div>
               <p className="font-medium text-gray-900">Add Service</p>
@@ -97,7 +97,7 @@ export default function AdminDashboard() {
           </Link>
           <Link
             href="/admin/blog/new"
-            className="bg-white rounded-xl p-4 border border-gray-200 hover:border-[#c8567e] hover:shadow-md transition-all flex items-center gap-3"
+            className="bg-white rounded-xl p-4 border border-gray-200 hover:border-primary hover:shadow-md transition-all flex items-center gap-3"
           >
             <div className="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center">
               <span className="material-symbols-outlined text-green-600">edit_note</span>
@@ -109,7 +109,7 @@ export default function AdminDashboard() {
           </Link>
           <Link
             href="/admin/bookings"
-            className="bg-white rounded-xl p-4 border border-gray-200 hover:border-[#c8567e] hover:shadow-md transition-all flex items-center gap-3"
+            className="bg-white rounded-xl p-4 border border-gray-200 hover:border-primary hover:shadow-md transition-all flex items-center gap-3"
           >
             <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center">
               <span className="material-symbols-outlined text-blue-600">visibility</span>
@@ -125,7 +125,7 @@ export default function AdminDashboard() {
         <div className="bg-white rounded-xl border border-gray-200">
           <div className="p-4 border-b border-gray-200 flex items-center justify-between">
             <h2 className="font-semibold text-gray-900">Recent Bookings</h2>
-            <Link href="/admin/bookings" className="text-sm text-[#c8567e] hover:underline">
+            <Link href="/admin/bookings" className="text-sm text-primary hover:underline">
               View All
             </Link>
           </div>

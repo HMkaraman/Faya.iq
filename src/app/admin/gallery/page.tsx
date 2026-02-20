@@ -55,7 +55,7 @@ export default function GalleryPage() {
         <TopBar title="Gallery" />
         <div className="p-6">
           <div className="flex items-center justify-center py-20">
-            <div className="w-8 h-8 border-2 border-[#c8567e] border-t-transparent rounded-full animate-spin" />
+            <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
           </div>
         </div>
       </>
@@ -67,7 +67,7 @@ export default function GalleryPage() {
       <TopBar title="Gallery">
         <Link
           href="/admin/gallery/new"
-          className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#c8567e] text-white text-sm font-medium rounded-lg hover:bg-[#b34469] transition-colors"
+          className="inline-flex items-center gap-1.5 px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary-dark transition-colors"
         >
           <span className="material-symbols-outlined text-[18px]">add</span>
           Add Item
@@ -83,7 +83,7 @@ export default function GalleryPage() {
             <p className="mt-3 text-gray-500">No gallery items found.</p>
             <Link
               href="/admin/gallery/new"
-              className="inline-flex items-center gap-1.5 mt-4 px-4 py-2 bg-[#c8567e] text-white text-sm font-medium rounded-lg hover:bg-[#b34469] transition-colors"
+              className="inline-flex items-center gap-1.5 mt-4 px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary-dark transition-colors"
             >
               <span className="material-symbols-outlined text-[18px]">add</span>
               Add First Item
@@ -143,7 +143,7 @@ export default function GalleryPage() {
                   <div className="flex items-center justify-end gap-1 pt-2 border-t border-gray-100">
                     <button
                       onClick={() => router.push(`/admin/gallery/${item.id}/edit`)}
-                      className="p-1.5 rounded-lg text-gray-400 hover:text-[#c8567e] hover:bg-[#c8567e]/10 transition-colors"
+                      className="p-1.5 rounded-lg text-gray-400 hover:text-primary hover:bg-primary/10 transition-colors"
                       title="Edit"
                     >
                       <span className="material-symbols-outlined text-[18px]">edit</span>

@@ -41,7 +41,7 @@ export default function BilingualInput({
             value={valueEn}
             onChange={(e) => onChangeEn(e.target.value)}
             placeholder="English..."
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#c8567e]/30 focus:border-[#c8567e] transition-colors"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
           />
         </div>
         {/* Arabic */}
@@ -54,7 +54,7 @@ export default function BilingualInput({
             onChange={(e) => onChangeAr(e.target.value)}
             placeholder="...عربي"
             dir="rtl"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#c8567e]/30 focus:border-[#c8567e] transition-colors font-arabic"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors font-arabic"
             style={{ fontFamily: "var(--font-arabic)" }}
           />
         </div>

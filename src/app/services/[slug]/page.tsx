@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import ScrollReveal from "@/components/ScrollReveal";
+import BeforeAfterCarousel from "@/components/BeforeAfterCarousel";
 
 export default function ServiceDetailPage() {
   const { lang, dir, t } = useLanguage();
@@ -51,7 +52,7 @@ export default function ServiceDetailPage() {
     return (
       <main dir={dir} className="flex min-h-screen items-center justify-center bg-[#fbf9fa]">
         <div className="text-center">
-          <div className="mx-auto mb-4 h-12 w-12 animate-spin rounded-full border-4 border-[#c8567e]/20 border-t-[#c8567e]" />
+          <div className="mx-auto mb-4 h-12 w-12 animate-spin rounded-full border-4 border-primary/20 border-t-primary" />
           <p className="text-sm text-[#8c7284]">{t({ en: "Loading...", ar: "جارٍ التحميل..." })}</p>
         </div>
       </main>
@@ -64,8 +65,8 @@ export default function ServiceDetailPage() {
     return (
       <main dir={dir} className="flex min-h-screen items-center justify-center bg-[#fbf9fa]">
         <div className="text-center">
-          <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-[#c8567e]/10">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-[#c8567e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-primary/10">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
@@ -80,7 +81,7 @@ export default function ServiceDetailPage() {
           </p>
           <Link
             href="/services"
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#c8567e] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#a03d5e]"
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-dark"
           >
             {t({ en: "Back to Services", ar: "العودة إلى الخدمات" })}
           </Link>
@@ -105,11 +106,11 @@ export default function ServiceDetailPage() {
   return (
     <main dir={dir} className="min-h-screen bg-[#fbf9fa]">
       {/* ───────────── BREADCRUMB ───────────── */}
-      <nav className="border-b border-[#c8567e]/10 bg-white">
+      <nav className="border-b border-primary/10 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
           <ol className="flex flex-wrap items-center gap-2 text-sm text-[#8c7284]">
             <li>
-              <Link href="/" className="transition-colors hover:text-[#c8567e]">
+              <Link href="/" className="transition-colors hover:text-primary">
                 {t({ en: "Home", ar: "الرئيسية" })}
               </Link>
             </li>
@@ -119,7 +120,7 @@ export default function ServiceDetailPage() {
               </svg>
             </li>
             <li>
-              <Link href="/services" className="transition-colors hover:text-[#c8567e]">
+              <Link href="/services" className="transition-colors hover:text-primary">
                 {t({ en: "Services", ar: "الخدمات" })}
               </Link>
             </li>
@@ -129,7 +130,7 @@ export default function ServiceDetailPage() {
               </svg>
             </li>
             <li>
-              <Link href={`/services?category=${service.categorySlug}`} className="transition-colors hover:text-[#c8567e]">
+              <Link href={`/services?category=${service.categorySlug}`} className="transition-colors hover:text-primary">
                 {categoryName}
               </Link>
             </li>
@@ -145,8 +146,8 @@ export default function ServiceDetailPage() {
 
       {/* ───────────── HERO SECTION ───────────── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#fff0f3] via-white to-[#fdf2f8]">
-        <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[#c8567e]/10 blur-3xl" />
-        <div className="absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-[#c8567e]/5 blur-2xl" />
+        <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-primary/5 blur-2xl" />
 
         <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-20">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
@@ -154,7 +155,7 @@ export default function ServiceDetailPage() {
             <ScrollReveal>
               <div>
                 {/* Category Badge */}
-                <span className="mb-4 inline-block rounded-full bg-[#c8567e]/10 px-4 py-1.5 text-sm font-medium text-[#c8567e]">
+                <span className="mb-4 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
                   {categoryName}
                 </span>
 
@@ -173,7 +174,7 @@ export default function ServiceDetailPage() {
                   {service.tags.map((tag: string) => (
                     <span
                       key={tag}
-                      className="rounded-full border border-[#c8567e]/20 bg-white px-3 py-1 text-xs font-medium text-[#c8567e]"
+                      className="rounded-full border border-primary/20 bg-white px-3 py-1 text-xs font-medium text-primary"
                     >
                       {tag}
                     </span>
@@ -184,8 +185,8 @@ export default function ServiceDetailPage() {
                 <div className="mt-6 flex flex-wrap items-center gap-6 text-sm">
                   {service.duration && (
                     <div className="flex items-center gap-2">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#c8567e]/10">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#c8567e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2m6-2a10 10 0 11-20 0 10 10 0 0120 0z" />
                         </svg>
                       </div>
@@ -197,14 +198,14 @@ export default function ServiceDetailPage() {
                   )}
                   {service.priceRange && (
                     <div className="flex items-center gap-2">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#c8567e]/10">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#c8567e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V6m0 8v2m0-8c1.11 0 2.08.402 2.599 1M12 8c-1.11 0-2.08.402-2.599 1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                       </div>
                       <div>
                         <p className="text-xs text-[#8c7284]">{t({ en: "Price Range", ar: "نطاق السعر" })}</p>
-                        <p className="font-semibold text-[#a03d5e]">{t(service.priceRange)}</p>
+                        <p className="font-semibold text-primary-dark">{t(service.priceRange)}</p>
                       </div>
                     </div>
                   )}
@@ -214,7 +215,7 @@ export default function ServiceDetailPage() {
                 <div className="mt-8 flex flex-wrap gap-4">
                   <Link
                     href="/booking"
-                    className="inline-flex items-center gap-2 rounded-full bg-[#c8567e] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#c8567e]/25 transition-all hover:bg-[#a03d5e] hover:shadow-xl hover:shadow-[#c8567e]/30"
+                    className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/30"
                   >
                     {t({ en: "Book Your Treatment", ar: "احجز علاجك" })}
                     <svg xmlns="http://www.w3.org/2000/svg" className={`h-4 w-4 ${lang === "ar" ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -223,7 +224,7 @@ export default function ServiceDetailPage() {
                   </Link>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 rounded-full border-2 border-[#c8567e] px-7 py-3.5 text-sm font-semibold text-[#c8567e] transition-all hover:bg-[#c8567e] hover:text-white"
+                    className="inline-flex items-center gap-2 rounded-full border-2 border-primary px-7 py-3.5 text-sm font-semibold text-primary transition-all hover:bg-primary hover:text-white"
                   >
                     {t({ en: "Free Consultation", ar: "استشارة مجانية" })}
                   </Link>
@@ -240,7 +241,7 @@ export default function ServiceDetailPage() {
                   className="w-full rounded-xl object-cover shadow-lg lg:h-[500px]"
                 />
                 {/* Decorative accent */}
-                <div className="absolute -bottom-4 -start-4 -z-10 h-full w-full rounded-xl bg-[#c8567e]/10" />
+                <div className="absolute -bottom-4 -start-4 -z-10 h-full w-full rounded-xl bg-primary/10" />
               </div>
             </ScrollReveal>
           </div>
@@ -253,7 +254,7 @@ export default function ServiceDetailPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <ScrollReveal>
               <div className="text-center">
-                <span className="mb-3 inline-block rounded-full bg-[#c8567e]/10 px-4 py-1.5 text-sm font-medium text-[#c8567e]">
+                <span className="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
                   {t({ en: "Step by Step", ar: "خطوة بخطوة" })}
                 </span>
                 <h2 className="font-[Playfair_Display] text-3xl font-bold text-[#333333] sm:text-4xl">
@@ -268,16 +269,16 @@ export default function ServiceDetailPage() {
                   <div className="relative flex gap-4 pb-8">
                     {/* Vertical Line */}
                     {index < service.steps[lang].length - 1 && (
-                      <div className="absolute start-4 top-10 h-[calc(100%-2rem)] w-0.5 -translate-x-1/2 bg-[#c8567e]/20 rtl:translate-x-1/2" />
+                      <div className="absolute start-4 top-10 h-[calc(100%-2rem)] w-0.5 -translate-x-1/2 bg-primary/20 rtl:translate-x-1/2" />
                     )}
 
                     {/* Number Circle */}
-                    <div className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#c8567e] text-sm font-bold text-white">
+                    <div className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">
                       {index + 1}
                     </div>
 
                     {/* Step Text */}
-                    <div className="flex-1 rounded-lg border border-[#c8567e]/10 bg-[#fbf9fa] px-5 py-4">
+                    <div className="flex-1 rounded-lg border border-primary/10 bg-[#fbf9fa] px-5 py-4">
                       <p className="text-[#333333]">{step}</p>
                     </div>
                   </div>
@@ -294,7 +295,7 @@ export default function ServiceDetailPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <ScrollReveal>
               <div className="text-center">
-                <span className="mb-3 inline-block rounded-full bg-[#c8567e]/10 px-4 py-1.5 text-sm font-medium text-[#c8567e]">
+                <span className="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
                   {t({ en: "Why Choose This Treatment", ar: "لماذا تختار هذا العلاج" })}
                 </span>
                 <h2 className="font-[Playfair_Display] text-3xl font-bold text-[#333333] sm:text-4xl">
@@ -308,8 +309,8 @@ export default function ServiceDetailPage() {
                 <ScrollReveal key={index} delay={index * 80}>
                   <div className="flex items-start gap-3 rounded-lg bg-white p-4 shadow-sm transition-shadow hover:shadow-md">
                     {/* Checkmark Icon */}
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#c8567e]/10">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#c8567e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
@@ -327,7 +328,7 @@ export default function ServiceDetailPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center">
-              <span className="mb-3 inline-block rounded-full bg-[#c8567e]/10 px-4 py-1.5 text-sm font-medium text-[#c8567e]">
+              <span className="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
                 {t({ en: "What to Expect", ar: "ماذا تتوقع" })}
               </span>
               <h2 className="font-[Playfair_Display] text-3xl font-bold text-[#333333] sm:text-4xl">
@@ -337,37 +338,43 @@ export default function ServiceDetailPage() {
           </ScrollReveal>
 
           <div className="mx-auto mt-10 max-w-4xl">
-            {/* Before / After Placeholders */}
-            <ScrollReveal>
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                <div className="flex aspect-[4/3] items-center justify-center rounded-xl border-2 border-dashed border-[#c8567e]/20 bg-[#fbf9fa]">
-                  <div className="text-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto h-12 w-12 text-[#c8567e]/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
-                    </svg>
-                    <p className="mt-3 text-sm font-semibold text-[#c8567e]/50">
-                      {t({ en: "Before", ar: "قبل" })}
-                    </p>
+            {/* Before / After Gallery */}
+            {service.beforeAfterPairs && service.beforeAfterPairs.length > 0 ? (
+              <ScrollReveal>
+                <BeforeAfterCarousel pairs={service.beforeAfterPairs} />
+              </ScrollReveal>
+            ) : (
+              <ScrollReveal>
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                  <div className="flex aspect-[4/3] items-center justify-center rounded-xl border-2 border-dashed border-primary/20 bg-[#fbf9fa]">
+                    <div className="text-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto h-12 w-12 text-primary/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
+                      </svg>
+                      <p className="mt-3 text-sm font-semibold text-primary/50">
+                        {t({ en: "Before", ar: "قبل" })}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex aspect-[4/3] items-center justify-center rounded-xl border-2 border-dashed border-primary/20 bg-[#fbf9fa]">
+                    <div className="text-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto h-12 w-12 text-primary/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
+                      </svg>
+                      <p className="mt-3 text-sm font-semibold text-primary/50">
+                        {t({ en: "After", ar: "بعد" })}
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <div className="flex aspect-[4/3] items-center justify-center rounded-xl border-2 border-dashed border-[#c8567e]/20 bg-[#fbf9fa]">
-                  <div className="text-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto h-12 w-12 text-[#c8567e]/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
-                    </svg>
-                    <p className="mt-3 text-sm font-semibold text-[#c8567e]/50">
-                      {t({ en: "After", ar: "بعد" })}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
+              </ScrollReveal>
+            )}
 
             {/* Downtime Info Card */}
             <ScrollReveal delay={150}>
-              <div className="mt-8 flex items-start gap-4 rounded-xl border border-[#c8567e]/10 bg-gradient-to-r from-[#c8567e]/5 to-transparent p-6">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#c8567e]/10">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#c8567e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <div className="mt-8 flex items-start gap-4 rounded-xl border border-primary/10 bg-gradient-to-r from-primary/5 to-transparent p-6">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2m6-2a10 10 0 11-20 0 10 10 0 0120 0z" />
                   </svg>
                 </div>
@@ -389,7 +396,7 @@ export default function ServiceDetailPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <ScrollReveal>
               <div className="text-center">
-                <span className="mb-3 inline-block rounded-full bg-[#c8567e]/10 px-4 py-1.5 text-sm font-medium text-[#c8567e]">
+                <span className="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
                   {t({ en: "Visit Us", ar: "زورنا" })}
                 </span>
                 <h2 className="font-[Playfair_Display] text-3xl font-bold text-[#333333] sm:text-4xl">
@@ -413,7 +420,7 @@ export default function ServiceDetailPage() {
                     </div>
                     <Link
                       href={`/booking?branch=${branch.slug}&service=${service.slug}`}
-                      className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#c8567e]/5 px-4 py-2.5 text-sm font-semibold text-[#c8567e] transition-all hover:bg-[#c8567e] hover:text-white"
+                      className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary/5 px-4 py-2.5 text-sm font-semibold text-primary transition-all hover:bg-primary hover:text-white"
                     >
                       {t({ en: "Book at This Branch", ar: "احجز في هذا الفرع" })}
                       <svg xmlns="http://www.w3.org/2000/svg" className={`h-4 w-4 ${lang === "ar" ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -434,7 +441,7 @@ export default function ServiceDetailPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <ScrollReveal>
               <div className="text-center">
-                <span className="mb-3 inline-block rounded-full bg-[#c8567e]/10 px-4 py-1.5 text-sm font-medium text-[#c8567e]">
+                <span className="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
                   {t({ en: "Got Questions?", ar: "لديك أسئلة؟" })}
                 </span>
                 <h2 className="font-[Playfair_Display] text-3xl font-bold text-[#333333] sm:text-4xl">
@@ -456,7 +463,7 @@ export default function ServiceDetailPage() {
                       </span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className={`h-5 w-5 shrink-0 text-[#c8567e] transition-transform duration-300 ${
+                        className={`h-5 w-5 shrink-0 text-primary transition-transform duration-300 ${
                           openFaqIndex === index ? "rotate-180" : ""
                         }`}
                         fill="none"
@@ -490,7 +497,7 @@ export default function ServiceDetailPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <ScrollReveal>
               <div className="text-center">
-                <span className="mb-3 inline-block rounded-full bg-[#c8567e]/10 px-4 py-1.5 text-sm font-medium text-[#c8567e]">
+                <span className="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
                   {t({ en: "Explore More", ar: "اكتشف المزيد" })}
                 </span>
                 <h2 className="font-[Playfair_Display] text-3xl font-bold text-[#333333] sm:text-4xl">
@@ -515,13 +522,13 @@ export default function ServiceDetailPage() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                     </div>
                     <div className="p-4">
-                      <h3 className="font-semibold text-[#333333] transition-colors group-hover:text-[#c8567e]">
+                      <h3 className="font-semibold text-[#333333] transition-colors group-hover:text-primary">
                         {t(related.name)}
                       </h3>
                       <p className="mt-1.5 line-clamp-2 text-sm text-[#8c7284]">
                         {t(related.shortDescription)}
                       </p>
-                      <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-[#c8567e]">
+                      <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary">
                         {t({ en: "Learn More", ar: "اعرف المزيد" })}
                         <svg xmlns="http://www.w3.org/2000/svg" className={`h-4 w-4 transition-transform group-hover:translate-x-1 ${lang === "ar" ? "rotate-180 group-hover:-translate-x-1" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -537,7 +544,7 @@ export default function ServiceDetailPage() {
       )}
 
       {/* ───────────── MEDICAL DISCLAIMER ───────────── */}
-      <section className="border-t border-[#c8567e]/10 bg-white py-8">
+      <section className="border-t border-primary/10 bg-white py-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-center text-xs leading-relaxed text-[#8c7284]">
             {t({
@@ -549,11 +556,11 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* ───────────── STICKY BOTTOM BAR (MOBILE) ───────────── */}
-      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-[#c8567e]/10 bg-white/95 px-4 py-3 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] backdrop-blur-lg lg:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-primary/10 bg-white/95 px-4 py-3 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] backdrop-blur-lg lg:hidden">
         <div className="flex items-center justify-between gap-4">
           <div>
             {service.priceRange && (
-              <p className="text-sm font-bold text-[#a03d5e]">{t(service.priceRange)}</p>
+              <p className="text-sm font-bold text-primary-dark">{t(service.priceRange)}</p>
             )}
             {service.duration && (
               <p className="text-xs text-[#8c7284]">{service.duration}</p>
@@ -561,7 +568,7 @@ export default function ServiceDetailPage() {
           </div>
           <Link
             href="/booking"
-            className="rounded-full bg-[#c8567e] px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-[#c8567e]/25 transition-colors hover:bg-[#a03d5e]"
+            className="rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-colors hover:bg-primary-dark"
           >
             {t({ en: "Book Now", ar: "احجز الآن" })}
           </Link>

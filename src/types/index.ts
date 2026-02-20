@@ -4,6 +4,26 @@ export interface Bilingual {
   ar: string;
 }
 
+// Before/After Pair
+export interface BeforeAfterPair {
+  id: string;
+  beforeImage: string;
+  afterImage: string;
+  caption?: Bilingual;
+}
+
+// Hero Slide
+export interface HeroSlide {
+  id: string;
+  backgroundImage: string;
+  title: Bilingual;
+  subtitle: Bilingual;
+  ctaText?: Bilingual;
+  ctaHref?: string;
+  order: number;
+  active: boolean;
+}
+
 // Service
 export interface Service {
   id: string;
@@ -23,6 +43,7 @@ export interface Service {
   steps: { en: string[]; ar: string[] };
   downtime: Bilingual;
   faq: { question: Bilingual; answer: Bilingual }[];
+  beforeAfterPairs?: BeforeAfterPair[];
 }
 
 // Service Category
@@ -120,6 +141,7 @@ export interface GalleryItem {
   type: "before-after" | "showcase";
   beforeImage: string;
   afterImage: string;
+  images?: string[];
   doctor: Bilingual;
   sessions: number;
   tags: Bilingual[];
@@ -176,6 +198,7 @@ export interface SiteSettings {
     description: Bilingual;
     copyrightYear: number;
   };
+  heroSlides?: HeroSlide[];
 }
 
 // Admin User

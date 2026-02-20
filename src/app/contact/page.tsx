@@ -121,7 +121,7 @@ export default function ContactPage() {
   };
 
   const inputClasses =
-    "w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm text-[#333333] placeholder:text-[#8c7284]/60 focus:outline-none focus:ring-2 focus:ring-[#c8567e]/30 focus:border-[#c8567e] transition";
+    "w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm text-[#333333] placeholder:text-[#8c7284]/60 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition";
 
   return (
     <div dir={dir} className="bg-[#fbf9fa] min-h-screen">
@@ -293,7 +293,7 @@ export default function ContactPage() {
                   {/* Submit */}
                   <button
                     type="submit"
-                    className="w-full sm:w-auto bg-[#c8567e] hover:bg-[#a03d5e] text-white font-semibold px-10 py-3.5 rounded-full transition-all duration-300 shadow-soft hover:shadow-glow flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white font-semibold px-10 py-3.5 rounded-full transition-all duration-300 shadow-soft hover:shadow-glow flex items-center justify-center gap-2"
                   >
                     <span className="material-symbols-outlined text-[20px]">send</span>
                     {t({ en: "Send Message", ar: "\u0625\u0631\u0633\u0627\u0644 \u0627\u0644\u0631\u0633\u0627\u0644\u0629" })}
@@ -309,7 +309,7 @@ export default function ContactPage() {
               <ScrollReveal key={branch.id} delay={idx * 100}>
                 <div className="bg-white rounded-2xl border border-gray-100 p-6">
                   <h3 className="font-semibold text-[#333333] text-lg mb-3 flex items-center gap-2">
-                    <span className="material-symbols-outlined text-[20px] text-[#c8567e]">location_on</span>
+                    <span className="material-symbols-outlined text-[20px] text-primary">location_on</span>
                     {t(branch.name)}
                   </h3>
 
@@ -325,7 +325,7 @@ export default function ContactPage() {
                       <span className="material-symbols-outlined text-[18px] text-[#8c7284] shrink-0">call</span>
                       <a
                         href={`tel:${branch.phone.replace(/\s/g, "")}`}
-                        className="text-[#333333] font-medium hover:text-[#c8567e] transition"
+                        className="text-[#333333] font-medium hover:text-primary transition"
                         dir="ltr"
                       >
                         {branch.phone}
@@ -337,7 +337,7 @@ export default function ContactPage() {
                       <span className="material-symbols-outlined text-[18px] text-[#8c7284] shrink-0">mail</span>
                       <a
                         href={`mailto:${branch.email}`}
-                        className="text-[#333333] hover:text-[#c8567e] transition"
+                        className="text-[#333333] hover:text-primary transition"
                       >
                         {branch.email}
                       </a>
@@ -370,7 +370,7 @@ export default function ContactPage() {
             <ScrollReveal delay={300}>
               <div className="bg-white rounded-2xl border border-gray-100 p-6">
                 <h3 className="font-semibold text-[#333333] text-lg mb-4 flex items-center gap-2">
-                  <span className="material-symbols-outlined text-[20px] text-[#c8567e]">share</span>
+                  <span className="material-symbols-outlined text-[20px] text-primary">share</span>
                   {t({ en: "Follow Us", ar: "\u062a\u0627\u0628\u0639\u0646\u0627" })}
                 </h3>
                 <div className="flex gap-3">
@@ -381,7 +381,7 @@ export default function ContactPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={social.label}
-                      className="w-11 h-11 rounded-full bg-[#fbf9fa] border border-gray-100 flex items-center justify-center text-[#8c7284] hover:bg-[#c8567e] hover:text-white hover:border-[#c8567e] transition-all duration-300"
+                      className="w-11 h-11 rounded-full bg-[#fbf9fa] border border-gray-100 flex items-center justify-center text-[#8c7284] hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
                     >
                       <span className="text-sm font-semibold">
                         {social.label.charAt(0)}
@@ -423,7 +423,7 @@ export default function ContactPage() {
                     {t(faq.q)}
                   </span>
                   <span
-                    className={`material-symbols-outlined text-[20px] text-[#c8567e] transition-transform duration-300 shrink-0 ${
+                    className={`material-symbols-outlined text-[20px] text-primary transition-transform duration-300 shrink-0 ${
                       openIndex === idx ? "rotate-180" : ""
                     }`}
                   >
@@ -465,7 +465,7 @@ export default function ContactPage() {
             {branches.map((b: any, i: number) => (
               <div
                 key={b.id}
-                className="absolute w-4 h-4 bg-[#c8567e] rounded-full border-2 border-white shadow-md animate-pulse-soft"
+                className="absolute w-4 h-4 bg-primary rounded-full border-2 border-white shadow-md animate-pulse-soft"
                 style={{
                   top: `${30 + i * 20}%`,
                   left: `${25 + i * 22}%`,

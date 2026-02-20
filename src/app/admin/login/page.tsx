@@ -43,7 +43,7 @@ export default function AdminLoginPage() {
         {/* Logo */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-white">
-            Faya<span className="text-[#c8567e]">.iq</span>
+            Faya<span className="text-primary">.iq</span>
           </h1>
           <p className="text-gray-400 mt-2">Admin Dashboard</p>
         </div>
@@ -67,7 +67,7 @@ export default function AdminLoginPage() {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#c8567e] focus:ring-1 focus:ring-[#c8567e] transition-colors"
+                className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
                 placeholder="Enter username"
                 required
               />
@@ -81,7 +81,7 @@ export default function AdminLoginPage() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#c8567e] focus:ring-1 focus:ring-[#c8567e] transition-colors"
+                className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
                 placeholder="Enter password"
                 required
               />
@@ -90,16 +90,12 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 bg-[#c8567e] hover:bg-[#a03d5e] text-white font-semibold rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-3 bg-primary hover:bg-primary-dark text-white font-semibold rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? "Signing in..." : "Sign In"}
             </button>
           </form>
         </div>
-
-        <p className="text-center text-gray-500 text-xs mt-6">
-          Default: admin / admin123
-        </p>
       </div>
     </div>
   );

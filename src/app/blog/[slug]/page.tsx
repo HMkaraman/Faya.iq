@@ -56,7 +56,7 @@ export default function BlogArticlePage() {
           </p>
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 bg-[#c8567e] text-white px-6 py-3 rounded-full font-medium text-sm hover:bg-[#a03d5e] transition"
+            className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-medium text-sm hover:bg-primary-dark transition"
           >
             <span className="material-symbols-outlined text-[18px]">arrow_back</span>
             {t({ en: "Back to Blog", ar: "\u0627\u0644\u0639\u0648\u062f\u0629 \u0625\u0644\u0649 \u0627\u0644\u0645\u062f\u0648\u0651\u0646\u0629" })}
@@ -77,7 +77,7 @@ export default function BlogArticlePage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         <Link
           href="/blog"
-          className="inline-flex items-center gap-1.5 text-[#8c7284] hover:text-[#c8567e] transition text-sm font-medium"
+          className="inline-flex items-center gap-1.5 text-[#8c7284] hover:text-primary transition text-sm font-medium"
         >
           <span className="material-symbols-outlined text-[18px]">
             {dir === "rtl" ? "arrow_forward" : "arrow_back"}
@@ -97,7 +97,7 @@ export default function BlogArticlePage() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
             <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10 lg:p-14">
-              <span className="inline-block w-fit bg-[#c8567e] text-white text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+              <span className="inline-block w-fit bg-primary text-white text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
                 {categoryLabel}
               </span>
               <h1 className="text-white font-[Playfair_Display] text-2xl sm:text-3xl lg:text-5xl font-bold mb-4 max-w-4xl leading-tight">
@@ -144,8 +144,8 @@ export default function BlogArticlePage() {
               [&_li]:text-[#333333] [&_li]:leading-relaxed
               [&_strong]:font-semibold [&_strong]:text-[#333333]
               [&_em]:italic [&_em]:text-[#8c7284]
-              [&_blockquote]:border-l-4 [&_blockquote]:rtl:border-l-0 [&_blockquote]:rtl:border-r-4 [&_blockquote]:border-[#c8567e] [&_blockquote]:bg-[#fbf9fa] [&_blockquote]:rounded-r-xl [&_blockquote]:rtl:rounded-r-none [&_blockquote]:rtl:rounded-l-xl [&_blockquote]:px-6 [&_blockquote]:py-4 [&_blockquote]:my-6 [&_blockquote]:text-[#8c7284] [&_blockquote]:italic
-              [&_a]:text-[#c8567e] [&_a]:underline [&_a]:hover:text-[#a03d5e]
+              [&_blockquote]:border-l-4 [&_blockquote]:rtl:border-l-0 [&_blockquote]:rtl:border-r-4 [&_blockquote]:border-primary [&_blockquote]:bg-[#fbf9fa] [&_blockquote]:rounded-r-xl [&_blockquote]:rtl:rounded-r-none [&_blockquote]:rtl:rounded-l-xl [&_blockquote]:px-6 [&_blockquote]:py-4 [&_blockquote]:my-6 [&_blockquote]:text-[#8c7284] [&_blockquote]:italic
+              [&_a]:text-primary [&_a]:underline [&_a]:hover:text-primary-dark
               [&_img]:rounded-xl [&_img]:my-6
             "
             dangerouslySetInnerHTML={{ __html: t(post.content) }}
@@ -175,7 +175,7 @@ export default function BlogArticlePage() {
               className="w-20 h-20 rounded-full object-cover border-4 border-[#fbf9fa] shrink-0"
             />
             <div className="text-center sm:text-start">
-              <p className="text-xs uppercase tracking-wider text-[#c8567e] font-semibold mb-1">
+              <p className="text-xs uppercase tracking-wider text-primary font-semibold mb-1">
                 {t({ en: "Written By", ar: "\u0628\u0642\u0644\u0645" })}
               </p>
               <h3 className="text-lg font-bold text-[#333333] mb-2">
@@ -189,7 +189,7 @@ export default function BlogArticlePage() {
               </p>
               <Link
                 href="/blog"
-                className="text-[#c8567e] text-sm font-medium hover:text-[#a03d5e] transition inline-flex items-center gap-1"
+                className="text-primary text-sm font-medium hover:text-primary-dark transition inline-flex items-center gap-1"
               >
                 {t({ en: "View all articles", ar: "\u0639\u0631\u0636 \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0642\u0627\u0644\u0627\u062a" })}
                 <span className="material-symbols-outlined text-[16px]">
@@ -222,14 +222,14 @@ export default function BlogArticlePage() {
                       alt={t(rp.title)}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <span className="absolute top-3 ltr:left-3 rtl:right-3 bg-white/90 backdrop-blur-sm text-[#c8567e] text-xs font-semibold px-3 py-1 rounded-full">
+                    <span className="absolute top-3 ltr:left-3 rtl:right-3 bg-white/90 backdrop-blur-sm text-primary text-xs font-semibold px-3 py-1 rounded-full">
                       {lang === "ar"
                         ? blogCategories.find((c: any) => c.en === rp.category)?.ar || rp.category
                         : rp.category}
                     </span>
                   </div>
                   <div className="p-5">
-                    <h3 className="font-semibold text-lg text-[#333333] mb-2 group-hover:text-[#c8567e] transition-colors line-clamp-2">
+                    <h3 className="font-semibold text-lg text-[#333333] mb-2 group-hover:text-primary transition-colors line-clamp-2">
                       {t(rp.title)}
                     </h3>
                     <p className="text-[#8c7284] text-sm line-clamp-2 mb-4">

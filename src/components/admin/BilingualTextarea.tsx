@@ -43,7 +43,7 @@ export default function BilingualTextarea({
             onChange={(e) => onChangeEn(e.target.value)}
             placeholder="English..."
             rows={rows}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm resize-y focus:outline-none focus:ring-2 focus:ring-[#c8567e]/30 focus:border-[#c8567e] transition-colors"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm resize-y focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
           />
         </div>
         {/* Arabic */}
@@ -56,7 +56,7 @@ export default function BilingualTextarea({
             placeholder="...عربي"
             dir="rtl"
             rows={rows}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm resize-y focus:outline-none focus:ring-2 focus:ring-[#c8567e]/30 focus:border-[#c8567e] transition-colors"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm resize-y focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
             style={{ fontFamily: "var(--font-arabic)" }}
           />
         </div>

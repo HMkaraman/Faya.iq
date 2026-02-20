@@ -121,7 +121,7 @@ export default function BookingDetailPage({ params }: { params: Promise<{ id: st
         <TopBar title="Booking Details" />
         <div className="p-6">
           <div className="flex items-center justify-center py-20">
-            <div className="w-8 h-8 border-2 border-[#c8567e] border-t-transparent rounded-full animate-spin" />
+            <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
           </div>
         </div>
       </>
@@ -163,7 +163,7 @@ export default function BookingDetailPage({ params }: { params: Promise<{ id: st
         {/* Customer Information */}
         <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-4 mb-6">
           <h2 className="text-base font-semibold text-gray-900 flex items-center gap-2">
-            <span className="material-symbols-outlined text-[20px] text-[#c8567e]">person</span>
+            <span className="material-symbols-outlined text-[20px] text-primary">person</span>
             Customer Information
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -185,7 +185,7 @@ export default function BookingDetailPage({ params }: { params: Promise<{ id: st
         {/* Booking Details */}
         <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-4 mb-6">
           <h2 className="text-base font-semibold text-gray-900 flex items-center gap-2">
-            <span className="material-symbols-outlined text-[20px] text-[#c8567e]">calendar_month</span>
+            <span className="material-symbols-outlined text-[20px] text-primary">calendar_month</span>
             Booking Details
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -226,7 +226,7 @@ export default function BookingDetailPage({ params }: { params: Promise<{ id: st
         {/* Update Status */}
         <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-4">
           <h2 className="text-base font-semibold text-gray-900 flex items-center gap-2">
-            <span className="material-symbols-outlined text-[20px] text-[#c8567e]">edit_note</span>
+            <span className="material-symbols-outlined text-[20px] text-primary">edit_note</span>
             Update Status
           </h2>
 
@@ -236,7 +236,7 @@ export default function BookingDetailPage({ params }: { params: Promise<{ id: st
               <select
                 value={newStatus}
                 onChange={(e) => setNewStatus(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#c8567e]/30 focus:border-[#c8567e] transition-colors bg-white"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors bg-white"
               >
                 <option value="pending">Pending</option>
                 <option value="confirmed">Confirmed</option>
@@ -248,7 +248,7 @@ export default function BookingDetailPage({ params }: { params: Promise<{ id: st
             <button
               onClick={handleUpdateStatus}
               disabled={updating || newStatus === booking.status}
-              className="px-6 py-2 text-sm font-medium text-white bg-[#c8567e] rounded-lg hover:bg-[#a03d5e] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+              className="px-6 py-2 text-sm font-medium text-white bg-primary rounded-lg hover:bg-primary-dark disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
             >
               {updating && (
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />

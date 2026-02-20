@@ -6,16 +6,46 @@ interface ImageUploadProps {
   value: string;
   onChange: (url: string) => void;
   label?: string;
+  maxSizeMB?: number;
+  acceptedTypes?: string[];
 }
 
-export default function ImageUpload({ value, onChange, label }: ImageUploadProps) {
+const DEFAULT_ACCEPTED = ["image/jpeg", "image/png", "image/webp"];
+
+export default function ImageUpload({
+  value,
+  onChange,
+  label,
+  maxSizeMB = 5,
+  acceptedTypes = DEFAULT_ACCEPTED,
+}: ImageUploadProps) {
   const [uploading, setUploading] = useState(false);
   const [dragActive, setDragActive] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const validateFile = useCallback(
+    (file: File): string | null => {
+      if (!acceptedTypes.includes(file.type)) {
+        const names = acceptedTypes.map((t) => t.split("/")[1].toUpperCase()).join(", ");
+        return `Invalid file type. Accepted: ${names}`;
+      }
+      if (file.size > maxSizeMB * 1024 * 1024) {
+        return `File too large. Maximum size: ${maxSizeMB}MB`;
+      }
+      return null;
+    },
+    [acceptedTypes, maxSizeMB]
+  );
+
   const uploadFile = useCallback(
     async (file: File) => {
+      const validationError = validateFile(file);
+      if (validationError) {
+        setError(validationError);
+        return;
+      }
+
       setError(null);
       setUploading(true);
       try {
@@ -39,7 +69,7 @@ export default function ImageUpload({ value, onChange, label }: ImageUploadProps
         setUploading(false);
       }
     },
-    [onChange]
+    [onChange, validateFile]
   );
 
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -68,6 +98,9 @@ export default function ImageUpload({ value, onChange, label }: ImageUploadProps
     onChange("");
     if (inputRef.current) inputRef.current.value = "";
   }
+
+  const acceptStr = acceptedTypes.join(",");
+  const typeNames = acceptedTypes.map((t) => t.split("/")[1].toUpperCase()).join(", ");
 
   return (
     <div className="space-y-1.5">
@@ -103,7 +136,7 @@ export default function ImageUpload({ value, onChange, label }: ImageUploadProps
           border-2 border-dashed rounded-lg p-6 text-center cursor-pointer
           transition-colors duration-150
           ${dragActive
-            ? "border-[#c8567e] bg-[#c8567e]/5"
+            ? "border-primary bg-primary/5"
             : "border-gray-300 hover:border-gray-400 bg-gray-50"
           }
           ${uploading ? "pointer-events-none opacity-60" : ""}
@@ -111,7 +144,7 @@ export default function ImageUpload({ value, onChange, label }: ImageUploadProps
       >
         {uploading ? (
           <div className="flex flex-col items-center gap-2">
-            <div className="w-8 h-8 border-2 border-[#c8567e] border-t-transparent rounded-full animate-spin" />
+            <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
             <p className="text-sm text-gray-500">Uploading...</p>
           </div>
         ) : (
@@ -121,9 +154,9 @@ export default function ImageUpload({ value, onChange, label }: ImageUploadProps
             </span>
             <p className="text-sm text-gray-500">
               Drag & drop an image here, or{" "}
-              <span className="text-[#c8567e] font-medium">click to browse</span>
+              <span className="text-primary font-medium">click to browse</span>
             </p>
-            <p className="text-xs text-gray-400">PNG, JPG, WebP up to 5MB</p>
+            <p className="text-xs text-gray-400">{typeNames} up to {maxSizeMB}MB</p>
           </div>
         )}
       </div>
@@ -131,7 +164,7 @@ export default function ImageUpload({ value, onChange, label }: ImageUploadProps
       <input
         ref={inputRef}
         type="file"
-        accept="image/*"
+        accept={acceptStr}
         onChange={handleFileChange}
         className="hidden"
       />

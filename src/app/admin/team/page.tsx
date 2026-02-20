@@ -121,7 +121,7 @@ export default function TeamPage() {
       <TopBar title="Team">
         <Link
           href="/admin/team/new"
-          className="bg-[#c8567e] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#a03d5e] transition-colors flex items-center gap-1.5"
+          className="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors flex items-center gap-1.5"
         >
           <span className="material-symbols-outlined text-[18px]">add</span>
           Add Member

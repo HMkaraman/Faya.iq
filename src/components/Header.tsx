@@ -63,9 +63,9 @@ export default function Header() {
         className={`
           fixed top-0 left-0 right-0 z-50 h-[72px]
           bg-white/80 backdrop-blur-md
-          border-b border-[#c8567e]/10
+          border-b border-primary/10
           transition-shadow duration-300
-          ${scrolled ? "shadow-lg shadow-[#c8567e]/5" : "shadow-none"}
+          ${scrolled ? "shadow-lg shadow-primary/5" : "shadow-none"}
         `}
       >
         <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -75,7 +75,7 @@ export default function Header() {
             className="group flex items-center gap-2 transition-opacity duration-200 hover:opacity-80"
           >
             <span
-              className="material-symbols-outlined text-[#c8567e] text-[28px] transition-transform duration-300 group-hover:rotate-12"
+              className="material-symbols-outlined text-primary text-[28px] transition-transform duration-300 group-hover:rotate-12"
               aria-hidden="true"
             >
               spa
@@ -85,7 +85,7 @@ export default function Header() {
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Faya
-              <span className="text-[#c8567e]">.iq</span>
+              <span className="text-primary">.iq</span>
             </span>
           </Link>
 
@@ -102,8 +102,8 @@ export default function Header() {
                   relative px-3 py-2 text-sm font-medium transition-colors duration-200
                   ${
                     isActive(item.href)
-                      ? "text-[#c8567e]"
-                      : "text-[#333333] hover:text-[#c8567e]"
+                      ? "text-primary"
+                      : "text-[#333333] hover:text-primary"
                   }
                 `}
               >
@@ -111,7 +111,7 @@ export default function Header() {
                 {/* Active indicator line */}
                 <span
                   className={`
-                    absolute bottom-0 left-1/2 h-[2px] -translate-x-1/2 rounded-full bg-[#c8567e]
+                    absolute bottom-0 left-1/2 h-[2px] -translate-x-1/2 rounded-full bg-primary
                     transition-all duration-300
                     ${isActive(item.href) ? "w-4/5" : "w-0"}
                   `}
@@ -127,10 +127,10 @@ export default function Header() {
               onClick={toggleLanguage}
               className="
                 flex h-9 w-9 items-center justify-center
-                rounded-full border border-[#c8567e]/20
+                rounded-full border border-primary/20
                 text-xs font-semibold text-[#8c7284]
                 transition-all duration-200
-                hover:border-[#c8567e]/40 hover:bg-[#fbf9fa] hover:text-[#c8567e]
+                hover:border-primary/40 hover:bg-[#fbf9fa] hover:text-primary
                 active:scale-95
               "
               aria-label={
@@ -147,10 +147,10 @@ export default function Header() {
               href="/contact"
               className="
                 hidden items-center gap-1.5 rounded-full
-                bg-[#c8567e] px-5 py-2 text-sm font-semibold text-white
-                shadow-md shadow-[#c8567e]/20
+                bg-primary px-5 py-2 text-sm font-semibold text-white
+                shadow-md shadow-primary/20
                 transition-all duration-200
-                hover:shadow-lg hover:shadow-[#c8567e]/30 hover:brightness-110
+                hover:shadow-lg hover:shadow-primary/30 hover:brightness-110
                 active:scale-[0.97]
                 sm:flex
               "
@@ -224,14 +224,14 @@ export default function Header() {
         aria-label={t({ en: "Mobile navigation", ar: "\u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u062A\u0646\u0642\u0644" })}
       >
         {/* Drawer Header */}
-        <div className="flex h-[72px] items-center justify-between border-b border-[#c8567e]/10 px-5">
+        <div className="flex h-[72px] items-center justify-between border-b border-primary/10 px-5">
           <Link
             href="/"
             className="flex items-center gap-2"
             onClick={() => setMobileMenuOpen(false)}
           >
             <span
-              className="material-symbols-outlined text-[#c8567e] text-[24px]"
+              className="material-symbols-outlined text-primary text-[24px]"
               aria-hidden="true"
             >
               spa
@@ -240,7 +240,7 @@ export default function Header() {
               className="text-[20px] font-bold text-[#333333]"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
-              Faya<span className="text-[#c8567e]">.iq</span>
+              Faya<span className="text-primary">.iq</span>
             </span>
           </Link>
           <button
@@ -269,8 +269,8 @@ export default function Header() {
                 text-[15px] font-medium transition-all duration-200
                 ${
                   isActive(item.href)
-                    ? "bg-[#fbf9fa] text-[#c8567e]"
-                    : "text-[#333333] hover:bg-[#fbf9fa] hover:text-[#c8567e]"
+                    ? "bg-[#fbf9fa] text-primary"
+                    : "text-[#333333] hover:bg-[#fbf9fa] hover:text-primary"
                 }
               `}
             >
@@ -279,7 +279,7 @@ export default function Header() {
                 <span
                   className={`
                     ${dir === "rtl" ? "mr-auto" : "ml-auto"}
-                    h-1.5 w-1.5 rounded-full bg-[#c8567e]
+                    h-1.5 w-1.5 rounded-full bg-primary
                   `}
                 />
               )}
@@ -288,15 +288,15 @@ export default function Header() {
         </nav>
 
         {/* Drawer Footer */}
-        <div className="absolute bottom-0 left-0 right-0 border-t border-[#c8567e]/10 p-5">
+        <div className="absolute bottom-0 left-0 right-0 border-t border-primary/10 p-5">
           {/* Mobile Book Now CTA */}
           <Link
             href="/contact"
             onClick={() => setMobileMenuOpen(false)}
             className="
               flex w-full items-center justify-center gap-2 rounded-full
-              bg-[#c8567e] px-5 py-3 text-sm font-semibold text-white
-              shadow-md shadow-[#c8567e]/20
+              bg-primary px-5 py-3 text-sm font-semibold text-white
+              shadow-md shadow-primary/20
               transition-all duration-200
               hover:shadow-lg hover:brightness-110
               active:scale-[0.97]
@@ -316,10 +316,10 @@ export default function Header() {
             onClick={toggleLanguage}
             className="
               mt-3 flex w-full items-center justify-center gap-2
-              rounded-full border border-[#c8567e]/20
+              rounded-full border border-primary/20
               px-5 py-2.5 text-sm font-medium text-[#8c7284]
               transition-all duration-200
-              hover:border-[#c8567e]/40 hover:text-[#c8567e]
+              hover:border-primary/40 hover:text-primary
               active:scale-[0.97]
             "
           >

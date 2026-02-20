@@ -26,7 +26,7 @@ export default function MobileBottomNav() {
               key={item.href}
               href={item.href}
               className={`flex flex-col items-center justify-center gap-0.5 min-w-[56px] py-1 transition-colors ${
-                isActive ? "text-[#c8567e]" : "text-[#8c7284]"
+                isActive ? "text-primary" : "text-[#8c7284]"
               }`}
             >
               <span

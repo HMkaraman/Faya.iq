@@ -6,7 +6,9 @@ import FormField from "@/components/admin/FormField";
 import BilingualInput from "@/components/admin/BilingualInput";
 import BilingualTextarea from "@/components/admin/BilingualTextarea";
 import TagInput from "@/components/admin/TagInput";
+import HeroSettings from "@/components/admin/settings/HeroSettings";
 import { useToast } from "@/components/admin/ToastProvider";
+import type { HeroSlide } from "@/types";
 
 interface NavItem {
   href: string;
@@ -47,10 +49,11 @@ interface SettingsData {
     description: { en: string; ar: string };
     copyrightYear: number;
   };
+  heroSlides: HeroSlide[];
 }
 
 const INPUT_CLASS =
-  "w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#c8567e]/30 focus:border-[#c8567e] transition-colors";
+  "w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors";
 
 const defaultSettings: SettingsData = {
   siteName: "",
@@ -61,6 +64,7 @@ const defaultSettings: SettingsData = {
   seo: { title: { en: "", ar: "" }, description: { en: "", ar: "" }, keywords: [] },
   header: { navItems: [], ctaText: { en: "", ar: "" }, ctaHref: "" },
   footer: { description: { en: "", ar: "" }, copyrightYear: new Date().getFullYear() },
+  heroSlides: [],
 };
 
 export default function SettingsPage() {
@@ -76,6 +80,7 @@ export default function SettingsPage() {
     seo: false,
     header: false,
     footer: false,
+    hero: false,
   });
 
   useEffect(() => {
@@ -133,6 +138,7 @@ export default function SettingsPage() {
             },
             copyrightYear: data.footer?.copyrightYear || new Date().getFullYear(),
           },
+          heroSlides: data.heroSlides || [],
         });
       } catch {
         toast("Failed to load settings", "error");
@@ -226,7 +232,7 @@ export default function SettingsPage() {
         className="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors rounded-t-xl"
       >
         <div className="flex items-center gap-2.5">
-          <span className="material-symbols-outlined text-[20px] text-[#c8567e]">{icon}</span>
+          <span className="material-symbols-outlined text-[20px] text-primary">{icon}</span>
           <h2 className="text-base font-semibold text-gray-900">{title}</h2>
         </div>
         <span
@@ -246,7 +252,7 @@ export default function SettingsPage() {
         <TopBar title="Site Settings" />
         <div className="p-6">
           <div className="flex items-center justify-center py-20">
-            <div className="w-8 h-8 border-2 border-[#c8567e] border-t-transparent rounded-full animate-spin" />
+            <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
           </div>
         </div>
       </>
@@ -509,7 +515,7 @@ export default function SettingsPage() {
                   <button
                     type="button"
                     onClick={addNavItem}
-                    className="text-sm text-[#c8567e] hover:text-[#a03d5e] font-medium flex items-center gap-1 transition-colors"
+                    className="text-sm text-primary hover:text-primary-dark font-medium flex items-center gap-1 transition-colors"
                   >
                     <span className="material-symbols-outlined text-[18px]">add</span>
                     Add Item
@@ -598,6 +604,19 @@ export default function SettingsPage() {
           )}
         </div>
 
+        {/* Hero Slides */}
+        <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+          <SectionHeader id="hero" title="Hero Slides" icon="slideshow" />
+          {openSections.hero && (
+            <div className="px-6 pb-6 border-t border-gray-100 pt-5">
+              <HeroSettings
+                slides={settings.heroSlides}
+                onChange={(slides) => updateSettings("heroSlides", slides)}
+              />
+            </div>
+          )}
+        </div>
+
         {/* Footer */}
         <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
           <SectionHeader id="footer" title="Footer" icon="bottom_app_bar" />
@@ -635,7 +654,7 @@ export default function SettingsPage() {
           <button
             onClick={handleSave}
             disabled={saving}
-            className="px-8 py-2.5 text-sm font-medium text-white bg-[#c8567e] rounded-lg hover:bg-[#a03d5e] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+            className="px-8 py-2.5 text-sm font-medium text-white bg-primary rounded-lg hover:bg-primary-dark disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
           >
             {saving && (
               <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />

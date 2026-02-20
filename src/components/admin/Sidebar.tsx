@@ -10,26 +10,27 @@ interface NavItem {
   href: string;
   icon: string;
   badge?: string;
+  roles?: string[];
 }
 
 const navItems: NavItem[] = [
   { label: "Dashboard", href: "/admin", icon: "dashboard" },
-  { label: "Services", href: "/admin/services", icon: "spa" },
-  { label: "Categories", href: "/admin/categories", icon: "category" },
-  { label: "Branches", href: "/admin/branches", icon: "location_on" },
-  { label: "Team", href: "/admin/team", icon: "group" },
-  { label: "Blog", href: "/admin/blog", icon: "article" },
-  { label: "Testimonials", href: "/admin/testimonials", icon: "format_quote" },
-  { label: "Offers", href: "/admin/offers", icon: "local_offer" },
-  { label: "Gallery", href: "/admin/gallery", icon: "photo_library" },
+  { label: "Services", href: "/admin/services", icon: "spa", roles: ["admin", "editor"] },
+  { label: "Categories", href: "/admin/categories", icon: "category", roles: ["admin", "editor"] },
+  { label: "Branches", href: "/admin/branches", icon: "location_on", roles: ["admin", "editor"] },
+  { label: "Team", href: "/admin/team", icon: "group", roles: ["admin", "editor"] },
+  { label: "Blog", href: "/admin/blog", icon: "article", roles: ["admin", "editor"] },
+  { label: "Testimonials", href: "/admin/testimonials", icon: "format_quote", roles: ["admin", "editor"] },
+  { label: "Offers", href: "/admin/offers", icon: "local_offer", roles: ["admin", "editor"] },
+  { label: "Gallery", href: "/admin/gallery", icon: "photo_library", roles: ["admin", "editor"] },
   { label: "Bookings", href: "/admin/bookings", icon: "calendar_month" },
-  { label: "Settings", href: "/admin/settings", icon: "settings" },
-  { label: "Users", href: "/admin/users", icon: "admin_panel_settings", badge: "Admin" },
+  { label: "Settings", href: "/admin/settings", icon: "settings", roles: ["admin"] },
+  { label: "Users", href: "/admin/users", icon: "admin_panel_settings", badge: "Admin", roles: ["admin"] },
 ];
 
 export default function Sidebar() {
   const pathname = usePathname();
-  const { sidebarOpen, setSidebarOpen } = useAdmin();
+  const { sidebarOpen, setSidebarOpen, user } = useAdmin();
 
   // Close sidebar on route change (mobile)
   useEffect(() => {
@@ -49,6 +50,11 @@ export default function Sidebar() {
     if (href === "/admin") return pathname === "/admin";
     return pathname.startsWith(href);
   }
+
+  const filteredItems = navItems.filter((item) => {
+    if (!item.roles) return true;
+    return user?.role ? item.roles.includes(user.role) : false;
+  });
 
   return (
     <>
@@ -72,7 +78,7 @@ export default function Sidebar() {
         {/* Logo */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-gray-800">
           <Link href="/admin" className="flex items-center gap-2">
-            <span className="text-xl font-bold text-[#c8567e]">Faya.iq</span>
+            <span className="text-xl font-bold text-primary">Faya.iq</span>
             <span className="text-sm text-gray-400 font-medium">Admin</span>
           </Link>
           {/* Mobile close button */}
@@ -87,7 +93,7 @@ export default function Sidebar() {
 
         {/* Navigation */}
         <nav className="flex-1 overflow-y-auto py-4 px-3 space-y-1">
-          {navItems.map((item) => {
+          {filteredItems.map((item) => {
             const active = isActive(item.href);
             return (
               <Link
@@ -98,7 +104,7 @@ export default function Sidebar() {
                   transition-colors duration-150
                   ${
                     active
-                      ? "bg-[#c8567e]/20 text-[#c8567e]"
+                      ? "bg-primary/20 text-primary"
                       : "text-gray-300 hover:bg-gray-800 hover:text-white"
                   }
                 `}
@@ -106,7 +112,7 @@ export default function Sidebar() {
                 <span className="material-symbols-outlined text-[20px]">{item.icon}</span>
                 <span className="flex-1">{item.label}</span>
                 {item.badge && (
-                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#c8567e]/30 text-[#c8567e] font-semibold uppercase">
+                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-primary/30 text-primary font-semibold uppercase">
                     {item.badge}
                   </span>
                 )}

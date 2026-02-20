@@ -142,7 +142,7 @@ export default function CategoriesPage() {
         <TopBar title="Service Categories" />
         <div className="p-6">
           <div className="flex items-center justify-center py-20">
-            <div className="w-8 h-8 border-2 border-[#c8567e] border-t-transparent rounded-full animate-spin" />
+            <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
           </div>
         </div>
       </>
@@ -154,7 +154,7 @@ export default function CategoriesPage() {
       <TopBar title="Service Categories">
         <button
           onClick={openAddModal}
-          className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#c8567e] text-white text-sm font-medium rounded-lg hover:bg-[#b34469] transition-colors"
+          className="inline-flex items-center gap-1.5 px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary-dark transition-colors"
         >
           <span className="material-symbols-outlined text-[18px]">add</span>
           Add Category
@@ -170,7 +170,7 @@ export default function CategoriesPage() {
             <p className="mt-2 text-gray-500">No categories yet.</p>
             <button
               onClick={openAddModal}
-              className="mt-4 inline-flex items-center gap-1.5 px-4 py-2 bg-[#c8567e] text-white text-sm font-medium rounded-lg hover:bg-[#b34469] transition-colors"
+              className="mt-4 inline-flex items-center gap-1.5 px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary-dark transition-colors"
             >
               <span className="material-symbols-outlined text-[18px]">add</span>
               Add your first category
@@ -199,7 +199,7 @@ export default function CategoriesPage() {
                   <div className="flex items-start justify-between gap-2">
                     <div className="flex items-center gap-2">
                       {cat.icon && (
-                        <span className="material-symbols-outlined text-[24px] text-[#c8567e]">
+                        <span className="material-symbols-outlined text-[24px] text-primary">
                           {cat.icon}
                         </span>
                       )}
@@ -277,7 +277,7 @@ export default function CategoriesPage() {
               onChange={(e) => setForm((prev) => ({ ...prev, slug: e.target.value }))}
               placeholder="e.g. skin-care"
               disabled={editingSlug !== null}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#c8567e]/30 focus:border-[#c8567e] disabled:bg-gray-50 disabled:text-gray-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary disabled:bg-gray-50 disabled:text-gray-500"
             />
             {editingSlug && (
               <p className="text-xs text-gray-400 mt-1">Slug cannot be changed after creation.</p>
@@ -291,10 +291,10 @@ export default function CategoriesPage() {
                 value={form.icon}
                 onChange={(e) => setForm((prev) => ({ ...prev, icon: e.target.value }))}
                 placeholder="e.g. face, spa, bolt"
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#c8567e]/30 focus:border-[#c8567e]"
+                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
               />
               {form.icon && (
-                <span className="material-symbols-outlined text-[24px] text-[#c8567e]">
+                <span className="material-symbols-outlined text-[24px] text-primary">
                   {form.icon}
                 </span>
               )}
@@ -329,7 +329,7 @@ export default function CategoriesPage() {
             <button
               type="submit"
               disabled={submitting}
-              className="inline-flex items-center gap-2 px-5 py-2 bg-[#c8567e] text-white text-sm font-medium rounded-lg hover:bg-[#b34469] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary-dark disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               {submitting && (
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />

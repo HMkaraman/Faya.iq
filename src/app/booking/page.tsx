@@ -221,13 +221,13 @@ export default function BookingPage() {
               ? `الخطوة ${currentStep} من ${TOTAL_STEPS}`
               : `Step ${currentStep} of ${TOTAL_STEPS}`}
           </p>
-          <p className="text-sm font-semibold text-[#c8567e]">
+          <p className="text-sm font-semibold text-primary">
             {stepLabels[currentStep - 1]}
           </p>
         </div>
         <div className="w-full h-2 rounded-full bg-slate-100 overflow-hidden">
           <div
-            className="h-full rounded-full bg-[#c8567e] transition-all duration-500 ease-out"
+            className="h-full rounded-full bg-primary transition-all duration-500 ease-out"
             style={{ width: `${pct}%` }}
           />
         </div>
@@ -238,7 +238,7 @@ export default function BookingPage() {
               <div
                 className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${
                   i + 1 <= currentStep
-                    ? "bg-[#c8567e] text-white"
+                    ? "bg-primary text-white"
                     : "bg-slate-200 text-[#8c7284]"
                 }`}
               >
@@ -248,7 +248,7 @@ export default function BookingPage() {
                   i + 1
                 )}
               </div>
-              <span className={`text-[10px] hidden sm:block ${i + 1 <= currentStep ? "text-[#c8567e] font-medium" : "text-[#8c7284]"}`}>
+              <span className={`text-[10px] hidden sm:block ${i + 1 <= currentStep ? "text-primary font-medium" : "text-[#8c7284]"}`}>
                 {label}
               </span>
             </div>
@@ -283,21 +283,21 @@ export default function BookingPage() {
                 onClick={() => setSelectedBranch(branch)}
                 className={`w-full text-start rounded-xl p-4 transition-all duration-200 ${
                   isSelected
-                    ? "border-2 border-[#c8567e] bg-[#c8567e]/5 shadow-sm"
-                    : "border border-slate-200 hover:border-[#c8567e]/50 hover:shadow-sm"
+                    ? "border-2 border-primary bg-primary/5 shadow-sm"
+                    : "border border-slate-200 hover:border-primary/50 hover:shadow-sm"
                 }`}
               >
                 <div className="flex items-start gap-3">
                   {/* Radio indicator */}
-                  <div className={`mt-0.5 w-5 h-5 rounded-full flex-shrink-0 border-2 flex items-center justify-center ${isSelected ? "border-[#c8567e]" : "border-slate-300"}`}>
-                    {isSelected && <div className="w-2.5 h-2.5 rounded-full bg-[#c8567e]" />}
+                  <div className={`mt-0.5 w-5 h-5 rounded-full flex-shrink-0 border-2 flex items-center justify-center ${isSelected ? "border-primary" : "border-slate-300"}`}>
+                    {isSelected && <div className="w-2.5 h-2.5 rounded-full bg-primary" />}
                   </div>
 
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
                       <h3 className="font-semibold text-[#333333]">{t(branch.name)}</h3>
                       {idx === 0 && (
-                        <span className="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#c8567e]/10 text-[#c8567e]">
+                        <span className="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-primary/10 text-primary">
                           <MIcon name="near_me" className="!text-xs" />
                           {lang === "ar" ? "الأقرب" : "Nearest"}
                         </span>
@@ -367,20 +367,20 @@ export default function BookingPage() {
                   onClick={() => setSelectedService(service)}
                   className={`text-start rounded-xl p-4 transition-all duration-200 relative ${
                     isSelected
-                      ? "border-2 border-[#c8567e] bg-[#c8567e]/5 shadow-sm"
-                      : "border border-slate-200 hover:border-[#c8567e]/50 hover:shadow-sm"
+                      ? "border-2 border-primary bg-primary/5 shadow-sm"
+                      : "border border-slate-200 hover:border-primary/50 hover:shadow-sm"
                   }`}
                 >
                   {/* Checkmark */}
                   {isSelected && (
-                    <div className="absolute top-3 end-3 w-5 h-5 rounded-full bg-[#c8567e] flex items-center justify-center">
+                    <div className="absolute top-3 end-3 w-5 h-5 rounded-full bg-primary flex items-center justify-center">
                       <MIcon name="check" className="!text-xs text-white" />
                     </div>
                   )}
 
                   <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-[#c8567e]/10 flex items-center justify-center flex-shrink-0">
-                      <MIcon name={service.icon} className="!text-xl text-[#c8567e]" />
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <MIcon name={service.icon} className="!text-xl text-primary" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="font-semibold text-[#333333] text-sm leading-tight">
@@ -479,13 +479,13 @@ export default function BookingPage() {
                     past
                       ? "text-slate-300 cursor-not-allowed"
                       : selected
-                      ? "bg-[#c8567e] text-white shadow-sm"
-                      : "text-[#333333] hover:bg-[#c8567e]/10"
+                      ? "bg-primary text-white shadow-sm"
+                      : "text-[#333333] hover:bg-primary/10"
                   }`}
                 >
                   {day}
                   {todayMark && !selected && (
-                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#c8567e]" />
+                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary" />
                   )}
                 </button>
               );
@@ -515,7 +515,7 @@ export default function BookingPage() {
                   onClick={() => setTimeFilter(period)}
                   className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                     active
-                      ? "bg-[#c8567e] text-white"
+                      ? "bg-primary text-white"
                       : "bg-slate-100 text-[#8c7284] hover:bg-slate-200"
                   }`}
                 >
@@ -541,8 +541,8 @@ export default function BookingPage() {
                     disabled
                       ? "text-slate-300 line-through cursor-not-allowed bg-slate-50"
                       : selected
-                      ? "bg-[#c8567e]/10 border-2 border-[#c8567e] text-[#c8567e]"
-                      : "border border-slate-200 text-[#333333] hover:border-[#c8567e]/50"
+                      ? "bg-primary/10 border-2 border-primary text-primary"
+                      : "border border-slate-200 text-[#333333] hover:border-primary/50"
                   }`}
                 >
                   {slot}
@@ -578,7 +578,7 @@ export default function BookingPage() {
           {/* Full Name */}
           <div>
             <label className="block text-sm font-medium text-[#333333] mb-1.5">
-              {lang === "ar" ? "الاسم الكامل" : "Full Name"} <span className="text-[#c8567e]">*</span>
+              {lang === "ar" ? "الاسم الكامل" : "Full Name"} <span className="text-primary">*</span>
             </label>
             <div className="relative">
               <MIcon name="person" className="absolute start-3 top-1/2 -translate-y-1/2 !text-lg text-[#8c7284]" />
@@ -587,7 +587,7 @@ export default function BookingPage() {
                 value={formData.fullName}
                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                 placeholder={lang === "ar" ? "أدخلي اسمك الكامل" : "Enter your full name"}
-                className="w-full ps-10 pe-4 py-2.5 rounded-lg border border-slate-200 text-sm text-[#333333] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#c8567e]/30 focus:border-[#c8567e] transition-all"
+                className="w-full ps-10 pe-4 py-2.5 rounded-lg border border-slate-200 text-sm text-[#333333] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
               />
             </div>
           </div>
@@ -595,7 +595,7 @@ export default function BookingPage() {
           {/* Phone */}
           <div>
             <label className="block text-sm font-medium text-[#333333] mb-1.5">
-              {lang === "ar" ? "رقم الهاتف" : "Phone Number"} <span className="text-[#c8567e]">*</span>
+              {lang === "ar" ? "رقم الهاتف" : "Phone Number"} <span className="text-primary">*</span>
             </label>
             <div className="relative">
               <MIcon name="phone" className="absolute start-3 top-1/2 -translate-y-1/2 !text-lg text-[#8c7284]" />
@@ -604,7 +604,7 @@ export default function BookingPage() {
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 placeholder={lang === "ar" ? "٠٧XX XXX XXXX" : "07XX XXX XXXX"}
-                className="w-full ps-10 pe-4 py-2.5 rounded-lg border border-slate-200 text-sm text-[#333333] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#c8567e]/30 focus:border-[#c8567e] transition-all"
+                className="w-full ps-10 pe-4 py-2.5 rounded-lg border border-slate-200 text-sm text-[#333333] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
               />
             </div>
           </div>
@@ -622,7 +622,7 @@ export default function BookingPage() {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 placeholder={lang === "ar" ? "example@email.com" : "example@email.com"}
-                className="w-full ps-10 pe-4 py-2.5 rounded-lg border border-slate-200 text-sm text-[#333333] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#c8567e]/30 focus:border-[#c8567e] transition-all"
+                className="w-full ps-10 pe-4 py-2.5 rounded-lg border border-slate-200 text-sm text-[#333333] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
               />
             </div>
           </div>
@@ -638,7 +638,7 @@ export default function BookingPage() {
               onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
               placeholder={lang === "ar" ? "أي ملاحظات أو طلبات خاصة..." : "Any special requests or notes..."}
               rows={3}
-              className="w-full px-4 py-2.5 rounded-lg border border-slate-200 text-sm text-[#333333] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#c8567e]/30 focus:border-[#c8567e] transition-all resize-none"
+              className="w-full px-4 py-2.5 rounded-lg border border-slate-200 text-sm text-[#333333] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all resize-none"
             />
           </div>
 
@@ -651,7 +651,7 @@ export default function BookingPage() {
                 onChange={(e) => setFormData({ ...formData, agreePolicy: e.target.checked })}
                 className="sr-only peer"
               />
-              <div className="w-5 h-5 rounded border-2 border-slate-300 peer-checked:border-[#c8567e] peer-checked:bg-[#c8567e] flex items-center justify-center transition-colors">
+              <div className="w-5 h-5 rounded border-2 border-slate-300 peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center transition-colors">
                 {formData.agreePolicy && (
                   <MIcon name="check" className="!text-xs text-white" />
                 )}
@@ -661,7 +661,7 @@ export default function BookingPage() {
               {lang === "ar"
                 ? "أوافق على سياسة الإلغاء وشروط الحجز"
                 : "I agree to the cancellation policy and booking terms"}{" "}
-              <span className="text-[#c8567e]">*</span>
+              <span className="text-primary">*</span>
             </span>
           </label>
         </div>
@@ -693,21 +693,21 @@ export default function BookingPage() {
         <div className="bg-[#fbf9fa] rounded-xl p-5 text-start max-w-sm mx-auto mb-6">
           <div className="space-y-3">
             <div className="flex items-center gap-3">
-              <MIcon name="person" className="!text-lg text-[#c8567e]" />
+              <MIcon name="person" className="!text-lg text-primary" />
               <span className="text-sm text-[#333333]">{formData.fullName}</span>
             </div>
             <div className="flex items-center gap-3">
-              <MIcon name="location_on" className="!text-lg text-[#c8567e]" />
+              <MIcon name="location_on" className="!text-lg text-primary" />
               <span className="text-sm text-[#333333]">{t(selectedBranch.name)}</span>
             </div>
             {selectedService && (
               <div className="flex items-center gap-3">
-                <MIcon name={selectedService.icon} className="!text-lg text-[#c8567e]" />
+                <MIcon name={selectedService.icon} className="!text-lg text-primary" />
                 <span className="text-sm text-[#333333]">{t(selectedService.name)}</span>
               </div>
             )}
             <div className="flex items-center gap-3">
-              <MIcon name="calendar_today" className="!text-lg text-[#c8567e]" />
+              <MIcon name="calendar_today" className="!text-lg text-primary" />
               <span className="text-sm text-[#333333]">
                 {formatDate(selectedDate)} - {selectedTime}
               </span>
@@ -718,14 +718,14 @@ export default function BookingPage() {
         {/* Add to calendar */}
         <button
           type="button"
-          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-[#c8567e] text-white font-medium text-sm hover:bg-[#a03d5e] transition-colors"
+          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-primary text-white font-medium text-sm hover:bg-primary-dark transition-colors"
         >
           <MIcon name="calendar_add_on" className="!text-lg" />
           {lang === "ar" ? "إضافة إلى التقويم" : "Add to Calendar"}
         </button>
 
         <div className="mt-4">
-          <Link href="/" className="text-sm text-[#c8567e] hover:underline">
+          <Link href="/" className="text-sm text-primary hover:underline">
             {lang === "ar" ? "العودة إلى الرئيسية" : "Back to Homepage"}
           </Link>
         </div>
@@ -759,8 +759,8 @@ export default function BookingPage() {
         <div className="p-5 space-y-4">
           {/* Branch */}
           <div className="flex items-start gap-3">
-            <div className="w-9 h-9 rounded-lg bg-[#c8567e]/10 flex items-center justify-center flex-shrink-0">
-              <MIcon name="location_on" className="!text-lg text-[#c8567e]" />
+            <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <MIcon name="location_on" className="!text-lg text-primary" />
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-xs text-[#8c7284]">{lang === "ar" ? "الفرع" : "Location"}</p>
@@ -777,7 +777,7 @@ export default function BookingPage() {
               <button
                 type="button"
                 onClick={() => setCurrentStep(1)}
-                className="text-xs text-[#c8567e] hover:underline flex-shrink-0"
+                className="text-xs text-primary hover:underline flex-shrink-0"
               >
                 {lang === "ar" ? "تعديل" : "Edit"}
               </button>
@@ -786,8 +786,8 @@ export default function BookingPage() {
 
           {/* Service */}
           <div className="flex items-start gap-3">
-            <div className="w-9 h-9 rounded-lg bg-[#c8567e]/10 flex items-center justify-center flex-shrink-0">
-              <MIcon name="spa" className="!text-lg text-[#c8567e]" />
+            <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <MIcon name="spa" className="!text-lg text-primary" />
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-xs text-[#8c7284]">{lang === "ar" ? "الخدمة" : "Service"}</p>
@@ -806,7 +806,7 @@ export default function BookingPage() {
               <button
                 type="button"
                 onClick={() => setCurrentStep(2)}
-                className="text-xs text-[#c8567e] hover:underline flex-shrink-0"
+                className="text-xs text-primary hover:underline flex-shrink-0"
               >
                 {lang === "ar" ? "تعديل" : "Edit"}
               </button>
@@ -815,8 +815,8 @@ export default function BookingPage() {
 
           {/* Date & Time */}
           <div className="flex items-start gap-3">
-            <div className="w-9 h-9 rounded-lg bg-[#c8567e]/10 flex items-center justify-center flex-shrink-0">
-              <MIcon name="calendar_today" className="!text-lg text-[#c8567e]" />
+            <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <MIcon name="calendar_today" className="!text-lg text-primary" />
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-xs text-[#8c7284]">{lang === "ar" ? "التاريخ والوقت" : "Date & Time"}</p>
@@ -833,7 +833,7 @@ export default function BookingPage() {
               <button
                 type="button"
                 onClick={() => setCurrentStep(3)}
-                className="text-xs text-[#c8567e] hover:underline flex-shrink-0"
+                className="text-xs text-primary hover:underline flex-shrink-0"
               >
                 {lang === "ar" ? "تعديل" : "Edit"}
               </button>
@@ -935,8 +935,8 @@ export default function BookingPage() {
                     disabled={!canContinue()}
                     className={`flex-1 flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                       canContinue()
-                        ? "bg-[#c8567e] text-white hover:bg-[#a03d5e] shadow-sm"
-                        : "bg-[#c8567e]/40 text-white/70 cursor-not-allowed"
+                        ? "bg-primary text-white hover:bg-primary-dark shadow-sm"
+                        : "bg-primary/40 text-white/70 cursor-not-allowed"
                     }`}
                   >
                     {currentStep === TOTAL_STEPS

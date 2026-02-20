@@ -20,11 +20,11 @@ function serviceName(slug: string): { en: string; ar: string } {
 /** Colour palette for service tags (cycles) */
 const tagColors = [
   "bg-primary/10 text-primary",
-  "bg-[#e8a0bf]/20 text-[#a03d5e]",
+  "bg-[#e8a0bf]/20 text-primary-dark",
   "bg-[#c9a96e]/15 text-[#8b6d30]",
   "bg-[#b76e79]/15 text-[#8e4752]",
   "bg-[#8c7284]/10 text-[#6b4f60]",
-  "bg-[#c8567e]/10 text-[#a03d5e]",
+  "bg-primary/10 text-primary-dark",
 ];
 
 /* ------------------------------------------------------------------ */

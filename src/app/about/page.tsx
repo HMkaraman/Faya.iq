@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import ScrollReveal from "@/components/ScrollReveal";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import PhotoCarousel from "@/components/PhotoCarousel";
 
 const milestones = [
   {
@@ -80,7 +81,7 @@ const values = [
   },
 ];
 
-const galleryImages = [
+const fallbackGalleryImages = [
   "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&q=80",
   "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80",
   "https://images.unsplash.com/photo-1540555700478-4be289fbec6e?w=600&q=80",
@@ -97,21 +98,35 @@ export default function AboutPage() {
   const [teamMembers, setTeamMembers] = useState<any[]>([]);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [branches, setBranches] = useState<any[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [galleryImages, setGalleryImages] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const [teamRes, branchRes] = await Promise.all([
+        const [teamRes, branchRes, galleryRes] = await Promise.all([
           fetch("/api/team"),
           fetch("/api/branches"),
+          fetch("/api/gallery"),
         ]);
-        const [teamData, branchData] = await Promise.all([
+        const [teamData, branchData, galleryData] = await Promise.all([
           teamRes.json(),
           branchRes.json(),
+          galleryRes.json(),
         ]);
         setTeamMembers(teamData);
         setBranches(branchData);
+        // Extract images from gallery items for the clinic gallery section
+        const images: string[] = [];
+        galleryData.forEach((item: any) => {
+          if (item.images?.length) {
+            images.push(...item.images.slice(0, 2));
+          } else if (item.afterImage) {
+            images.push(item.afterImage);
+          }
+        });
+        setGalleryImages(images.length > 0 ? images.slice(0, 6) : []);
       } catch (err) {
         console.error("Failed to fetch about page data:", err);
       } finally {
@@ -353,7 +368,7 @@ export default function AboutPage() {
           </ScrollReveal>
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {teamMembers.map((member: any, idx: number) => (
+            {teamMembers.slice(0, 6).map((member: any, idx: number) => (
               <ScrollReveal key={member.id} delay={idx * 120}>
                 <article className="group overflow-hidden rounded-2xl border border-primary/10 bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-elevated">
                   {/* Image */}
@@ -405,6 +420,29 @@ export default function AboutPage() {
               </ScrollReveal>
             ))}
           </div>
+
+          {/* View Full Team link */}
+          {teamMembers.length > 6 && (
+            <ScrollReveal delay={400}>
+              <div className="mt-10 text-center">
+                <Link
+                  href="/team"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
+                >
+                  {t({ en: "View Full Team", ar: "عرض الفريق الكامل" })}
+                  <svg
+                    className={`h-4 w-4 ${lang === "ar" ? "rotate-180" : ""}`}
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+            </ScrollReveal>
+          )}
         </div>
       </section>
 
@@ -428,22 +466,31 @@ export default function AboutPage() {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
-            {galleryImages.map((src: string, idx: number) => (
-              <ScrollReveal key={idx} delay={idx * 100}>
-                <div className="group overflow-hidden rounded-xl">
-                  <img
-                    src={src}
-                    alt={t({
-                      en: `Faya clinic gallery image ${idx + 1}`,
-                      ar: `صورة معرض عيادة فايا ${idx + 1}`,
-                    })}
-                    className="aspect-[4/3] h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
+          {(galleryImages.length > 0 ? galleryImages : fallbackGalleryImages).length > 3 ? (
+            <ScrollReveal>
+              <PhotoCarousel
+                images={galleryImages.length > 0 ? galleryImages : fallbackGalleryImages}
+                title={t({ en: "Our Facilities", ar: "مرافقنا" })}
+              />
+            </ScrollReveal>
+          ) : (
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
+              {(galleryImages.length > 0 ? galleryImages : fallbackGalleryImages).map((src: string, idx: number) => (
+                <ScrollReveal key={idx} delay={idx * 100}>
+                  <div className="group overflow-hidden rounded-xl">
+                    <img
+                      src={src}
+                      alt={t({
+                        en: `Faya clinic gallery image ${idx + 1}`,
+                        ar: `صورة معرض عيادة فايا ${idx + 1}`,
+                      })}
+                      className="aspect-[4/3] h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
