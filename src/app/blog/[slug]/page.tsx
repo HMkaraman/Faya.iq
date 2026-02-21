@@ -1,23 +1,67 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
-import { blogPosts, blogCategories } from "@/data/blog";
 import ScrollReveal from "@/components/ScrollReveal";
+
+interface BlogPost {
+  id: string;
+  slug: string;
+  title: { en: string; ar: string };
+  excerpt: { en: string; ar: string };
+  content: { en: string; ar: string };
+  category: string;
+  tags: string[];
+  author: string;
+  authorImage: string;
+  image: string;
+  publishedAt: string;
+  readTime: { en: string; ar: string };
+  featured: boolean;
+}
+
+const blogCategories = [
+  { en: "All Articles", ar: "\u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0642\u0627\u0644\u0627\u062a" },
+  { en: "Medical Insights", ar: "\u0631\u0624\u0649 \u0637\u0628\u064a\u0629" },
+  { en: "Skin Care Tips", ar: "\u0646\u0635\u0627\u0626\u062d \u0627\u0644\u0639\u0646\u0627\u064a\u0629 \u0628\u0627\u0644\u0628\u0634\u0631\u0629" },
+  { en: "Treatment Guides", ar: "\u0623\u062f\u0644\u0629 \u0627\u0644\u0639\u0644\u0627\u062c" },
+  { en: "Case Studies", ar: "\u062f\u0631\u0627\u0633\u0627\u062a \u062d\u0627\u0644\u0629" },
+  { en: "Beauty Tips", ar: "\u0646\u0635\u0627\u0626\u062d \u0627\u0644\u062c\u0645\u0627\u0644" },
+];
 
 export default function BlogArticlePage() {
   const { lang, dir, t } = useLanguage();
   const params = useParams();
   const slug = params.slug as string;
 
-  const post = blogPosts.find((p: any) => p.slug === slug);
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/blog")
+      .then((res) => res.json())
+      .then((data) => setBlogPosts(data))
+      .catch(() => setBlogPosts([]))
+      .finally(() => setLoading(false));
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#fbf9fa]">
+        <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  const post = blogPosts.find((p) => p.slug === slug);
 
   // Related posts: same category, or fallback to others (exclude current)
   const relatedPosts = post
     ? blogPosts
-        .filter((p: any) => p.id !== post.id)
-        .sort((a: any, b: any) => (a.category === post.category ? -1 : 1))
+        .filter((p) => p.id !== post.id)
+        .sort((a, b) => (a.category === post.category ? -1 : 1))
         .slice(0, 3)
     : [];
 
@@ -68,7 +112,7 @@ export default function BlogArticlePage() {
 
   const categoryLabel =
     lang === "ar"
-      ? blogCategories.find((c: any) => c.en === post.category)?.ar || post.category
+      ? blogCategories.find((c) => c.en === post.category)?.ar || post.category
       : post.category;
 
   return (
@@ -210,7 +254,7 @@ export default function BlogArticlePage() {
             </h2>
           </ScrollReveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {relatedPosts.map((rp: any, idx: number) => (
+            {relatedPosts.map((rp, idx) => (
               <ScrollReveal key={rp.id} delay={idx * 100}>
                 <Link
                   href={`/blog/${rp.slug}`}
@@ -224,7 +268,7 @@ export default function BlogArticlePage() {
                     />
                     <span className="absolute top-3 ltr:left-3 rtl:right-3 bg-white/90 backdrop-blur-sm text-primary text-xs font-semibold px-3 py-1 rounded-full">
                       {lang === "ar"
-                        ? blogCategories.find((c: any) => c.en === rp.category)?.ar || rp.category
+                        ? blogCategories.find((c) => c.en === rp.category)?.ar || rp.category
                         : rp.category}
                     </span>
                   </div>

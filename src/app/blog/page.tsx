@@ -46,14 +46,6 @@ export default function BlogPage() {
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-[#fbf9fa]">
-        <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
-      </div>
-    );
-  }
-
   const featuredPost = blogPosts.find((p: any) => p.featured) || blogPosts[0];
 
   const filteredPosts = useMemo(() => {
@@ -76,7 +68,7 @@ export default function BlogPage() {
 
       return matchesCategory && matchesSearch;
     });
-  }, [activeCategory, searchTerm, featuredPost?.id, t]);
+  }, [activeCategory, searchTerm, featuredPost?.id, t, blogPosts]);
 
   const visiblePosts = filteredPosts.slice(0, visibleCount);
   const hasMore = visibleCount < filteredPosts.length;
@@ -85,6 +77,14 @@ export default function BlogPage() {
   const trendingPosts = blogPosts
     .filter((p: any) => featuredPost && p.id !== featuredPost.id)
     .slice(0, 3);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#fbf9fa]">
+        <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+      </div>
+    );
+  }
 
   if (!featuredPost) {
     return (
