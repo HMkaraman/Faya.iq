@@ -59,7 +59,7 @@ export default function EditServicePage({ params }: { params: Promise<{ id: stri
         throw new Error(err.error || t(adminI18n.services.updateFailed));
       }
       toast(t(adminI18n.services.updateSuccess), "success");
-      router.push("/admin/services");
+      setInitialData(data);
     } catch (err) {
       toast(err instanceof Error ? err.message : t(adminI18n.services.updateFailed), "error");
     } finally {
@@ -92,6 +92,7 @@ export default function EditServicePage({ params }: { params: Promise<{ id: stri
       submitLabel={t(adminI18n.common.saveChanges)}
       submittingLabel={t(adminI18n.common.saving)}
       onDelete={handleDelete}
+      previewHref={initialData?.slug ? `/services/${initialData.slug}` : undefined}
     >
       {loading ? <PageSkeleton variant="form" /> : initialData && <ServiceForm formId="service-form" initialData={initialData} onSubmit={handleSubmit} isSubmitting={submitting} />}
     </FormPageLayout>

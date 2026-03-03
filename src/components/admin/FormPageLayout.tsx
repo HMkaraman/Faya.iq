@@ -18,6 +18,7 @@ interface FormPageLayoutProps {
   submitLabel: string;
   submittingLabel: string;
   onDelete?: () => void;
+  previewHref?: string;
   children: React.ReactNode;
 }
 
@@ -31,6 +32,7 @@ export default function FormPageLayout({
   submitLabel,
   submittingLabel,
   onDelete,
+  previewHref,
   children,
 }: FormPageLayoutProps) {
   const { t } = useLanguage();
@@ -76,6 +78,19 @@ export default function FormPageLayout({
                   {isSubmitting ? submittingLabel : submitLabel}
                 </button>
 
+                {/* Live Preview link */}
+                {previewHref && (
+                  <a
+                    href={previewHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-primary bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors"
+                  >
+                    <span className="material-symbols-outlined text-[18px]">visibility</span>
+                    {t({ en: "Live Preview", ar: "معاينة مباشرة" })}
+                  </a>
+                )}
+
                 {/* Cancel link */}
                 <Link
                   href={backHref}
@@ -115,6 +130,16 @@ export default function FormPageLayout({
             >
               <span className="material-symbols-outlined text-[20px]">delete</span>
             </button>
+          )}
+          {previewHref && (
+            <a
+              href={previewHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 text-primary hover:bg-primary/10 rounded-lg transition-colors"
+            >
+              <span className="material-symbols-outlined text-[20px]">visibility</span>
+            </a>
           )}
           <div className="flex-1" />
           <Link

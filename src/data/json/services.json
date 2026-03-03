@@ -22,12 +22,22 @@
     "branches": [],
     "duration": "",
     "benefits": {
-      "en": [],
-      "ar": []
+      "en": [
+        ""
+      ],
+      "ar": [
+        ""
+      ]
     },
     "steps": {
-      "en": [],
-      "ar": []
+      "en": [
+        "",
+        ""
+      ],
+      "ar": [
+        "",
+        ""
+      ]
     },
     "downtime": {
       "en": "",
@@ -38,7 +48,22 @@
     "assignedTo": "doctor",
     "imageSource": "Unsplash",
     "imageLicense": "Unsplash License",
-    "sortOrder": 1
+    "sortOrder": 1,
+    "priceRange": {
+      "en": "",
+      "ar": ""
+    },
+    "beforeAfterPairs": [
+      {
+        "id": "pair-1771612638010-kd4y97z",
+        "beforeImage": "/uploads/mlv8fi5pyjpvfln.png",
+        "afterImage": "/uploads/mlv8fsj8r6maixu.png",
+        "caption": {
+          "en": "",
+          "ar": ""
+        }
+      }
+    ]
   },
   {
     "id": "2",

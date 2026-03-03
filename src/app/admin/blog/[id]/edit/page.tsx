@@ -76,6 +76,7 @@ export default function EditBlogPost({ params }: { params: Promise<{ id: string 
       submitLabel={t(adminI18n.common.saveChanges)}
       submittingLabel={t(adminI18n.common.saving)}
       onDelete={handleDelete}
+      previewHref={initialData?.slug ? `/blog/${initialData.slug}` : undefined}
     >
       {loading ? <PageSkeleton variant="form" /> : initialData && <BlogForm formId="blog-form" initialData={initialData} onSubmit={handleSubmit} isSubmitting={submitting} />}
     </FormPageLayout>

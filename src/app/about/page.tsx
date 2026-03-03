@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import ScrollReveal from "@/components/ScrollReveal";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import PhotoCarousel from "@/components/PhotoCarousel";
+import DoctorCard from "@/components/DoctorCard";
 
 const milestones = [
   {
@@ -81,7 +82,7 @@ const values = [
   },
 ];
 
-const fallbackGalleryImages = [
+const fallbackClinicImages = [
   "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&q=80",
   "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80",
   "https://images.unsplash.com/photo-1540555700478-4be289fbec6e?w=600&q=80",
@@ -99,34 +100,35 @@ export default function AboutPage() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [branches, setBranches] = useState<any[]>([]);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [galleryImages, setGalleryImages] = useState<string[]>([]);
+  const [clinicImages, setClinicImages] = useState<string[]>([]);
+  const [activeBranch, setActiveBranch] = useState("all");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const [teamRes, branchRes, galleryRes] = await Promise.all([
+        const [teamRes, branchRes, csRes] = await Promise.all([
           fetch("/api/team"),
           fetch("/api/branches"),
-          fetch("/api/gallery"),
+          fetch("/api/case-studies"),
         ]);
-        const [teamData, branchData, galleryData] = await Promise.all([
+        const [teamData, branchData, csData] = await Promise.all([
           teamRes.json(),
           branchRes.json(),
-          galleryRes.json(),
+          csRes.json(),
         ]);
         setTeamMembers(teamData);
         setBranches(branchData);
-        // Extract images from gallery items for the clinic gallery section
+        // Extract images from case studies for the clinic gallery section
         const images: string[] = [];
-        galleryData.forEach((item: any) => {
-          if (item.images?.length) {
-            images.push(...item.images.slice(0, 2));
-          } else if (item.afterImage) {
-            images.push(item.afterImage);
-          }
+        csData.forEach((cs: any) => {
+          cs.stages?.forEach((stage: any) => {
+            if (stage.images?.length) {
+              images.push(...stage.images.slice(0, 1));
+            }
+          });
         });
-        setGalleryImages(images.length > 0 ? images.slice(0, 6) : []);
+        setClinicImages(images.length > 0 ? images.slice(0, 6) : []);
       } catch (err) {
         console.error("Failed to fetch about page data:", err);
       } finally {
@@ -138,6 +140,14 @@ export default function AboutPage() {
 
   const getBranch = (branchId: string) =>
     branches.find((b: any) => b.id === branchId);
+
+  const filteredTeam = useMemo(
+    () =>
+      activeBranch === "all"
+        ? teamMembers
+        : teamMembers.filter((m: any) => m.branches.includes(activeBranch)),
+    [activeBranch, teamMembers]
+  );
 
   if (loading) {
     return (
@@ -154,8 +164,8 @@ export default function AboutPage() {
     <main dir={dir} className="min-h-screen bg-bg-light">
       {/* ───────────── HERO SECTION ───────────── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#fff0f3] via-white to-[#fdf2f8]">
-        <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
-        <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-primary/5 blur-2xl" />
+        <div className="absolute -top-32 -end-32 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute -bottom-20 -start-20 h-64 w-64 rounded-full bg-primary/5 blur-2xl" />
 
         <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
           <div className="mx-auto max-w-3xl text-center">
@@ -224,86 +234,81 @@ export default function AboutPage() {
             </div>
           </ScrollReveal>
 
-          {/* Timeline */}
-          <div className="relative">
-            {/* Vertical connector line (desktop) */}
-            <div className="absolute left-1/2 top-0 hidden h-full w-0.5 -translate-x-1/2 bg-primary/20 md:block" />
-            {/* Vertical connector line (mobile) */}
-            <div className="absolute start-6 top-0 block h-full w-0.5 bg-primary/20 md:hidden" />
+          {/* Timeline — Mobile: single column with start-side line */}
+          <div className="relative md:hidden">
+            <div className="absolute start-6 top-0 h-full w-0.5 bg-primary/20" />
+            <div className="space-y-10">
+              {milestones.map((milestone: any, idx: number) => (
+                <ScrollReveal key={milestone.year} delay={idx * 150}>
+                  <div className="relative flex items-start gap-5">
+                    <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-4 border-white bg-primary text-sm font-bold text-white shadow-glow">
+                      {milestone.year.slice(2)}
+                    </div>
+                    <div className="flex-1 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+                      <span dir="ltr" className="text-xs font-bold tracking-widest text-primary">
+                        {milestone.year}
+                      </span>
+                      <h3 className="mt-1 font-display text-lg font-bold text-text-primary">
+                        {t(milestone.title)}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-text-muted">
+                        {t(milestone.description)}
+                      </p>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
 
-            <div className="space-y-12 md:space-y-16">
-              {milestones.map((milestone: any, idx: number) => {
-                const isLeft = idx % 2 === 0;
-                return (
-                  <ScrollReveal key={milestone.year} delay={idx * 150}>
-                    <div className="relative flex items-start gap-6 md:items-center">
-                      {/* ── Mobile layout ── */}
-                      <div className="flex shrink-0 md:hidden">
-                        <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border-4 border-white bg-primary text-sm font-bold text-white shadow-glow">
-                          {milestone.year.slice(2)}
-                        </div>
-                      </div>
-                      <div className="flex-1 md:hidden">
-                        <div className="rounded-2xl border border-primary/10 bg-white p-5 shadow-card">
-                          <span className="text-xs font-bold tracking-widest text-primary">
-                            {milestone.year}
-                          </span>
-                          <h3 className="mt-1 font-display text-lg font-bold text-text-primary">
-                            {t(milestone.title)}
-                          </h3>
-                          <p className="mt-2 text-sm leading-relaxed text-text-muted">
-                            {t(milestone.description)}
-                          </p>
-                        </div>
+          {/* Timeline — Desktop: alternating grid, RTL-safe */}
+          <ScrollReveal>
+            <div className="relative hidden md:block">
+              {/* Center vertical line */}
+              <div className="absolute inset-y-0 start-1/2 w-0.5 -translate-x-1/2 bg-primary/20 rtl:translate-x-1/2" />
+
+              <div className="grid grid-cols-[1fr_auto_1fr] gap-x-8 gap-y-14">
+                {milestones.map((milestone: any, idx: number) => {
+                  const isStart = idx % 2 === 0;
+
+                  const card = (
+                    <div className={`rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-xl ${isStart ? "text-end" : "text-start"}`}>
+                      <span dir="ltr" className="text-xs font-bold tracking-widest text-primary">
+                        {milestone.year}
+                      </span>
+                      <h3 className="mt-1 font-display text-xl font-bold text-text-primary">
+                        {t(milestone.title)}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-text-muted">
+                        {t(milestone.description)}
+                      </p>
+                    </div>
+                  );
+
+                  return (
+                    <React.Fragment key={milestone.year}>
+                      {/* Column 1 — start side */}
+                      <div className="flex items-center justify-end">
+                        {isStart && card}
                       </div>
 
-                      {/* ── Desktop layout ── */}
-                      {/* Left content */}
-                      <div className={`hidden w-5/12 md:block ${isLeft ? "" : "order-3"}`}>
-                        {isLeft && (
-                          <div className="rounded-2xl border border-primary/10 bg-white p-6 text-end shadow-card transition-all duration-300 hover:shadow-elevated">
-                            <span className="text-xs font-bold tracking-widest text-primary">
-                              {milestone.year}
-                            </span>
-                            <h3 className="mt-1 font-display text-xl font-bold text-text-primary">
-                              {t(milestone.title)}
-                            </h3>
-                            <p className="mt-2 text-sm leading-relaxed text-text-muted">
-                              {t(milestone.description)}
-                            </p>
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Center dot */}
-                      <div className="relative z-10 hidden shrink-0 md:flex">
+                      {/* Column 2 — center dot */}
+                      <div className="relative z-10 flex items-center justify-center">
                         <div className="flex h-14 w-14 items-center justify-center rounded-full border-4 border-white bg-primary text-sm font-bold text-white shadow-glow">
                           {milestone.year.slice(2)}
                         </div>
                       </div>
 
-                      {/* Right content */}
-                      <div className={`hidden w-5/12 md:block ${isLeft ? "order-3" : ""}`}>
-                        {!isLeft && (
-                          <div className="rounded-2xl border border-primary/10 bg-white p-6 shadow-card transition-all duration-300 hover:shadow-elevated">
-                            <span className="text-xs font-bold tracking-widest text-primary">
-                              {milestone.year}
-                            </span>
-                            <h3 className="mt-1 font-display text-xl font-bold text-text-primary">
-                              {t(milestone.title)}
-                            </h3>
-                            <p className="mt-2 text-sm leading-relaxed text-text-muted">
-                              {t(milestone.description)}
-                            </p>
-                          </div>
-                        )}
+                      {/* Column 3 — end side */}
+                      <div className="flex items-center justify-start">
+                        {!isStart && card}
                       </div>
-                    </div>
-                  </ScrollReveal>
-                );
-              })}
+                    </React.Fragment>
+                  );
+                })}
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -348,7 +353,7 @@ export default function AboutPage() {
       </section>
 
       {/* ───────────── MEET THE MEDICAL TEAM ───────────── */}
-      <section className="bg-ivory py-20">
+      <section id="team" className="scroll-mt-20 bg-ivory py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="mb-14 text-center">
@@ -367,81 +372,56 @@ export default function AboutPage() {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {teamMembers.slice(0, 6).map((member: any, idx: number) => (
-              <ScrollReveal key={member.id} delay={idx * 120}>
-                <article className="group overflow-hidden rounded-2xl border border-primary/10 bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-elevated">
-                  {/* Image */}
-                  <div className="relative h-64 overflow-hidden">
-                    <img
-                      src={member.image}
-                      alt={t(member.name)}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                    {/* Years badge */}
-                    <div className="absolute bottom-4 end-4 rounded-full bg-white/90 px-3 py-1.5 text-xs font-bold text-primary shadow-sm backdrop-blur-sm">
-                      {member.yearsExperience}{" "}
-                      {t({ en: "years exp.", ar: "سنة خبرة" })}
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6">
-                    <h3 className="font-display text-xl font-bold text-text-primary">
-                      {t(member.name)}
-                    </h3>
-                    <p className="mt-1 text-sm font-medium text-primary">
-                      {t(member.title)}
-                    </p>
-                    <p className="mt-1 text-xs text-text-muted">
-                      {t(member.specialization)}
-                    </p>
-
-                    {/* Branches */}
-                    <div className="mt-4 flex flex-wrap items-center gap-2">
-                      <span className="text-xs text-text-muted">
-                        {t({ en: "Branches:", ar: "الفروع:" })}
-                      </span>
-                      {member.branches.map((branchId: string) => {
-                        const branch = getBranch(branchId);
-                        return branch ? (
-                          <span
-                            key={branchId}
-                            className="rounded-full bg-primary/10 px-2.5 py-0.5 text-[11px] font-medium text-primary"
-                          >
-                            {t(branch.city)}
-                          </span>
-                        ) : null;
-                      })}
-                    </div>
-                  </div>
-                </article>
-              </ScrollReveal>
-            ))}
-          </div>
-
-          {/* View Full Team link */}
-          {teamMembers.length > 6 && (
-            <ScrollReveal delay={400}>
-              <div className="mt-10 text-center">
-                <Link
-                  href="/team"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
+          {/* Branch filter pills */}
+          <ScrollReveal>
+            <div className="mb-10 hide-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:justify-center sm:px-0">
+              <button
+                onClick={() => setActiveBranch("all")}
+                className={`shrink-0 rounded-full px-5 py-2 text-sm font-medium transition-all ${
+                  activeBranch === "all"
+                    ? "bg-primary text-white shadow-glow"
+                    : "bg-bg-light text-text-muted hover:bg-primary/10 hover:text-primary"
+                }`}
+              >
+                {t({ en: "All Branches", ar: "جميع الفروع" })}
+              </button>
+              {branches.map((branch: any) => (
+                <button
+                  key={branch.id}
+                  onClick={() => setActiveBranch(branch.id)}
+                  className={`shrink-0 rounded-full px-5 py-2 text-sm font-medium transition-all ${
+                    activeBranch === branch.id
+                      ? "bg-primary text-white shadow-glow"
+                      : "bg-bg-light text-text-muted hover:bg-primary/10 hover:text-primary"
+                  }`}
                 >
-                  {t({ en: "View Full Team", ar: "عرض الفريق الكامل" })}
-                  <svg
-                    className={`h-4 w-4 ${lang === "ar" ? "rotate-180" : ""}`}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-            </ScrollReveal>
+                  {t(branch.city)}
+                </button>
+              ))}
+            </div>
+          </ScrollReveal>
+
+          {filteredTeam.length > 0 ? (
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {filteredTeam.map((member: any, idx: number) => (
+                <DoctorCard
+                  key={member.id}
+                  member={member}
+                  branches={branches}
+                  variant="full"
+                  delay={idx * 120}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="py-16 text-center">
+              <p className="text-lg text-text-muted">
+                {t({
+                  en: "No team members found for this branch.",
+                  ar: "لم يتم العثور على أعضاء فريق لهذا الفرع.",
+                })}
+              </p>
+            </div>
           )}
         </div>
       </section>
@@ -466,16 +446,16 @@ export default function AboutPage() {
             </div>
           </ScrollReveal>
 
-          {(galleryImages.length > 0 ? galleryImages : fallbackGalleryImages).length > 3 ? (
+          {(clinicImages.length > 0 ? clinicImages : fallbackClinicImages).length > 3 ? (
             <ScrollReveal>
               <PhotoCarousel
-                images={galleryImages.length > 0 ? galleryImages : fallbackGalleryImages}
+                images={clinicImages.length > 0 ? clinicImages : fallbackClinicImages}
                 title={t({ en: "Our Facilities", ar: "مرافقنا" })}
               />
             </ScrollReveal>
           ) : (
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
-              {(galleryImages.length > 0 ? galleryImages : fallbackGalleryImages).map((src: string, idx: number) => (
+              {(clinicImages.length > 0 ? clinicImages : fallbackClinicImages).map((src: string, idx: number) => (
                 <ScrollReveal key={idx} delay={idx * 100}>
                   <div className="group overflow-hidden rounded-xl">
                     <img
@@ -497,8 +477,8 @@ export default function AboutPage() {
       {/* ───────────── CTA SECTION ───────────── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary to-primary-dark py-20">
         {/* Decorative elements */}
-        <div className="absolute -top-16 -right-16 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
-        <div className="absolute -bottom-12 -left-12 h-48 w-48 rounded-full bg-white/5 blur-2xl" />
+        <div className="absolute -top-16 -end-16 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+        <div className="absolute -bottom-12 -start-12 h-48 w-48 rounded-full bg-white/5 blur-2xl" />
 
         <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <ScrollReveal>
@@ -522,7 +502,7 @@ export default function AboutPage() {
                 {t({ en: "Book a Consultation", ar: "احجز استشارة" })}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className={`h-5 w-5 ${lang === "ar" ? "rotate-180" : ""}`}
+                  className="h-5 w-5 rtl:rotate-180"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

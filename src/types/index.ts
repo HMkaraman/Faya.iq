@@ -43,6 +43,7 @@ export interface Service {
   steps: { en: string[]; ar: string[] };
   downtime: Bilingual;
   faq: { question: Bilingual; answer: Bilingual }[];
+
   beforeAfterPairs?: BeforeAfterPair[];
   requiresConsultation?: boolean;
   assignedTo?: string;
@@ -154,17 +155,25 @@ export interface Offer {
   active: boolean;
 }
 
-// Gallery Item
-export interface GalleryItem {
+// Case Study Stage
+export interface CaseStudyStage {
   id: string;
+  date: string;
   title: Bilingual;
-  category: string;
-  type: "before-after" | "showcase";
-  beforeImage: string;
-  afterImage: string;
-  images?: string[];
+  description: Bilingual;
+  images: string[];
+}
+
+// Case Study
+export interface CaseStudy {
+  id: string;
+  slug: string;
+  title: Bilingual;
+  summary: Bilingual;
+  serviceId: string;
+  categorySlug: string;
   doctor: Bilingual;
-  sessions: number;
+  stages: CaseStudyStage[];
   tags: Bilingual[];
   active: boolean;
 }

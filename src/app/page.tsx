@@ -9,6 +9,8 @@ import { useLanguage } from "@/context/LanguageContext";
 import ScrollReveal from "@/components/ScrollReveal";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import HeroSlider from "@/components/HeroSlider";
+import DoctorCard from "@/components/DoctorCard";
+import { findNearestBranchIndex } from "@/lib/geo";
 import type { HeroSlide } from "@/types";
 
 /* ------------------------------------------------------------------ */
@@ -48,6 +50,8 @@ function StarRating({ rating }: { rating: number }) {
 export default function HomePage() {
   const { lang, dir, t } = useLanguage();
   const [selectedBranch, setSelectedBranch] = useState(0);
+  const [geoDetected, setGeoDetected] = useState(false);
+  const [nearestBranchIdx, setNearestBranchIdx] = useState<number | null>(null);
   const testimonialRef = useRef<HTMLDivElement>(null);
 
   /* ── API data state ── */
@@ -59,30 +63,35 @@ export default function HomePage() {
   const [testimonials, setTestimonials] = useState<any[]>([]);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [blogPosts, setBlogPosts] = useState<any[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [teamMembers, setTeamMembers] = useState<any[]>([]);
   const [heroSlides, setHeroSlides] = useState<HeroSlide[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const [catRes, branchRes, testRes, blogRes, settingsRes] = await Promise.all([
+        const [catRes, branchRes, testRes, blogRes, settingsRes, teamRes] = await Promise.all([
           fetch("/api/service-categories"),
           fetch("/api/branches"),
           fetch("/api/testimonials"),
           fetch("/api/blog"),
           fetch("/api/settings"),
+          fetch("/api/team"),
         ]);
-        const [catData, branchData, testData, blogData, settingsData] = await Promise.all([
+        const [catData, branchData, testData, blogData, settingsData, teamData] = await Promise.all([
           catRes.json(),
           branchRes.json(),
           testRes.json(),
           blogRes.json(),
           settingsRes.json(),
+          teamRes.json(),
         ]);
         setServiceCategories(catData);
         setBranches(branchData);
         setTestimonials(testData);
         setBlogPosts(blogData);
+        setTeamMembers(teamData);
         if (settingsData.heroSlides) setHeroSlides(settingsData.heroSlides);
       } catch (err) {
         console.error("Failed to fetch homepage data:", err);
@@ -92,6 +101,44 @@ export default function HomePage() {
     }
     fetchData();
   }, []);
+
+  /* ── Auto-detect nearest branch via IP geolocation ── */
+  const branchesRef = useRef(branches);
+  branchesRef.current = branches;
+
+  useEffect(() => {
+    let cancelled = false;
+
+    function applyNearest(lat: number, lng: number) {
+      if (cancelled || branchesRef.current.length === 0) return false;
+      const idx = findNearestBranchIndex(lat, lng, branchesRef.current);
+      setSelectedBranch(idx);
+      setNearestBranchIdx(idx);
+      setGeoDetected(true);
+      return true;
+    }
+
+    (async () => {
+      // Strategy 1: server-side (Vercel headers / forwarded IP)
+      try {
+        const srvRes = await fetch("/api/geolocation");
+        if (srvRes.ok) {
+          const { lat, lng } = await srvRes.json();
+          if (!cancelled && lat != null && lng != null && applyNearest(lat, lng)) return;
+        }
+      } catch { /* fall through */ }
+
+      // Strategy 2: browser geolocation (GPS/WiFi — asks permission)
+      if (cancelled || !navigator.geolocation) return;
+      navigator.geolocation.getCurrentPosition(
+        (pos) => applyNearest(pos.coords.latitude, pos.coords.longitude),
+        () => { /* denied or unavailable — stay on default */ },
+        { timeout: 5000, maximumAge: 600000 }
+      );
+    })();
+
+    return () => { cancelled = true; };
+  }, []); // runs once on mount
 
   /* All service categories for the carousel */
   const allCategories = serviceCategories;
@@ -261,6 +308,16 @@ export default function HomePage() {
                     </span>
                   )}
 
+                  {/* Nearest to you badge */}
+                  {geoDetected && nearestBranchIdx === idx && (
+                    <span className="mb-2 inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-semibold text-emerald-700 ring-1 ring-emerald-200">
+                      <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                      </svg>
+                      {t({ en: "Nearest to you", ar: "الأقرب إليك" })}
+                    </span>
+                  )}
+
                   <h3 className="text-base font-semibold text-[#333333]">{t(branch.name)}</h3>
                   <p className="mt-1 text-sm text-[#8c7284] leading-relaxed">{t(branch.address)}</p>
 
@@ -289,6 +346,27 @@ export default function HomePage() {
                 </button>
               ))}
             </div>
+
+            {/* Get Directions button */}
+            {branches.length > 0 && branches[selectedBranch]?.mapUrl && (
+              <div className="mt-6 text-center">
+                <a
+                  href={branches[selectedBranch].mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-semibold text-white shadow-md shadow-primary/20 transition-all duration-300 hover:bg-primary-dark hover:shadow-lg hover:-translate-y-0.5"
+                >
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  {t({ en: "Get Directions", ar: "احصل على الاتجاهات" })}
+                  <svg className="h-3.5 w-3.5 opacity-60" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            )}
           </div>
         </ScrollReveal>
       </section>
@@ -497,7 +575,7 @@ export default function HomePage() {
             {beforeAfterImages.map((item: any, idx: number) => (
               <ScrollReveal key={idx} delay={idx * 150}>
                 <Link
-                  href="/gallery"
+                  href="/case-studies"
                   className="group relative block aspect-[16/10] overflow-hidden rounded-2xl"
                 >
                   <div
@@ -528,10 +606,10 @@ export default function HomePage() {
           <ScrollReveal delay={400}>
             <div className="mt-10 text-center">
               <Link
-                href="/gallery"
+                href="/case-studies"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
               >
-                {t({ en: "Browse Full Gallery", ar: "تصفح المعرض الكامل" })}
+                {t({ en: "View All Case Studies", ar: "عرض جميع الحالات الدراسية" })}
                 <svg
                   className="h-4 w-4 rtl:rotate-180"
                   fill="none"
@@ -628,6 +706,67 @@ export default function HomePage() {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* ============================================================ */}
+      {/* 7.5  MEET OUR DOCTORS                                         */}
+      {/* ============================================================ */}
+      {teamMembers.length > 0 && (
+        <section
+          aria-label={t({ en: "Meet Our Doctors", ar: "تعرّف على أطبائنا" })}
+          className="border-y border-slate-100 bg-white py-24 md:py-32"
+        >
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <ScrollReveal>
+              <div className="text-center">
+                <span className="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
+                  {t({ en: "Expert Physicians", ar: "أطباء متخصصون" })}
+                </span>
+                <h2 className="mt-4 font-[Playfair_Display] text-3xl font-bold text-[#333333] md:text-4xl">
+                  {t({ en: "Meet Our Doctors", ar: "تعرّف على أطبائنا" })}
+                </h2>
+                <p className="mx-auto mt-4 max-w-xl text-base text-[#8c7284]">
+                  {t({
+                    en: "Board-certified specialists dedicated to delivering exceptional aesthetic results with the highest standard of care.",
+                    ar: "أطباء معتمدون ملتزمون بتقديم نتائج تجميلية استثنائية بأعلى معايير الرعاية.",
+                  })}
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-3">
+              {teamMembers.slice(0, 3).map((member: any, idx: number) => (
+                <DoctorCard
+                  key={member.id}
+                  member={member}
+                  branches={branches}
+                  variant="compact"
+                  delay={idx * 150}
+                />
+              ))}
+            </div>
+
+            <ScrollReveal delay={500}>
+              <div className="mt-12 text-center">
+                <Link
+                  href="/about#team"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
+                >
+                  {t({ en: "Meet the Full Team", ar: "تعرّف على الفريق الكامل" })}
+                  <svg
+                    className="h-4 w-4 rtl:rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
 
       {/* ============================================================ */}
       {/* 8. BLOG PREVIEW                                               */}

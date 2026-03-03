@@ -7,12 +7,9 @@ import TopBar from "@/components/admin/TopBar";
 import DeleteConfirm from "@/components/admin/DeleteConfirm";
 import StatusBadge from "@/components/admin/StatusBadge";
 import { useToast } from "@/components/admin/ToastProvider";
-import { useLanguage } from "@/context/LanguageContext";
-import { adminI18n } from "@/lib/admin-i18n";
 import type { GalleryItem } from "@/types";
 
 export default function GalleryPage() {
-  const { t, lang } = useLanguage();
   const [items, setItems] = useState<GalleryItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [deleteTarget, setDeleteTarget] = useState<GalleryItem | null>(null);
@@ -30,7 +27,7 @@ export default function GalleryPage() {
       const data = await res.json();
       setItems(data);
     } catch {
-      toast(t(adminI18n.gallery.loadFailed), "error");
+      toast("Failed to load gallery items", "error");
     } finally {
       setLoading(false);
     }
@@ -44,9 +41,9 @@ export default function GalleryPage() {
       });
       if (!res.ok) throw new Error("Failed to delete");
       setItems((prev) => prev.filter((item) => item.id !== deleteTarget.id));
-      toast(t(adminI18n.gallery.deleteSuccess), "success");
+      toast("Gallery item deleted successfully", "success");
     } catch {
-      toast(t(adminI18n.gallery.deleteFailed), "error");
+      toast("Failed to delete gallery item", "error");
     } finally {
       setDeleteTarget(null);
     }
@@ -55,10 +52,10 @@ export default function GalleryPage() {
   if (loading) {
     return (
       <>
-        <TopBar title={t(adminI18n.gallery.title)} />
+        <TopBar title="Gallery" />
         <div className="p-6">
           <div className="flex items-center justify-center py-20">
-            <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+            <div className="w-8 h-8 border-2 border-[#c8567e] border-t-transparent rounded-full animate-spin" />
           </div>
         </div>
       </>
@@ -67,13 +64,13 @@ export default function GalleryPage() {
 
   return (
     <>
-      <TopBar title={t(adminI18n.gallery.title)}>
+      <TopBar title="Gallery">
         <Link
           href="/admin/gallery/new"
-          className="inline-flex items-center gap-1.5 px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary-dark transition-colors"
+          className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#c8567e] text-white text-sm font-medium rounded-lg hover:bg-[#b34469] transition-colors"
         >
           <span className="material-symbols-outlined text-[18px]">add</span>
-          {t(adminI18n.gallery.addItem)}
+          Add Item
         </Link>
       </TopBar>
 
@@ -83,13 +80,13 @@ export default function GalleryPage() {
             <span className="material-symbols-outlined text-[48px] text-gray-300">
               photo_library
             </span>
-            <p className="mt-3 text-gray-500">{t(adminI18n.gallery.noItems)}</p>
+            <p className="mt-3 text-gray-500">No gallery items found.</p>
             <Link
               href="/admin/gallery/new"
-              className="inline-flex items-center gap-1.5 mt-4 px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary-dark transition-colors"
+              className="inline-flex items-center gap-1.5 mt-4 px-4 py-2 bg-[#c8567e] text-white text-sm font-medium rounded-lg hover:bg-[#b34469] transition-colors"
             >
               <span className="material-symbols-outlined text-[18px]">add</span>
-              {t(adminI18n.gallery.addFirstItem)}
+              Add First Item
             </Link>
           </div>
         ) : (
@@ -103,7 +100,7 @@ export default function GalleryPage() {
                 <div className="relative aspect-[4/3] bg-gray-100">
                   <img
                     src={item.afterImage || item.beforeImage || "/placeholder.png"}
-                    alt={item.title?.[lang] || item.title?.en}
+                    alt={item.title.en}
                     className="w-full h-full object-cover"
                   />
                   {/* Type badge */}
@@ -114,7 +111,7 @@ export default function GalleryPage() {
                         : "bg-blue-100 text-blue-700"
                     }`}
                   >
-                    {item.type === "before-after" ? t(adminI18n.gallery.beforeAfter) : t(adminI18n.gallery.showcase)}
+                    {item.type === "before-after" ? "Before / After" : "Showcase"}
                   </span>
                   {/* Active badge */}
                   <div className="absolute top-3 right-3">
@@ -126,7 +123,7 @@ export default function GalleryPage() {
                 <div className="p-4 space-y-3">
                   <div>
                     <h3 className="font-semibold text-gray-900 text-sm leading-tight">
-                      {item.title?.[lang] || item.title?.en}
+                      {item.title.en}
                     </h3>
                     <p className="text-xs text-gray-500 mt-1">{item.category}</p>
                   </div>
@@ -134,11 +131,11 @@ export default function GalleryPage() {
                   <div className="flex items-center gap-3 text-xs text-gray-500">
                     <span className="inline-flex items-center gap-1">
                       <span className="material-symbols-outlined text-[14px]">person</span>
-                      {item.doctor?.[lang] || item.doctor?.en || "—"}
+                      {item.doctor.en || "—"}
                     </span>
                     <span className="inline-flex items-center gap-1">
                       <span className="material-symbols-outlined text-[14px]">event</span>
-                      {item.sessions} {item.sessions === 1 ? t(adminI18n.gallery.session) : t(adminI18n.gallery.sessions)}
+                      {item.sessions} {item.sessions === 1 ? "session" : "sessions"}
                     </span>
                   </div>
 
@@ -146,15 +143,15 @@ export default function GalleryPage() {
                   <div className="flex items-center justify-end gap-1 pt-2 border-t border-gray-100">
                     <button
                       onClick={() => router.push(`/admin/gallery/${item.id}/edit`)}
-                      className="p-1.5 rounded-lg text-gray-400 hover:text-primary hover:bg-primary/10 transition-colors"
-                      title={t(adminI18n.common.edit)}
+                      className="p-1.5 rounded-lg text-gray-400 hover:text-[#c8567e] hover:bg-[#c8567e]/10 transition-colors"
+                      title="Edit"
                     >
                       <span className="material-symbols-outlined text-[18px]">edit</span>
                     </button>
                     <button
                       onClick={() => setDeleteTarget(item)}
                       className="p-1.5 rounded-lg text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors"
-                      title={t(adminI18n.common.delete)}
+                      title="Delete"
                     >
                       <span className="material-symbols-outlined text-[18px]">delete</span>
                     </button>
@@ -170,8 +167,8 @@ export default function GalleryPage() {
         open={!!deleteTarget}
         onClose={() => setDeleteTarget(null)}
         onConfirm={handleDelete}
-        title={t(adminI18n.gallery.deleteTitle)}
-        message={t(adminI18n.gallery.deleteMessage)}
+        title="Delete Gallery Item"
+        message={`Are you sure you want to delete "${deleteTarget?.title.en}"? This action cannot be undone.`}
       />
     </>
   );

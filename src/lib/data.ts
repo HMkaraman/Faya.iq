@@ -9,7 +9,7 @@ import type {
   BlogPost,
   Testimonial,
   Offer,
-  GalleryItem,
+  CaseStudy,
   Booking,
   SiteSettings,
   AdminUser,
@@ -61,8 +61,8 @@ export function getOffers(): Offer[] {
   return readData<Offer[]>("offers.json");
 }
 
-export function getGalleryItems(): GalleryItem[] {
-  return readData<GalleryItem[]>("gallery.json");
+export function getCaseStudies(): CaseStudy[] {
+  return readData<CaseStudy[]>("case-studies.json");
 }
 
 export function getBookings(): Booking[] {

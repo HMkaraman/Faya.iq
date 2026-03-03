@@ -67,7 +67,7 @@ const offers = [
   },
 ];
 
-function CountdownTimer({ targetDate }: { targetDate: string }) {
+function CountdownTimer({ targetDate, t }: { targetDate: string; t: (b: { en: string; ar: string }) => string }) {
   const now = new Date();
   const target = new Date(targetDate);
   const diff = target.getTime() - now.getTime();
@@ -76,16 +76,16 @@ function CountdownTimer({ targetDate }: { targetDate: string }) {
   return (
     <div className="flex items-center gap-1 text-xs text-primary font-semibold">
       <span className="material-symbols-outlined text-sm">timer</span>
-      <span>{days} days left</span>
+      <span dir="ltr">{days} {t({ en: "days left", ar: "يوم متبقي" })}</span>
     </div>
   );
 }
 
 export default function OffersPage() {
-  const { t } = useLanguage();
+  const { lang, dir, t } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-[#fbf9fa]">
+    <div dir={dir} className="min-h-screen bg-[#fbf9fa]">
       {/* Hero */}
       <section className="bg-gradient-to-b from-[#fff0f3] to-[#fbf9fa] py-16 md:py-24 px-6">
         <div className="max-w-7xl mx-auto text-center">
@@ -118,11 +118,11 @@ export default function OffersPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                   {/* Discount Badge */}
-                  <div className="absolute top-4 left-4 bg-primary text-white px-3 py-1.5 rounded-full text-sm font-bold shadow-lg">
+                  <div className="absolute top-4 start-4 bg-primary text-white px-3 py-1.5 rounded-full text-sm font-bold shadow-lg">
                     {offer.discount} {t({ en: "OFF", ar: "خصم" })}
                   </div>
                   {/* Tag */}
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur text-[#333] px-3 py-1 rounded-full text-xs font-semibold">
+                  <div className="absolute top-4 end-4 bg-white/90 backdrop-blur text-[#333] px-3 py-1 rounded-full text-xs font-semibold">
                     {t(offer.tag)}
                   </div>
                 </div>
@@ -139,11 +139,11 @@ export default function OffersPage() {
                   {/* Price */}
                   <div className="flex items-center gap-3 mb-4">
                     {offer.originalPrice.en && (
-                      <span className="text-[#8c7284] line-through text-sm">
+                      <span dir="ltr" className="text-[#8c7284] line-through text-sm">
                         {t(offer.originalPrice)}
                       </span>
                     )}
-                    <span className="text-primary font-bold text-lg">
+                    <span dir="ltr" className="text-primary font-bold text-lg">
                       {t(offer.salePrice)}
                     </span>
                   </div>
@@ -155,7 +155,7 @@ export default function OffersPage() {
                         <span className="material-symbols-outlined text-sm">location_on</span>
                         {t(offer.branches)}
                       </div>
-                      <CountdownTimer targetDate={offer.validUntil} />
+                      <CountdownTimer targetDate={offer.validUntil} t={t} />
                     </div>
                     <Link
                       href="/booking"
@@ -188,7 +188,7 @@ export default function OffersPage() {
               className="inline-flex items-center gap-2 bg-white text-primary font-bold px-6 py-3 rounded-lg hover:bg-white/90 transition-colors"
             >
               {t({ en: "Learn More", ar: "اعرفي المزيد" })}
-              <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              <span className={`material-symbols-outlined text-sm ${lang === "ar" ? "rotate-180" : ""}`}>arrow_forward</span>
             </Link>
           </div>
         </ScrollReveal>

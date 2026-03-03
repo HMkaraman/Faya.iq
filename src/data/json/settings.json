@@ -27,7 +27,7 @@
     "navItems": [
       { "href": "/", "label": { "en": "Home", "ar": "الرئيسية" } },
       { "href": "/services", "label": { "en": "Services", "ar": "الخدمات" } },
-      { "href": "/gallery", "label": { "en": "Gallery", "ar": "المعرض" } },
+      { "href": "/case-studies", "label": { "en": "Case Studies", "ar": "حالات دراسية" } },
       { "href": "/branches", "label": { "en": "Branches", "ar": "الفروع" } },
       { "href": "/blog", "label": { "en": "Blog", "ar": "المدوّنة" } },
       { "href": "/contact", "label": { "en": "Contact", "ar": "تواصل" } }
@@ -83,8 +83,8 @@
         "en": "See the stunning before & after results from thousands of happy clients across Iraq.",
         "ar": "شاهدي نتائج مذهلة قبل وبعد من آلاف العملاء السعداء في جميع أنحاء العراق."
       },
-      "ctaText": { "en": "View Gallery", "ar": "عرض المعرض" },
-      "ctaHref": "/gallery",
+      "ctaText": { "en": "View Case Studies", "ar": "عرض الحالات الدراسية" },
+      "ctaHref": "/case-studies",
       "order": 3,
       "active": true
     }

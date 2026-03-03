@@ -1,0 +1,279 @@
+[
+  {
+    "id": "cs-1",
+    "slug": "rhinoplasty-journey-ahmed",
+    "title": {
+      "en": "Ahmed's Rhinoplasty Journey",
+      "ar": "رحلة أحمد في تجميل الأنف"
+    },
+    "summary": {
+      "en": "A comprehensive rhinoplasty case from initial consultation through full recovery, achieving natural and balanced results.",
+      "ar": "حالة تجميل أنف شاملة من الاستشارة الأولية وحتى التعافي الكامل، مع تحقيق نتائج طبيعية ومتوازنة."
+    },
+    "serviceId": "1",
+    "categorySlug": "plastic-surgery",
+    "doctor": {
+      "en": "Dr. Ammar Al-Rawi",
+      "ar": "د. عمار الراوي"
+    },
+    "stages": [
+      {
+        "id": "cs1-s1",
+        "date": "2025-01-15",
+        "title": { "en": "Initial Assessment", "ar": "التقييم الأولي" },
+        "description": {
+          "en": "Comprehensive facial analysis and 3D imaging to plan the procedure. Discussed patient goals and expectations.",
+          "ar": "تحليل شامل للوجه وتصوير ثلاثي الأبعاد لتخطيط العملية. مناقشة أهداف المريض وتوقعاته."
+        },
+        "images": [
+          "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80",
+          "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80"
+        ]
+      },
+      {
+        "id": "cs1-s2",
+        "date": "2025-02-01",
+        "title": { "en": "Procedure Day", "ar": "يوم العملية" },
+        "description": {
+          "en": "Closed rhinoplasty performed under general anesthesia. The procedure focused on refining the nasal tip and correcting the dorsal hump.",
+          "ar": "تم إجراء عملية تجميل الأنف المغلقة تحت التخدير العام. ركزت العملية على تحسين طرف الأنف وتصحيح حدبة الأنف."
+        },
+        "images": [
+          "https://images.unsplash.com/photo-1551190822-a9ce113ac100?w=600&q=80"
+        ]
+      },
+      {
+        "id": "cs1-s3",
+        "date": "2025-02-15",
+        "title": { "en": "Two-Week Follow-up", "ar": "متابعة بعد أسبوعين" },
+        "description": {
+          "en": "Cast removed, initial swelling subsiding. Patient recovering well with visible improvement in nasal profile.",
+          "ar": "تم إزالة الجبيرة، والتورم الأولي يتراجع. المريض يتعافى بشكل جيد مع تحسن واضح في شكل الأنف."
+        },
+        "images": [
+          "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80",
+          "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80"
+        ]
+      },
+      {
+        "id": "cs1-s4",
+        "date": "2025-05-01",
+        "title": { "en": "Final Results", "ar": "النتائج النهائية" },
+        "description": {
+          "en": "Three months post-op with excellent results. Natural-looking nose with improved symmetry and balance with facial features.",
+          "ar": "ثلاثة أشهر بعد العملية مع نتائج ممتازة. أنف بمظهر طبيعي مع تحسن في التناسق والتوازن مع ملامح الوجه."
+        },
+        "images": [
+          "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&q=80",
+          "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80"
+        ]
+      }
+    ],
+    "tags": [
+      { "en": "Rhinoplasty", "ar": "تجميل الأنف" },
+      { "en": "Natural Results", "ar": "نتائج طبيعية" }
+    ],
+    "active": true
+  },
+  {
+    "id": "cs-2",
+    "slug": "botox-treatment-fatima",
+    "title": {
+      "en": "Fatima's Botox Rejuvenation",
+      "ar": "تجديد شباب فاطمة بالبوتوكس"
+    },
+    "summary": {
+      "en": "A preventive botox treatment journey showing subtle, natural-looking results for forehead lines and crow's feet.",
+      "ar": "رحلة علاج بوتوكس وقائي تُظهر نتائج طبيعية ودقيقة لخطوط الجبهة وتجاعيد العين."
+    },
+    "serviceId": "5",
+    "categorySlug": "injectables",
+    "doctor": {
+      "en": "Dr. Sara Hassan",
+      "ar": "د. سارة حسن"
+    },
+    "stages": [
+      {
+        "id": "cs2-s1",
+        "date": "2025-03-10",
+        "title": { "en": "Consultation", "ar": "الاستشارة" },
+        "description": {
+          "en": "Evaluated facial muscle movement patterns and identified key treatment areas. Created a personalized injection plan.",
+          "ar": "تقييم أنماط حركة عضلات الوجه وتحديد مناطق العلاج الرئيسية. وضع خطة حقن شخصية."
+        },
+        "images": [
+          "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80"
+        ]
+      },
+      {
+        "id": "cs2-s2",
+        "date": "2025-03-10",
+        "title": { "en": "Treatment Session", "ar": "جلسة العلاج" },
+        "description": {
+          "en": "Precise micro-injections administered to forehead, glabella, and crow's feet areas. Quick 15-minute procedure.",
+          "ar": "حقن دقيقة في مناطق الجبهة وبين الحاجبين وحول العينين. إجراء سريع مدته 15 دقيقة."
+        },
+        "images": [
+          "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80"
+        ]
+      },
+      {
+        "id": "cs2-s3",
+        "date": "2025-03-24",
+        "title": { "en": "Two-Week Results", "ar": "نتائج بعد أسبوعين" },
+        "description": {
+          "en": "Full effect visible with smooth forehead and natural expression maintained. Patient extremely satisfied with the refreshed look.",
+          "ar": "ظهور التأثير الكامل مع جبهة ناعمة والحفاظ على التعبير الطبيعي. المريضة راضية للغاية عن المظهر المنتعش."
+        },
+        "images": [
+          "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80",
+          "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&q=80"
+        ]
+      }
+    ],
+    "tags": [
+      { "en": "Botox", "ar": "بوتوكس" },
+      { "en": "Anti-Aging", "ar": "مكافحة الشيخوخة" }
+    ],
+    "active": true
+  },
+  {
+    "id": "cs-3",
+    "slug": "laser-skin-resurfacing-noor",
+    "title": {
+      "en": "Noor's Laser Skin Resurfacing",
+      "ar": "تجديد بشرة نور بالليزر"
+    },
+    "summary": {
+      "en": "Multi-session fractional laser treatment for acne scarring, showing progressive improvement over three months.",
+      "ar": "علاج ليزر جزئي متعدد الجلسات لندبات حب الشباب، يُظهر تحسناً تدريجياً على مدى ثلاثة أشهر."
+    },
+    "serviceId": "10",
+    "categorySlug": "laser-treatments",
+    "doctor": {
+      "en": "Dr. Lina Karim",
+      "ar": "د. لينا كريم"
+    },
+    "stages": [
+      {
+        "id": "cs3-s1",
+        "date": "2025-01-20",
+        "title": { "en": "Skin Analysis", "ar": "تحليل البشرة" },
+        "description": {
+          "en": "Detailed skin assessment using advanced imaging. Identified scar depth and created a 3-session treatment plan.",
+          "ar": "تقييم مفصل للبشرة باستخدام التصوير المتقدم. تحديد عمق الندبات ووضع خطة علاج من 3 جلسات."
+        },
+        "images": [
+          "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80"
+        ]
+      },
+      {
+        "id": "cs3-s2",
+        "date": "2025-02-05",
+        "title": { "en": "First Laser Session", "ar": "جلسة الليزر الأولى" },
+        "description": {
+          "en": "Fractional CO2 laser applied to targeted areas. Mild redness expected for 3-5 days post-treatment.",
+          "ar": "تطبيق ليزر CO2 الجزئي على المناطق المستهدفة. احمرار خفيف متوقع لمدة 3-5 أيام بعد العلاج."
+        },
+        "images": [
+          "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80"
+        ]
+      },
+      {
+        "id": "cs3-s3",
+        "date": "2025-03-05",
+        "title": { "en": "Second Session & Progress", "ar": "الجلسة الثانية والتقدم" },
+        "description": {
+          "en": "Noticeable improvement in skin texture after first session. Second laser session performed with adjusted parameters.",
+          "ar": "تحسن ملحوظ في ملمس البشرة بعد الجلسة الأولى. تم إجراء جلسة الليزر الثانية بمعايير معدّلة."
+        },
+        "images": [
+          "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80",
+          "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&q=80"
+        ]
+      },
+      {
+        "id": "cs3-s4",
+        "date": "2025-04-20",
+        "title": { "en": "Final Results", "ar": "النتائج النهائية" },
+        "description": {
+          "en": "Significant reduction in acne scarring with smoother, more even skin texture. Patient delighted with the transformation.",
+          "ar": "انخفاض كبير في ندبات حب الشباب مع ملمس بشرة أكثر نعومة وتجانساً. المريضة سعيدة بالتحول."
+        },
+        "images": [
+          "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80",
+          "https://images.unsplash.com/photo-1540555700478-4be289fbec6e?w=600&q=80"
+        ]
+      }
+    ],
+    "tags": [
+      { "en": "Laser", "ar": "ليزر" },
+      { "en": "Acne Scars", "ar": "ندبات حب الشباب" },
+      { "en": "Skin Resurfacing", "ar": "تجديد البشرة" }
+    ],
+    "active": true
+  },
+  {
+    "id": "cs-4",
+    "slug": "skin-booster-treatment-maryam",
+    "title": {
+      "en": "Maryam's Skin Booster Glow",
+      "ar": "توهج بشرة مريم بالسكن بوستر"
+    },
+    "summary": {
+      "en": "A skin booster hydration treatment series showing how micro-injections of hyaluronic acid restored radiance and elasticity.",
+      "ar": "سلسلة علاجات ترطيب السكن بوستر توضح كيف أعادت الحقن الدقيقة لحمض الهيالورونيك الإشراق والمرونة للبشرة."
+    },
+    "serviceId": "7",
+    "categorySlug": "skin-care",
+    "doctor": {
+      "en": "Dr. Hana Al-Bayati",
+      "ar": "د. هناء البياتي"
+    },
+    "stages": [
+      {
+        "id": "cs4-s1",
+        "date": "2025-02-10",
+        "title": { "en": "Skin Assessment", "ar": "تقييم البشرة" },
+        "description": {
+          "en": "Evaluated skin hydration levels and elasticity. Recommended a 3-session skin booster protocol with 3-week intervals.",
+          "ar": "تقييم مستويات ترطيب البشرة ومرونتها. أوصت ببروتوكول سكن بوستر من 3 جلسات بفاصل 3 أسابيع."
+        },
+        "images": [
+          "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80"
+        ]
+      },
+      {
+        "id": "cs4-s2",
+        "date": "2025-02-10",
+        "title": { "en": "First Treatment", "ar": "العلاج الأول" },
+        "description": {
+          "en": "Micro-injections of hyaluronic acid across the face, neck, and hands. Minimal downtime with immediate hydration boost.",
+          "ar": "حقن دقيقة لحمض الهيالورونيك في الوجه والرقبة واليدين. فترة تعافي قصيرة مع ترطيب فوري."
+        },
+        "images": [
+          "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80"
+        ]
+      },
+      {
+        "id": "cs4-s3",
+        "date": "2025-04-01",
+        "title": { "en": "Final Session & Results", "ar": "الجلسة الأخيرة والنتائج" },
+        "description": {
+          "en": "After completing all three sessions, the skin shows remarkable improvement in hydration, glow, and fine line reduction.",
+          "ar": "بعد إكمال الجلسات الثلاث، أظهرت البشرة تحسناً ملحوظاً في الترطيب والإشراق وتقليل الخطوط الدقيقة."
+        },
+        "images": [
+          "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80",
+          "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&q=80"
+        ]
+      }
+    ],
+    "tags": [
+      { "en": "Skin Booster", "ar": "سكن بوستر" },
+      { "en": "Hydration", "ar": "ترطيب" },
+      { "en": "Glow", "ar": "إشراق" }
+    ],
+    "active": true
+  }
+]

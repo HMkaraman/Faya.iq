@@ -70,9 +70,10 @@ export const blogSchema: SchemaDefinition = {
   slug: { required: true, pattern: /^[a-z0-9-]+$/ },
 };
 
-export const gallerySchema: SchemaDefinition = {
+export const caseStudySchema: SchemaDefinition = {
   title: { required: true },
-  category: { required: true },
+  slug: { required: true, pattern: /^[a-z0-9-]+$/ },
+  serviceId: { required: true },
 };
 
 export const offerSchema: SchemaDefinition = {

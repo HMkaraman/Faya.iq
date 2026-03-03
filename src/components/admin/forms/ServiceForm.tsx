@@ -79,7 +79,10 @@ export default function ServiceForm({
   isSubmitting,
   formId,
 }: ServiceFormProps) {
-  const [form, setForm] = useState<ServiceFormData>(initialData ?? emptyForm);
+  const [form, setForm] = useState<ServiceFormData>(() => {
+    const data = initialData ?? emptyForm;
+    return { ...data, beforeAfterPairs: data.beforeAfterPairs ?? [] };
+  });
   const [categories, setCategories] = useState<ServiceCategory[]>([]);
   const [allBranches, setAllBranches] = useState<Branch[]>([]);
   const [errors, setErrors] = useState<ValidationErrors>({});
@@ -106,7 +109,7 @@ export default function ServiceForm({
   // Populate form when initialData changes (for edit mode)
   useEffect(() => {
     if (initialData && initialData !== initialDataRef.current) {
-      setForm(initialData);
+      setForm({ ...initialData, beforeAfterPairs: initialData.beforeAfterPairs ?? [] });
       initialDataRef.current = initialData;
     }
   }, [initialData]);
