@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { useState } from "react";
+import FayaLogo from "./FayaLogo";
 
 export default function Footer() {
   const { lang, dir, t } = useLanguage();
@@ -100,20 +101,8 @@ export default function Footer() {
           {/* Column 1: Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             {/* Logo */}
-            <Link href="/" className="inline-flex items-center gap-2.5 mb-5 group">
-              {/* Spa Icon */}
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-light flex items-center justify-center shadow-sm">
-                <svg
-                  className="w-5 h-5 text-white"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.78 0 3.44-.47 4.89-1.28-.43-.95-.89-2.06-.89-2.06C14.6 20.17 13.36 21 12 21c-1.1 0-2.12-.31-3-0.83 0 0 .92-2.36 2.25-4.52C12.96 13.24 15 11 15 8c0-2.21-.89-4.21-2.33-5.67C12.44 2.12 12.22 2 12 2zm0 2c1.61 0 3.09.59 4.23 1.57C15 7.5 14 10 12 12.5 10 10 9 7.5 7.77 5.57A7.96 7.96 0 0112 4z" />
-                </svg>
-              </div>
-              <span className="text-xl font-bold text-[#333333] group-hover:text-primary transition-colors">
-                Faya.iq
-              </span>
+            <Link href="/" className="inline-flex items-center mb-5 group">
+              <FayaLogo size={40} className="text-primary" />
             </Link>
 
             {/* Description */}

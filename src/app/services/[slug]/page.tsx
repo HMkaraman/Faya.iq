@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import ScrollReveal from "@/components/ScrollReveal";
+import type { CaseStudy } from "@/types";
 import BeforeAfterCarousel from "@/components/BeforeAfterCarousel";
 
 export default function ServiceDetailPage() {
@@ -21,24 +22,28 @@ export default function ServiceDetailPage() {
   const [serviceCategories, setServiceCategories] = useState<any[]>([]);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [branches, setBranches] = useState<any[]>([]);
+  const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const [svcRes, catRes, branchRes] = await Promise.all([
+        const [svcRes, catRes, branchRes, csRes] = await Promise.all([
           fetch("/api/services"),
           fetch("/api/service-categories"),
           fetch("/api/branches"),
+          fetch("/api/case-studies"),
         ]);
-        const [svcData, catData, branchData] = await Promise.all([
+        const [svcData, catData, branchData, csData] = await Promise.all([
           svcRes.json(),
           catRes.json(),
           branchRes.json(),
+          csRes.json(),
         ]);
         setServices(svcData);
         setServiceCategories(catData);
         setBranches(branchData);
+        setCaseStudies(csData);
       } catch (err) {
         console.error("Failed to fetch service detail data:", err);
       } finally {
@@ -347,8 +352,65 @@ export default function ServiceDetailPage() {
         </section>
       )}
 
+      {/* ───────────── CASE STUDIES ───────────── */}
+      {(() => {
+        const serviceCaseStudies = caseStudies.filter((cs: CaseStudy) => cs.serviceId === service.id && cs.active);
+        if (serviceCaseStudies.length === 0) return null;
+        return (
+          <section className="bg-white py-16 sm:py-20">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <ScrollReveal>
+                <div className="text-center">
+                  <span className="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
+                    {t({ en: "Real Results", ar: "نتائج حقيقية" })}
+                  </span>
+                  <h2 className="font-[Playfair_Display] text-3xl font-bold text-[#333333] sm:text-4xl">
+                    {t({ en: "Case Studies", ar: "حالات دراسية" })}
+                  </h2>
+                </div>
+              </ScrollReveal>
+
+              <div className="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2">
+                {serviceCaseStudies.map((cs: CaseStudy, index: number) => (
+                  <ScrollReveal key={cs.id} delay={index * 100}>
+                    <Link
+                      href={`/case-studies/${cs.slug}`}
+                      className="group block overflow-hidden rounded-xl bg-[#fbf9fa] shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
+                    >
+                      <div className="relative h-44 overflow-hidden">
+                        {cs.stages?.[0]?.images?.[0] ? (
+                          <img src={cs.stages[0].images[0]} alt={t(cs.title)} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        ) : (
+                          <div className="flex h-full items-center justify-center bg-gray-100">
+                            <span className="material-symbols-outlined text-[48px] text-gray-300">clinical_notes</span>
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                        <span className="absolute top-3 start-3 rounded-full bg-white/90 px-2.5 py-1 text-xs font-semibold text-primary backdrop-blur-sm">
+                          {cs.stages?.length || 0} {t({ en: "stages", ar: "مراحل" })}
+                        </span>
+                      </div>
+                      <div className="p-4">
+                        <h3 className="font-semibold text-[#333333] transition-colors group-hover:text-primary">{t(cs.title)}</h3>
+                        <p className="mt-1.5 line-clamp-2 text-sm text-[#8c7284]">{t(cs.summary)}</p>
+                        <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary">
+                          {t({ en: "View Journey", ar: "عرض الرحلة" })}
+                          <svg xmlns="http://www.w3.org/2000/svg" className={`h-4 w-4 transition-transform group-hover:translate-x-1 ${lang === "ar" ? "rotate-180 group-hover:-translate-x-1" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </span>
+                      </div>
+                    </Link>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      })()}
+
       {/* ───────────── RECOVERY & DOWNTIME ───────────── */}
-      <section className={`${service.beforeAfterPairs && service.beforeAfterPairs.length > 0 ? "bg-[#fbf9fa]" : "bg-white"} py-16 sm:py-20`}>
+      <section className="bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
             <ScrollReveal>
@@ -536,7 +598,7 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* ───────────── STICKY BOTTOM BAR (MOBILE) ───────────── */}
-      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-primary/10 bg-white/95 px-4 py-3 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] backdrop-blur-lg lg:hidden">
+      <div className="fixed inset-x-0 bottom-16 z-30 border-t border-primary/10 bg-white/95 px-4 py-3 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] backdrop-blur-lg md:bottom-0 md:z-50 lg:hidden">
         <div className="flex items-center justify-between gap-4">
           <div>
             {service.priceRange && (

@@ -8,7 +8,7 @@ const navItems = [
   { href: "/", icon: "home", label: { en: "Home", ar: "الرئيسية" } },
   { href: "/services", icon: "spa", label: { en: "Services", ar: "الخدمات" } },
   { href: "/booking", icon: "calendar_month", label: { en: "Book", ar: "حجز" } },
-  { href: "/gallery", icon: "photo_library", label: { en: "Gallery", ar: "المعرض" } },
+  { href: "/case-studies", icon: "clinical_notes", label: { en: "Cases", ar: "الحالات" } },
   { href: "/contact", icon: "menu", label: { en: "More", ar: "المزيد" } },
 ];
 
@@ -37,7 +37,7 @@ export default function MobileBottomNav() {
               >
                 {item.icon}
               </span>
-              <span className="text-[10px] font-medium leading-tight">
+              <span className="text-[11px] font-medium leading-tight">
                 {t(item.label)}
               </span>
             </Link>

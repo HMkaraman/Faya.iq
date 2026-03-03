@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
+import FayaLogo from "./FayaLogo";
 
 interface NavItem {
   href: string;
@@ -13,7 +14,7 @@ interface NavItem {
 const navItems: NavItem[] = [
   { href: "/", label: { en: "Home", ar: "\u0627\u0644\u0631\u0626\u064A\u0633\u064A\u0629" } },
   { href: "/services", label: { en: "Services", ar: "\u0627\u0644\u062E\u062F\u0645\u0627\u062A" } },
-  { href: "/gallery", label: { en: "Gallery", ar: "\u0627\u0644\u0645\u0639\u0631\u0636" } },
+  { href: "/case-studies", label: { en: "Case Studies", ar: "\u062D\u0627\u0644\u0627\u062A \u062F\u0631\u0627\u0633\u064A\u0629" } },
   { href: "/branches", label: { en: "Branches", ar: "\u0627\u0644\u0641\u0631\u0648\u0639" } },
   { href: "/blog", label: { en: "Blog", ar: "\u0627\u0644\u0645\u062F\u0648\u0651\u0646\u0629" } },
   { href: "/contact", label: { en: "Contact", ar: "\u062A\u0648\u0627\u0635\u0644" } },
@@ -72,21 +73,9 @@ export default function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="group flex items-center gap-2 transition-opacity duration-200 hover:opacity-80"
+            className="group flex items-center transition-opacity duration-200 hover:opacity-80"
           >
-            <span
-              className="material-symbols-outlined text-primary text-[28px] transition-transform duration-300 group-hover:rotate-12"
-              aria-hidden="true"
-            >
-              spa
-            </span>
-            <span
-              className="text-[22px] font-bold tracking-wide text-[#333333]"
-              style={{ fontFamily: "'Playfair Display', serif" }}
-            >
-              Faya
-              <span className="text-primary">.iq</span>
-            </span>
+            <FayaLogo size={44} className="text-primary" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -126,7 +115,7 @@ export default function Header() {
             <button
               onClick={toggleLanguage}
               className="
-                flex h-9 w-9 items-center justify-center
+                flex h-10 w-10 items-center justify-center
                 rounded-full border border-primary/20
                 text-xs font-semibold text-[#8c7284]
                 transition-all duration-200
@@ -227,21 +216,10 @@ export default function Header() {
         <div className="flex h-[72px] items-center justify-between border-b border-primary/10 px-5">
           <Link
             href="/"
-            className="flex items-center gap-2"
+            className="flex items-center"
             onClick={() => setMobileMenuOpen(false)}
           >
-            <span
-              className="material-symbols-outlined text-primary text-[24px]"
-              aria-hidden="true"
-            >
-              spa
-            </span>
-            <span
-              className="text-[20px] font-bold text-[#333333]"
-              style={{ fontFamily: "'Playfair Display', serif" }}
-            >
-              Faya<span className="text-primary">.iq</span>
-            </span>
+            <FayaLogo size={38} className="text-primary" />
           </Link>
           <button
             onClick={() => setMobileMenuOpen(false)}

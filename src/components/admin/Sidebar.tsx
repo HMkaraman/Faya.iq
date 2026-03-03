@@ -6,10 +6,11 @@ import { usePathname } from "next/navigation";
 import { useAdmin } from "./AdminProvider";
 import { useLanguage } from "@/context/LanguageContext";
 import { adminI18n } from "@/lib/admin-i18n";
+import FayaLogo from "../FayaLogo";
 
 const sidebarKeys = [
   "dashboard", "services", "categories", "branches", "team",
-  "blog", "testimonials", "offers", "gallery", "heroSlides", "bookings", "settings", "users",
+  "blog", "testimonials", "offers", "caseStudies", "heroSlides", "bookings", "settings", "users",
 ] as const;
 
 interface NavItem {
@@ -29,7 +30,7 @@ const navItems: NavItem[] = [
   { key: "blog", href: "/admin/blog", icon: "article", roles: ["admin", "editor"] },
   { key: "testimonials", href: "/admin/testimonials", icon: "format_quote", roles: ["admin", "editor"] },
   { key: "offers", href: "/admin/offers", icon: "local_offer", roles: ["admin", "editor"] },
-  { key: "gallery", href: "/admin/gallery", icon: "photo_library", roles: ["admin", "editor"] },
+  { key: "caseStudies", href: "/admin/case-studies", icon: "clinical_notes", roles: ["admin", "editor"] },
   { key: "heroSlides", href: "/admin/hero-slides", icon: "slideshow", roles: ["admin", "editor"] },
   { key: "bookings", href: "/admin/bookings", icon: "calendar_month" },
   { key: "settings", href: "/admin/settings", icon: "settings", roles: ["admin"] },
@@ -95,7 +96,7 @@ export default function Sidebar() {
         {/* Logo */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-gray-800">
           <Link href="/admin" className="flex items-center gap-2">
-            <span className="text-xl font-bold text-primary">Faya.iq</span>
+            <FayaLogo size={28} className="text-primary" />
             <span className="text-sm text-gray-400 font-medium">{t(adminI18n.sidebar.admin)}</span>
           </Link>
           {/* Mobile close button */}

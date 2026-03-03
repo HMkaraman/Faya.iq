@@ -4,6 +4,7 @@ import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { adminI18n } from "@/lib/admin-i18n";
+import FayaLogo from "@/components/FayaLogo";
 
 type Language = "en" | "ar";
 
@@ -65,11 +66,9 @@ function LoginForm() {
         </div>
 
         {/* Logo */}
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-white">
-            Faya<span className="text-primary">.iq</span>
-          </h1>
-          <p className="text-gray-400 mt-2">{t(adminI18n.login.adminDashboard)}</p>
+        <div className="flex flex-col items-center mb-8">
+          <FayaLogo size={64} className="text-primary" />
+          <p className="text-gray-400 mt-3">{t(adminI18n.login.adminDashboard)}</p>
         </div>
 
         {/* Login Card */}
