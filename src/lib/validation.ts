@@ -96,6 +96,12 @@ export const testimonialSchema: SchemaDefinition = {
   text: { required: true },
 };
 
+export const gallerySchema: SchemaDefinition = {
+  title: { required: true },
+  category: { required: true },
+  beforeImage: { required: true },
+};
+
 export const userSchema: SchemaDefinition = {
   username: { required: true, minLength: 3 },
   email: { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },

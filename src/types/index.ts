@@ -155,6 +155,20 @@ export interface Offer {
   active: boolean;
 }
 
+// Gallery Item
+export interface GalleryItem {
+  id: string;
+  title: Bilingual;
+  category: string;
+  type: "before-after" | "showcase";
+  beforeImage: string;
+  afterImage: string;
+  doctor: Bilingual;
+  sessions: number;
+  tags: Bilingual[];
+  active: boolean;
+}
+
 // Case Study Stage
 export interface CaseStudyStage {
   id: string;
